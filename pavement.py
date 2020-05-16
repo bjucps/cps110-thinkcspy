@@ -25,7 +25,7 @@ project_name = "thinkcspy"
 
 master_url = None
 doctrees = './build/{}/doctrees'.format(project_name)
-dynamic_pages = True
+dynamic_pages = False
 
 if master_url is None:
     master_url = get_master_url()
