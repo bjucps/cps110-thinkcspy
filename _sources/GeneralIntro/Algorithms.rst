@@ -14,34 +14,65 @@
 Algorithms
 ----------
 
+TODOVIDEO: Short video here on algorithms.
+
 If problem solving is a central part of computer science, then the solutions that you create through
 the problem solving process are also important.  In computer science, we refer to these solutions
 as **algorithms**.  An algorithm is a step by step list of instructions that if followed exactly will solve the problem under consideration.
 
-Our goal in computer science is to take a problem and develop an algorithm that can serve as a general solution.  Once we have such a solution, we can use our computer to automate the execution.  As noted
-above, programming is a skill that allows a computer scientist to take an algorithm and represent it in
-a notation (a program) that can be followed by a computer.  These programs are written in **programming languages**.
+For example, an algorithm to sort a list of numbers in order from least to greatest might look like this:
+
+.. admonition:: Algorithm Example 1 (English)
+
+    1. Ask for radius 
+    2. Compute area by squaring radius and multiplying the result by pi
+    3. Display the computed area 
+
+Notice that this algorithm consists of a set of numbered steps. It is written in English, for ease of 
+understanding. Although simple algorithms are easily understood when written in English, more complicated
+algorithms need more precise notation. For improved precision, algorithms are often written in pseudocode. **Pseudocode** is
+a notation that is more precise than English but generally not as precise as a programming language.
+The same algorithm expressed in pseudocode might look something like this:
+
+.. admonition:: Algorithm Example 2 (Pseudocode)
+
+    1. Ask for radius 
+    2. let area = (radius * radius) * 3.1415
+    3. Display area 
+
+Our goal in computer science is to take a problem and develop an algorithm that can serve as a general solution.  
+Once we have such a solution, we can use our computer to automate its execution using programming. 
+Programming is a skill that allows a computer scientist to take an algorithm and represent it in
+a notation (a program) that can be followed by a computer.  A program is written in a **programming language**
+such as Python, the language you will learn in this book.
+
+To help you understand the difference between an algorithm and a program, consider this program to compute
+the area of a circle:
+
+.. activecode:: alg_impl
+   :nocodelens:
+
+   radius = int(input("Enter the radius:"))
+   area = (radius * radius) * 3.1415
+   print("The area of a circle with radius", radius, "is:", area)
+
+A **program** is an algorithm expressed in a programming language. We might also say
+that a program is an *implementation* of an algorithm. In this example, both the
+algorithm and the program have three steps. The first step gets some input from
+the user; the second step performs a calculation using the information obtained
+in the first step; and the final step displays the result to the user. Even
+though we haven't covered any details of Python, hopefully you can see the
+correspondence between the steps of the algorithm, which could be followed by a
+human (but not executed by a computer), and the steps of the program, which can
+be executed by a computer (try executing this one using the Run button).
+
 
 **Check your understanding**
-
-.. mchoice:: question1_1_1
-   :practice: T
-   :answer_a: To think like a computer.
-   :answer_b: To be able to write code really well.
-   :answer_c: To be able to solve problems.
-   :answer_d: To be really good at math.
-   :correct: c
-   :feedback_a: Computers do not think, they only do what we humans tell them to do via programs.
-   :feedback_b: While it is necessary for most computer scientists to know how to write code, it is not the most important skill.
-   :feedback_c: Computer scientists are all about solving problems.  We use computers to automate solutions to problems and to do things faster and more accurately than we can do by hand or manually.
-   :feedback_d: Computer science and math are similar in many ways and it helps to have a strong mathematical foundation, but you do not have to be good at math to be a good computer scientist.
-
-   What is the most important skill for a computer scientist?
 
 .. mchoice:: question1_1_2
    :practice: T
    :answer_a: A solution to a problem that can be solved by a computer.
-   :answer_b: A step by step list of instructions that if followed exactly will solve the problem under consideration.
+   :answer_b: A step by step list of instructions that solve a problem.
    :answer_c: A series of instructions implemented in a programming language.
    :answer_d: A special kind of notation used by computer scientists.
    :correct: b
@@ -53,3 +84,5 @@ a notation (a program) that can be followed by a computer.  These programs are w
    An algorithm is:
 
 
+.. index:: programming language, algorithm, pseudocode,
+           program
