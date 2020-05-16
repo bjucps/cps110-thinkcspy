@@ -2,7 +2,6 @@ Web Applications
 ::::::::::::::::
 
 .. toctree::
-   :caption: Web Applications
    :maxdepth: 2
 
    01-WebApps.rst

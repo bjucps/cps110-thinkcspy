@@ -2,7 +2,6 @@ Inheritance
 :::::::::::
 
 .. toctree::
-   :caption: Inheritance
    :maxdepth: 2
 
    01-PillarsOfOop.rst

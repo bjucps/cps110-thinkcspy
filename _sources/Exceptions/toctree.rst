@@ -2,7 +2,6 @@ Exceptions
 ::::::::::
 
 .. toctree::
-   :caption: Exceptions
    :maxdepth: 1
 
    01_intro_exceptions.rst

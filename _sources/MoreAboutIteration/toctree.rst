@@ -1,8 +1,7 @@
-More About Iteration
-::::::::::::::::::::
+Flow Control 2
+::::::::::::::
 
 .. toctree::
-   :caption: More About Iteration
    :maxdepth: 2
 
    intro-IterationRevisited.rst

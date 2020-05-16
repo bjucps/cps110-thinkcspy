@@ -54,12 +54,12 @@ Table of Contents
 
    GeneralIntro/toctree.rst
    SimplePythonData/toctree.rst
+   FlowControl1/toctree.rst
+   MoreAboutIteration/toctree.rst
+   Booleans/toctree.rst
    Debugging/toctree.rst
-   PythonTurtle/toctree.rst
    PythonModules/toctree.rst
    Functions/toctree.rst
-   Selection/toctree.rst
-   MoreAboutIteration/toctree.rst
    Strings/toctree.rst
    Lists/toctree.rst
    Files/toctree.rst

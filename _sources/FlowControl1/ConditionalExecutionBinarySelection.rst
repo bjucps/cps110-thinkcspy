@@ -15,8 +15,8 @@
    statement; if
    statement; pass
 
-Conditional Execution: Binary Selection
----------------------------------------
+The ``if`` Statement
+--------------------
 
 .. youtube:: HriDtn-0Dcw
     :height: 315

@@ -3,7 +3,6 @@ Classes and Objects - the Basics
 
 .. toctree::
    :caption: Classes and Objects - the Basics
-   :maxdepth: 2
 
    Objectorientedprogramming.rst
    Achangeofperspective.rst

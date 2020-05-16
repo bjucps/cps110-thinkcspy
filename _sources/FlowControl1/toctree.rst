@@ -1,8 +1,7 @@
-Python Turtle Graphics
-::::::::::::::::::::::
+Flow Control 1
+::::::::::::::
 
 .. toctree::
-   :caption: Python Turtle Graphics
    :maxdepth: 2
 
    intro-HelloLittleTurtles.rst
@@ -14,5 +13,9 @@ Python Turtle Graphics
    TherangeFunction.rst
    AFewMoreturtleMethodsandObservations.rst
    SummaryofTurtleMethods.rst
+   ConditionalExecutionBinarySelection.rst
+   OmittingtheelseClauseUnarySelection.rst
+   Nestedconditionals.rst
+   Chainedconditionals.rst
    Glossary.rst
    Exercises.rst

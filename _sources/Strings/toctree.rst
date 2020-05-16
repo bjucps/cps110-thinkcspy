@@ -2,7 +2,6 @@ Strings
 :::::::
 
 .. toctree::
-   :caption: Strings
    :maxdepth: 2
 
    StringsRevisited.rst

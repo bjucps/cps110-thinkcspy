@@ -2,7 +2,6 @@ Lists
 :::::
 
 .. toctree::
-   :caption: Lists
    :maxdepth: 2
 
    intro-Lists.rst

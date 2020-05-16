@@ -1,11 +1,15 @@
-Debugging Interlude 1
-:::::::::::::::::::::
+Debugging
+:::::::::
 
 .. toctree::
-   :caption: Debugging Interlude 1
    :maxdepth: 2
 
    intro-HowtobeaSuccessfulProgrammer.rst
+   WhatisDebugging.rst
+   Syntaxerrors.rst
+   RuntimeErrors.rst
+   SemanticErrors.rst
+   ExperimentalDebugging.rst
    HowtoAvoidDebugging.rst
    BeginningtipsforDebugging.rst
    KnowyourerrorMessages.rst
