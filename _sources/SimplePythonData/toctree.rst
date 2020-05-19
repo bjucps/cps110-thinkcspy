@@ -13,11 +13,11 @@ blocks of Python.
    MeettheInterpreter.rst
    ValuesandDataTypes.rst
    Variables.rst
+   Reassignment.rst
    VariableNamesandKeywords.rst
-   StatementsandExpressions.rst
    Input.rst
    Typeconversionfunctions.rst
    OrderofOperations.rst
-   Reassignment.rst
+   StatementsandExpressions.rst
    Glossary.rst
    Exercises.rst

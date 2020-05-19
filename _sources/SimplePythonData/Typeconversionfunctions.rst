@@ -60,15 +60,17 @@ It is illegal to attempt to convert a string that does not represent a number to
 Using Type Conversion Functions
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Now that you've seen the type conversion functions, let's explore how they are actually used in programs.
-In the last section, you saw a program that asks the user for two numbers and adds them together. Here's the
-original version, which misbehaved::
+Now that you've seen the type conversion functions, let's explore how they are actually used in programs. In the
+:ref:`previous section<input>`, we presented a program that asks the user for two numbers and adds them together. Here's
+the original version, which misbehaved::
 
     num1 = input('Enter a number:')
     num2 = input('Enter another number:')
     sum = num1 + num2
 
     print(num1, '+', num2, '=', sum)
+
+Do you remember why this version produced incorrect results? Go back and review if you need a refresher.
 
 Here is the corrected version:
 
@@ -98,7 +100,16 @@ values are converted to ``int`` values in line 3 for use in the addition operati
 their ``str`` values. This is a fine point, but it's important important for you to grasp. Step through the program in
 CodeLens to see that for yourself.
 
-Let's dive into this a little more deeply. Currently, there is a space in between the parts of the output::
+Which of the two versions is preferrable? Both work, but I like the first version better. ``num1`` and ``num2`` are
+variable names that imply that the variables hold numbers, and it makes sense to convert the input immediately to
+integers so that the type of data in the variable matches what we expect. That leads to a more readable program. Also,
+if we used the ``num1`` or ``num2`` variable in more calculations, in the second version of the program, we would have
+to use the ``int`` function each time the variable was used in a calculation. In the first version, we wouldn't.
+
+Formatting Output
+^^^^^^^^^^^^^^^^^
+
+When we run the program above, there is a space in between the parts of the output::
 
     2 + 2 = 4
 
@@ -109,49 +120,110 @@ Suppose we didn't want the spaces in between the numbers and the symbols? How wo
 Think about it for a moment and see if you can come up with the answer.
 
 Did you figure it out? The answer involves using string concatenation in the print statement instead of using commas.
-Try modifying the second example above to use string concatenation in the print statement to produce the desired output
+Try modifying the following code to use string concatenation in the print statement to produce the desired output
 with no spaces. For a refresher of the technique, see "Improving Output Formatting" in the :ref:`previous
-section<input>`.
+section<input>`. When you do so, you will encounter a problem that requires using one of the conversion functions.
+See if you can work through it on your own. Read on if you need a tip.
 
-.. reveal:: typeconv_sum2_concat
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+.. activecode:: typeconv_sum1a
 
-   .. sourcecode:: python
+    num1 = int(input('Enter a number:'))
+    num2 = int(input('Enter another number:'))
+    sum = num1 + num2
 
-        num1 = input('Enter a number:')
-        num2 = input('Enter another number:')
-        sum = int(num1) + int(num2)
+    print(num1, '+', num2, '=', sum)
 
-        print(num1 + '+' + num2 + '=' + str(sum))
+    ====
+
+    from unittest.gui import TestCaseGui
+
+    class myTests(TestCaseGui):
+
+        def testOne(self):
+            self.assertEqual(self.getOutput().strip(), str(num1) + '+' + str(num2) + '=' + str(sum), "correct output?"  )
+
+    myTests().main()
 
 
-   Notice how this solution uses the ``str`` function to convert the value in ``sum`` to a string, so that it can be
-   concatenated with the other strings in the print statement.
 
-Formatting Output
-^^^^^^^^^^^^^^^^^
+String concatenation and ``str()``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Remember that the ``+`` operator can be used for two purposes: adding numbers, and concatenating strings. However, in
 order for ``+`` to work, both operands must be either numeric or a ``str``. The following Python shell example
 illustrates this point::
 
     >>> count = 5
-    >>> 'count is ' + str(count)
-    'count is 5'
     >>> 'count is ' + count
     Traceback (most recent call last):
       File "<stdin>", line 1, in <module>
     TypeError: can only concatenate str (not "int") to str
     >>>
 
+When we attempt to concatenate the two values ``'count is '`` and ``count``, the interpreter signals an error
+because ``count`` is an integer, not a string. We must use the ``str`` function to convert the integer value in
+``count`` to a string so that it can be combined with the string ``'count is '`` to yield the string ``'count is 5'``::
+
+    >>> count = 5
+    >>> 'count is ' + str(count)
+    'count is 5'
+    >>>
+
+Returning to our program that sums two numbers, in your efforts to revise the program, did you create a print
+statement like this one?
+
+.. sourcecode:: python
+
+    print(num1 + '+' + num2 + '=' + sum)
+
+If you didn't come up with that on your own, try it out and see the error that occurs. Then, revise the code to use the
+``str`` conversion function to fix the error.
+
+.. activecode:: typeconv_sum3
+
+    num1 = int(input('Enter a number:'))
+    num2 = int(input('Enter another number:'))
+    sum = num1 + num2
+
+    print(num1 + '+' + num2 + '=' + sum)  # Error here
+
+    ====
+
+    from unittest.gui import TestCaseGui
+
+    class myTests(TestCaseGui):
+
+        def testOne(self):
+            self.assertEqual(self.getOutput().strip(), str(num1) + '+' + str(num2) + '=' + str(sum), "correct output?"  )
+
+    myTests().main()
+
+
+.. reveal:: typeconv_sum2_concat
+   :showtitle: Show me the solution
+   :modal:
+   :modalTitle: Here's the solution!
+
+   Here is one possible solution (others are possible):
+
+   .. sourcecode:: python
+
+        num1 = int(input('Enter a number:'))
+        num2 = int(input('Enter another number:'))
+        sum = num1 + num2
+
+        print(str(num1) + '+' + str(num2) + '=' + str(sum))
+
+   Notice how this solution uses the ``str`` function to convert the integer values in ``num1``, 
+   ``num2``, and ``sum`` to strings, so that they can be concatenated with the other strings in the print statement.
+
 Since programs often need to display output involving several variables on one line, but without the
 extra space that results when you separate your expressions with a comma, it's common to use a lot of
-string concatenation in print statements. However, the resulting code is littered with ``+`` symbols
-and often not very easy to read. Just look at this line from the solution above::
+string concatenation in print statements. However, this requires use of the ``str`` function to
+convert non-string data to strings, and the resulting code is littered with ``+`` symbols
+and often not very easy to read. Just look at this line from the solution to the above problem::
 
-    print(num1 + '+' + num2 + '=' + str(sum))
+    print(str(num1) + '+' + str(num2) + '=' + str(sum))
 
 Not very writable or readable, is it? You have to think hard about where the quotes go and what each +
 does.
@@ -176,9 +248,10 @@ indicated spot in the string. There's no need to use the ``str`` conversion func
 several values displayed on the same line.
 
 The activecode interpreter for this book doesn't support f-Strings, so you can't experiment with them in the book. But
-if you have Python version **3.6 or later** installed on your computer, you can use them, and enjoy the improved
-readability and writability that results. Since that version was released around 2016, if you downloaded and installed
-Python on your computer when you started using this book, you definitely have f-String support.
+if you have Python version **3.6 or later** installed on your computer, you can use f-Strings in programs that you run
+on your computer outside this book, and enjoy the improved readability and writability that results. Since that version
+was released around 2016, if you downloaded and installed Python on your computer when you started using this book, you
+almost certainly have f-String support.
 
 
 **Check your understanding**
