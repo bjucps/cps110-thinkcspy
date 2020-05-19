@@ -20,46 +20,166 @@ will (attempt to) convert their arguments into types `int`, `float` and `str`
 respectively.  We call these **type conversion** functions.
 
 The ``int`` function can take a floating point number or a string, and turn it
-into an int. For floating point numbers, it *discards* the decimal portion of
+into an int. If you give a float value to ``int``, it *discards* the decimal portion of
 the number - a process we call *truncation towards zero* on the number line.
-Let us see this in action:
+Let us see this in action::
 
-.. activecode:: ch02_20
-    :nocanvas:
+    >>> int(3.7)
+    3
+    >>> int('3')
+    3
+    >>>
 
-    print(3.14, int(3.14))
-    print(3.9999, int(3.9999))       # This doesn't round to the closest int!
-    print(3.0, int(3.0))
-    print(-3.999, int(-3.999))        # Note that the result is closer to zero
+The ``float`` function takes a string and converts it to a ``float`` value::
 
-    print("2345", int("2345"))        # parse a string to produce an int
-    print(17, int(17))                # int even works on integers
-    print(int("23bottles"))
+    >>> float('3.7')
+    3.7
+    >>>
+
+And the ``str`` function takes either an int or a float and converts it to a string::
+
+    >>> str(3.7)
+    '3.7'
+    >>> str(-15)
+    '-15'
+    >>>
+
+Now, take a look at this example:
+
+.. sourcecode:: python
+
+    >>> int('abc')
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    ValueError: invalid literal for int() with base 10: 'abc'
+    >>>
+
+It is illegal to attempt to convert a string that does not represent a number to an int or a float using the
+``int`` and ``float`` functions. Python reports an error if you attempt to do this.
+
+Using Type Conversion Functions
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now that you've seen the type conversion functions, let's explore how they are actually used in programs.
+In the last section, you saw a program that asks the user for two numbers and adds them together. Here's the
+original version, which misbehaved::
+
+    num1 = input('Enter a number:')
+    num2 = input('Enter another number:')
+    sum = num1 + num2
+
+    print(num1, '+', num2, '=', sum)
+
+Here is the corrected version:
+
+.. activecode:: typeconv_sum1
+
+    num1 = int(input('Enter a number:'))
+    num2 = int(input('Enter another number:'))
+    sum = num1 + num2
+
+    print(num1, '+', num2, '=', sum)
+
+In this example, the first two lines take the string value produced by the ``input`` function and convert each to an
+integer using the ``int`` function. Take a moment to step through this in CodeLens. 
+
+Let's look at another way of writing the same program:
+
+.. activecode:: typeconv_sum2
+
+    num1 = input('Enter a number:')
+    num2 = input('Enter another number:')
+    sum = int(num1) + int(num2)
+
+    print(num1, '+', num2, '=', sum)
+
+In this version of the program, ``num1`` and ``num2`` hold ``str`` values rather than ``int`` values. Their ``str``
+values are converted to ``int`` values in line 3 for use in the addition operation, but the variables themselves retain
+their ``str`` values. This is a fine point, but it's important important for you to grasp. Step through the program in
+CodeLens to see that for yourself.
+
+Let's dive into this a little more deeply. Currently, there is a space in between the parts of the output::
+
+    2 + 2 = 4
+
+Suppose we didn't want the spaces in between the numbers and the symbols? How would you eliminate the spaces to display something like this::
+
+    2+2=4
+
+Think about it for a moment and see if you can come up with the answer.
+
+Did you figure it out? The answer involves using string concatenation in the print statement instead of using commas.
+Try modifying the second example above to use string concatenation in the print statement to produce the desired output
+with no spaces. For a refresher of the technique, see "Improving Output Formatting" in the :ref:`previous
+section<input>`.
+
+.. reveal:: typeconv_sum2_concat
+   :showtitle: Show me the solution
+   :modal:
+   :modalTitle: Here's the solution!
+
+   .. sourcecode:: python
+
+        num1 = input('Enter a number:')
+        num2 = input('Enter another number:')
+        sum = int(num1) + int(num2)
+
+        print(num1 + '+' + num2 + '=' + str(sum))
 
 
-The last case shows that a string has to be a syntactically legal number,
-otherwise you'll get one of those pesky runtime errors.  Modify the example by deleting the
-``bottles`` and rerun the program.  You should see the integer ``23``.
+   Notice how this solution uses the ``str`` function to convert the value in ``sum`` to a string, so that it can be
+   concatenated with the other strings in the print statement.
 
-The type converter ``float`` can turn an integer, a float, or a syntactically
-legal string into a float.
+Formatting Output
+^^^^^^^^^^^^^^^^^
 
-.. activecode:: ch02_21
-    :nocanvas:
+Remember that the ``+`` operator can be used for two purposes: adding numbers, and concatenating strings. However, in
+order for ``+`` to work, both operands must be either numeric or a ``str``. The following Python shell example
+illustrates this point::
 
-    print(float("123.45"))
-    print(type(float("123.45")))
+    >>> count = 5
+    >>> 'count is ' + str(count)
+    'count is 5'
+    >>> 'count is ' + count
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: can only concatenate str (not "int") to str
+    >>>
 
+Since programs often need to display output involving several variables on one line, but without the
+extra space that results when you separate your expressions with a comma, it's common to use a lot of
+string concatenation in print statements. However, the resulting code is littered with ``+`` symbols
+and often not very easy to read. Just look at this line from the solution above::
 
-The type converter ``str`` turns its argument into a string.  Remember that when we print a string, the
-quotes are removed.  However, if we print the type, we can see that it is definitely `str`.
+    print(num1 + '+' + num2 + '=' + str(sum))
 
-.. activecode:: ch02_22
-    :nocanvas:
+Not very writable or readable, is it? You have to think hard about where the quotes go and what each +
+does.
 
-    print(str(17))
-    print(str(123.45))
-    print(type(str(123.45)))
+Recent versions of Python provide an elegant way to improve the readability of these print statements:
+the f-String. An **f-String** is a string that contains embedded references to variables. Take a look
+at this version of our sum program:
+
+.. sourcecode:: python
+
+    num1 = int(input('Enter a number:'))
+    num2 = int(input('Enter another number:'))
+    sum = num1 + num2
+
+    print(f'{num1} + {num2} = {sum}')
+
+This program produces the same output as the ones above. However, it uses an f-String to streamline the print statement.
+An f-String starts with a lowercase ``f`` just before the opening quote. See the ``f`` just inside the opening
+parenthesis of the print statement? It's easy to miss. f-Strings contain embedded variable references enclosed in curly
+braces, like ``{num1}`` and ``{sum}``. When evaluated, the f-String inserts the value of the referenced variable at the
+indicated spot in the string. There's no need to use the ``str`` conversion function or concatenation operator to get
+several values displayed on the same line.
+
+The activecode interpreter for this book doesn't support f-Strings, so you can't experiment with them in the book. But
+if you have Python version **3.6 or later** installed on your computer, you can use them, and enjoy the improved
+readability and writability that results. Since that version was released around 2016, if you downloaded and installed
+Python on your computer when you started using this book, you definitely have f-String support.
+
 
 **Check your understanding**
 
@@ -82,5 +202,28 @@ quotes are removed.  However, if we print the type, we can see that it is defini
       print( int(53.785) )
 
 
-.. index:: variable, assignment, assignment statement, state snapshot
+.. clickablearea:: ca_id_ints
+    :question: Click on all of the variables that hold a value of type `int` in the code below
+    :iscode:
+    :feedback: Remember input returns a `str`
+
+    :click-incorrect:seconds:endclick: = input("Please enter the number of seconds you wish to convert")
+
+    :click-correct:hours:endclick: = int(:click-incorrect:seconds:endclick:) // 3600
+    :click-correct:total_secs:endclick: = int(:click-incorrect:seconds:endclick:)
+    :click-correct:secs_still_remaining:endclick: = :click-correct:total_secs:endclick: % 3600
+    print(:click-correct:secs_still_remaining:endclick:)
+
+.. clickablearea:: ca_id_str
+    :question: Click on all of the variables that hold a value of type `str` in the code below
+    :iscode:
+    :feedback:
+
+    :click-correct:seconds:endclick: = input("Please enter the number of seconds you wish to convert")
+
+    :click-incorrect:hours:endclick: = int(:click-correct:seconds:endclick:) // 3600
+    :click-incorrect:total_secs:endclick: = int(:click-correct:seconds:endclick:)
+    :click-incorrect:secs_still_remaining:endclick: = :click-incorrect:total_secs:endclick: % 3600
+    print(:click-incorrect:secs_still_remaining:endclick:)
+
 

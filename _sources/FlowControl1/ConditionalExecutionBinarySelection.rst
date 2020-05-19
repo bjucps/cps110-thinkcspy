@@ -78,7 +78,7 @@ the block after the heading.  The ``if`` - ``else`` statement is an unusual comp
 has more than one part at the same level of indentation as the ``if`` heading,
 (the ``else`` clause, with its own indented block).
 
-.. admonition:: Lab
+.. admonition:: Optional Lab
 
     * `Approximating Pi with Simulation <../Labs/montepi.html>`_ In this guided lab exercise we will work
       through a problem solving exercise related to approximating the value of pi using random numbers.

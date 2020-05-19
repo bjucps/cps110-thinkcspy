@@ -14,7 +14,7 @@
 More About Programs
 -------------------
 
-A **program** is a sequence of instructions that specifies how to perform a
+A **program** is a sequence of instructions written in a programming language that specifies how to perform a
 computation. The computation might be something as complex as rendering an html page in a web browser
 or encoding a video and streaming it across the network.  It can also be a
 symbolic computation, such as searching for and replacing text in a document or
@@ -54,7 +54,7 @@ instructions.
 
 .. mchoice:: question1_4_1
    :practice: T
-   :answer_a: a sequence of instructions that specifies how to perform a computation.
+   :answer_a: a sequence of instructions written in a programming language.
    :answer_b: something you follow along at a play or concert.
    :answer_c: a computation, even a symbolic computation.
    :answer_d: the same thing as an algorithm.

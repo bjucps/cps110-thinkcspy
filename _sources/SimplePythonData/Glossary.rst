@@ -7,10 +7,15 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
+.. _fundamentals-glossary:
+
 Glossary
 --------
 
 .. glossary::
+
+    argument
+        A value supplied to a function (see **function** below).
 
     assignment statement
         A statement that assigns a value to a name (variable). To the left of
@@ -42,21 +47,20 @@ Glossary
         program.
 
     data type
-        A set of values. The type of a value determines how it can be used in
+        A category or set of values. The type of a value determines how it can be used in
         expressions. So far, the types you have seen are integers (``int``),
         floating-point numbers (``float``), and strings (``str``).
 
     decrement
         Decrease by 1.
 
-
     evaluate
         To simplify an expression by performing the operations in order to
         yield a single value.
 
     expression
-        A combination of operators and operands (variables and values) that represents a
-        single result value.  Expressions are evaluated to give that result.
+        A combination of operators and operands (variables and values) that computes a
+        single value.  Expressions are evaluated to give that result.
 
     float
         A Python data type which stores *floating-point* numbers.
@@ -64,6 +68,9 @@ Glossary
         an *exponent*. When printed in the standard format, they look like
         decimal numbers. Beware of rounding errors when you use ``float``\ s,
         and remember that they are only approximate values.
+
+    function
+        Performs a computation on a value supplied as its argument (see **argument** above).
 
     increment
         Both as a noun and as a verb, increment means to increase by 1.

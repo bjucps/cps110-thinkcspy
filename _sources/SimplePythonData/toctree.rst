@@ -1,20 +1,23 @@
-Simple Python Data
-::::::::::::::::::
+Python Fundamentals
+:::::::::::::::::::
+
+In order to get started learning any programming language there are a number of
+concepts and ideas that are necessary. The goal of this chapter is to introduce
+you to the basic vocabulary of programming and some of the fundamental building
+blocks of Python.
+
 
 .. toctree::
-   :caption: Simple Python Data
    :maxdepth: 2
 
-   intro-VariablesExpressionsandStatements.rst
+   MeettheInterpreter.rst
    ValuesandDataTypes.rst
-   Typeconversionfunctions.rst
    Variables.rst
    VariableNamesandKeywords.rst
    StatementsandExpressions.rst
-   OperatorsandOperands.rst
    Input.rst
+   Typeconversionfunctions.rst
    OrderofOperations.rst
    Reassignment.rst
-   UpdatingVariables.rst
    Glossary.rst
    Exercises.rst

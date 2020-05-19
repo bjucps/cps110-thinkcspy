@@ -11,116 +11,153 @@
    :prefix: data-2-
    :start: 1
 
+.. index::
+    class
+    data type
+    type
 
+.. _values-and-types:
 
 Values and Data Types
 ---------------------
 
-A **value** is one of the fundamental things --- like a word or a number ---
-that a program manipulates. The values we have seen so far are ``5`` (the
-result when we added ``2 + 3``), and ``"Hello, World!"``.  We often refer to these values as **objects** and we will use the words value and object interchangeably.
+Computers exist to process information. The earliest computers were created to perform numerical calculations, and many
+early users thought of computers primarily in terms of their usefulness as fast number crunchers. But, in a somewhat
+ironic turn of events, relatively few people in the twenty-first century use computers primarily for numeric processing
+tasks. Instead, they use them to listen to music, watch videos, shop, consume information on the web, and so on.
+Although all of that information is ultimately represented internally within the computer using numbers, the computer
+exposes the underlying numeric information to users in many different forms. 
 
-.. note::
-	Actually, the 2 and the 3 that are part of the addition above are values(objects) as well.
+Programs organize the data that they process into individual values. A **value** is one of the fundamental things ---
+like a word or a number --- that a program manipulates. We often refer to values as **objects** and we will use the
+words *value* and *object* interchangeably.
 
-These objects are classified into different **classes**, or **data types**: ``4``
-is an *integer*, and ``"Hello, World!"`` is a *string*, so-called because it
-contains a string or sequence of letters. You (and the interpreter) can identify strings
-because they are enclosed in quotation marks.
+Just as computers expose information to users in different forms, individual values are classified into different
+**classes**, or **data types**.  A **data type** (or **type**, or **class**) is a category of values. (This is a key
+definition, so take a moment to note it.)
 
-If you are not sure what class a value falls into, Python has a function called
-**type** which can tell you.
+In the previous section, you encountered two classes of data: ``int`` and ``float``. Examples of values in the ``int``
+class include ``2``, ``-53``, and ``0``. Examples of values in the ``float`` class include ``2.0``, ``-13.5``, and
+``0.0``. Note that although ``2`` and ``2.0`` are mathematically equivalent values, they are members of different data
+types in Python, and are stored and processed differently (as you saw with regard to precision).
 
-.. activecode:: ch02_1
+So far, you've seen only numeric data. But as observed above, computers these days are often used more to process
+textual information than numeric. It's time for you to see how Python interacts with textual information.
+
+The ``str`` data type
+^^^^^^^^^^^^^^^^^^^^^
+
+In chapter one, you saw an example of a simple "Hello, world" program. Here it is again:
+
+.. activecode:: vdt_hello
     :nocanvas:
 
-    print(type("Hello, World!"))
-    print(type(17))
-    print("Hello, World")
+    print("Hello, world!")
 
-Not surprisingly, strings belong to the class **str** and integers belong to the
-class **int**.
+This program displays a brief message on the screen. The message is textual, not numeric. Although it consists of
+two words, plus some punctuation, to the computer the message is a *single value*. The value "Hello, world!" is a
+string value; that is, it is a member of the ``str`` data type. A **string** is a sequence of zero or more characters
+(letters, digits, spaces, punctuation, and other symbols). 
 
-.. note::
+When you write string values, you must enclose them in quotes (either single or double quotes works). Try removing the quotes
+from the print statement above and see what happens when you run it.
 
-	When we show the value of a string using the ``print`` function, such as in the third example above, the quotes are not present in the output.  The
-	value of the string is the sequence of characters inside the quotes.  The quotes are only necessary to help Python know what the value is.
+Just as you can use strings in print commands, you can experiment with strings in the Python shell. Why don't you fire up
+the Python shell and follow along as we explore what you can do with strings.
 
-You may have used function notation in a math class, like ``y = f(x)``, likely only for functions that act on a single numeric value, and produce a single numeric value.  Python has no such restrictions:  Inputs and outputs may be of any type.
+First, experiment with entering simple numeric and string values into the shell:
 
+.. sourcecode:: python
 
-In the Python shell, it is not necessary to use the ``print`` function to see the values shown above.  The shell evaluates the Python function and automatically prints the result.  For example, consider the shell session shown below.  When
-we ask the shell to evaluate ``type("Hello, World!")``, it responds with the appropriate answer and then goes on to
-display the prompt for the next use.
+    >>> 53
+    53
+    >>> '53'
+    '53'
+    >>> "53"
+    '53'
+    >>> print('Hi')
+    Hi
+    >>>
 
-::
+The first value evaluated is the integer 53; the interpreter displays its value with no quotes, because it is an
+integer, not a string. The second and third values evaluated are strings, not integers, because they are quoted. Can you
+spot the difference between the two string examples? I used single quotes around the first, and double quotes around the
+second. In both cases, Python evaluated the string and spit it back out surrounded by single quotes. This demonstrates
+an important idea: although you must use quotes around string values when you type them into the interpreter or when
+writing a program, the quotes are not part of the string value itself. 
 
-	Python 3.1.2 (r312:79360M, Mar 24 2010, 01:33:18)
-	[GCC 4.0.1 (Apple Inc. build 5493)] on darwin
-	Type "help", "copyright", "credits" or "license" for more information.
-	>>> type("Hello, World!")
-	<class 'str'>
-	>>> type(17)
-	<class 'int'>
-	>>> "Hello, World"
-	'Hello, World'
-	>>>
+It's easy to be confused on this point, because when Python displays string values in the interpreter, it includes the
+quotes, so that you can differentiate between values like ``53`` (an ``int``) and ``'53'`` (a ``str``). But when you use
+the print command to display string values, the quotes are not included, because the print command displays only the
+*content* of the string. Let's look at a couple of additional examples to try to demonstrate clearly that quotes are not
+part of the string:
 
-Note that in the last example, we simply ask the shell to evaluate the string "Hello, World".  The result is as you might expect, the string itself.
+.. sourcecode:: python
 
-Continuing with our discussion of data types, numbers with a decimal point belong to a class
-called **float**, because these numbers are represented in a format called
-*floating-point*.  At this stage, you can treat the words *class* and *type*
-interchangeably.  We'll come back to a deeper understanding of what a class
-is in later chapters.
+    >>> len('Hi there!')
+    9
+    >>> len(' ')
+    1
+    >>> len("")
+    0
+    >>> 
 
-.. activecode:: ch02_2
-    :nocanvas:
+Here, we've used the built-in ``len`` function to compute the number of characters in a string. Note that the quotes are not
+included in the length. Note that spaces within the quotes *are* included in the length; hitting the space bar on your keyboard
+inserts a space character, which takes up one position in the string.
 
-    print(type(3.2))
+Now, look at this:
 
+.. sourcecode:: python
 
-What about values like ``"17"`` and ``"3.2"``? They look like numbers, but they
-are in quotation marks like strings.
+    >>> len('53')
+    2
+    >>> len(53)
+    Traceback (most recent call last):
+      File "<stdin>", line 1, in <module>
+    TypeError: object of type 'int' has no len()
+    >>>
 
-.. activecode:: ch02_3
-    :nocanvas:
+This example demonstrates that the values ``'53'`` and ``53`` mean different things to Python. ``'53'`` is a string, and
+has a length. The ``len`` function computed its length, and the interpreter displayed the result. However, the ``len``
+function cannot operate on ``int`` data, and an error occurred when we tried to compute the length of the integer
+``53``. More on this in a moment.
 
-    print(type("17"))
-    print(type("3.2"))
+Concatenating Strings
+^^^^^^^^^^^^^^^^^^^^^
 
-They're strings!
+Try this out in your shell:
+
+.. sourcecode:: python
+
+    >>> 3 + 4
+    7
+    >>> 'abc' + 'def'
+    'abcdef'
+    >>> 'abc' + 'def' + 'ghi'
+    'abcdefghi'
+    >>>
+
+The + operator has two uses. It can add two numbers together. But when used with strings, it joins two string values
+together to form a single string, in an operation called **concatenation**.  
+
+String concatenation is an extremely useful operation, although you can't tell it from this first example. We'll do more with
+it in the next section.
+
+More on String Quoting
+^^^^^^^^^^^^^^^^^^^^^^
 
 Strings in Python can be enclosed in either single quotes (``'``) or double
 quotes (``"`` - the double quote character), or three of the same separate quote characters (``'''`` or ``"""``).
+The triple quotes are especially helpful when you need to include quotations inside the string. Triple quotes
+also allow you to write a message that spans several lines. 
 
 .. activecode:: ch02_4
     :nocanvas:
 
-    print(type('This is a string.') )
-    print(type("And so is this.") )
-    print(type("""and this.""") )
-    print(type('''and even this...''') )
-
-
-Double quoted strings can contain single quotes inside them, as in ``"Bruce's
-beard"``, and single quoted strings can have double quotes inside them, as in
-``'The knights who say "Ni!"'``.
-Strings enclosed with three occurrences of either quote symbol are called
-triple quoted strings.  They can contain either single or double quotes:
-
-.. activecode:: ch02_5
-    :nocanvas:
-
-    print('''"Oh no", she exclaimed, "Ben's bike is broken!"''')
-
-
-
-Triple quoted strings can even span multiple lines:
-
-.. activecode:: ch02_6
-    :nocanvas:
-
+    print('This is a string.') 
+    print("And so is this.") 
+    print('''He said, "She yelled, 'Gezundheit!'"''') 
     print("""This message will span
     several lines
     of the text.""")
@@ -130,41 +167,32 @@ three-of-a-kind quotes to surround your strings.  Once it has parsed the text of
 your program or command, the way it stores the value is identical in all cases,
 and the surrounding quotes are not part of the value.
 
-.. activecode:: ch02_7
-    :nocanvas:
 
-    print('This is a string.')
-    print("""And so is this.""")
+The type function
+^^^^^^^^^^^^^^^^^
 
-So the Python language designers usually chose to surround their strings by
-single quotes.  What do you think would happen if the string already contained
-single quotes?
+At the beginning of this section, we introduced the concept of a data type. Understanding the concept of a data type is
+important because programs perform work by manipulating data values, and the operations that a program can perform on a
+particular data value are determined by the value's data type. For example, a program can multiply two ``int`` values,
+but it can't multiply two ``str`` values (try it and see what happens). You can compute the length of a ``str`` value
+using the ``len`` function, but you can't compute the length of an ``int`` value``. You can concatenate two
+``str`` values, but you can't concatenate two ``int`` values. We will spend a good bit of time in
+this book describing the operations that are supported by the various data types you will use in Python.
 
-When you type a large integer, you might be tempted to use commas between
-groups of three digits, as in ``42,000``. This is not a legal integer in
-Python, but it does mean something else, which is legal:
+If you are not sure what class a value falls into, Python has a function called **type** which can tell you. For example:
 
-.. activecode:: ch02_8
-    :nocanvas:
+.. sourcecode:: python
 
-    print(42000)
-    print(42,000)
+    >>> type(2)
+    <class 'int'>
+    >>> type(2.5)
+    <class 'float'>
+    >>> type(2 + 2.0)
+    <class 'float'>
+    >>> type('2.5')
+    <class 'str'>
+    >>>
 
-
-Well, that's not what we expected at all! Because of the comma, Python chose to
-treat this as a *pair* of values.     In fact, the print function can print any number of values as long
-as you separate them by commas.  Notice that the values are separated by spaces when they are displayed.
-
-.. activecode:: ch02_8a
-    :nocanvas:
-
-    print(42, 17, 56, 34, 11, 4.35, 32)
-    print(3.4, "hello", 45)
-
-Remember not to put commas or spaces in your integers, no
-matter how big they are. Also revisit what we said in the previous chapter:
-formal languages are strict, the notation is concise, and even the smallest
-change might mean something quite different from what you intended.
 
 **Check your understanding**
 
@@ -173,29 +201,10 @@ change might mean something quite different from what you intended.
    :answer_a: Print out the value and determine the data type based on the value printed.
    :answer_b: Use the type function.
    :answer_c: Use it in a known equation and print the result.
-   :answer_d: Look at the declaration of the variable.
    :correct: b
-   :feedback_a: You may be able to determine the data type based on the printed value, but it may also be  deceptive, like when a string prints, there are no quotes around it.
+   :feedback_a: You may be able to determine the data type based on the printed value, but it may also be deceptive; when a string prints, there are no quotes around it.
    :feedback_b: The type function will tell you the class the value belongs to.
    :feedback_c: Only numeric values can be used in equations.
-   :feedback_d: In Python variables are not declared.
 
-   How can you determine the type of a variable?
-
-.. mchoice:: test_question2_1_2
-   :practice: T
-   :answer_a: Character
-   :answer_b: Integer
-   :answer_c: Float
-   :answer_d: String
-   :correct: d
-   :feedback_a: It is not a single character.
-   :feedback_b: The data is not numeric.
-   :feedback_c: The value is not numeric with a decimal point.
-   :feedback_d: Strings can be enclosed in single quotes.
-
-   What is the data type of 'this is what kind of data'?
-
-
-.. index:: type converter functions, int, float, str, truncation
+   How can you determine the data type of a value?
 

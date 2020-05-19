@@ -40,6 +40,9 @@ Due to these advantages, almost all programs are written in high-level
 languages. Low-level languages are used only for a few specialized
 applications.
 
+Executing Programs
+^^^^^^^^^^^^^^^^^^
+
 Two kinds of programs process high-level languages into low-level languages:
 **interpreters** and **compilers**. An interpreter reads a high-level program
 and executes it, meaning that it does what the program says. It processes the
@@ -50,21 +53,34 @@ computations.
    :alt: Interpret illustration
 
 A compiler reads the program and translates it completely before the program
-starts running. In this case, the high-level program is called the **source
+starts running. The high-level program is called the **source
 code**, and the translated program is called the **object code** or the
-**executable**. Once a program is compiled, you can execute it repeatedly
-without further translation.
+**executable**. Once a program is compiled, you can execute the translated 
+object code repeatedly without the need for further translation.
 
 .. image:: Figures/compile.png
    :alt: Compile illustration
 
-Many modern languages use both processes. They are first compiled into a lower
-level language, called **byte code**, and then interpreted by a program called
-a **virtual machine**. Python uses both processes, but because of the way
-programmers interact with it, it is usually considered an interpreted language.
+Many modern languages, including Python and Java, use a hybrid approach. Executing
+programs in these languages first involves translating the source code into a lower
+level language, called **byte code**. After the program has been converted to byte code,
+a program called a **virtual machine** interprets the byte code and executes the instructions. 
+Python hides the process of translating the program to byte code 
+from the programmer, so it is usually considered an interpreted language.
 
-There are two ways to use the Python interpreter: *shell mode* and *program
-mode*. In shell mode, you type Python expressions into the **Python shell**,
+Executing Python Programs
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Since Python is an interpreted language, you need a Python interpreter to execute programs
+written in Python. The Python interpreter is software that you download and install on your computer
+(more on that below). If you want to share your Python programs with others, they too must have a Python
+interpreter installed in order to run your programs.
+
+There are two ways to use the Python interpreter: you can use it interactively to 
+experiment with fragments of Python code, or you can use it to execute a complete Python
+program. 
+
+In the interactive approach, you type Python expressions into the Python *shell*,
 and the interpreter immediately shows the result.  The example below shows the Python shell at work.
 
 ::
@@ -86,9 +102,9 @@ Working directly in the interpreter is convenient for testing short bits of
 code because you get immediate feedback. Think of it as scratch paper used to
 help you work out problems.
 
-Alternatively, you can write an entire program by placing lines of Python instructions
+To execute a complete Python program, you write lines of Python instructions
 in a file and then use the interpreter to
-execute the contents of the file as a whole. Such a file is often referred to as **source code**.  For
+execute the contents of the file as a whole. Such a file is often referred to as a **source code file**.  For
 example, we used a text editor to create a source code file named ``firstprogram.py`` with
 the following contents:
 
@@ -104,17 +120,19 @@ programs identify a file as containing python code.
 
 ::
 
-    $ python firstprogram.py
+    C:\> python firstprogram.py
     My first program adds two numbers, 2 and 3:
     5
 
-These examples show Python being run from a Unix command line. In other
-development environments, the details of executing programs may differ. Also,
-most programs are more interesting than this one.
+These examples show Python being run from a Windows command line. In other
+environments, the details of executing programs may differ. 
 
 .. admonition:: Want to learn more about Python?
 
 	If you would like to learn more about installing and using Python, here are some video links.
+
+   TODO: Update Python install video links
+
 	`Installing Python for Windows <http://youtu.be/9EfGpN1Pnsg>`__ shows you how to install the Python environment under
 	Windows Vista,
 	`Installing Python for Mac <http://youtu.be/MEmEJCLLI2k>`__ shows you how to install under Mac OS/X, and

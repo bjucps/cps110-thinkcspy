@@ -11,69 +11,96 @@
    :prefix: data-6-
    :start: 1
 
+.. index:: statement, function call statement, expression
+
 Statements and Expressions
 --------------------------
 
-.. youtube:: 3WgmLIsXFkI
-    :divid: expression_vid
-    :height: 315
-    :width: 560
-    :align: left
-
-
-A **statement** is an instruction that the Python interpreter can execute. We
-have only seen the assignment statement so far.  Some other kinds of statements
-that we'll see shortly are ``while`` statements, ``for`` statements, ``if``
-statements,  and ``import`` statements.  (There are other kinds too!)
-
-
-.. index:: expression
+A **statement** is an instruction that the Python interpreter can execute. So far,
+we have seen two types of statements: assignment statements, and print
+statements. The print statement is actually a specific example of a more general
+type of statement called a **function call statement**. We'll see several other
+types of statements in later chapters.
 
 An **expression** is a combination of values, variables, operators, and calls
-to functions. Expressions need to be evaluated.  If you ask Python to ``print`` an expression, the interpreter
-**evaluates** the expression and displays the result.
-
-.. activecode:: ch02_13
-    :nocanvas:
-
-    print(1 + 1)
-    print(len("hello"))
-
-
-In this example ``len`` is a built-in Python function that returns the number
-of characters in a string.  We've previously seen the ``print`` and the
-``type`` functions, so this is our third example of a function!
-
-The *evaluation of an expression* produces a value, which is why expressions
-can appear on the right hand side of assignment statements. A value all by
-itself is a simple expression, and so is a variable.  Evaluating a variable gives the value that the variable refers to.
-
-.. activecode:: ch02_14
-    :nocanvas:
-
-    y = 3.14
-    x = len("hello")
-    print(x)
-    print(y)
-
-If we take a look at this same example in the Python shell, we will see one of the distinct differences between statements and expressions.
+to functions that yields a value. An expression can be as simple as a literal value,
+like an ``int`` (5) or a ``str`` ("Hello"). The following are all legal Python expressions:
 
 .. sourcecode:: python
 
-	>>> y = 3.14
-	>>> x = len("hello")
-	>>> print(x)
-	5
-	>>> print(y)
-	3.14
-	>>> y
-	3.14
-	>>>
+    "Hello"
+    hour - 1
+    len(name)
+    round(minute / 60)
+    (5 + 9) * (15 - 7)
 
-Note that when we enter the assignment statement, ``y = 3.14``, only the prompt is returned.  There is no value.  This
-is due to the fact that statements, such as the assignment statement, do not return a value.  They are simply executed.
+The relationship between statements and expressions is important to understand.
+A statement is not the same thing as an expression. Rather, expressions appear
+*inside* statements. Consider the following statements:
 
-On the other hand, the result of executing the assignment statement is the creation of a reference from a variable, ``y``, to a value, ``3.14``.  When we execute the print function working on ``y``, we see the value that y is referring to.  In fact, evaluating ``y`` by itself results in the same response.
+.. sourcecode:: python
+
+    print("Hello")
+    minutes = tot_seconds // 60
+    print("Count is", count)
+
+How many expressions appear in the statements? Can you pick them out? 
+
+If you spotted ``"Hello"``, ``tot_seconds // 60``, ``"Count is"``, and ``count``, way to go! Assignment 
+statements and print statements both contain expressions.
+
+Remember the discussion of :ref:`formal languages <formal-and-natural-languages>`? Python has rules of
+syntax that you must follow in order for the programs you write to be executed. An assignment statement
+has the following syntax:
+
+.. sourcecode:: python
+
+    VARIABLE = EXPRESSION
+
+This notation means that an assignment statement is made up of a variable on the left-hand side and an expression on the
+right-hand side. This means that
+
+.. sourcecode:: python
+
+    a = b + 1
+
+is a valid assignment statement, but
+
+.. sourcecode:: python
+
+    b + 1 = a    # Not legal
+
+is not.
+
+A ``print`` statement has the following syntax:
+
+.. sourcecode:: python
+
+    print( [ EXPRESSION ] [ , EXPRESSION... ] )
+
+This syntax rule indicates that the print statement (or, more precisely, the call to the ``print`` function) requires a
+list of 0 or more expressions, separated by commas, inside the parenthesis. (In the syntax notation, square brackets
+indicate an optional element.)  This means that the following is not allowed:
+
+.. sourcecode:: python
+
+    print( "Count is: " count )   # Illegal
+
+because ``"Count is: " count`` is not a legal expression. The programmer probably intended two expressions,
+but omitted the comma that must come between.
 
 
-.. index:: operator, operand, expression, integer division
+**Check your understanding**
+
+.. clickablearea:: stmtexpr_1
+    :question: Click on all of the expressions in the code fragment below.
+    :iscode:
+    :feedback:
+
+    :click-incorrect:print:endclick:( :click-correct:52 * 13:endclick: )
+    :click-incorrect:print:endclick:( :click-correct:"The time is":endclick:, :click-correct:current_time:endclick: )
+    :click-incorrect:count:endclick: = :click-correct:len( name ):endclick:
+
+    
+
+

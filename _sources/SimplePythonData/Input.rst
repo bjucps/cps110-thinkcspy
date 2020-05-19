@@ -11,63 +11,195 @@
    :prefix: data-8-
    :start: 1
 
+.. _input:
+
 Input
 -----
 
-.. youtube:: 2KYixkCBXSQ
-    :divid: inputvid
-    :height: 315
-    :width: 560
-    :align: left
-
-
-The program in the previous section works fine but is very limited in that it only works with one value for ``total_secs``.  What if we wanted to rewrite the program so that it was more general.  One thing we could
-do is allow the user to enter any value they wish for the number of seconds.  The program could then print the
-proper result for that starting value.
-
-In order to do this, we need a way to get **input** from the user.  Luckily, in Python
-there is a built-in function to accomplish this task.  As you might expect, it is called ``input``.
+Here is one of the versions of the time conversion program we developed earlier:
 
 .. sourcecode:: python
 
-    n = input("Please enter your name: ")
+    tot_seconds = 645
+    minutes = tot_seconds // 60
+    seconds = tot_seconds % 60
+    print(minutes, seconds)
 
-The input function allows the user to provide a **prompt string**.  When the function is evaluated, the prompt is
-shown.
-The user of the program can enter the name and press `return`. When this
-happens the text that has been entered is returned from the `input` function,
-and in this case assigned to the variable `n`.  Make sure you run this example a number
-of times and try some different names in the input box that appears.
+This program is very limited in that it works for only one specific case (645 seconds). If we want to convert
+a different value (say, 1028 seconds), we must modify the program, changing the first assignment statement
+to use the value 1028 instead of 645. 
+
+This is an example of a program where the data processed by the program is written directly into the instructions of the
+program itself. We say that the data is hard coded into the program. A **hard coded** value is one that is written
+directly into the instructions of the program, and thus cannot be supplied or modified by the user at runtime. For
+simple programs that you can run directly in this textbook environment, that's not a significant problem. To this point,
+all of the programs you've seen have used hard coded values. But to be useful to end users who are not programmers,
+programs must allow the user to supply information to the program at runtime, without requiring the user to be able to
+know how to modify the program.
+
+In order to do this, we need a way to get input from the user.  Luckily, in Python
+there is a built-in function called ``input`` to accomplish this task.  
+
+.. sourcecode:: python
+
+    name = input("Please enter your name: ")
+
+At runtime, the input function displays a prompt (in this case, "Please enter your name:"). Then, it waits for the 
+user to enter a response and press **Enter**. When this happens, the text that has been entered is
+returned from the `input` function, and in this case assigned to the variable `name`.  
+
+Run the following example a couple of times and try some different names in the input box that appears.
 
 .. activecode:: inputfun
 
-    n = input("Please enter your name: ")
-    print("Hello", n)
+    name = input('Please enter your name: ')
+    print('Hello,', name, '!')
 
-It is very important to note that the ``input`` function returns a string value.  Even if you asked the user to enter their age, you would get back a string like
-``"17"``.  It would be your job, as the programmer, to convert that string into
-an int or a float, using the ``int`` or ``float`` converter functions we saw
-earlier.
+.. note::
 
-To modify our previous program, we will add an input statement to allow the user to enter the number of seconds.  Then
-we will convert that string to an integer.  From there the process is the same as before.  To complete the example, we will
-print some appropriate output.
+    The behavior of the ``input`` function when running programs in the textbook environment is different
+    from its behavior when running programs using the standard Python interpreter. In the book environment,
+    the input function displays a pop-up dialog. In the Python interpreter, the prompt appears as part of
+    the regular program output. Try it out in the interpreter to see what I mean:
 
-.. activecode:: int_secs
+    .. sourcecode:: python
 
-    str_seconds = input("Please enter the number of seconds you wish to convert")
-    total_secs = int(str_seconds)
+        >>> color = input("What's your favorite color? ")
+        What's your favorite color? blue
+        >>> color
+        'blue'
+        >>>
 
-    hours = total_secs // 3600
-    secs_still_remaining = total_secs % 3600
-    minutes =  secs_still_remaining // 60
-    secs_finally_remaining = secs_still_remaining  % 60
+Improving Output Formatting
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-    print("Hrs=", hours, "mins=", minutes, "secs=", secs_finally_remaining)
+Let's tweak the program slightly to improve the formatting. There's a space between the name and the exclamation
+point::
 
+    Hello, George !
 
-The variable ``str_seconds`` will refer to the string that is entered by the user. As we said above, even though this string may be ``7684``, it is still a string and not a number.  To convert it to an integer, we use the ``int`` function.
-The result is referred to by ``total_secs``.  Now, each time you run the program, you can enter a new value for the number of seconds to be converted.
+The space is there because the print function inserts a space between the value of each expression in the comma-delimited
+list of expressions in parenthesis. To eliminate the unwanted space, try changing the print statement to look like this::
+
+    print('Hello, ' + name + '!')
+
+Here, instead of supplying a list of expressions, we've created a single expression that uses the ``+`` operator to join
+together three strings into a single string value. Recall that ``+`` does concatenation when operating on ``str``
+values. Now, run the program and look carefully at the output. The output should look like this::
+
+    Hello, George!
+
+If looks like this::
+
+    Hello,George!
+
+you may have forgotten to put a space after the comma in the first string literal. 
+
+.. note::
+
+    This might be a good time to point out the significance of whitespace in programs. As we've seen, spaces inside quotes 
+    are part of the value of a string, and are significant. Spaces outside of quotes have no effect on the program.
+    The following print statements all behave exactly the same:
+
+    .. activecode:: input-whitespace
+        :nocodelens:
+
+        # No difference between the following 
+        name = 'George'
+        name='George'
+
+        # No difference between the following 
+        print('Hello, ' + name + '!')
+        print( 'Hello, ' + name + '!' )
+        print('Hello, '+name+'!')
+
+    Even though whitespace outside quotes has no effect on the behavior of a program, separating the parts of
+    an expression with individual spaces tends to aid the readability of the code for programmers, and
+    is therefore encouraged.
+
+Numeric Input
+^^^^^^^^^^^^^
+
+It is very important to note that the ``input`` function returns a string value. If you ask the user to enter a number
+and the user enters the number ``17``, ``input`` has no way of knowing that the user's entry represents a number instead
+of text; it treats the entry as a sequence of characters (``str`` data) and the value stored in the variable would be
+the string ``"17"``, not the number ``17``. Try it out in the interpreter to see what I mean:
+
+.. sourcecode:: python
+
+    >>> num = input('Enter a number: ')
+    Enter a number: 17
+    >>> num
+    '17'
+    >>>
+
+To see the difficulties that behavior can cause, try executing the following program:
+
+.. activecode:: input_sum
+
+    num1 = input('Enter a number:')
+    num2 = input('Enter another number:')
+    sum = num1 + num2
+
+    print(num1, '+', num2, '=', sum)
+
+Does the result surprise you? 
+
+This example underscores an important point about the ``+`` operator in Python: it has a dual role.
+When operating on numbers it does addition; with strings, it does concatenation. When you look at
+an expression involving ``+`` and two variables, you can't know whether the ``+`` is doing an
+addition or a concatenation without first understanding the data type of the values referenced by
+the two variables. As you can imagine, this can be a source of confusion!
+
+If you want numeric input, you must convert the ``str`` value returned from ``input`` to an ``int`` or a ``float``.
+Let's modify the program to use the ``int`` conversion function to convert the user's input from a ``str`` to 
+an ``int``:
+
+.. activecode:: input_sum2
+
+    num1 = int(input('Enter a number'))
+    num2 = int(input('Enter another number'))
+    sum = num1 + num2
+
+    print(num1, '+', num2, '=', sum)
+
+We'll explore conversion functions in more detail in the next section.
+
+Time Conversion Case Study
+^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now, back to our time conversion program:
+
+.. activecode:: input_tc1
+
+    tot_seconds = 645
+    minutes = tot_seconds // 60
+    seconds = tot_seconds % 60
+    print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')
+
+Let's enhance this program so that is more useful. Change this program so that it prompts the user to enter the number
+of seconds, instead of using the value 645.
+
+.. reveal:: input_tc1_tip
+   :showtitle: Give me a tip
+   :modal:
+   :modalTitle: Here's a tip!
+
+    Change the first line of this program to use the input function to allow the user to enter the number of seconds. 
+    Remember to use the int conversion function, as demonstrated above, to convert the user's input to ``int`` value.
+
+.. reveal:: input_tc1_solution_reveal
+   :showtitle: Show me the solution
+   :modal:
+   :modalTitle: Here's the solution!
+
+   .. sourcecode:: python
+
+        tot_seconds = int(input('Enter total seconds:'))
+        minutes = tot_seconds // 60
+        seconds = tot_seconds % 60
+        print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')
+
 
 **Check your understanding**
 
@@ -91,29 +223,3 @@ The result is referred to by ``total_secs``.  Now, each time you run the program
      # user types in 18
      print ( type(n) )
 
-
-.. clickablearea:: ca_id_ints
-    :question: Click on all of the variables of type `int` in the code below
-    :iscode:
-    :feedback: Remember input returns a `str`
-
-    :click-incorrect:seconds:endclick: = input("Please enter the number of seconds you wish to convert")
-
-    :click-correct:hours:endclick: = int(:click-incorrect:seconds:endclick:) // 3600
-    :click-correct:total_secs:endclick: = int(:click-incorrect:seconds:endclick:)
-    :click-correct:secs_still_remaining:endclick: = :click-correct:total_secs:endclick: % 3600
-    print(:click-correct:secs_still_remaining:endclick:)
-
-.. clickablearea:: ca_id_str
-    :question: Click on all of the variables of type `str` in the code below
-    :iscode:
-    :feedback:
-
-    :click-correct:seconds:endclick: = input("Please enter the number of seconds you wish to convert")
-
-    :click-incorrect:hours:endclick: = int(:click-correct:seconds:endclick:) // 3600
-    :click-incorrect:total_secs:endclick: = int(:click-correct:seconds:endclick:)
-    :click-incorrect:secs_still_remaining:endclick: = :click-incorrect:total_secs:endclick: % 3600
-    print(:click-incorrect:secs_still_remaining:endclick:)
-
-.. index:: order of operations, rules of precedence

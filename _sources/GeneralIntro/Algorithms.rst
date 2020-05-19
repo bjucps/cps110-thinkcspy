@@ -14,6 +14,9 @@
 Algorithms
 ----------
 
+.. index:: programming language, algorithm, pseudocode,
+           program
+           
 TODOVIDEO: Short video here on algorithms.
 
 If problem solving is a central part of computer science, then the solutions that you create through
@@ -37,8 +40,11 @@ The same algorithm expressed in pseudocode might look something like this:
 .. admonition:: Algorithm Example 2 (Pseudocode)
 
     1. Ask for radius 
-    2. let area = (radius * radius) * 3.1415
+    2. let area = (radius\ :sup:`2`) × π
     3. Display area 
+
+Note how the pseudocode example expresses step 2 more precisely, specifying the formula in mathematical
+terms.
 
 Our goal in computer science is to take a problem and develop an algorithm that can serve as a general solution.  
 Once we have such a solution, we can use our computer to automate its execution using programming. 
@@ -66,6 +72,10 @@ correspondence between the steps of the algorithm, which could be followed by a
 human (but not executed by a computer), and the steps of the program, which can
 be executed by a computer (try executing this one using the Run button).
 
+Algorithms are important because the process of solving a problem through programming often begins
+by designing an algorithm. The programmer often expresses the algorithm in
+pseudocode, then converts the algorithm to a program for the computer to execute.
+In the next section, you will learn how to execute Python programs on a computer.
 
 **Check your understanding**
 
@@ -84,5 +94,3 @@ be executed by a computer (try executing this one using the Run button).
    An algorithm is:
 
 
-.. index:: programming language, algorithm, pseudocode,
-           program
