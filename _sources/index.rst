@@ -52,15 +52,15 @@ Table of Contents
    :numbered:
    :maxdepth: 2
 
-   GeneralIntro/toctree.rst
-   SimplePythonData/toctree.rst
-   FlowControl1/toctree.rst
-   MoreAboutIteration/toctree.rst
-   Booleans/toctree.rst
-   Debugging/toctree.rst
-   PythonModules/toctree.rst
-   Functions/toctree.rst
-   Strings/toctree.rst
+   01-GeneralIntro/toctree.rst
+   02-PythonFundamentals/toctree.rst
+   03-Debugging/toctree.rst
+   04-FlowControl1/toctree.rst
+   05-FlowControl2/toctree.rst
+   05-Booleans/toctree.rst
+   06-PythonModules/toctree.rst
+   07-Functions/toctree.rst
+   08-Strings/toctree.rst
    Lists/toctree.rst
    Files/toctree.rst
    Dictionaries/toctree.rst

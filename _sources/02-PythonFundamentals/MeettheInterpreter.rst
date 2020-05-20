@@ -25,7 +25,11 @@
 Meet the Interpreter
 --------------------
 
-TODOVIDEO: Meet the Interpreter
+.. youtube:: oaq96ILu3sY
+    :divid: meetinterpreter
+    :height: 315
+    :width: 560
+    :align: left
 
 Python Math
 ^^^^^^^^^^^
@@ -74,11 +78,9 @@ The following are all legal Python expressions::
 Try starting the Python shell on your computer and typing them in to see Python compute their values.
 
 .. note::
-    To start the Python shell on your computer, do the following:
-
-    **Windows 10**: TODO - Write This
-
-    **MacOS**: TODO - Write This
+    I demonstrate how to start the Python shell on a Windows 10 computer in the video at the top of this page.
+    
+    .. TODO: Demonstrate how to start it on a Mac
 
 If you ask Python to ``print`` an expression, the interpreter **evaluates** the expression and displays the result.
 Execute the following example and see if the results match what you think they should.
