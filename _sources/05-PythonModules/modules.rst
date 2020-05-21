@@ -51,13 +51,13 @@ that it exists. How would we know what it can do for us? The answer is to ask fo
 help about the Python programming environment is to consult with the Python Documentation.
 
 
-The  `Python Documentation <http://docs.python.org/py3k/>`_ site for Python version 3 (the home page is shown below) is an extremely useful reference
+The  `Python Documentation <http://docs.python.org/3/>`_ site for Python version 3 (the home page is shown below) is an extremely useful reference
 for all aspects of Python.
 The site contains
 a listing of all the standard modules that are available with Python
-(see `Global Module Index <http://docs.python.org/py3k/py-modindex.html>`_).
-You will also see that there is a `Language Reference <http://docs.python.org/py3k/reference/index.html>`_
-and a `Tutorial <http://docs.python.org/py3k/tutorial/index.html>`_ (mostly aimed at people who are already familiar with another programming language), as well as
+(see `Global Module Index <http://docs.python.org/3/py-modindex.html>`_).
+You will also see that there is a `Language Reference <http://docs.python.org/3/reference/index.html>`_
+and a `Tutorial <http://docs.python.org/3/tutorial/index.html>`_ (mostly aimed at people who are already familiar with another programming language), as well as
 installation instructions, how-tos, and frequently asked questions.  We encourage you to become familiar with this site
 and to use it often.
 
@@ -76,7 +76,7 @@ You can see that all the turtle functionality that we have talked about is there
 
 
 
-.. admonition:: Note: Python modules and limitations with activecode
+.. note::
 
 	Throughout the chapters of this book, activecode windows allow you to practice the Python that you are learning.
 	We mentioned in the first chapter that programming is normally done using some type of development
@@ -85,8 +85,9 @@ You can see that all the turtle functionality that we have talked about is there
 
 	To that end, it is necessary to mention that many of the  modules available in standard Python
 	will **not** work in the activecode environment.  In fact, only turtle, math, and random have been
-	completely ported at this point.  If you wish to explore any
-	additional modules, you will need to also explore using a more robust development environment.
+	completely ported at this point.  If you wish to use any
+	additional modules, you will need to execute your programs using a Python interpreter installed
+   separately on your computer.
 
 **Check your understanding**
 

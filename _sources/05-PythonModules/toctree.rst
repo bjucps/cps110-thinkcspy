@@ -2,7 +2,7 @@ Python Modules
 ::::::::::::::
 
 .. toctree::
-   :caption: Python Modules
+   :caption: Python Standard Library
    :maxdepth: 2
 
    modules.rst
