@@ -43,11 +43,3 @@ to be punctuation. Run the following:
 
 For more information consult the ``string`` module documentaiton (see `Global Module Index <http://docs.python.org/py3k/py-modindex.html>`_).
 
-
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_08_04
-
-

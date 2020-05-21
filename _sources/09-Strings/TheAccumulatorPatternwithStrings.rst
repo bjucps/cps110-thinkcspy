@@ -91,11 +91,3 @@ Step through the function using codelens to see the accumulator variable grow.
           r = item.upper() + r
       print(r)
 
-
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_08_03
-
-

@@ -60,15 +60,6 @@ Here is the same program using ``elif``.
         print("x and y must be equal")
 
 
-
-
-.. note::
-
-  This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-  .. activecode:: scratch_06_02
-
-
 **Check your understanding**
 
 .. mchoice:: test_question6_7_1

@@ -106,12 +106,6 @@ The General Accumulator Pattern
     # when the loop terminates the accumulator has the correct value
 
 
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_05_04
-
 **Check your understanding**
 
 .. mchoice:: test_question5_4_1

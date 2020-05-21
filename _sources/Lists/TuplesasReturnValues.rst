@@ -39,13 +39,3 @@ of a circle of radius r.
         return (c, a)
 
     print(circleInfo(10))
-
-
-
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_09_07
-

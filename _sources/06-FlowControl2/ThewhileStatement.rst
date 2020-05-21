@@ -129,13 +129,6 @@ So why have two kinds of loop if ``for`` looks easier?  The next section, :ref:`
 we need the extra power that we get from the ``while`` loop.
 
 
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_07_01
-
-
 **Check your understanding**
 
 .. mchoice:: test_question7_2_1

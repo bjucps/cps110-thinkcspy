@@ -97,12 +97,3 @@ What do you think ``fruit[:]`` means?
       s = "python rocks"
       print(s[7:11] * 3)
 
-
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_08_01
-
-

@@ -64,9 +64,9 @@ How can we use the ``coffee_shop`` module?  We can import it and use it in other
 
 This is a Python script named ``coffee_customer.py`` that imports our ``coffee_shop`` module, then prints out the information from that module.
 
-.. admonition::  Note
+.. note::  
 
-    The module files must be in the same directory on your computer for Python to know how to import them automatically
+    The module files must be in the same directory on your computer as the Python program that uses them in order for Python to be able to import them 
 
 .. mchoice:: question4_5_2
    :practice: T
@@ -122,7 +122,7 @@ Also - look at all the awesome comments in there!
 
 .. admonition::  Function Comments
 
-    Functions are the next chapter, but the comments used here demonstrate a common Python documentation style.
+    The comments used here demonstrate a common Python documentation style.
 
 Ok - so we've got a function in our module now, let's use it.
 

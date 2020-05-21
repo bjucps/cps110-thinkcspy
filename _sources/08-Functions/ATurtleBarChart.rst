@@ -127,10 +127,3 @@ segment of its bar.  Can you modifiy the
 ``drawBar`` code, moving the label up slightly
 but not changing the bar? 
 Hint: The label cannot be drawn during the polygon fill sequence.
-
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_05_06
-

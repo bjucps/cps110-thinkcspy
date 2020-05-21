@@ -40,16 +40,7 @@ To write the ``primes_upto`` function we will use the ``is_prime`` function to f
 	    """ Return a list of all prime numbers less than n using a list comprehension. """
 
 	    result = [num for num in range(2,n) if is_prime(num)]
-	    return result
-
-
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_09_06
-    
+	    return result    
     
 
 **Check your understanding**

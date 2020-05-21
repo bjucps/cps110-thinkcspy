@@ -105,11 +105,3 @@ However, now we can perform addition in the same manner that we are used to with
 
 	f3 = f1 + f2    # calls the __add__ method of f1
 	print(f3)
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_cl_02	
-
-

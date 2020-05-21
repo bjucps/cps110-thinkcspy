@@ -36,11 +36,3 @@ In addition, you can use a slice as an index for ``del``.
 As usual, slices select all the elements up to, but not including, the second
 index, but do not cause runtime errors if the index limits go too far.
 
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_09_01
-
-

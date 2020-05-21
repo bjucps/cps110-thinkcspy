@@ -9,7 +9,11 @@
 
 .. qnum::
    :prefix: strings-15-
-   :start: 1
+   :start: 1   
+
+.. index::
+    single: in operator
+    single: operator; in
 
 The ``in`` and ``not in`` operators
 -----------------------------------

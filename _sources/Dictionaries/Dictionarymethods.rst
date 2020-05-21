@@ -111,16 +111,6 @@ in the case where the key is not present.  This can be seen in the final example
 
     print(inventory.get("cherries", 0))
 
-
-
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_11_02
-
-
 **Check your understanding**
 
 .. mchoice:: test_question11_3_1

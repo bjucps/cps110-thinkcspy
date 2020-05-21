@@ -71,17 +71,3 @@ Here is the same example in codelens so that you can trace the values of the var
       while idx < len(s):
           print(s[idx])
           idx = idx + 2
-      
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_08_02
-
-
-
-.. index::
-    single: in operator
-    single: operator; in
-

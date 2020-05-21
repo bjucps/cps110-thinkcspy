@@ -61,11 +61,3 @@ The resulting Point, ``mid``, has an x value of 4 and a y value of 8.  We can al
 In the definition of the method ``halfway`` see how the requirement to always use dot notation with attributes disambiguates 
 the meaning of the attributes ``x`` and ``y``: 
 We can always see whether the coordinates of Point ``self`` or ``target`` are being referred to.  
-
-.. note::
-
-    This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-    .. activecode:: scratch_cl_01
-
-

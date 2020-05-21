@@ -213,13 +213,6 @@ been defined, we can call it as many times as we like with whatever actual param
    ``print`` and ``alex.penup``, but they do
    not *call* the associated functions.
 
-.. note::
-
-   This workspace is provided for your convenience.  You can use this activecode window to try out anything you like.
-
-   .. activecode:: scratch_05_01
-
-
 
 **Check your understanding**
 
