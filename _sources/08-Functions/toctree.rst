@@ -15,5 +15,6 @@ Functions
    ProgramDevelopment.rst
    Composition.rst
    ATurtleBarChart.rst
+   CreatingModules.rst
    Glossary.rst
    Exercises.rst

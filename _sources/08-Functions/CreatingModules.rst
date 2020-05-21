@@ -1,7 +1,7 @@
 .. Copyright (C)  Karl Sickendick
    
 .. qnum::
-   :prefix: modules-5-
+   :prefix: func-modules-
    :start: 1
 
 Creating Modules
