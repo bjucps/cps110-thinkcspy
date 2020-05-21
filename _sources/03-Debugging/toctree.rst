@@ -8,7 +8,7 @@ Debugging
    WhatisDebugging.rst
    Syntaxerrors.rst
    RuntimeErrors.rst
-   SemanticErrors.rst
+   LogicErrors.rst
    ExperimentalDebugging.rst
    HowtoAvoidDebugging.rst
    BeginningtipsforDebugging.rst

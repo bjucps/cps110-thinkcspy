@@ -11,6 +11,8 @@
    :prefix: data-3-
    :start: 1
 
+.. _type-conversion:
+
 Type conversion functions
 -------------------------
 

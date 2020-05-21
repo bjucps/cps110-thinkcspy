@@ -23,11 +23,8 @@ that in 1945, a dead moth caused a problem on relay number 70, panel F, of one
 of the first computers at Harvard, and the term **bug** has remained in use
 since. For more about this historic event, see `first bug <http://en.wikipedia.org/wiki/File:H96566k.jpg>`__.
 
-Three kinds of errors can occur in a program: `syntax errors
-<http://en.wikipedia.org/wiki/Syntax_error>`__, `runtime errors
-<http://en.wikipedia.org/wiki/Runtime_error>`__, and `semantic errors
-<http://en.wikipedia.org/wiki/Logic_error>`__.  It is useful to distinguish
-between them in order to track them down more quickly.
+Three kinds of errors can occur in a program: syntax errors, and logic errors. In the sections that follow,
+we'll explore these errors.
 
 **Check your understanding**
 
@@ -44,6 +41,4 @@ between them in order to track them down more quickly.
    :feedback_d: This is partially correct.  But, debugging is more than just fixing the bugs. What do you need to do before you can fix them?
 
    Debugging is:
-
-
 

@@ -53,12 +53,6 @@ Exercises
             #. ``6 % 6 = 0``
             #. ``0 % 7 = 0``
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: c0a62044cac248859ce3695b46697ecc
-
 .. question:: spd_ex_2
 
    .. actex:: ex_2_2
@@ -91,23 +85,14 @@ Exercises
 
                 ## question 3 solution ##
 
-                current_time_string = input("What is the current time (in hours)? ")
-                waiting_time_string = input("How many hours do you have to wait? ")
+                current_time = int(input("What is the current time (in hours)? "))
+                waiting_time = int(input("How many hours do you have to wait? "))
 
-                current_time_int = int(current_time_string)
-                waiting_time_int = int(waiting_time_string)
-
-                hours = current_time_int + waiting_time_int
+                hours = current_time + waiting_time
 
                 timeofday = hours % 24
 
-                print(timeofday)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: a77ed6163c254612b0d649034b261659
+                print('Alarm will go off at:', timeofday)
 
 
 .. question:: spd_ex_4
@@ -158,12 +143,6 @@ Exercises
                 print(word1, word2, word3, word4, word5, word6, word7, word8, word9, word10)
 
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: d1a30631e500449481955e02d3761dd3
-
 .. question:: spd_ex_6
 
    .. actex:: ex_2_6
@@ -211,13 +190,6 @@ Exercises
 
                 print ("The final amount after", t, "years is", final)
 
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: f14145f85af93420ba0c05fca5d1b4d9a
-
 .. question:: spd_ex_8
 
    .. actex:: ex_2_8
@@ -254,17 +226,11 @@ Exercises
                 print("The area of the rectangle is", area)
 
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: f69d286cc58943b6aef1d886e279a12b
-
 .. question:: spd_ex_10
 
    .. actex:: ex_2_10
 
-      Write a program that will compute MPG for a car.  Prompt the user to enter the number of miles driven and the number of
+      Write a program that will compute miles per gallon for a car.  Prompt the user to enter the number of miles driven and the number of
       gallons used.  Print a nice message with the answer.
       ~~~~
 
@@ -292,12 +258,6 @@ Exercises
                 deg_f = deg_c * (9 / 5) + 32
 
                 print(deg_c, " degrees Celsius is", deg_f, " degrees Farenheit.")
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: c4a929d598ab4c46b484f6abbcec2655
 
 .. question:: spd_ex_12
 

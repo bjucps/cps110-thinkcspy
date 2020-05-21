@@ -55,12 +55,12 @@ Table of Contents
    01-GeneralIntro/toctree.rst
    02-PythonFundamentals/toctree.rst
    03-Debugging/toctree.rst
-   04-FlowControl1/toctree.rst
-   05-FlowControl2/toctree.rst
-   05-Booleans/toctree.rst
-   06-PythonModules/toctree.rst
-   07-Functions/toctree.rst
-   08-Strings/toctree.rst
+   04-PythonModules/toctree.rst
+   05-FlowControl1/toctree.rst
+   06-FlowControl2/toctree.rst
+   07-Booleans/toctree.rst
+   08-Functions/toctree.rst
+   09-Strings/toctree.rst
    Lists/toctree.rst
    Files/toctree.rst
    Dictionaries/toctree.rst

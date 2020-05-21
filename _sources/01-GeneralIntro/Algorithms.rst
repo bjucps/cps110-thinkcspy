@@ -11,14 +11,12 @@
    :prefix: intro-2-
    :start: 1
 
-Algorithms
-----------
-
 .. index:: programming language, algorithm, pseudocode,
            program
-           
-TODOVIDEO: Short video here on algorithms.
 
+Algorithms
+----------
+           
 If problem solving is a central part of computer science, then the solutions that you create through
 the problem solving process are also important.  In computer science, we refer to these solutions
 as **algorithms**.  An algorithm is a step by step list of instructions that if followed exactly will solve the problem under consideration.

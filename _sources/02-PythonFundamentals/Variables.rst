@@ -179,7 +179,7 @@ If you get stuck and need help, watch the solution video that follows.
 
     myTests().main()
 
-TODOVIDEO: Video discussing solution and demonstrating unit test
+.. TODOVIDEO: Video discussing solution and demonstrating unit test
 
 Assignment vs. Equality
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -257,41 +257,37 @@ Tip: Because the message has quotes embedded in it, you'll need to be extra care
 your string values. You may want to review the information on string quoting in the :ref:`previous
 section<values-and-types>` (see "More on String Quoting").
 
-.. activecode:: var_chocolate
+.. tabbed:: var_chocolate_tabs
 
-    quantity = 5
-    flavor = "chocolate"
+    .. tab:: Question
 
-    print(???)
+        .. activecode:: var_chocolate
 
-    ====
+            quantity = 5
+            flavor = "chocolate"
 
-    from unittest.gui import TestCaseGui
+            print(???)
 
-    class myTests(TestCaseGui):
+            ====
 
-        def testOne(self):
-            self.assertEqual('She requested, "Please give me ' + str(quantity) + " " + flavor + ' candies."', self.getOutput().strip(), "Correct message?"  )
-            self.assertNotIn('She requested, "Please give me 5 chocolate candies."', self.getEditorText(), "Must use variables in print()")
+            from unittest.gui import TestCaseGui
+            class myTests(TestCaseGui):
+                def testOne(self):
+                    self.assertEqual('She requested, "Please give me ' + str(quantity) + " " + flavor + ' candies."', self.getOutput().strip(), "Correct message?"  )
+                    self.assertNotIn('She requested, "Please give me 5 chocolate candies."', self.getEditorText(), "Must use variables in print()")
 
-    myTests().main()
+            myTests().main()
 
-.. reveal:: var_chocolate_sol_reveal
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+    .. tab:: Answer
 
-   .. sourcecode:: python
+        Here's the print statement to use::
 
-      quantity = 5
-      flavor = "chocolate"
+            print('She requested, "Please give me', quantity, flavor, 'candies."')
 
-      print('She requested, "Please give me', quantity, flavor, 'candies."')
+        Note that we used single quotes around the string. We could also have used
+        triple single quotes, or triple double quotes, like this::
 
-   Note that we used single quotes around the string. We could also have used
-   triple single quotes, or triple double quotes, like this::
-
-        print("""She requested, "Please give me""", quantity, flavor, """candies."""")
+            print("""She requested, "Please give me""", quantity, flavor, """candies."""")
 
 
 
@@ -348,8 +344,8 @@ experiment. I'll wait. 😀
 
    You need to use one of the division operators (``/`` or ``//``). Try out both and see which one will do the job.
 
-Determining the number of minutes
-"""""""""""""""""""""""""""""""""
+Converting seconds
+""""""""""""""""""
 
 To determine the number of minutes, you need the integer division operator. Try this out:
 
@@ -357,7 +353,7 @@ To determine the number of minutes, you need the integer division operator. Try 
 
     >>> tot_seconds = 125
     >>> tot_seconds // 60
-    >>> 2
+    2
     >>> 
 
 Note that it is important that, for correct results, we do not want the result of the division rounded up to the nearest integer. 
@@ -368,44 +364,51 @@ and see...
 
     >>> tot_seconds = 115
     >>> tot_seconds // 60
-    >>> 1
+    1
     >>>
 
 As we learned earlier, the integer division operator truncates the fractional result, and does not round. So, it's exactly what
 we need here.
 
-Here's a partial solution to the original problem that computes the number of minutes that will fit into ``tot_seconds``.
+Now that we know how to determine the number of minutes, the next challenge is to figure out how many seconds
+remain. For example, 125 seconds converts to 2 minutes, 5 seconds. If ``tot_seconds // 60`` yields 2, what calculation
+is needed to determine that there are 5 seconds left over?
 
-.. activecode:: ch02_17
+.. note:: 
 
-    tot_seconds = 645
-    minutes = tot_seconds // 60
-    print(tot_seconds, 'seconds =', minutes, 'minutes and ??? seconds')
+    If you need a tip, click on the Tip tab. To see the solution, click on the Solution tab.
 
-Now, can you figure out how to modify this program to determine the remaining number of seconds? Take
-a few minutes to think about it and experiment with modifying the program above to solve this problem before you
-continue reading.
+.. tabbed:: var_minutes_tabs
 
-.. reveal:: ch02_17_tip
-   :showtitle: Give me a tip
-   :modal:
-   :modalTitle: Here's a tip!
+    .. tab:: Question        
+        
+        Here's a partial solution to the original problem that computes the number of minutes that will fit into
+        ``tot_seconds``. It doesn't yet compute the number of remaining seconds; it shows ??? for that value. Modify
+        this program so that, in addition to displaying the number of minutes, it displays the remaining number of
+        seconds. 
 
-   Define a new variable named seconds, just before the print command. Design a calculation that will
-   determine a value for seconds using a calculation involving ``tot_seconds`` and ``minutes``. It's not a complicated
-   calculation.
+        .. activecode:: ch02_17
 
-.. reveal:: ch02_17_sol1_reveal
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+            tot_seconds = 645
+            minutes = tot_seconds // 60
+            print(tot_seconds, 'seconds =', minutes, 'minutes, ??? seconds')
 
-   .. activecode:: ch02_17_sol1
+    .. tab:: Tip
 
-        tot_seconds = 645
-        minutes = tot_seconds // 60
-        seconds = tot_seconds - (60 * minutes)
-        print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')        
+        Define a new variable named ``seconds``, just before the print command. Design a calculation that will
+        determine a value for seconds using a calculation involving ``tot_seconds`` and ``minutes``. Then,
+        modify the print command to display the values of both the minutes and seconds variable.
+
+    .. tab:: Solution
+
+        Here's the solution.
+
+        .. sourcecode:: python
+
+                tot_seconds = 645
+                minutes = tot_seconds // 60
+                seconds = tot_seconds - (60 * minutes)
+                print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')        
 
 
 Meet the modulus (``%``) operator
@@ -446,58 +449,70 @@ seconds conversion problem. Step through the code below to see it in action, and
 Use the modulus Operator
 """"""""""""""""""""""""
 
-Now, let's expand the program to convert a total number of seconds to hours, minutes, and seconds. Using the modulus
-operator, complete the program below to compute the number of hours, minutes, and seconds corresponding to the number of
-seconds in ``tot_seconds``. The activecode interpreter will check your work.
+Now, let's expand the program to convert a total number of seconds to hours, minutes, and seconds. 
+For example, 7,684 seconds converts to 2 hours, 8 minutes 4 seconds. 
+
+Using the modulus operator, complete the program below to compute the number of hours, minutes, and seconds
+corresponding to the number of seconds in ``tot_seconds``. The activecode interpreter will check your work.
 
 This problem will require some thought. I've given you an outline of the solution, but you will need to think carefully about
 the calculations. I suggest that you take some time to work out your calculations on paper. Working calculations on paper
 may seem old fashioned, but you might be surprised about how it helps your mind to think through the issues.
 
-.. activecode:: var_hms
-    :nocanvas:
+.. tabbed:: var_minutes2_tabs
 
-    tot_seconds = 7684
-    hours = ???
-    minutes =  ???
-    seconds = ???
-    print(tot_seconds, 'seconds =', hours, 'hours,', minutes, 'minutes and', seconds, 'seconds')
+    .. tab:: Question        
+        
+        Replace the ??? marks in the program below with the expressions needed to calculate the
+        values for the variables. You may find it helpful to introduce an additional variable.
 
-    ====
+        .. activecode:: var_hms
+            :nocanvas:
 
-    from unittest.gui import TestCaseGui
+            tot_seconds = 7684
+            hours = ???
+            minutes =  ???
+            seconds = ???
+            print(tot_seconds, 'seconds =', hours, 'hours,', minutes, 'minutes and', seconds, 'seconds')
 
-    class myTests(TestCaseGui):
+            ====
 
-        def testOne(self):
-            self.assertEqual(hours, 2, "2 hours" )
-            self.assertEqual(minutes, 8, "8 minutes"  )
-            self.assertEqual(seconds, 4, "4 seconds" )
-            self.assertNotIn("2", self.getEditorText(), "Do not precompute hours")
+            from unittest.gui import TestCaseGui
 
-    myTests().main()    
+            class myTests(TestCaseGui):
 
-.. reveal:: ch02_17_sol2_tip
-   :showtitle: Give me a tip
-   :modal:
-   :modalTitle: Here's a tip!
+                def testOne(self):
+                    self.assertEqual(hours, 2, "2 hours" )
+                    self.assertEqual(minutes, 8, "8 minutes"  )
+                    self.assertEqual(seconds, 4, "4 seconds" )
+                    self.assertNotIn("2", self.getEditorText(), "Do not precompute hours")
 
-    To compute hours from seconds, you'll need to first figure out how many seconds are in an hour.
-    After computing hours, you may find it helpful to introduce another variable that holds the left over
-    (remaining) seconds to help you compute the remaining minutes and seconds.
+            myTests().main()    
 
+    .. tab:: Tip
 
-.. reveal:: ch02_17_sol2_reveal
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+        To compute hours from seconds, you'll need to first figure out how many seconds are in an hour.
+        After computing hours, you may find it helpful to introduce another variable that holds the left over
+        (remaining) seconds to help you compute the remaining minutes and seconds.
 
-   .. activecode:: ch02_17_sol2
+    .. tab:: Solution
 
-      tot_seconds = 7684
-      hours = tot_seconds // 3600          # 3600 seconds in an hour
-      secs_remaining = tot_seconds % 3600  
-      minutes =  secs_remaining // 60
-      seconds = secs_remaining  % 60
-      print(tot_seconds, 'seconds contains', hours, 'hours,', minutes, 'minutes', seconds, 'seconds')
+        This solution introduces another variable, ``secs_remaining``, to simplify the calculations
+        required to determine the minutes and seconds. This isn't the only way to solve the problem,
+        but it's a good approach. Take a moment to study the code and see how it works.
+
+        .. sourcecode:: python
+
+            tot_seconds = 7684
+            hours = tot_seconds // 3600          # 3600 seconds in an hour
+            
+            # Now, compute number of seconds remaining
+            secs_remaining = tot_seconds % 3600  
+            
+            # Convert seconds remaining to minutes and seconds
+            minutes = secs_remaining // 60
+            seconds = secs_remaining  % 60
+            
+            # Display results
+            print(tot_seconds, 'seconds contains', hours, 'hours,', minutes, 'minutes', seconds, 'seconds')
 

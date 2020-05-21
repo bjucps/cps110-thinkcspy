@@ -16,13 +16,73 @@
 Runtime Errors
 --------------
 
-The second type of error is a runtime error, so called because the error does
-not appear until you run the program. These errors are also called
-**exceptions** because they usually indicate that something exceptional (and
-bad) has happened.
+The second type of error is a **runtime error**. A program with a runtime error
+is one that passed the interpreter's syntax checks, and started to execute.
+However, during the execution of one of the statements in the program, an error
+occurred that caused the interpreter to stop executing the program and display
+an error message. Runtime errors are also called **exceptions** because they usually 
+indicate that something exceptional (and bad) has happened.
 
-Runtime errors are rare in the simple programs you will see in the first few
-chapters, so it might be a while before you encounter one.
+The following program contains a runtime error. Can you spot the problem?
+After locating the error, run the program to see the error message.
+
+.. activecode:: debug_rterr
+
+    subtotal = input("Enter total before tax:")
+    tax = .08 * subTotal
+    print("tax on", subtotal, "is:", tax)
+
+The interpreter displays the following error::
+
+   NameError: name 'subTotal' is not defined on line 2
+
+A ``NameError`` is an example of a runtime error. The problem is that the variable ``subtotal``
+is capitalized differently on line 2 than it is on line 1, and to Python, two variables that are
+spelled the same but capitalized differently are different variables. The interpreter thinks that
+you are trying to use a variable to which you haven't yet assigned a value, and that is illegal.
+You'll also encounter a ``NameError`` when you misspell a function name, like typing ``prnt`` instead of
+``print``. When you see a ``NameError``, you should think to yourself: "Oh, I misspelled something!"
+and double-check your spelling and capitalization of variables or functions.
+
+Fix the problem by changing the variable name on line 2 to ``subtotal``, to match line 1. Then, run
+the program again. This time you should see a different error::
+
+   TypeError: can't multiply sequence by non-int of type 'float' on line 2
+
+A ``TypeError`` is an example of a runtime error that occurs when you attempt to perform operation on a value that is
+the wrong data type. Take a moment to identify and correct the problem. Ask for a tip if you need one:
+
+.. reveal:: rte_typetip
+   :showtitle: Give me a tip
+   :modal:
+   :modalTitle: Here's a tip!
+
+   Remember that ``input`` returns string data. Line 2 is attempting to multiply a float (``.08``) with a string (the
+   value in ``subtotal``). Modify either line 1 or line 2 to use the ``float`` type conversion function. 
+   
+   If you need a refresher on how to do this, see the previous sections on :ref:`input` or :ref:`type-conversion`.
+
+A third type of runtime error that you are likely to encounter is a ``ValueError``. To see this in action, after
+you've corrected the program above, run it and type in the value ``abc``. You should see a message
+similar to the following::
+
+   ValueError: could not convert string to float: 'abc' on line 2
+
+A ``ValueError`` occurs when the value of a variable has the correct data type, but is outside of the legal set of values
+required by the operation. In this situation, the ``float`` function is attempting to convert string data to a float.
+The data type (``str``) is correct, but the value of that data (``abc``) is not a sequence of symbols that can be converted
+to a float.
+
+Notice the following important differences between syntax errors and runtime errors that can help you as you try to diagnose
+and repair the problem:
+
+1. If the error message mentions ``SyntaxError``, you know that the problem has to do with syntax: the structure of the code,
+   the punctuation, etc.
+
+2. If the program runs partway and then crashes, you know the problem is a runtime error. Programs with syntax errors
+   don't execute even one line.
+
+
 
 **Check your understanding**
 
@@ -38,19 +98,5 @@ chapters, so it might be a while before you encounter one.
 
    Which of the following is a run-time error?
 
-.. mchoice:: question1_7_2
-   :practice: T
-   :answer_a: The programmer.
-   :answer_b: The compiler / interpreter.
-   :answer_c: The computer.
-   :answer_d: The teacher / instructor.
-   :correct: b
-   :feedback_a: Programmers rarely find all the runtime errors, there is a computer program that will do it for us.
-   :feedback_b: If an instruction is illegal to perform at that point in the execution, the interpreter will stop with a message describing the exception.
-   :feedback_c: Well, sort of.  But it is a special thing in the computer that does it.  The stand alone computer without this additional piece can not do it.
-   :feedback_d: Your teacher and instructor may be able to find most of your runtime errors, but only because they have experience looking at code and possibly writing code.  With experience runtime errors are easier to find.  But we also have an automated way of finding these types of errors.
-
-
-   Who or what typically finds runtime errors?
 
 
