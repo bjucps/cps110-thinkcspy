@@ -11,29 +11,33 @@
    :prefix: turtle-2-
    :start: 1
 
+.. index:: instance
+
+
 Instances --- A Herd of Turtles
 -------------------------------
 
 Just like we can have many different integers in a program, we can have many
-turtles.  Each of them is an independent object and we call each one an **instance** of the Turtle type (class).  Each instance has its own
-attributes and methods --- so alex might draw with a thin black pen and be at
+turtles.  Each of them is an independent object and we call each one an **instance** of 
+the Turtle class. Each instance has its own state, so alex might draw with a thin black pen and be at
 some position, while tess might be going in her own direction with a fat pink
-pen.  So here is what happens when alex completes a square and tess
-completes her triangle:
+pen.  
+
+Here is a program that creates two Turtle instances: one named ``tess``, and another named
+``alex``. Watch alex draw a square and tess draw a triangle:
 
 .. activecode:: ch03_3
    :nocodelens:
    
-   import turtle
-   wn = turtle.Screen()             # Set up the window and its attributes
+   from turtle import Screen, Turtle
+   wn = Screen()             # Set up the window and its attributes
    wn.bgcolor("lightgreen")
 
-
-   tess = turtle.Turtle()           # create tess and set some attributes
+   tess = Turtle()           # create tess and set some attributes
    tess.color("hotpink")
    tess.pensize(5)
 
-   alex = turtle.Turtle()           # create alex
+   alex = Turtle()           # create alex
 
    tess.forward(80)                 # Let tess draw an equilateral triangle
    tess.left(120)
@@ -56,8 +60,25 @@ completes her triangle:
 
    wn.exitonclick()
 
+This program is interesting because it involves interacting with two instances of the same
+class. Look at the following two lines, and think about the difference between them::
 
-Here are some *How to think like a computer scientist* observations:
+   tess.forward(80)
+   alex.forward(50)
+
+Both of these statements invoke the same method (``forward``). The argument that specifies the distance is different,
+but the really big difference involves the object before the dot. The first statement affects ``tess``'s state, and the
+second affects ``alex``'s state. Try changing the commands in lines 24-26 by replacing
+``alex`` on those lines with ``tess and watch what happens.
+
+Now, here are some *How to think like a computer scientist* questions and observations
+to consider. Before you read on, click the turtle drawing to make it disappear.
+
+* Question 1: What direction does alex end up facing at the end of the program? 
+* Question 2: The last method invocation on alex causes him to turn left. Did that
+  have any effect on the final drawing? If not, why do you think that statement was included?
+
+Now, here are some observations:
 
 * There are 360 degrees in a full circle.  If you add up all the turns that a
   turtle makes, *no matter what steps occurred between the turns*, you can
@@ -73,11 +94,11 @@ Here are some *How to think like a computer scientist* observations:
   bigger programs easier for us humans!
 * We did the same with tess: she drew her triangle and turned through a full
   360 degress.  Then we turned her around and moved her aside.  Even the blank
-  line 18 is a hint about how the programmer's *mental chunking* is working: in
-  big terms, tess' movements were chunked as "draw the triangle"  (lines 12-17)
-  and then "move away from the origin" (lines 19 and 20).
-* One of the key uses for comments is to record your mental chunking, and big
-  ideas.   They're not always explicit in the code.
+  line 17 is a hint about how the programmer's *mental chunking* is working: in
+  big terms, tess' movements were chunked as "draw the triangle"  (lines 11-16)
+  and then "move away from the origin" (lines 18 and 19).
+* One of the key uses for comments and blank lines is to record your mental chunking 
+  and big ideas, to help other programmers comprehend the program.
 * And, uh-huh, two turtles may not be enough for a herd, but you get the idea!
 
 

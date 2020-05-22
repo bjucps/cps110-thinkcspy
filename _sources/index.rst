@@ -21,14 +21,15 @@
    </div>
 
 .. reveal:: about
-   :showtitle: About this Project
+   :showtitle: About this Book
    :modal:
-   :modalTitle: About this Project
+   :modalTitle: About this Book
 
 
    This interactive book is a product of the `Runestone Interactive <http://runestoneinteractive.org>`_ Project at Luther College, led by `Brad Miller <http://reputablejournal.com>`_ and David Ranum.  There have been many contributors to the project.  Our thanks especially to the following:
 
-   * This book is based on the `Original work <http://www.openbookproject.net/thinkcs/python/english2e/>`_ by:  Jeffrey Elkner, Allen B. Downey, and Chris Meyers
+   * This book is based on the `Original work <http://www.openbookproject.net/thinkcs/python/english2e/>`_ by:  Jeffrey Elkner, Allen B. Downey, and Chris Meyers.
+   * It has been significantly modified for the BJU CpS 110 class by Stephen Schaub.
    * Activecode based on `Skulpt <http://skulpt.org>`_
    * Codelens based on `Online Python Tutor <http://www.pythontutor.com>`_
    * Many contributions from the `CSLearning4U research group <https://www.gvu.gatech.edu/research/projects/cslearning4u-creating-electronic-books-teacher-cs-learning>`_ at Georgia Tech.
@@ -78,16 +79,7 @@ Labs
    :caption: Labs
    :maxdepth: 1
 
-   Labs/astronomylab.rst
-   Labs/lab03_01.rst
-   Labs/lab04_01.rst
-   Labs/lab04_01a.rst
-   Labs/lab12_01.rst
-   Labs/lab12_02.rst
-   Labs/montepi.rst
-   Labs/pythonshell.rst
-   Labs/sequencelab.rst
-   Labs/sinlab.rst
+   Labs/lab1.rst
 
 Appendices
 ::::::::::
