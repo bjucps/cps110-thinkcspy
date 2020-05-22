@@ -42,6 +42,27 @@ Some people judge the quality of a programming language by the simplicity of
 the Hello, World! program. By this standard, Python does about as well as
 possible.
 
+Another Short Example
+^^^^^^^^^^^^^^^^^^^^^
+
+Here's another brief program that adds two numbers together. Try executing it
+to see what it does:
+
+.. sourcecode:: python
+
+    print("My first program adds two numbers, 2 and 3:")
+    print(2 + 3)
+
+This program displays the sum of the numbers 2 and 3. When you run the program, the computer executes the commands in
+order, one at a time. 
+
+Notice that the first print statement has double quotes inside the parenthesis, but the second print statement
+does not. Try putting quotes into the second print statement inside the parenthesis, just like the first
+print statement. Before you run the program, see if you can predict what output will appear.
+
+We'll discuss the role of quote marks in more detail in the next chapter. For now, it's enough to note
+that a seemingly inconsequential change to a program can make a significant difference in its behavior.
+
 **Check your understanding**
 
 .. mchoice:: question1_11_1
@@ -57,7 +78,4 @@ possible.
    :feedback_d: That would be a different function.
 
    The print function:
-
-
-.. index:: comments
 

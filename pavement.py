@@ -51,7 +51,7 @@ options(
             'appname':master_app,
             'loglevel':10,
             'course_url':master_url,
-            'use_services': 'true',
+            'use_services': dynamic_pages,
             'python3': 'true',
             'dynamic_pages': dynamic_pages,
             'dburl': 'postgresql://bmiller@localhost/runestone',

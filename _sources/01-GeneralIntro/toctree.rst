@@ -12,6 +12,7 @@ General Introduction
    FormalandNaturalLanguages.rst
    ATypicalFirstProgram.rst
    Comments.rst
+   MeettheTurtle.rst
    Glossary.rst
    Exercises.rst
    
