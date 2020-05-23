@@ -37,6 +37,10 @@ This flowchart shows the exact steps and logic of how the ``for`` statement exec
       :width: 300px
       :align: center
 
+.. note::
+
+    Not sure what a flowchart is? Check out this funny take on it, in `XKCD <http://xkcd.com/518/>`_. `And this one <http://xkcd.com/1195/>`_.
+
 
 A codelens demonstration is a good way to help you visualize exactly how the flow of control
 works with the for loop.  Try stepping forward and backward through the program by pressing

@@ -193,6 +193,41 @@ If you are not sure what class a value falls into, Python has a function called 
     <class 'str'>
     >>>
 
+The ``bool`` data type
+^^^^^^^^^^^^^^^^^^^^^^
+
+Next, let's briefly discuss the concept of boolean data. At their most basic level, computers are
+devices that manipulate data encoded in sequences of bits. A bit is a binary digit: a 1 or a 0. Those two numbers can
+encode the idea of "on" and "off", or "true" and "false." Python lets you work with the **boolean values** ``True`` and ``False``,
+which are members of the ``bool`` data type. Capitalization is important, since ``true`` and ``false`` are not boolean values 
+(Python is **case sensitive**, meaning it cares about capitalization).
+
+It is extremely important to realize that True and False are not strings.   They are not
+surrounded by quotes.  They are the only two values in the data type ``bool``.  Run the following example and take a close look at the
+difference in the last two lines of output.
+
+.. activecode:: ac_booltype
+
+    print(type(True))
+    print(type(False))
+    print(type("False"))
+
+We won't use boolean values much in the first few chapters of the book. They will become important when we get to the subject of flow control,
+but I wanted you to meet them here.
+
+Summary of Data Types
+^^^^^^^^^^^^^^^^^^^^^
+
+We've met Python's basic data types in this section. For reference, here they are:
+
+========= ==============
+Data Type Example Values
+========= ==============
+``int``   ``15``, ``-26``
+``float`` ``2.3``, ``-15.0``
+``str``   ``"Fred"``, ``'George'``, ``"""Hello"""``, ``''``, ``''''''``
+``bool``  ``True``, ``False``
+========= ==============
 
 **Check your understanding**
 
@@ -207,4 +242,16 @@ If you are not sure what class a value falls into, Python has a function called 
    :feedback_c: Only numeric values can be used in equations.
 
    How can you determine the data type of a value?
+
+.. mchoice:: test_question2_1_2
+   :practice: T
+   :answer_a: ``str``
+   :answer_b: ``bool``
+   :answer_c: ``int``
+   :correct: b
+   :feedback_a: There are no quotes around it, so it can't be a string.
+   :feedback_b: Correct! The two ``bool`` values are ``True`` and ``False``.
+   :feedback_c: It's not a number...
+
+   What is the data type of the value ``True``?
 

@@ -20,9 +20,9 @@ The ``while`` Statement
     :width: 560
     :align: left
 
-There is another Python statement that can also be used to build an iteration.  It is called the ``while`` statement.
+In addition to the ``for`` statement, there is another Python statement that can also be used to build an iteration.  It is called the ``while`` statement.
 The ``while`` statement provides a much more general mechanism for iterating.  Similar to the ``if`` statement, it uses
-a boolean expression to control the flow of execution.  The body of while will be repeated as long as the controlling boolean expression evaluates to ``True``.
+a boolean condition to control the flow of execution.  The body of while will be repeated as long as the controlling boolean expression evaluates to ``True``.
 
 Here's a program that counts down from 10 to 1 using a ``while`` statement:
 

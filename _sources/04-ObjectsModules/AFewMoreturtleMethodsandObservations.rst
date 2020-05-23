@@ -79,75 +79,17 @@ Let's do an example that shows off some of these new features.
    tess.color("blue")
    tess.shape("turtle")
 
-   print(list(range(5, 60, 2)))
    tess.up()                     # this is new
-   for size in range(5, 60, 2):    # start with size = 5 and grow by 2
-       tess.stamp()                # leave an impression on the canvas
-       tess.forward(size)          # move tess along
-       tess.right(24)              # and turn her
-
-   wn.exitonclick()
-
-The list of integers printed above for ``list(range(5,60,2))`` is only displayed
-to show you the distances being used to move the turtle forward.  The actual use appears
-as part of the ``for`` loop.
+   tess.stamp()                  # leave an impression
+   tess.forward(20)
+   tess.stamp()                  # leave an impression
+   tess.forward(20)
+   tess.stamp()                  # leave an impression
+   tess.forward(20)
 
 One more thing to be careful about.  All except one of the shapes you see on the screen here are
 footprints created by ``stamp``.  But the program still only has *one* turtle
 instance --- can you figure out which one is the real tess?  (Hint: if you're
-not sure, write a new line of code after the ``for`` loop to change tess'
+not sure, write a new line of code just before the exitonclick line to change tess'
 color, or to put her pen down and draw a line, or to change her shape, etc.)
-
-**Mixed up program**
-
-.. parsonsprob:: 3_10
-
-   The following program uses the stamp method to create a circle of turtle shapes as shown to the left, <img src="../_static/TurtleCircle.png" width="150" align="left" hspace="10" vspace="5"/> but the lines are mixed up.  The program should do all necessary set-up, create the turtle, set the shape to "turtle", and pick up the pen.  Then the turtle should repeat the following ten times: go forward 50 pixels, leave a copy of the turtle at the current position, reverse for 50 pixels, and then turn right 36 degrees.  After the loop, set the window to close when the user clicks in it.<br /><br /><p>Drag the blocks of statements from the left column to the right column and put them in the right order with the correct indention.  Click on <i>Check Me</i> to see if you are right. You will be told if any of the lines are in the wrong order or are incorrectly indented.</p>  
-   -----
-   import turtle
-   wn = turtle.Screen()
-   jose = turtle.Turtle()
-   jose.shape("turtle")
-   jose.penup()
-   =====                   
-   for size in range(10):  
-   =====    
-     jose.forward(50)
-   =====
-     jose.stamp()    
-   =====      
-     jose.forward(-50)
-   =====
-     jose.right(36)             
-   =====
-   wn.exitonclick()
-
-**Mixed up program**
-
-.. parsonsprob:: 3_11
-
-   The following program uses the stamp method to create a line of turtle shapes as shown to the left, <img src="../_static/Turtle3Stamp.png" width="150" align="left" hspace="10" vspace="5" /> but the lines are mixed up.  The program should do all necessary set-up, create the turtle, set the shape to "turtle", and pick up the pen.  Then the turtle should repeat the following three times: go forward 50 pixels and leave a copy of the turtle at the current position.  After the loop, set the window to close when the user clicks in it.<br /><br /><p>Drag the blocks of statements from the left column to the right column and put them in the right order with the correct indention.  Click on <i>Check Me</i> to see if you are right. You will be told if any of the lines are in the wrong order or are incorrectly indented.</p>
-   -----
-   import turtle
-   wn = turtle.Screen()
-   =====
-   nikea = turtle.Turtle()
-   =====
-   nikea.shape("turtle")
-   =====
-   nikea.penup()
-   =====                   
-   for size in range(3):  
-   =====    
-     nikea.forward(50)
-   =====
-     nikea.stamp()   
-   =====                 
-   wn.exitonclick()
-
-.. admonition:: Lab
-
-    * `Turtle Race <../Labs/lab1.html>`_ In this guided lab exercise we will work
-      through a simple problem solving exercise related to having some turtles
-      race.
 

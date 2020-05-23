@@ -236,11 +236,11 @@ computation on data. One difference between them is that operators are typically
 values they operate on, while functions are named and operate on values supplied in parenthesis. (However, you'll
 eventually meet the boolean operators, which are named.) Another difference involves language extensibility. Operators
 are usually built in to the language, and you usually can't add new ones. In contrast, while Python provides several
-built-in functions, it also allows programmers to extend the language by creating new ones.
+built-in functions, it also allows programmers to extend the language by creating new ones. 
 
 We'll explore functions in much more depth in a later chapter in this book. For now, note that Python
 provides many built-in functions that you can use in your programs to manipulate data in various ways. Later in this
-chapter, you will meet more built-in functions.
+chapter, you will meet more built-in functions. 
 
 Key Terms
 ^^^^^^^^^

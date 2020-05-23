@@ -136,6 +136,38 @@ Try it in codelens.  Do you see why the first two statements produce the same re
     for i in range(0, 20, 2):
        print(i)
 
+Let's show off the capabilities of the range function with this program that makes an interesting design:
+
+.. activecode:: range-turtle-stamp
+   :nocodelens:
+
+   import turtle
+   wn = turtle.Screen()
+   wn.bgcolor("lightgreen")
+   tess = turtle.Turtle()
+   tess.color("blue")
+   tess.shape("turtle")
+
+   tess.up()                     # this is new
+   for size in range(5, 60, 2):    # start with size = 5 and grow by 2
+       tess.color("blue")
+       tess.stamp()                # leave an impression on the canvas
+       tess.color("red")           # make tess stand out
+       tess.forward(size)          # move tess along
+       tess.right(24)              # and turn her
+
+   wn.exitonclick()
+
+The list of integers printed above for ``list(range(5,60,2))`` is only displayed
+to show you the distances being used to move the turtle forward.  The actual use appears
+as part of the ``for`` loop.
+
+One more thing to be careful about.  All except one of the shapes you see on the screen here are
+footprints created by ``stamp``.  But the program still only has *one* turtle
+instance --- can you figure out which one is the real tess?  (Hint: if you're
+not sure, write a new line of code after the ``for`` loop to change tess'
+color, or to put her pen down and draw a line, or to change her shape, etc.)       
+
 **Check your understanding**
 
 .. mchoice:: test_question3_5_1

@@ -13,7 +13,6 @@ Functions
    Composition.rst
    ATurtleBarChart.rst
    UnitTesting.rst
-   .. ProgramDevelopment.rst
    CreatingModules.rst
    Glossary.rst
    Exercises.rst

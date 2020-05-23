@@ -13,11 +13,16 @@
 
 .. index:: object, invoke, method, attribute, state, canvas
 
-Objects and Methods
--------------------
+The ``turtle`` module
+---------------------
 
-The following program draws two sides of a rectangle using the Python
-turtle graphics library.
+In the first chapter, we introduced the Python turtle graphics system, which provides features that allow you to create
+drawings by commanding a virtual electronic "turtle" to move around a drawing surface and draw pictures using a pen.
+You do this using the capabilities of the ``turtle`` module.
+
+The ``math`` and ``random`` modules we've seen defined functions and variables. In addition to defining functions
+and variables, modules can define classes (or data types). The ``turtle`` module defines a class named ``Turtle``
+that you can use to create drawings. The following program draws two sides of a rectangle using the ``turtle`` module.
 
 .. activecode:: ch03_1
     :nocodelens:
@@ -29,14 +34,12 @@ turtle graphics library.
     alex.left(90)           	# turn by 90 degrees
     alex.forward(75)         	# complete the second side of a rectangle
 
-Here's a brief explanation of what this program does. Lines 1 and 2 create a turtle object named ``alex``, and the
+In this program, lines 1 and 2 prepare a turtle object named ``alex``, and the
 remainder of the program causes alex to draw two lines. 
 
 Let's expand a little on that brief summary:
 
-1. The statement on line 1 allows the program to use Turtle objects. It tells Python that this program
-   needs to use the ``Turtle`` class located in the ``turtle`` module (the next chapter has more details on modules and the
-   import statement).
+1. The statement on line 1 imports the class named ``Turtle`` located in the ``turtle`` module.
 
 2. Line 2 creates an object named ``alex`` that is a member of the class ``Turtle``.
    These first two lines set us up so that we are ready to do some drawing.
@@ -49,11 +52,10 @@ in just a moment.
 
 .. note::
 
-   This program is a little more involved than the one we introduced back in chapter 1. It creates a named turtle object instead of
-   using the default turtle object that we used in that earlier example. We're creating a named turtle object here to introduce
-   the concepts of objects and methods.
+   This program creates a named turtle object instead of using the default turtle object that we used in chapter 1.
+   We're creating a named turtle object here to introduce the concepts of objects and methods.
 
-.. admonition:: Complete the rectangle ...
+.. admonition:: Time to practice
 
     Modify the program above by adding the commands necessary to have *alex* complete the
     rectangle.
@@ -151,9 +153,10 @@ statement that has this form::
 where VARIABLE is the variable name you wish to use to refer to the new object, and CLASS is the name of the class of
 the object that you wish to create. Note the parentheses, which are required.
 
-In this program, instead of working with integer and string objects, we're working with Turtle and Screen objects. As we discussed
-above, you don't manipulate Turtle and Screen objects using operators like ``+``, but rather through commanding them to
-perform actions by invoking their methods. Now, here comes a very important concept: slow down and read this carefully:
+In this program, instead of working with integer and string objects, we're working with objects that belong to the
+``Turtle`` and ``Screen`` classes. As we discussed above, you don't manipulate Turtle and Screen objects using operators
+like ``+``, but rather through commanding them to perform actions by invoking their methods. Now, here comes a very
+important concept: slow down and read this carefully:
 
 **The methods that you can invoke on a particular object are determined by the object's class.**
 
@@ -170,20 +173,76 @@ the Screen class.
 It is illegal to invoke a method on an object that is not defined by the object's class. If we ask tess to
 ``exitonclick``, we'll get an error, because tess, a member of the Turtle class, doesn't contain a method of that name.
 
-.. admonition:: Extend this program ...
+.. note:: Importing the Turtle class
 
-    #. Modify this program so that before it creates the Screen, it prompts
-       the user to enter the desired background color. It should store the
-       user's response in a variable, and set the color of the canvas
-       to the value entered by the user.
-       (Hint: you can find a list of permitted color names at
-       https://www.w3schools.com/colors/colors_names.asp.  It includes some quite
-       unusual ones, like "PeachPuff"  and "HotPink".)
-    #. Do similar changes to allow the user, at runtime, to set tess's color.
-    #. Do the same for the width of tess's pen.  *Hint:* your dialog with the
-       user will return a string, but tess' ``pensize`` method
-       expects its argument to be an ``int``.  That means you need to convert
-       the string to an int before you pass it to ``pensize``.
+   Perhaps you noticed that we used the ``from`` ... ``import`` technique discussed earlier in this chapter to
+   import the ``Turtle`` class. Here's how we would create tess using the other form of ``import``:
+
+   .. sourcecode:: python
+
+      import turtle
+      tess = turtle.Turtle()
+
+   The notation ``turtle.Turtle`` refers to the ``Turtle`` class in the ``turtle`` module. Either technique is fine, and
+   you can feel free to use whichever you prefer when you write your own programs. We'll write the rest of our Turtle
+   programs using this approach. 
+
+Now, see if you can modify the program below to do the following:
+
+#. Modify the program so that before it creates the Turtle, it prompts
+   the user to enter the desired turtle color. It should store the
+   user's response in a variable, and set the color of the turtle
+   to the value entered by the user.
+   (Hint: you can find a list of permitted color names at
+   https://www.w3schools.com/colors/colors_names.asp.  It includes some quite
+   unusual ones, like "PeachPuff"  and "HotPink".)
+#. Do the same for the width of tess's pen.  
+
+.. tabbed:: turtle2_tabs
+
+    .. tab:: Question        
+        
+      Modify the following program according to the instructions above:
+
+      .. activecode:: turtle2_ac
+         :nocodelens:
+         
+         import turtle
+
+         tess = turtle.Turtle()
+
+         tess.color("blue")
+         tess.pensize(3)
+
+         tess.forward(50)
+         tess.left(120)
+         tess.forward(50)
+
+    .. tab:: Tip
+
+      When setting the width of tess's pen, note that tess's ``pensize`` method
+      expects its argument to be an ``int``.  That means you need to convert
+      the string to an int before you pass it to ``pensize``.
+
+    .. tab:: Solution
+
+      .. activecode:: turtle2_sol_ac
+         :nocodelens:
+         
+         import turtle
+
+         tess = turtle.Turtle()
+
+         turtle_color = input('Color for turtle?')
+         tess.color(turtle_color)
+
+         pen_size = int(input('Pen size?'))
+         tess.pensize(pen_size)
+
+         tess.forward(50)
+         tess.left(120)
+         tess.forward(50)
+
 
 Attributes and State
 ^^^^^^^^^^^^^^^^^^^^
@@ -231,6 +290,20 @@ position attribute has changed.
    Suppose there were a class in Python named Color, and you wanted to create an object of that class. How would you do it?
 
 .. mchoice:: test_question3_1_6
+   :practice: T
+   :answer_a: functions
+   :answer_b: variables
+   :answer_c: classes
+   :answer_d: all of these
+   :correct: d
+   :feedback_a: Modules can define functions, but that's not the only thing they can define.
+   :feedback_b: Modules can define variables, but that's not the only thing they can define.
+   :feedback_c: Modules can define classes, but that's not the only thing they can define.
+   :feedback_d: Correct. Modules can contain functions, variables, and classes.
+
+   What types of definitions can a module contain?
+
+.. mchoice:: test_question3_1_7
    :practice: T
    :answer_a: a.forward(5)
    :answer_b: print(len(b))

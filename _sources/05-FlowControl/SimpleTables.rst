@@ -16,8 +16,8 @@
 
 
 
-Simple Tables
--------------
+Simple Tables and Escape Sequences
+----------------------------------
 
 One of the things loops are good for is generating tabular data.  Before
 computers were readily available, people had to calculate logarithms, sines and

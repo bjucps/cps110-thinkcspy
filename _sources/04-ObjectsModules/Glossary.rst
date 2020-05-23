@@ -12,45 +12,12 @@ Glossary
 
 .. glossary::
 
-
     attribute
         Some state or value that belongs to a particular object.  For example,
         tess has a color.
 
-    block
-        A group of consecutive statements with the same indentation.
-
-    body
-        The block of statements in a compound statement that follows the
-        header.
-
-    branch
-        One of the possible paths of the flow of execution determined by
-        conditional execution.
-
     canvas
         A surface within a window where drawing takes place.
-
-    chained conditional
-        A conditional branch with more than two possible flows of execution. In
-        Python chained conditionals are written with ``if ... elif ... else``
-        statements.
-
-    comparison operator
-        One of the operators that compares two values: ``==``, ``!=``, ``>``,
-        ``<``, ``>=``, and ``<=``.
-
-    condition
-        The boolean expression in a conditional statement that determines which
-        branch is executed.
-
-    conditional statement
-        A statement that controls the flow of execution depending on some
-        condition. In Python the keywords ``if``, ``elif``, and ``else`` are
-        used for conditional statements.
-
-    control flow
-        See *flow of execution* in the chapter on Functions.
 
     for loop
         A statement in Python for convenient repetition of statements in
@@ -66,20 +33,6 @@ Glossary
         method name, with some possible arguments.  So  ``wn.exitonclick()`` is
         an invocation of the ``exitonclick`` method.
 
-    iteration
-		A basic building block for algorithms (programs).  It allows steps to be repeated.  Sometimes called *looping*.
-
-    loop body
-        Any number of statements nested inside a loop. The nesting is indicated
-        by the fact that the statements are indented under the for loop
-        statement.
-
-    loop variable
-        A variable used as part of a for loop. It is assigned a different value
-        on each iteration of the loop, and is used as part of the terminating
-        condition of the loop,
-        when it can no longer get a further value.
-
     method
         A function that is attached to an object.  Invoking or activating the
         method causes the object to respond in some way, e.g. ``forward`` is
@@ -94,13 +47,14 @@ Glossary
         A "thing" to which a variable can refer.  This could be a screen window,
         or one of the turtles you have created.
 
-    range
-        A built-in function in Python for generating sequences of integers.  It
-        is especially useful when we need to write a for loop that executes a
-        fixed number of times.
+    pseudo-random number
+		A number that is not genuinely random but is instead created algorithmically.
 
-    sequential
-		The default behavior of a program.  Step by step processing of algorithm.
+    random number
+		A number that is generated in such a way as to exhibit statistical randomness.
+
+    random number generator
+		A function that will provide you with random numbers, usually between 0 and 1.
 
     state
 		The collection of attribute values that a specific data object maintains.
