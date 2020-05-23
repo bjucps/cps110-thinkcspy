@@ -7,8 +7,11 @@ Functions
    functions.rst
    Functionsthatreturnvalues.rst
    Variablesandparametersarelocal.rst
-   Functionscancallotherfunctions.rst
+   Functionscancallotherfunctions.rst   
    FlowofExecutionSummary.rst
+   DocumentingFunctions.rst
+   WhyCreateFunctions.rst
+   TypeAnnotations.rst
    mainfunction.rst
    Composition.rst
    ATurtleBarChart.rst

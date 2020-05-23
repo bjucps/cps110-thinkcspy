@@ -27,7 +27,7 @@ The Python type for storing true and false values is called ``bool``, named
 after the British mathematician, George Boole. George Boole created *Boolean
 Algebra*, which is the basis of all modern computer arithmetic.
 
-There are only two **boolean values**.  They are ``True`` and ``False``.  Capitalization
+There are only two **boolean values**: ``True`` and ``False``.  Capitalization
 is important, since ``true`` and ``false`` are not boolean values (remember Python is case
 sensitive).
 
@@ -70,10 +70,9 @@ Flag Variables
 ^^^^^^^^^^^^^^
 
 Boolean variables are useful as flags. A **flag** is a variable that has only two possible values during the
-execution of the program. Here's a program we encountered in an earlier chapter, written before we had covered boolean variables. The
-``valid_input`` variable is a flag, because it is assigned only two different values during the execution of the
-program. In the original version, we used the values 0 and 1. In this version, we've rewritten it to use boolean values
-to make the intent clearer.
+execution of the program. Here's a program we encountered in an earlier chapter. In this program, the
+``valid_input`` variable is a flag, because it is used to keep track of whether the user has entered valid input
+or not. Only two values are needed for that purpose, so a boolean variable is just what is needed. 
 
 .. activecode:: ch07_validation_flag
     :timelimit: 60000

@@ -119,26 +119,29 @@ The General Accumulator Pattern
    =====
    print(thesum)
 
-A Variation on the Accumulator Pattern
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+The Accumulator Pattern with Strings
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The accumulator pattern can be used with strings as well as numbers. Take a look at the following example, which creates
+a line of asterisks. Use the **Show in CodeLens** feature to watch the line built by the loop.
 
 .. activecode:: ch04_accum3
 
-    toSquare = 10
-    runningtotal = 0
-    for counter in range(toSquare):
-        runningtotal = runningtotal + toSquare
+    symbol = '*'
+    line = ''
+    for counter in range(30):
+        line = line + symbol
 
-    print("The result of", toSquare, "squared is", runningtotal)
+    print(line)
 
+Each time through the loop, another asterisk is concatenated to the ``line``, so the ``line`` variable gradually accumulates the
+asterisks. 
 
 
 .. admonition:: Modify the program ...
 
-   What would happen if we change ``runningtotal = runningtotal + toSquare`` to use **multiplication** instead of addition?  Make this change to the program and look at the output.
-
-   It is very important to properly initialize the accumulator variable. Do a web search on ``additive identity`` and ``multiplicative identity``. **Properly initialize the accumulator variable** and run the program.
-
-   Now we get an answer other than 0. However, the answer is not the square of of ``toSquare``. It is also important that the loop repeat the proper number of times. How many times do we need to execute line 4 to get the square of ``x``? **Change line 3 to repeat the correct number of times**. Now the program should produce the correct result.
-
+   Experiment with changing the program. 
    
+   1. Make it create a line of 50 dashes.
+   2. Make it create a line that begins with '<' and ends with '>'
+

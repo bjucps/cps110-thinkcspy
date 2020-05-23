@@ -108,14 +108,14 @@ When you run the following code, try typing something other than Y or N to see h
 .. activecode:: ch07_validation
     :timelimit: 60000
 
-    valid_input = 0
-    while valid_input == 0:
+    valid_input = False
+    while valid_input == False:
         response = input('Do you like lima beans? Y)es or N)o: ')
         response = response.upper()
         if response == 'Y':
-            valid_input = 1
+            valid_input = True
         elif response == 'N':
-            valid_input = 1
+            valid_input = True
         else:
             print('Please enter Y for yes or N for no.')
 
@@ -123,3 +123,6 @@ When you run the following code, try typing something other than Y or N to see h
         print('Great! They are very healthy.')
     else:
         print('Too bad. If cooked right, they are quite tasty.')
+
+Notice the use of the boolean variable ``valid_input`` to keep track of whether the
+user has entered a valid response or not. 

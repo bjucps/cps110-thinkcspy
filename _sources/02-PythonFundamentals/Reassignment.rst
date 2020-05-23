@@ -122,7 +122,28 @@ simple assignment.  In the above example, ``x`` was initialized to 6.
 
 Updating a variable by adding 1 is called an **increment**; subtracting 1 is
 called a **decrement**.  Sometimes programmers also talk about **bumping**
-a variable, which means the same as incrementing it by 1.
+a variable, which means the same as incrementing it by 1. Incrementing and
+decrementing are such common operations that Python provides a shortcut. Instead of
+writing::
+
+    x = x + 1
+
+you can write the following, which does the same thing::
+
+    x += 1
+
+Similarly instead of writing::
+
+    x = x - 3
+
+you can write::
+
+    x -= 3
+
+Similar shortcuts are available for multiplication and division::
+
+    x *= 3  # Multiplies x by 3 
+    y /= 2  # Divides ``y`` by 2
 
 
 **Check your understanding**
