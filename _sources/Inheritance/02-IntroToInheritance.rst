@@ -17,8 +17,6 @@ Recall the Point class from earlier in the book:
         def __str__(self):
             return "x=" + str(self.x) + ", y=" + str(self.y)
         
-    p = Point(7, 6)
-    print(p)
 
 Now, suppose we want to create a class that works like ``Point`` 
 in every respect, but also keeps track of a short description for the point.
@@ -32,8 +30,7 @@ paste.
 
 We begin like this:
 
-.. activecode:: labeledpoint
-    :include: pointclass_1
+.. sourcecode:: python
 
     class LabeledPoint(Point):
         pass
@@ -66,7 +63,7 @@ coordinates:
             return "x=" + str(self.x) + ", y=" + str(self.y) + " (" + self.label + ")"            
 
     labeledPt = LabeledPoint(7,6,"Here")
-    print(labeledPt)
+    print('labeledPt =', labeledPt)
     
 Here, we have redefined two of the methods that LabeledPoint inherits from Point: 
 ``__init__()`` and ``__str__()``. 
@@ -86,6 +83,7 @@ consider the following:
     
     ptStr = str(pt)
     labeledPtStr = str(labeledPt)
+    print(labeledPtStr)
 
 In Line 4, the call to ``str(pt)`` invokes the ``__str__()`` method in ``Point``, because
 pt refers to an instance of ``Point``. In Line 5, the call to ``str(labeledPt)``

@@ -56,12 +56,12 @@ Table of Contents
    01-GeneralIntro/toctree.rst
    02-PythonFundamentals/toctree.rst
    03-Debugging/toctree.rst
-   04-FlowControl1/toctree.rst
+   04-ObjectsFlow/toctree.rst
    05-PythonModules/toctree.rst
-   06-FlowControl2/toctree.rst
-   07-Booleans/toctree.rst
-   08-Functions/toctree.rst
-   09-Strings/toctree.rst
+   06-MoreFlow/toctree.rst
+   07-Functions/toctree.rst
+   08-Strings/toctree.rst
+   09-Booleans/toctree.rst
    Lists/toctree.rst
    Files/toctree.rst
    Dictionaries/toctree.rst
@@ -76,10 +76,26 @@ Labs
 ::::
 
 .. toctree::
-   :caption: Labs
    :maxdepth: 1
 
    Labs/lab1.rst
+
+Optional Labs
+:::::::::::::
+
+.. toctree::
+   :maxdepth: 1
+
+   Labs/astronomylab.rst
+   Labs/montepi.rst
+   Labs/lab04_01.rst
+   Labs/lab04_01a.rst
+   Labs/lab12_01.rst
+   Labs/lab12_02.rst
+   Labs/montepi.rst
+   Labs/pythonshell.rst
+   Labs/sequencelab.rst
+   Labs/sinlab.rst
 
 Appendices
 ::::::::::
@@ -90,7 +106,6 @@ Appendices
 
    Appendices/errorsAndDebug.rst
    Appendices/PrecedenceTable.rst
-   Appendices/testmodule.rst
 
 Acknowledgements
 ::::::::::::::::
