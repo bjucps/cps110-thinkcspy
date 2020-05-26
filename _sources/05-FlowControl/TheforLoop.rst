@@ -18,7 +18,7 @@ The ``for`` Loop
 ================
 
 .. youtube:: Q8WR16PuUtc
-    :divid: whileloop
+    :divid: vid_forloop
     :height: 315
     :width: 560
     :align: left
