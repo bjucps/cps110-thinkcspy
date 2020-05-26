@@ -17,7 +17,11 @@
 The ``for`` Loop
 ================
 
-.. todovideo: Brief video introducing for statement and discussing indentation
+.. youtube:: Q8WR16PuUtc
+    :divid: whileloop
+    :height: 315
+    :width: 560
+    :align: left
 
 In Python, the **for** statement allows us to write programs that execute a group of statements repeatedly. As a simple
 example, let's say we have some friends, and we'd like to send them each an email inviting them to our party.  We don't

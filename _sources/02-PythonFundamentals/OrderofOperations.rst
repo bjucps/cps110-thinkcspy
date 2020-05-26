@@ -35,12 +35,6 @@ rules for its mathematical operators that mathematics does.
    We then add 2 to get the result 5. If the operations had been evaluated from
    right to left, the result would have been ``6-(3+2)``, which is 1.
 
-.. (The
-..   acronym PEDMAS could mislead you to thinking that division has higher
-..   precedence than multiplication, and addition is done ahead of subtraction -
-..   don't be misled.  Subtraction and addition are at the same precedence, and
-..   the left-to-right rule applies.)
-
 .. note::
 
     An exception to the left-to-right
@@ -53,9 +47,6 @@ rules for its mathematical operators that mathematics does.
 
         print(2 ** 3 ** 2)     # the right-most ** operator gets done first!
         print((2 ** 3) ** 2)   # use parentheses to force the order you want!
-
-.. The immediate mode command prompt of Python is great for exploring and
-.. experimenting with expressions like this.
 
 See :ref:`operator-summary` for *all* the operators introduced in this book.
 You will also see many upcoming non-mathematical Python operators.

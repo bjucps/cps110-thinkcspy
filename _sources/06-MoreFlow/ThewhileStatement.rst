@@ -14,11 +14,41 @@
 The ``while`` Statement
 -----------------------
 
-.. youtube:: blTBEqybQmQ
+.. youtube:: 3SXQOYf27bU
     :divid: whileloop
     :height: 315
     :width: 560
     :align: left
+
+.. Video notes:
+
+.. Demonstrate program:
+
+.. num = 0
+.. while num < 3:
+..     print(num, '...')
+..     num = num + 1
+
+.. print("All done!")
+
+.. Use CodeLens to step through
+.. Show how initializing num = 3 means loop doesn't execute at all
+.. Show how Changing num = num - 1 introduces infinite loop
+
+.. Develop the following program
+
+.. import random
+
+.. secret = int(input('Enter a number for the computer to guess.')) 
+.. num = random.randint(0, 10)
+.. guesses = 0
+.. while num != secret:
+..     print(num, '...')
+..     num = random.randint(0, 10)
+..     guesses += 1
+
+.. print(num, '...')
+.. print("Got it! It took me", guesses, "guesses.")
 
 In addition to the ``for`` statement, there is another Python statement that can also be used to build an iteration.  It is called the ``while`` statement.
 The ``while`` statement provides a much more general mechanism for iterating.  Similar to the ``if`` statement, it uses
@@ -27,6 +57,7 @@ a boolean condition to control the flow of execution.  The body of while will be
 Here's a program that counts down from 10 to 1 using a ``while`` statement:
 
 .. activecode:: while_countdown
+    :nocanvas:
 
     num = 5
     while num > 0:

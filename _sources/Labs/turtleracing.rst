@@ -121,26 +121,32 @@ Now, you have several choices for how to fill in code for step 5. Here are
 some possibilities to try.  Try coding each of the following in the box above
 to see the different kinds of behavior.
 
-* Use a single call to ``forward`` for each turtle, using a random number as
+* Version 1: Use a single call to ``forward`` for each turtle, using a random number as
   the distance to move.
-
-* Create a for loop, using a random number for the parameter passed to the
+  
+* Version 2: Create a for loop, using a random number for the parameter passed to the
   range function.  Inside the for loop move one of the turtles forward by
   some number of units.
 
-* Create a single for loop using something like 150 or 200 as the range 
+* Version 3: Create a single for loop using something like 150 or 200 as the range 
   parameter. Then inside the for loop move each turtle forward using a random
-  number as the parameter to forward.
+  number as the parameter to forward. When you're done with this version, the
+  result should work something like this:
 
+.. image:: Figures/turtlerace.gif
+
+Note: For Version 3, try to make the turtles move until they are close to the right-hand
+edge of the canvas. But if your turtles go off the edge of the canvas sometimes, 
+that's ok. 
 
 So, which of these programs is better?  Which of these programs is most
-correct?  These are excellent questions. Program 1 is certainly the simplest,
+correct?  These are excellent questions. Version 1 is certainly the simplest,
 but it isn't very satisfying as far as a race is concerned.  Each turtle
 simply moves their distance on their turn.  That is not very satisfying as far
-as a simulated race goes.  Program 2 ends up looking a lot like Program 1
-when you run it.  Program 3 is probably the most 'realistic' assuming realism
+as a simulated race goes.  Version 2 ends up looking a lot like Program 1
+when you run it.  Version 3 is probably the most 'realistic', assuming realism
 is very important when we're talking about a simulated race of virtual
-turtles.
+turtles. 
 
 You may be thinking why can't each turtle just move forward until they cross
 some artificial finish line?  Good question!  We'll get to the answer to

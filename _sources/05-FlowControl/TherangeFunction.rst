@@ -14,12 +14,6 @@
 The range Function
 ------------------
 
-.. youtube:: YK8QlIT3__M
-    :divid: advrange
-    :height: 315
-    :width: 560
-    :align: left
-
 In our simple example from the last section (shown again below), we used a list of four integers to cause the iteration
 to happen four times.  We said that we could have used any four values.  In fact, we even used four colors.
 

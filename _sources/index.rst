@@ -43,11 +43,11 @@
 Table of Contents
 :::::::::::::::::
 
-.. raw:: html
+.. .. raw:: html
 
-   <ul>
-   <li><a href="/runestone/assignments/chooseAssignment.html">Assignments</a></li>
-   </ul>
+..    <ul>
+..    <li><a href="/runestone/assignments/chooseAssignment.html">Assignments</a></li>
+..    </ul>
 
 .. toctree::
    :numbered:
@@ -78,7 +78,7 @@ Labs
 .. toctree::
    :maxdepth: 1
 
-   Labs/lab1.rst
+   Labs/turtleracing.rst
 
 Optional Labs
 :::::::::::::

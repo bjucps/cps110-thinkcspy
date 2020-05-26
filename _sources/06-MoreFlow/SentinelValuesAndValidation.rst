@@ -78,10 +78,10 @@ zero is a **sentinel value**, a value used to signal the end of the loop. Here's
     print('Average price per item: $', average)
 
 
-There are still a few problems with this program.
+There are still a few problems with this program. Modify it to correct them:
 
 * If you enter a negative number, it will be added to the total and count. Modify the code
-  so that negative numbers give an error message instead (but don't end the loop) Hint: ``elif`` is
+  so that negative numbers give an error message instead (but don't end the loop). Hint: ``elif`` is
   your friend.
 * If you enter zero the first time you are asked for a price, the loop will end, and the program
   will try to divide by zero. Use an ``if``/``else`` statement outside the loop to avoid the
@@ -96,14 +96,14 @@ There are still a few problems with this program.
 Validating Input
 ~~~~~~~~~~~~~~~~~~~
 
-You can also use a ``while`` loop when you want to **validate** input;  when you want to make
-sure the user has entered valid input for a prompt. Let's say you want a function
+You can also use a ``while`` loop when you want to **validate** the user's input: when you want to make
+sure the user has entered input that conforms to what the program expects. Let's say you want a function
 that asks a yes-or-no question. In this case, you want to make sure that the person using
-your program enters either a Y for yes or N for no (in either upper or lower case).
+your program enters either a **Y** for yes or **N** for no (in either upper or lower case).
 Here is a program that uses a ``while`` loop to keep asking until it receives a valid answer.
 As a preview of coming attractions, it uses
-the ``upper()`` method which is described in :ref:`stringMethods` to convert a string to upper case.
-When you run the following code, try typing something other than Y or N to see how the code reacts:
+the ``upper()`` method (described later in the section on :ref:`stringMethods`) to convert a string to upper case.
+When you run the following code, try typing something other than Y or N a few times to see how the code reacts:
 
 .. activecode:: ch07_validation
     :timelimit: 60000
@@ -125,4 +125,55 @@ When you run the following code, try typing something other than Y or N to see h
         print('Too bad. If cooked right, they are quite tasty.')
 
 Notice the use of the boolean variable ``valid_input`` to keep track of whether the
-user has entered a valid response or not. 
+user has entered a valid response or not. We haven't used boolean values much
+yet, but this is one example of where they come in handy.
+
+Here's a computational thinking question for you to consider. Look at the final ``if`` statement
+that checks for ``response == 'Y'``. The ``else`` section displays a message that is appropriate
+if the user answered ``N``. Is it appropriate for the code to assume that if the condition ``response == 'Y'``
+is ``False`` that the user must have entered ``N``? In other words, is there *any possible scenario* by which the flow of
+execution might exit the while loop in which the user enters a value other than ``Y`` or ``N``? 
+
+This is an important question to consider. Think about it for a moment, then watch the following video for
+more discussion on this point.
+
+.. youtube:: xEZHfxocwDg
+    :divid: vid_analyzing_while_loop_termination
+    :height: 315
+    :width: 560
+    :align: left
+
+
+.. admonition:: Change the program...
+
+    Modify the program above to allow three responses: Y)es, N)o, or
+    S)ometimes. 
+
+    .. reveal:: rev_ch07_validation
+        :showtitle: Show me the solution
+        :modal:
+        :modaltitle: Here's the solution
+
+        Here's the solution. Notice the additional elif's:
+
+        .. sourcecode:: python
+
+            valid_input = False
+            while valid_input == False:
+                response = input('Do you like lima beans? Y)es, N)o, or S)ometimes: ')
+                response = response.upper()
+                if response == 'Y':
+                    valid_input = True
+                elif response == 'N':
+                    valid_input = True
+                elif response == 'S':
+                    valid_input = True
+                else:
+                    print('Please enter Y for yes, N for no, or S for sometimes.')
+
+            if response == 'Y':
+                print('Great! They are very healthy.')
+            elif response == 'S':
+                print('I understand. It helps to be in the right mood.')
+            else:
+                print('Too bad. If cooked right, they are quite tasty.')

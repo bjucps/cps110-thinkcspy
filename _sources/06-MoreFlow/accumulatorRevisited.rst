@@ -31,5 +31,6 @@ You may have studied this sequence in a math class and learned that the sum appr
 
    On line 8 (not indented), print the value of ``aNumber`` and you will see.
 
-   But **why** did it reach 2.0? Are those math teachers wrong?
+   But **why** did it reach 2.0? Are those math teachers wrong? Think about the information in the previous section on floats and
+   approximations, and see if you can formulate a hypothesis that explains the behavior of this program.
 

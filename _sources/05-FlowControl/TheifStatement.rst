@@ -26,7 +26,13 @@
 The ``if`` Statement
 ====================
 
-.. todovideo: Explain if statement
+.. youtube:: _sTOMb-40RY
+    :divid: whileloop
+    :height: 315
+    :width: 560
+    :align: left
+
+.. videonotes: Explain if statement using simple x is zero / x is not zero example
 
 In order to write useful programs, we almost always need the ability to check
 conditions and change the behavior of the program accordingly. **Selection statements**, sometimes
@@ -73,8 +79,6 @@ Here's a flowchart that shows how the flow branches to execute either STATEMENTS
 or STATEMENTS_2, depending on the outcome of the condition:
 
 .. image:: Figures/flowchart_if_else.png
-      :width: 300px
-      :align: center
 
 Comparison Operators
 --------------------
@@ -116,8 +120,6 @@ What would be printed if the value of ``x`` is negative?  Try it.
 Here is a flowchart that depicts how the the if statement works if the else clause is omitted:
 
 .. image:: Figures/flowchart_if_only.png
-      :width: 200px
-      :align: center
 
 
 .. admonition:: Optional Lab
