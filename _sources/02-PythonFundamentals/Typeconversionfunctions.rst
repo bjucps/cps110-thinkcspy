@@ -13,7 +13,7 @@
 
 .. _type-conversion:
 
-Type conversion functions
+Type Conversion Functions
 -------------------------
 
 Sometimes it is necessary to convert values from one type to another.  Python provides
@@ -178,46 +178,41 @@ statement like this one?
 
     print(num1 + '+' + num2 + '=' + sum)
 
-If you didn't come up with that on your own, try it out and see the error that occurs. Then, revise the code to use the
-``str`` conversion function to fix the error.
+If you didn't come up with that on your own, try it out in the box below and see the error that occurs. 
+Then, fix the error.
 
-.. activecode:: typeconv_sum3
+.. tabbed:: typeconv_sum3_tabbed
 
-    num1 = int(input('Enter a number:'))
-    num2 = int(input('Enter another number:'))
-    sum = num1 + num2
+    .. tab:: Question
 
-    print(num1 + '+' + num2 + '=' + sum)  # Error here
+        Revise the code to use the ``str`` conversion function to fix the error. The activecode interpreter
+        will test your work and indicate if you got it correct.
 
-    ====
+        .. activecode:: typeconv_sum3
 
-    from unittest.gui import TestCaseGui
+            num1 = int(input('Enter a number:'))
+            num2 = int(input('Enter another number:'))
+            sum = num1 + num2
 
-    class myTests(TestCaseGui):
+            print(num1 + '+' + num2 + '=' + sum)  # Error here
 
-        def testOne(self):
-            self.assertEqual(self.getOutput().strip(), str(num1) + '+' + str(num2) + '=' + str(sum), "correct output?"  )
+            ====
 
-    myTests().main()
+            from unittest.gui import TestCaseGui
 
+            class myTests(TestCaseGui):
 
-.. reveal:: typeconv_sum2_concat
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+                def testOne(self):
+                    self.assertEqual(self.getOutput().strip(), str(num1) + '+' + str(num2) + '=' + str(sum), "correct output?"  )
 
-   Here is one possible solution (others are possible):
+            myTests().main()
 
-   .. sourcecode:: python
+    .. tab:: Solution
 
-        num1 = int(input('Enter a number:'))
-        num2 = int(input('Enter another number:'))
-        sum = num1 + num2
+        Here is the print statement modified to use the ``str`` function to convert the integer values in ``num1``, 
+        ``num2``, and ``sum`` to strings, so that they can be concatenated with the other strings::
 
-        print(str(num1) + '+' + str(num2) + '=' + str(sum))
-
-   Notice how this solution uses the ``str`` function to convert the integer values in ``num1``, 
-   ``num2``, and ``sum`` to strings, so that they can be concatenated with the other strings in the print statement.
+            print(str(num1) + '+' + str(num2) + '=' + str(sum))
 
 Since programs often need to display output involving several variables on one line, but without the
 extra space that results when you separate your expressions with a comma, it's common to use a lot of

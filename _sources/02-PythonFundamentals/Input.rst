@@ -16,6 +16,15 @@
 Input
 -----
 
+.. youtube:: 3T3BEX0Y1h4
+    :divid: video_2_6_getting-input
+    :height: 315
+    :width: 560
+    :align: left
+
+.. Demonstrates using the input() function in three environments: activecode, codelens, and Python shell
+.. Demonstrates empty string, and the fact that numeric entries are treated as strings
+
 Here is one of the versions of the time conversion program we developed earlier:
 
 .. sourcecode:: python
@@ -122,8 +131,9 @@ Numeric Input
 
 It is very important to note that the ``input`` function returns a string value. If you ask the user to enter a number
 and the user enters the number ``17``, ``input`` has no way of knowing that the user's entry represents a number instead
-of text; it treats the entry as a sequence of characters (``str`` data) and the value stored in the variable would be
-the string ``"17"``, not the number ``17``. Try it out in the interpreter to see what I mean:
+of text; it treats the entry as a string of characters (``str`` data) and the value stored in the variable would be
+the string ``"17"``, not the number ``17``. This is true even though the user does not put quotes around the number when
+typing it in. Try it out in the interpreter to see what I mean:
 
 .. sourcecode:: python
 
@@ -132,6 +142,10 @@ the string ``"17"``, not the number ``17``. Try it out in the interpreter to see
     >>> num
     '17'
     >>>
+
+This is a good opportunity to re-emphasize the difference between ``int`` and ``str`` data types. When we see the value
+``'17'``, it's hard for us to think of anything other than the number 17. But to Python, the string ``'17'`` is simply
+a sequence of digits that has no mathematical meaning. 
 
 To see the difficulties that behavior can cause, try executing the following program:
 
@@ -170,35 +184,30 @@ Time Conversion Case Study
 
 Now, back to our time conversion program:
 
-.. activecode:: input_tc1
+.. tabbed:: input_tc1_tabbed
 
-    tot_seconds = 645
-    minutes = tot_seconds // 60
-    seconds = tot_seconds % 60
-    print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')
+    .. tab:: Question
 
-Let's enhance this program so that is more useful. Change this program so that it prompts the user to enter the number
-of seconds, instead of using the value 645.
+        Enhance this program so that is more useful. Change this program so that it prompts the user to enter the number
+        of seconds, instead of using the value 645.
 
-.. reveal:: input_tc1_tip
-   :showtitle: Give me a tip
-   :modal:
-   :modalTitle: Here's a tip!
+        .. activecode:: input_tc1
 
-    Change the first line of this program to use the input function to allow the user to enter the number of seconds. 
-    Remember to use the int conversion function, as demonstrated above, to convert the user's input to ``int`` value.
+            tot_seconds = 645
+            minutes = tot_seconds // 60
+            seconds = tot_seconds % 60
+            print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')
 
-.. reveal:: input_tc1_solution_reveal
-   :showtitle: Show me the solution
-   :modal:
-   :modalTitle: Here's the solution!
+    .. tab:: Tip
 
-   .. sourcecode:: python
+        Change the first line of this program to use the input function to allow the user to enter the number of seconds. 
+        Remember to use the int conversion function, as demonstrated above, to convert the user's input to ``int`` value.
 
-        tot_seconds = int(input('Enter total seconds:'))
-        minutes = tot_seconds // 60
-        seconds = tot_seconds % 60
-        print(tot_seconds, 'seconds =', minutes, 'minutes', seconds, 'seconds')
+    .. tab:: Solution
+
+        Here's the first line::
+
+            tot_seconds = int(input('Enter total seconds:'))
 
 
 **Check your understanding**

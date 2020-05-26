@@ -2,38 +2,10 @@
    :prefix: func-whycreate
    :start: 1
 
-.. index:: code duplication
+.. index:: code duplication, refactor
    
-Why Create Functions?
-=====================
-
-Remember the issue we considered at the beginning of the last section? We were looking at this line of
-code and trying to determine what it does::
-
-    transmogrify(alex, 8, True)
-
-Now, imagine the level of difficulty involved in answering that question in these three scenarios:
-
-1. **Scenario one: The transmogrify function has no comment at all.** 
-
-   We'll almost certainly have to read the body of the transmogrify function, think about the arguments
-   being passed to it by this particular line, and reason about what the function does.
-
-2. **Scenario two: The transmogrify function has a single brief docstring comment: """Draws a polygon"""** 
-
-   This is better than Scenario one (especially because the function is so poorly named), and in other situations, the
-   brief comment may be all we need, but here we'll almost certainly have to look at the body of the function to figure
-   out what the arguments are used for.
-
-3. **Scenario three: The transmogrify function has a detailed multi-line docstring comment** 
-
-   In this case, we probably won't need to look at the body of the function at all. Everything we need to know
-   about what the parameters mean is discussed in the docstring. 
-
-Good function comments **help the programmer to understand lines of code that call the function**.
-
-Reasons to Create Functions
----------------------------
+Refactoring
+===========
 
 Typically, programmers create functions for one of at least two reasons:
 
@@ -122,6 +94,12 @@ You can see the comment I wrote, and if you like yours better, you can replace m
 
                 return line
 
+.. admonition:: Refactoring
+
+    The modification that we did to this program did not change any behavior. When a programmer changes some code
+    in a way that does not alter its behavior, we say that the code has been refactored. Replacing sequences of
+    duplicate code with a single function is one important example of refactoring. Simpler examples include
+    renaming functions or variables. 
 
 We have significantly improved this program. One of the improvements involved reducing the amount of code duplication.
 How did that help? It helped in two important ways:

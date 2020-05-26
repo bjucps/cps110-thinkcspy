@@ -16,9 +16,10 @@
 Variables
 ---------
 
-One of the most powerful features of a programming language is the ability to
-manipulate variables. A **variable** is a name that refers to a value. In this section,
-you will learn how to create variables and use them to write programs that do useful work.
+One of the most powerful features of a programming language is the ability to manipulate variables. A **variable** is a
+name that refers to a value. Programmers create variables to hold values in memory, so that the values can be
+manipulated by the program to produce the desired computations. In this section, you will learn how to create variables
+and use them to write programs that do useful work.
 
 Assignment Statement
 ^^^^^^^^^^^^^^^^^^^^
@@ -138,13 +139,12 @@ using a single print statement::
 
 As you can see, using variables is essential to writing programs that are readable!
 
-Let's modify the program to take quantity into account in the calculations. Suppose the customer
-buys 3 copies of book1, 2 copies of book2, and 4 copies of book3 (see below). Complete
-the program by replacing the ??? with the expression needed to correctly compute the
-total_before_tax using the variables provided. When you click Run to test the program,
-the activecode interpreter will check your work and let you know if you got it correct.
-Also, experiment with using the **Show CodeLens** button to let you step through the code
-and watch it execute.
+Let's modify the program to take quantity into account in the calculations. Suppose the customer buys 3 copies of book1,
+2 copies of book2, and 4 copies of book3 (see below). In that case, the total_before_tax should be $15 (3 copies of
+book1) + $2 (2 copies of book2) + $8 (4 copies of book3), or $25. Complete the program below by replacing the ??? with
+the expression needed to correctly compute the total_before_tax using the variables provided. When you click Run to test
+the program, the activecode interpreter will check your work and let you know if you got it correct. Also, experiment
+with using the **Show CodeLens** button to let you step through the code and watch it execute.
 
 If you get stuck and need help, watch the solution video that follows.
 
@@ -179,7 +179,16 @@ If you get stuck and need help, watch the solution video that follows.
 
     myTests().main()
 
-.. TODOVIDEO: Video discussing solution and demonstrating unit test
+Now, watch this brief video that shows how I solved the problem. In the video, I also discuss how the
+activecode interpreter tests the solution for correctness. It's important for you to understand how to interpret
+the test results, so I encourage you to watch the video so you can understand the messages you see in future
+problems like this.
+
+.. youtube:: -5zWM2E0AUY
+    :divid: book_qty_sol_video
+    :height: 315
+    :width: 560
+    :align: left
 
 Assignment vs. Equality
 ^^^^^^^^^^^^^^^^^^^^^^^

@@ -32,7 +32,7 @@ A for loop allows Python to repeat a section of your program several times. Take
 
    print("Now we are outside of the for loop!")
 
-Run the program and observe its output. Then, click the **Show in CodeLens**
+Run the program and observe its output. Then, click the **Show CodeLens**
 button and step through the execution to see how it works.
 
 There are a few things to notice. 

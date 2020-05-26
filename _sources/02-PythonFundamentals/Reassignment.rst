@@ -241,3 +241,23 @@ Similar shortcuts are available for multiplication and division::
    mybankbalance = 100
    mybankbalance = mybankbalance + 34
    print(mybankbalance)
+
+.. mchoice:: test_question2_10_4
+   :practice: T
+   :answer_a: 12
+   :answer_b: 3
+   :answer_c: 36
+   :answer_d: Nothing.  An error occurs because this is not a legal program.
+   :correct: c
+   :feedback_a: The value of x changes in the second statement.
+   :feedback_b: No, ``x *= 3`` is different from ``x = 3``.
+   :feedback_c: Yes, this is a shortcut for writing ``x = x * 3``.
+   :feedback_d: No, this is legal code. Review the information above.
+
+   What is printed when the following statements execute?
+
+   .. code-block:: python
+
+     x = 12
+     x *= 3
+     print(x)   

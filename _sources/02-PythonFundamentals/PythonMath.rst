@@ -22,8 +22,27 @@
    operands
    expression
 
+Python Math
+===========
+
+It's time to dive into the details of the Python programming language. In this chapter, you will use both the activecode
+Python interpreter built into this book, as well as the Python shell that you have installed on your computer, to experiment
+with the concepts. Although the interpreter built into the textbook is convenient to use when you are reading the book,
+it's important for you to learn to use the Python shell as well, because the shell in some ways is an even better environment
+for experimenting with short fragments of Python code to learn what they do.
+
+**Key Terms:** **operator**, **operand**, **expression**, **evaluate**, **function**, **argument**, **int**, **float**
+
+In this section, we'll introduce several important terms. I suggest that you consider writing the definitions
+down in your own words in your notes (you're taking notes, right?). You can do this either as you read, or at the
+end of the section. 
+
 Meet the Interpreter
 --------------------
+
+Let's begin our journey by exploring Python's basic math capabilities. The short video below demonstrates how to use the
+Python shell to perform mathematical calculations. If you've installed Python on your computer, follow along with the
+video and see if you can repeat in your own computing environment what is being demonstrated in the video. 
 
 .. youtube:: oaq96ILu3sY
     :divid: meetinterpreter
@@ -31,8 +50,8 @@ Meet the Interpreter
     :width: 560
     :align: left
 
-Python Math
-^^^^^^^^^^^
+Math Expressions
+----------------
 
 As demonstrated in the video, you can use Python to perform mathematical computations by entering math expressions
 involving operators and operands into the Python shell. **Operators** are symbols that perform computations like
@@ -52,15 +71,21 @@ Operator    Description
 
 The operators ``+`` and ``-``, and the use of parenthesis for grouping, mean in Python what they mean in mathematics.
 The asterisk (``*``) is the operator for multiplication, slash (``/``) is the usual operator for division, and ``**`` is
-the operator for exponentiation. There are two operators for division (more on that in a moment). Addition, subtraction,
-multiplication, division, and exponentiation all do what you expect. The modulus operator (``%``) computes the remainder of
-an integer division; we'll discuss it later in this chapter. 
+the operator for exponentiation (raising a number to a power). There are two operators for division (more on that in a
+moment). Addition, subtraction, multiplication, division, and exponentiation all do what you expect. The modulus
+operator (``%``) computes the remainder of an integer division; we'll discuss it later in this chapter. 
 
-We call a mathematical computation like ``5 + 3 * 26`` an **expression**. An expression is a combination of operators and
-operands that produces a value. Python **evaluates** expressions to compute values. When you type an expression into the
-Python shell, the shell evaluates the expression by performing the specified operations on the operand values. The
-evaluation results in a single value, which is displayed by the shell. For example, the following shows how the shell
-evaluates the expression ``2 ** 3`` by computing 2\ :sup:`3`, producing the value 8:
+We call a mathematical computation like ``5 + 3 * 26`` an **expression**. The term *expression* is such an important
+concept that I'm going to define it in a box:
+
+.. admonition:: Expression
+
+    An **expression** is a combination of operators and operands that produces a value. 
+
+Python **evaluates** expressions to compute values. When you type an expression into the Python shell, the shell
+evaluates the expression by performing the specified operations on the operand values. The evaluation results in a
+single value, which is displayed by the shell. For example, the following shows how the shell evaluates the expression
+``2 ** 3`` by computing 2\ :sup:`3`, producing the value 8:
 
 .. sourcecode:: python
 
@@ -72,10 +97,14 @@ The following are all legal Python expressions::
 
     20 + 32.5
     2 ** 3
-    -25 * 60 / 13
-    (2 * (5 + 9)) * (15 - 7)
+    -2 + 3 * 6
+    (2 * (5 + 2)) * (15 - 7)
 
-Try starting the Python shell on your computer and typing them in to see Python compute their values.
+Python respects the standard order of operations of mathematics; for example, in the expression ``-2 + 3 * 6``,
+Python will perform the multiplication first, then the addition. You can use parenthesis to force Python to
+perform the operations in a different order.
+
+Try starting the Python shell on your computer and typing the expression above in to see Python compute their values.
 
 .. note::
     I demonstrate how to start the Python shell on a Windows 10 computer in the video at the top of this page.
@@ -83,14 +112,15 @@ Try starting the Python shell on your computer and typing them in to see Python 
     .. TODO: Demonstrate how to start it on a Mac
 
 If you ask Python to ``print`` an expression, the interpreter **evaluates** the expression and displays the result.
-Execute the following example and see if the results match what you think they should.
+Look at the following program. On paper, write down the values you expect it to display when it runs. Then, run the
+program and see if the results match what you think they should. If they don't, re-read the material above.
 
 .. activecode:: ch02_15
     :nocanvas:
 
     print(2 + 3)
     print(2 - 3)
-    print(2 * 3)
+    print(2 + 4 * 3)
     print(2 ** 3)
     print(3 ** 2)
 
@@ -101,7 +131,7 @@ example above and note the error that occurs when you attempt to run the faulty 
    division /  //  
 
 Division
-^^^^^^^^
+--------
 
 Unlike many computer languages, Python provides two operators for division: ``/`` and ``//``. To understand
 the difference between them, execute this example:
@@ -132,7 +162,7 @@ This is interesting! The result of dividing 8 by 2 is an integer (``4``). Howeve
 depending on which form of the division operator is used. Keep reading to explore this difference in more depth.
 
 Integer and Floating-Point Calculations
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+---------------------------------------
 
 Let's look at another example, this time with a different operator:
 
@@ -208,7 +238,7 @@ pointing this out to highlight the fact that the difference between integer and 
    round
 
 Rounding
-^^^^^^^^
+--------
 
 Recall that integer division operator drops the fractional portion of the result, and does not round. Suppose that you
 want the result *rounded* to the nearest integer instead. To do that, you must use the ``round`` function, like this:
@@ -221,7 +251,7 @@ want the result *rounded* to the nearest integer instead. To do that, you must u
 
 ``round`` is a function that rounds its argument to the nearest integer. A **function** performs a computation on a 
 value that you supply in parenthesis, called the **argument**. In this example, the argument is the value that results
-from the calculation ``8 / 3``. You could also supply a literal value as the argument to ``round```, like this:
+from the calculation ``8 / 3``. You could also supply a literal value as the argument to ``round``, like this:
 
 .. sourcecode:: python
 
@@ -243,11 +273,14 @@ provides many built-in functions that you can use in your programs to manipulate
 chapter, you will meet more built-in functions. 
 
 Key Terms
-^^^^^^^^^
+---------
 
-We've covered a lot of ground in this section! I suggest that you take a moment to review some of the key terms that
-have been introduced, including **operator**, **operand**, **expression**, **evaluate**, **function**, **argument**,
-**int**, and **float**. There's a short :ref:`glossary <fundamentals-glossary>` at the end of this chapter to aid your review.
+Did you take the advice I gave you at the beginning of this chapter about writing down definitions of key terms? If you
+haven't, I suggest taking a moment to do it now. These terms will be used a lot in the sections to come, and it is
+important that you solidify your understanding of those concepts now before going on. Don't just copy and paste the
+definitions into your notes; that will do very little to help you retain them. Write them in your own words. There's a short
+:ref:`glossary <fundamentals-glossary>` at the end of this chapter to aid your review.
+
 
 **Check your understanding**
 

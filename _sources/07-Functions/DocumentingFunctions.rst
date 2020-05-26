@@ -147,6 +147,35 @@ projects and organizations have developed useful standards.
 `This stackabuse post <https://stackabuse.com/python-docstrings/>`_ presents some helpful examples.
 Pick one that you like and use it for your own projects!
 
+How do Comments Help?
+---------------------
+
+Remember the issue we considered at the beginning of this section? We were looking at this line of
+code and trying to determine what it does::
+
+    transmogrify(alex, 8, True)
+
+Now, imagine the level of difficulty involved in answering that question in these three scenarios:
+
+1. **Scenario one: The transmogrify function has no comment at all.** 
+
+   We'll almost certainly have to read the body of the transmogrify function, think about the arguments
+   being passed to it by this particular line, and reason about what the function does.
+
+2. **Scenario two: The transmogrify function has a single brief docstring comment: """Draws a polygon"""** 
+
+   This is better than Scenario one (especially because the function is so poorly named), and in other situations, the
+   brief comment may be all we need, but here we'll almost certainly have to look at the body of the function to figure
+   out what the arguments are used for.
+
+3. **Scenario three: The transmogrify function has a detailed multi-line docstring comment** 
+
+   In this case, we probably won't need to look at the body of the function at all. Everything we need to know
+   about what the parameters mean is discussed in the docstring. 
+
+Good function comments **help the programmer to understand lines of code that call the function**.
+
+
 To Comment or Not to Comment
 ----------------------------
 
@@ -176,6 +205,7 @@ Most software professionals would agree that occasional comments inside function
 code, or individual lines that are particularly tricky. Whenever possible, it's better to write code that is
 straightforward and does not need a comment than to write complicated code that is hard to understand and then comment
 it.
+
 
 **Check your understanding**
 

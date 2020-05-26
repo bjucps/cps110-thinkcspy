@@ -9,11 +9,10 @@ Flow Control
    FlowofExecutionoftheforLoop.rst
    IterationSimplifiesourTurtleProgram.rst
    TherangeFunction.rst
-   SimpleTables.rst
    TheAccumulatorPattern.rst
-   ConditionalExecutionBinarySelection.rst
-   OmittingtheelseClauseUnarySelection.rst
+   TheifStatement.rst
    Nestedconditionals.rst
    Chainedconditionals.rst
+   DebuggingConditionalLogic.rst
    Glossary.rst
    Exercises.rst

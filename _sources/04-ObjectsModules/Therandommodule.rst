@@ -14,44 +14,47 @@
 The ``random`` module
 ---------------------
 
-We often want to use **random numbers** in programs.  Here are a few typical uses:
+We often want to use random numbers in programs. A **random number** is a number that the computer picks
+"at random," that is, one that we can't predict. Here are a few typical cases where we need the computer
+to be able to generate random numbers:
 
 * To play a game of chance where the computer needs to throw some dice, pick a
-  number, or flip a coin,
-* To shuffle a deck of playing cards randomly,
-* To randomly allow a new enemy spaceship to appear and shoot at you,
+  number, or flip a coin;
+* To shuffle a deck of playing cards randomly;
+* To randomly allow a new enemy spaceship to appear and shoot at you;
 * To simulate possible rainfall when we make a computerized model for
-  estimating the environmental impact of building a dam,
+  estimating the environmental impact of building a dam;
 * For encrypting your banking session on the Internet.
 
-Python provides a module ``random`` that helps with tasks like this. You can take a look at it in the documentation. 
-Here are the key things we can do with it.
+Python provides a module ``random`` that helps with tasks like this. Here is a program that demonstrates
+how to use it to pick random numbers.  
 
 .. activecode:: ac13_2_1
 
     import random
 
     prob = random.random()
-    print(prob)
+    print('Random number from 0..1:', prob)
 
     diceThrow = random.randrange(1,7)       # return an int, one of 1,2,3,4,5,6
-    print(diceThrow)
+    print('Random number from 1..6:', diceThrow)
 
-Press the run button a number of times.  Note that the values change each time. These are random numbers.
+Press the run button a number of times.  Note that the values change each time. These are randomly generated numbers.
 
+The two functions we're using in the random module are ``random`` and ``randrange``:
 
-The ``randrange`` function generates an integer between its lower and upper argument where the lower bound is included, but the upper bound is excluded. So, ``randrange(1,7)`` will include numbers from 1-6.  If you omit the first parameter it is assumed to be 0 so ``randrange(10)`` will give you numbers from 0-9.  All the values have an equal probability 
-of occurring (i.e. the results are *uniformly* distributed).
+* The ``randrange`` function generates an integer between its lower and upper argument where the lower bound is included, but the upper bound is excluded. So, ``randrange(1,7)`` will include numbers from 1-6.  If you omit the first parameter it is assumed to be 0 so ``randrange(10)`` will give you numbers from 0-9.  All the values have an equal probability 
+  of occurring (i.e. the results are *uniformly* distributed).
 
-The ``random()`` function returns a floating point number in the range [0.0, 1.0) --- the square bracket means "closed 
-interval on the left" and the round parenthesis means "open interval on the right".  In other words, 0.0 is possible, 
-but all returned numbers will be strictly less than 1.0.  It is usual to *scale* the results after calling this method, 
-to get them into a range suitable for your application.
-
-In the case shown below, we've converted the result of the method call to a number in the range [0.0, 5.0).  Once more, 
-these are uniformly distributed numbers --- numbers close to 0 are just as likely to occur as numbers close to 3, or 
-numbers close to 5. If you continue to press the run button you will see random values between 0.0 and up to but not 
-including 5.0.
+* The ``random()`` function returns a floating point number in the range [0.0, 1.0) --- the square bracket means "closed 
+  interval on the left" and the round parenthesis means "open interval on the right".  In other words, 0.0 is possible, 
+  but all returned numbers will be strictly less than 1.0.  It is usual to *scale* the results after calling this method, 
+  to get them into a range suitable for your application.
+  
+  In the case shown below, we've converted the result of the ``random`` method call to a number in the range [0.0, 5.0).  Once more, 
+  these are uniformly distributed numbers --- numbers close to 0 are just as likely to occur as numbers close to 3, or 
+  numbers close to 5. If you continue to press the run button you will see random values between 0.0 and up to but not 
+  including 5.0.
 
 
 .. activecode:: ac13_2_2

@@ -88,9 +88,8 @@ and the interpreter immediately shows the result.  The example below shows the P
 
 ::
 
-    $ python3
-    Python 3.2 (r32:88445, Mar 25 2011, 19:28:28)
-    [GCC 4.5.2] on linux2
+    $ python
+    Python 3.7.4 ... on win32
     Type "help", "copyright", "credits" or "license" for more information.
     >>> 2 + 3
     5
@@ -127,21 +126,20 @@ programs identify a file as containing python code.
     My first program adds two numbers, 2 and 3:
     5
 
-These examples show Python being run from a Windows command line. In other
-environments, the details of executing programs may differ. 
 
-.. admonition:: Want to learn more about Python?
+.. note::
 
-	If you would like to learn more about installing and using Python, here are some video links.
+   These examples show Python being run from a Windows command line. In other
+   environments such as MacOS and Linux, the details of executing programs may differ. 
+   For example, on a Mac or Linux, you must execute Python programs using the **python3**
+   command, like this::
 
-   TODO: Update Python install video links
+      python3 firstprogram.py
+      My first program adds two numbers, 2 and 3:
+      5
 
-	`Installing Python for Windows <http://youtu.be/9EfGpN1Pnsg>`__ shows you how to install the Python environment under
-	Windows Vista,
-	`Installing Python for Mac <http://youtu.be/MEmEJCLLI2k>`__ shows you how to install under Mac OS/X, and
-	`Installing Python for Linux <http://youtu.be/RLPYBxfAud4>`__ shows you how to install from the Linux
-	command line.
-	`Using Python <http://youtu.be/kXbpB5_ywDw>`__ shows you some details about the Python shell and source code.
+   In those environments, if you use the **python** command, you'll use version 2 of the
+   Python interpreter, which is the wrong version for programs you'll create in this class.
 
 **Check your understanding**
 

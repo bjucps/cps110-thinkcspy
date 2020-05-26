@@ -45,6 +45,7 @@ This flowchart shows the exact steps and logic of how the ``for`` statement exec
 A codelens demonstration is a good way to help you visualize exactly how the flow of control
 works with the for loop.  Try stepping forward and backward through the program by pressing
 the buttons.  You can see the value of ``name`` change as the loop iterates through the list of friends.
+(You may need to resize the output area to see all of it.)
 
 .. codelens:: vtest
 

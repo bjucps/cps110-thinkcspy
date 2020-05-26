@@ -32,23 +32,24 @@ definition** is a document that is composed of two main sections:
 2. The **standard library**, which defines additional built-in functions and classes that are available to use in
    programs written in that language.  
 
-To explain the difference between the language specification and the library, consider the following short program:
+To explain the difference between the language specification and the library, consider the following short program that computes
+the square root of a number and displays the result:
 
 .. sourcecode:: python
 
    import math
 
    x = math.sqrt(3)
-   print(x + 5)
+   print(x)
 
 The Python language specification defines rules of syntax that specify how you write assignment statements like ``x =
-math.sqrt(3)`` and function call statements like ``print(x + 5)``. It also defines certain built-in functions, like
+math.sqrt(3)`` and function call statements like ``print(x)``. It also defines certain built-in functions, like
 ``print``, ``len``, and ``input``. However, let's look at line 3. That line invokes a function named ``sqrt`` that is defined in the math
-section of the Python Standard Library. The Python Standard Library is a collection of function and class definitions
+section of the Python Standard Library. The Python Standard Library is a collection of additional function and class definitions
 that you can make use of when you write Python programs. In order to use the standard library, you must write ``import``
 statements, such as the example on line 1. More on that shortly.
 
-.. admonition: What's a function definition?
+.. admonition:: What's a function definition?
 
    If the notion of a function definition is a little fuzzy, that's because you haven't seen one yet. Later in this book there is a whole chapter
    devoted to defining your own functions. But to help add some concreteness to this discussion, let me give you a sneak peak and show you

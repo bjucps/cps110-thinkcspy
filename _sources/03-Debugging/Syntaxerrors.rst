@@ -63,7 +63,8 @@ Notice the following:
 
 An ``IndentationError`` is a special kind of syntax error that occurs when one of the statements in the program is
 slightly indented. Python requires you to align all statements at the left margin, unless you are using a flow control
-statement like a ``for`` or an ``if`` statement (coming up in the next chapter... stay tuned!).
+statement like a ``for`` or an ``if`` statement (coming up in the next chapter... stay tuned!). To see an ``IndentationError``,
+modify the program above by inserting a couple of spaces at the beginning of one of the lines.
 
 
 **Check your understanding**

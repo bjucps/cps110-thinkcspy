@@ -15,7 +15,7 @@
 
 
 Logic Errors
-------------
+============
 
 The third type of error is the **logic error** (also known as a **semantic error**). If there is a logic error in your
 program, it will run successfully in the sense that the program will not crash with an error message.  However, your
@@ -46,9 +46,17 @@ of input. Then, you run the program with that input data and compare the output 
 there is a discrepancy between the actual output and the expected output, you can conclude that there is either 1) a
 logic error or 2) an error in your expected results.
 
-Therefore, detecting logic errors requires that you create test cases. A **test case** is a set of input values for the
-program, together with the output that you expect the program should produce when it is run with those particular
-inputs. Here is an example of a test case for the program above::
+Test Cases
+----------
+
+To detect a logic error in your program, you need the help of something called a test case. 
+
+.. admonition:: Test Case
+
+   A **test case** is a set of input values for the program, together with the output that you expect the program should produce when it is run with those particular
+   inputs. 
+
+Here is an example of a test case for the program above::
 
    Test Case
    ---------

@@ -53,9 +53,9 @@ You might like to have some fun and see if you can find a small starting
 number that needs more than a hundred steps before it terminates.
 
 
-.. admonition:: Lab
+.. admonition:: Optional Lab
 
-    * `Experimenting with the 3n+1 Sequence <../Labs/sequencelab.html>`_ In this guided lab exercise we will try to learn more about this sequence.
+    * `Experimenting with the 3n+1 Sequence <../Labs/sequencelab.html>`_ In this optional guided lab exercise we will try to learn more about this sequence.
 
 
 Particular values aside, the interesting question is whether we can prove that

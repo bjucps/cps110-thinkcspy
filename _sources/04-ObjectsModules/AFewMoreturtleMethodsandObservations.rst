@@ -30,7 +30,7 @@ Here are a few more things that you might find useful as you write programs that
 
   Part of *thinking like a scientist* is to understand more of the structure
   and rich relationships in your field.  So reviewing a few basic facts about
-  geometry and number lines, like we've done here is a good start if we're
+  geometry and number lines like we've done here is a good start if we're
   going to play with turtles.
 
 * A turtle's pen can be picked up or put down.  This allows us to move a turtle
@@ -45,17 +45,13 @@ Here are a few more things that you might find useful as you write programs that
 
 * Every turtle can have its own shape.  The ones available "out of the box"
   are ``arrow``, ``blank``, ``circle``, ``classic``, ``square``, ``triangle``,
-  ``turtle``.
+  ``turtle``. Here's how we could change the turtle's shape to a turtle::
 
-  .. sourcecode:: python
-
-     ...
      alex.shape("turtle")
-     ...
 
 
 * You can speed up or slow down the turtle's animation speed. (Animation
-  controls how quickly the turtle turns and moves forward).  Speed settings can
+  controls how quickly the turtle turns and moves forward.)  Speed settings can
   be set between 1 (slowest) to 10 (fastest).  But if you set the speed to 0,
   it has a special meaning --- turn off animation and go as fast as possible.
 

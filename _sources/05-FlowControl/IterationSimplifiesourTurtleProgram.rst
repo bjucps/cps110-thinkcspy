@@ -76,15 +76,6 @@ of the computation.
 
 In this case, the value of ``aColor`` is used to change the color attribute of ``alex``.  Each iteration causes ``aColor`` to change to the next value in the list.
 
-The for-loop is our first example of a **compound statement**.  
-Syntactically a compound statement is a statement. 
-The level of indentation of
-a (whole) compound statement is the indentation of its heading.  
-In the example above there are five statements with the same
-indentation, executed sequentially: the import, 2 assignments, the *whole* for-loop, 
-and ``wn.exitonclick()``.  The for-loop compound statement is executed completely before
-going on to the next sequential statement, ``wn.exitonclick()``.
-
 
 **Mixed up program**
 

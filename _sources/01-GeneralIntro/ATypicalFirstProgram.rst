@@ -48,7 +48,7 @@ Another Short Example
 Here's another brief program that adds two numbers together. Try executing it
 to see what it does:
 
-.. sourcecode:: python
+.. activecode:: ch01_2_2
 
     print("My first program adds two numbers, 2 and 3:")
     print(2 + 3)
@@ -57,7 +57,7 @@ This program displays the sum of the numbers 2 and 3. When you run the program, 
 order, one at a time. 
 
 Notice that the first print statement has double quotes inside the parenthesis, but the second print statement
-does not. Try putting quotes into the second print statement inside the parenthesis, just like the first
+does not. See what happens if you put quotes into the second print statement inside the parenthesis, just like the first
 print statement. Before you run the program, see if you can predict what output will appear.
 
 We'll discuss the role of quote marks in more detail in the next chapter. For now, it's enough to note

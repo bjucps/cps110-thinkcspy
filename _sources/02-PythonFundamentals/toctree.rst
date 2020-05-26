@@ -10,7 +10,7 @@ blocks of Python.
 .. toctree::
    :maxdepth: 2
 
-   MeettheInterpreter.rst
+   PythonMath.rst
    ValuesandDataTypes.rst
    Variables.rst
    Reassignment.rst

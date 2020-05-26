@@ -14,23 +14,9 @@
 Order of Operations
 -------------------
 
-.. youtube:: Ezve3QJv6Aw
-    :divid: precedencevid
-    :height: 315
-    :width: 560
-    :align: center
-
-
-
 When more than one operator appears in an expression, the order of evaluation
 depends on the **rules of precedence**. Python follows the same precedence
 rules for its mathematical operators that mathematics does.
-
-
-
-
-.. The acronym PEMDAS
-.. is a useful way to remember the order of operations:
 
 #. Parentheses have the highest precedence and can be used to force an
    expression to evaluate in the order you want. Since expressions in

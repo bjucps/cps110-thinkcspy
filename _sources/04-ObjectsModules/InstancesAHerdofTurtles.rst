@@ -60,20 +60,6 @@ Here is a program that creates two Turtle instances: one named ``tess``, and ano
 
    wn.exitonclick()
 
-.. note::
-
-   This program uses a slightly different notation for the import statement and the object
-   creation::
-
-      import turtle
-      wn = turtle.Screen() 
-      tess = turtle.Turtle() 
-
-   We're still creating Screen and Turtle objects, but using a form of the import
-   statement, which requires that we *qualify* the class name by writing ``turtle.Screen``
-   and ``turtle.Turtle`` instead of using the class names directly. This is the form that
-   is more common in this book.
-
 This program is interesting because it involves interacting with two instances of the same
 class. Look at the following two lines, and think about the difference between them::
 

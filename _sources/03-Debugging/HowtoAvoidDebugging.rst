@@ -170,7 +170,8 @@ range 0..23? See if you can adjust the program to work properly for both of the 
 
     .. tab:: Question
 
-        Complete the statement below to compute the correct result for both test cases.
+        Complete the statement below to compute the correct result for both test cases. After you think you've
+        solved it correctly, check it by running it for both of the test cases above.
 
         .. activecode:: avoid_debug_1_src
 

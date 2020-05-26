@@ -24,7 +24,7 @@ drawing as you go), and ``left`` and ``right``, which cause you to rotate left o
 without moving or drawing. That is the metaphor that the Python designers had in mind when
 they created the turtle drawing commands.
 
-Here's a sample program that uses the turtle drawing commands to command the virtual turtle draw a rectangle:
+Here's a sample program that uses the turtle drawing commands to command the virtual turtle to draw a rectangle:
 
 .. activecode:: intro-turtle
     :nocodelens:
@@ -44,7 +44,7 @@ Here's a brief explanation of the program:
 1. On Line 1, the ``import turtle`` command allows us to begin using the
    Python turtle. Without this line, we wouldn't be able to draw with the turtle.
 
-2. Line 2 causes the turtle to move forward by 150 unites.
+2. Line 2 causes the turtle to move forward by 150 units.
 
 3. Line 3 causes the turtle to rotate left in place 90 degrees.
 

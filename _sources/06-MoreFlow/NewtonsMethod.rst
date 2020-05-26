@@ -62,7 +62,7 @@ enough to the previous one, we can write a function for computing the square roo
 
 This implementation uses a ``while`` condition to execute until the approximation is no longer changing.  Each time
 through the loop we compute a "better" approximation using the formula described earlier.  As long as the "better" is
-different, we try again.  Step through the program using **Show in CodeLens** and watch the approximations get closer and closer.
+different, we try again.  Step through the program using **Show CodeLens** and watch the approximations get closer and closer.
 
 .. activecode:: chp07_newtonswhile
 
@@ -77,9 +77,9 @@ different, we try again.  Step through the program using **Show in CodeLens** an
 
 .. note::
 
-	The ``while`` statement shown above uses comparison of two floating point numbers in the condition.  Since floating point numbers are themselves approximation of real numbers in mathematics, it is often
-	better to compare for a result that is within some small threshold of the value you are looking for, using a comparison like this::
-    
+    The ``while`` statement shown above uses comparison of two floating point numbers in the condition.  Since floating point numbers are themselves approximation of real numbers in mathematics, it is often
+    better to compare for a result that is within some small threshold of the value you are looking for, using a comparison like this::
+
         while abs(better - approx) < .001
 
     where ``.001`` is the threshhold.

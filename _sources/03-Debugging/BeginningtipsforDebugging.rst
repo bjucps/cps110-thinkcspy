@@ -11,7 +11,7 @@
    :prefix: debug-3-
    :start: 1
 
-Beginning tips for Debugging
+Beginning Tips for Debugging
 ----------------------------
 
 Debugging a program is a different way of thinking than writing a program.  The process of debugging is much more like being a detective.  Here are a few rules to get you thinking about debugging.

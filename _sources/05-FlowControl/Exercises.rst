@@ -10,72 +10,49 @@
 Exercises
 ---------
 
-.. question:: pymod_ex_1
+#.
 
-   .. tabbed:: q1
-
-        .. tab:: Question
-
-           .. actex:: ex_mod_1
-
-              Use a ``for`` statement to print 10 random numbers.
-              ~~~~
-
-        .. tab:: Answer
-
-            .. activecode:: mod_q1_answer
-
-               import random
-
-               howmany = 10
-               for counter in range(howmany):
-                   arandom = random.random()
-                   print(arandom)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: mods_111
-
-.. question:: pymod_ex_2
-
-   .. actex:: ex_mod_2
-
-      Repeat the above exercise but this time print 10 random numbers between 25 and 35, inclusive.
-      ~~~~
-
-.. question:: pymod_ex_3
-
-   .. tabbed:: q3
+    .. tabbed:: q1
 
         .. tab:: Question
 
-           .. actex:: ex_mod_3
+            .. actex:: ac7_14_1
 
-              The **Pythagorean Theorem** tells us that the length of the hypotenuse of a right triangle is related to the lengths of the other two sides.  Look through the ``math`` module and see if you can find a function that will compute this relationship for you.  Once you find it, write a short program to try it out.
-              ~~~~
-
+               Write code that asks the user to enter a numeric score (0-100). In response, it should print out the score and corresponding letter grade, according to the table below.
+        
+               .. table::
+        
+                  =======   =====
+                  Score     Grade
+                  =======   =====
+                  >= 90     A
+                  [80-90)   B
+                  [70-80)   C
+                  [60-70)   D
+                  < 60      F
+                  =======   =====
+        
+               The square and round brackets denote closed and open intervals.
+               A closed interval includes the number, and open interval excludes it. So 79.99999 gets grade C , but 80 gets grade B.
+               ~~~~
+           
         .. tab:: Answer
 
-            .. activecode:: mod_q3_answer
-
-               import math
-
-               side1 = 3
-               side2 = 4
-               hypotenuse = math.hypot(side1,side2)
-               print(hypotenuse)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: mods_333
-
-.. question:: pymod_ex_4
-
-   .. actex:: ex_mod_4
-
-      Search on the internet for a way to calculate an approximation for **pi**.  There are many that use simple arithmetic.  Write a program to compute the approximation and then print that value as well as the value of ``math.pi`` from the math module.
-      ~~~~
+            .. activecode:: ans7_14_1
+            
+               sc = input("Enter a score from 0 to 100 (decimal points are allowed)")
+               fl_sc = float(sc)
+               
+               if fl_sc < 60:
+                   gr = "F"
+               elif fl_sc < 70:
+                   gr = "D"
+               elif fl_sc < 80:
+                   gr = "C"
+               elif fl_sc < 90:
+                   gr = "B"
+               else:
+                   gr = "A"
+               
+               print("Score", fl_sc, "gets a grade of", gr)
+                 

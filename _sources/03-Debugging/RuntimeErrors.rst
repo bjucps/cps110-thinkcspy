@@ -71,7 +71,9 @@ similar to the following::
 A ``ValueError`` occurs when the value of a variable has the correct data type, but is outside of the legal set of values
 required by the operation. In this situation, the ``float`` function is attempting to convert string data to a float.
 The data type (``str``) is correct, but the value of that data (``abc``) is not a sequence of symbols that can be converted
-to a float.
+to a float. For now, there's nothing you can do to prevent a ``ValueError`` from occurring when the user enters
+non-numeric input. Later, we'll cover **exception handling** techniques that will permit your programs to recover gracefully
+in these situations.
 
 Notice the following important differences between syntax errors and runtime errors that can help you as you try to diagnose
 and repair the problem:

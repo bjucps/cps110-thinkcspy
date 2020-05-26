@@ -14,5 +14,4 @@ General Introduction
    Comments.rst
    MeettheTurtle.rst
    Glossary.rst
-   Exercises.rst
    

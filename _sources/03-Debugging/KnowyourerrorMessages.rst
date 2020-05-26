@@ -96,7 +96,7 @@ Syntax errors happen when you make an error in the syntax of your program.  Synt
 
 Usually SyntaxErrors can be traced back to missing punctuation characters, such as parentheses, quotation marks, or commas. Remember that in Python commas are used to separate parameters to functions.  Paretheses must be balanced, or else Python thinks that you are trying to include everything that follows as a parameter to some function.
 
-Here are a couple examples of syntax errors in the example program we have been using.  See if you can figure out what caused them.
+The following program introduces a couple of syntax errors into the example program we have been using. Run the program, note the errors, and fix them.
 
 .. tabbed:: db_tabs1
 
@@ -110,7 +110,7 @@ Here are a couple examples of syntax errors in the example program we have been 
            wait_time_str = input("How many hours do you want to wait"
 
            current_time_int = int(current_time_str)
-           wait_time_int = int(wait_time_str)
+            wait_time_int = int(wait_time_str)
 
            final_time_int = current_time_int + wait_time_int
            print(final_time_int)
@@ -119,16 +119,21 @@ Here are a couple examples of syntax errors in the example program we have been 
 
         .. sourcecode:: python
 
-           current_time_str = input("What is the current time (in hours 0-23)?")
-           wait_time_str = input("How many hours do you want to wait"
+           1 current_time_str = input("What is the current time (in hours 0-23)?")
+           2 wait_time_str = input("How many hours do you want to wait"
 
-           current_time_int = int(current_time_str)
-           wait_time_int = int(wait_time_str)
+           4 current_time_int = int(current_time_str)
+           5  wait_time_int = int(wait_time_str)
 
-           final_time_int = current_time_int + wait_time_int
-           print(final_time_int)
+           7 final_time_int = current_time_int + wait_time_int
+           8 print(final_time_int)
 
-        Since the error message points us to line 4 this might be a bit confusing.  If you look at line 4 carefully you will see that there is no problem with the syntax.  So, in this case the next step should be to back up and look at the previous line.  In this case if you look at line 2 carefully you will see that there is a missing right parenthesis at the end of the line.  Remember that parenthses must be balanced.  Since Python allows statements to continue over multiple lines inside parentheses python will continue to scan subsequent lines looking for the balancing right parenthesis.  However in this case it finds the name ``current_time_int`` and it will want to interpret that as another parameter to the input function.  But, there is not a comma to separate the previous string from the variable so as far as Python is concerned the error here is a missing comma.  From your perspective its a missing parenthesis.
+        The original error message pointed to line 4. If you look at line 4 carefully you will see that there is no
+        problem with the syntax.  So, in this case the next step should be to back up and look at the previous line.  In
+        this case if you look at line 2 carefully you will see that there is a missing right parenthesis at the end of
+        the line.
+
+        The other problem is an indentation error on line 5.
 
 **Finding Clues**  How can you help yourself find these problems?  One trick that can be very valuable in this situation is to simply start by commenting out the line number that is flagged as having the error.  If you comment out line 4, the error message now changes to point to line 5.  Now you ask yourself, am I really that bad that I have two lines in a row that have errors on them?  Maybe, so taken to the extreme, you could comment out all of the remaining lines in the program. Now the error message changes to ``TokenError: EOF in multi-line statement``  This is a very technical way of saying that Python got to the end of file (EOF) while it was still looking for something.  (In this case a right parenthesis.)
 
@@ -176,27 +181,25 @@ TypeError
 
 TypeErrors occur when you you try to combine two objects that are not compatible.  For example you try to add together an integer and a string.  Usually type errors can be isolated to lines that are using mathematical operators, and usually the line number given by the error message is an accurate indication of the line.
 
-Here's an example of a type error created by a Polish learner.  See if you can find and fix the error.
+.. tabbed:: db_tabs3
 
-.. activecode:: db_ex3_8
+    .. tab:: Question
 
-    a = input('wpisz godzine')
-    x = input('wpisz liczbe godzin')
-    int(x)
-    int(a)
-    h = x // 24
-    s = x % 24
-    print (h, s)
-    a = a + s
-    print ('godzina teraz', a) 
+        Here's an example of a type error created by a Polish learner.  See if you can find and fix the error.
 
+        .. activecode:: db_ex3_8
 
+            a = input('wpisz godzine')
+            x = input('wpisz liczbe godzin')
+            int(x)
+            int(a)
+            h = x // 24
+            s = x % 24
+            print (h, s)
+            a = a + s
+            print ('godzina teraz', a) 
 
-.. reveal:: dbex38_rev
-    :showtitle: Show me the Solution
-    :hidetitle: Hide
-
-    .. admonition:: Solution
+    .. tab:: Solution
 
         In finding this error there are few lessons to think about.  First, you may find it very disconcerting that you cannot understand the whole program.  Unless you speak Polish then this won't be an issue.  But, learning what you can ignore, and what you need to focus on is a very important part of the debugging process.  Second, types and good variable names are important and can be very helpful.  In this case a and x are not particularly helpful names, and in particular they do not help you think about the types of your variables, which as the error message implies is the root of the problem here.  The rest of the lessons we will get back to in a minute.
 
@@ -217,20 +220,21 @@ NameError
 
 Name errors almost always mean that you have used a variable before it has a value.  Often NameErrors are simply caused by typos in your code.  They can be hard to spot if you don't have a good eye for catching spelling mistakes.  Other times you may simply mis-remember the name of a variable or even a function you want to call.    You have seen one example of a NameError at the beginning of this section.  Here is another one.  See if you can get this program to run successfully:
 
-.. activecode:: db_ex3_9
+.. tabbed:: db_tabs4
 
-    str_time = input("What time is it now?")
-    str_wait_time = input("What is the number of nours to wait?")
-    time = int(str_time)
-    wai_time = int(str_wait_time)
+    .. tab:: Question
 
-    time_when_alarm_go_off = time + wait_time
-    print(time_when_alarm_go_off)
+        .. activecode:: db_ex3_9
 
-.. reveal:: db_ex39_reveal
-    :showtitle: Show me the Solution
+            str_time = input("What time is it now?")
+            str_wait_time = input("What is the number of nours to wait?")
+            time = int(str_time)
+            wai_time = int(str_wait_time)
 
-    .. admonition:: Solution
+            time_when_alarm_go_off = time + wait_time
+            print(time_when_alarm_go_off)
+
+    .. tab:: Solution
 
         In this example, the student seems to be a fairly bad speller, as there are a number of typos to fix.  The first one is identified as wait_time is not defined on line 6.  Now in this example you can see that there is ``str_wait_time`` on line 2, and  ``wai_time`` on line 4 and ``wait_time`` on line 6.   If you do not have very sharp eyes its easy to miss that there is a typo on line 4.
 
@@ -243,38 +247,41 @@ Name errors almost always mean that you have used a variable before it has a val
 
 Here is another one for you to try:
 
-.. activecode:: db_ex3_10
+.. tabbed:: db_tabs5
 
-    n = input("What time is it now (in hours)?")
-    n = imt(n)
-    m = input("How many hours do you want to wait?")
-    m = int(m)
-    q = m % 12
-    print("The time is now", q)
+    .. tab:: Question
 
+        .. activecode:: db_ex3_10
 
-.. reveal:: db_ex310_reveal
-    :showtitle:  Show me the Solution
+            n = input("What time is it now (in hours)?")
+            n = imt(n)
+            m = input("How many hours do you want to wait?")
+            m = int(m)
+            q = m % 12
+            print("The time is now", q)
 
-    .. admonition:: Solution    
+    .. tab:: Solution
 
         This one is once again a typo, but the typo is not in a variable name, but rather, the name of a function.  The search strategy would help you with this one easily, but there is another clue for you as well.  The editor in the textbook, as well as almost all Python editors in the world provide you with color clues.  Notice that on line 2 the function ``imt`` is not highlighted blue like the word ``int`` on line 4.
 
 
 And one last bit of code to fix.
 
-.. activecode:: db_ex3_11
+.. tabbed:: db_tabs6
 
-    present_time = input("Enter the present timein hours:")
-    set_alarm = input("Set the hours for alarm:")
-    int (present_time, set_time, alarm_time)
-    alarm_time = present_time + set_alarm
-    print(alarm_time)
+    .. tab:: Question
 
-.. reveal:: db_ex311_reveal
-    :showtitle: Show me the Solution
 
-    .. admonition:: Solution
+
+        .. activecode:: db_ex3_11
+
+            present_time = input("Enter the present timein hours:")
+            set_alarm = input("Set the hours for alarm:")
+            int (present_time, set_time, alarm_time)
+            alarm_time = present_time + set_alarm
+            print(alarm_time)
+
+    .. tab:: Solution
 
         In this example the error message is about ``set_time`` not defined on line 3.  In this case the undefined name is not used in an assignment statement, but is used as a parameter (incorrectly) to a function call.   A search on ``set_time`` reveals that in fact it is only used once in the program.  Did the author mean ``set_alarm``?  If we make that assumption we immediately get another error ``NameError: name 'alarm_time' is not defined on line: 3``.  The variable ``alarm_time`` is defined on line 4, but that does not help us on line 3.  Furthermore we now have to ask the question is this function call ``int(present_time, set_alarm, alarm_time)`` even the correct use of the ``int`` function?  The answer to that is a resounding no.  Let's list all of the things wrong with line 3:
 
@@ -282,19 +289,6 @@ And one last bit of code to fix.
         2.  ``alarm_time`` cannot be used as a parameter before it is defined, even on the next line!
         3.  ``int`` can only convert one string to an integer at a time.
         4.  Finally, ``int`` should be used in an assignment statement.  Even if ``int`` was called with the correct number of parameters it would have no real effect.
-
-
-.. advanced topic!
-
-.. present_time = int(input("Enter the present time(hhmm):"))
-.. print type(present_time)
-
-.. min = _ * 60 
-.. tot_min = min + [2, 4]
-.. print(tot_min)
-.. set_hrs = int(input("Enter the hours (hhmm):"))
-.. alarm_time = present_time + set_hrs
-.. print(alarm_time)
 
 
 ValueError

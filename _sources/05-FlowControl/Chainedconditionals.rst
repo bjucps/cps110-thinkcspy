@@ -16,7 +16,7 @@
    single: conditional; chained
 
 Chained conditionals
---------------------
+====================
 
 Python provides an alternative way to write nested selection such as the one shown in the previous section.
 This is sometimes referred to as a **chained
@@ -58,7 +58,6 @@ Here is the same program using ``elif``.
         print("x is greater than y")
     else:
         print("x and y must be equal")
-
 
 **Check your understanding**
 

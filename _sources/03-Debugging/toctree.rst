@@ -13,5 +13,6 @@ Debugging
    HowtoAvoidDebugging.rst
    BeginningtipsforDebugging.rst
    KnowyourerrorMessages.rst
+   DebuggingwithPrintStatements.rst
    Summary.rst
    Exercises.rst

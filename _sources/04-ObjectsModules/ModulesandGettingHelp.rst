@@ -32,12 +32,12 @@ and a
 installation instructions, how-tos, and frequently asked questions.  We
 encourage you to become familiar with this site and to use it often.
 
-If you have not done so already, take a look at the Global Module Index.  Here
+If you have not done so already, take a look at the Global Module Index using the link above.  Here
 you will see an alphabetical listing of all the modules that are available as
 part of the standard library.  
 
-Importing Modules
------------------
+Using Modules
+-------------
 
 In order to use the functions and classes in Python modules, you have to **import** them into a Python program. That
 happens with an import statement like this::

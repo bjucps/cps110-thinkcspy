@@ -20,25 +20,47 @@ or encoding a video and streaming it across the network.  It can also be a
 symbolic computation, such as searching for and replacing text in a document or
 (strangely enough) compiling a program.
 
-The details look different in different languages, but a few basic instructions
-appear in just about every language.
+The details look different in different languages, but every language has instructions to obtain
+input from the user, display output, perform mathematical and logical calculations, and 
+control the flow of execution of the instructions in a program. The next few chapters 
+will work through the details of these instructions in Python, but here's a sneak peek
+to give you an idea of what to expect:
 
-input
-    Get data from the keyboard, a file, or some other device.
+input instructions
+    Get data from the keyboard, a file, or some other device. Here's an input
+    instruction in the Python language::
 
-output
-    Display data on the screen or send data to a file or other device.
+        name = input('What is your name?')
 
-math and logic
+output instructions
+    Display data on the screen or send data to a file or other device. In Python,
+    the **print** command is used to display information on the screen::
+
+        print("Hello, world!")
+
+math and logic instructions
     Perform basic mathematical operations like addition and multiplication
-    and logical operations like ``and``, ``or``, and ``not``.
+    and logical operations like ``and``, ``or``, and ``not``. Here's an
+    example in Python that computes the area of a circle::
+
+        area = (radius * radius) * 3.1415
 
 conditional execution
     Check for certain conditions and execute the appropriate sequence of
-    statements.
+    statements. Python uses an ``if`` statement to perform conditional
+    execution::
+
+        if name == "George":
+            print("Hello, George!")
+        else:
+            print("I don't know you.")
 
 repetition
-    Perform some action repeatedly, usually with some variation.
+    Perform some action repeatedly, usually with some variation. Here is
+    an example of a fragment of Python that greets George 5 times::
+
+        for _ in range(5):
+            print("Hello, George!")
 
 Believe it or not, that's pretty much all there is to it. Every program you've
 ever used, no matter how complicated, is made up of instructions that look more
@@ -46,9 +68,6 @@ or less like these. Thus, we can describe programming as the process of
 breaking a large, complex task into smaller and smaller subtasks until the
 subtasks are simple enough to be performed with sequences of these basic
 instructions.
-
-.. That may be a little vague, but we will come back to this topic later when we
-.. talk about **algorithms**.
 
 **Check your understanding**
 

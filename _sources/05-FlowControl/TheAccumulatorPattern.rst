@@ -61,7 +61,7 @@ Once inside the iteration, it is required that you update the accumulator.
     What would happen if we put the assignment ``runningTotal = 0`` inside
     the for statement?  Not sure? Try it and find out.
 
-Click on **Show in CodeLens** above and step through the program to watch the "running total" accumulate the result.
+Click on **Show CodeLens** above and step through the program to watch the "running total" accumulate the result.
 
 
 The General Accumulator Pattern
@@ -123,7 +123,7 @@ The Accumulator Pattern with Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The accumulator pattern can be used with strings as well as numbers. Take a look at the following example, which creates
-a line of asterisks. Use the **Show in CodeLens** feature to watch the line built by the loop.
+a line of asterisks. Use the **Show CodeLens** feature to watch the line built by the loop.
 
 .. activecode:: ch04_accum3
 

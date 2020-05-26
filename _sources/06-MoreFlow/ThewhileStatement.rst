@@ -33,7 +33,7 @@ Here's a program that counts down from 10 to 1 using a ``while`` statement:
         print(num, '...')
         num = num - 1
 
-To understand this, use **Show in CodeLens** to step through the code and watch the flow of control.
+To understand this, use **Show CodeLens** to step through the code and watch the flow of control.
 
 The following figure shows the flow of control.
 

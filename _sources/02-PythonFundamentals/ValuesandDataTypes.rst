@@ -19,7 +19,9 @@
 .. _values-and-types:
 
 Values and Data Types
----------------------
+=====================
+
+**Key Terms: bool, class, concatenation, data type, object, str, type, value**
 
 Computers exist to process information. The earliest computers were created to perform numerical calculations, and many
 early users thought of computers primarily in terms of their usefulness as fast number crunchers. But, in a somewhat
@@ -33,19 +35,28 @@ like a word or a number --- that a program manipulates. We often refer to values
 words *value* and *object* interchangeably.
 
 Just as computers expose information to users in different forms, individual values are classified into different
-**classes**, or **data types**.  A **data type** (or **type**, or **class**) is a category of values. (This is a key
-definition, so take a moment to note it.)
+**classes**, or **data types**.  
 
-In the previous section, you encountered two classes of data: ``int`` and ``float``. Examples of values in the ``int``
-class include ``2``, ``-53``, and ``0``. Examples of values in the ``float`` class include ``2.0``, ``-13.5``, and
-``0.0``. Note that although ``2`` and ``2.0`` are mathematically equivalent values, they are members of different data
-types in Python, and are stored and processed differently (as you saw with regard to precision).
+.. admonition:: Data Type
+
+    A **data type** (or **type**, or **class**) is a category, or set, of values.
+
+    The terms *data type*, *type*, and *class* are all synonymous in Python, and we will use them interchangeably in this
+    book. 
+
+For example, the values ``2``, ``-53``, and ``0`` are all members of the set of values of the ``int`` type you encountered
+in the previous section. The values ``2.0``, ``-13.5``, and ``0.0`` belong to the ``float`` type. 
+
+.. note::
+
+    Although ``2`` and ``2.0`` are mathematically equivalent values, they are members of different data
+    types in Python, and are stored and processed differently (as you saw in the previous section, with regard to precision).
 
 So far, you've seen only numeric data. But as observed above, computers these days are often used more to process
 textual information than numeric. It's time for you to see how Python interacts with textual information.
 
 The ``str`` data type
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 In chapter one, you saw an example of a simple "Hello, world" program. Here it is again:
 
@@ -56,16 +67,16 @@ In chapter one, you saw an example of a simple "Hello, world" program. Here it i
 
 This program displays a brief message on the screen. The message is textual, not numeric. Although it consists of
 two words, plus some punctuation, to the computer the message is a *single value*. The value "Hello, world!" is a
-string value; that is, it is a member of the ``str`` data type. A **string** is a sequence of zero or more characters
+string value; that is, it is a member of the ``str`` data type. A **string** is a sequence ("string") of zero or more characters
 (letters, digits, spaces, punctuation, and other symbols). 
 
-When you write string values, you must enclose them in quotes (either single or double quotes works). Try removing the quotes
-from the print statement above and see what happens when you run it.
+When you write string values, you must enclose them in quotes (either single or double quotes works). Omitting the quotes
+usually results in an error. Try removing the quotes from the print statement above and see what happens when you run it.
 
 Just as you can use strings in print commands, you can experiment with strings in the Python shell. Why don't you fire up
 the Python shell and follow along as we explore what you can do with strings.
 
-First, experiment with entering simple numeric and string values into the shell:
+First, experiment with entering simple numeric and string values into the Python shell you started earlier:
 
 .. sourcecode:: python
 
@@ -124,7 +135,7 @@ function cannot operate on ``int`` data, and an error occurred when we tried to 
 ``53``. More on this in a moment.
 
 Concatenating Strings
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 Try this out in your shell:
 
@@ -145,31 +156,40 @@ String concatenation is an extremely useful operation, although you can't tell i
 it in the next section.
 
 More on String Quoting
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Strings in Python can be enclosed in either single quotes (``'``) or double
 quotes (``"`` - the double quote character), or three of the same separate quote characters (``'''`` or ``"""``).
-The triple quotes are especially helpful when you need to include quotations inside the string. Triple quotes
-also allow you to write a message that spans several lines. 
-
-.. activecode:: ch02_4
-    :nocanvas:
-
-    print('This is a string.') 
-    print("And so is this.") 
-    print('''He said, "She yelled, 'Gezundheit!'"''') 
-    print("""This message will span
-    several lines
-    of the text.""")
 
 Python doesn't care whether you use single or double quotes or the
 three-of-a-kind quotes to surround your strings.  Once it has parsed the text of
 your program or command, the way it stores the value is identical in all cases,
 and the surrounding quotes are not part of the value.
 
+.. admonition:: Tip on String Quoting
+
+    If you want your string to *contain* quote marks, you have to be careful about the quotes you use on the *outside* of
+    the string. For example, if you want your string to contain double quotes, you must surround the string with single
+    quotes, like this::
+
+        print('He said, "Hello!"')
+
+    That's where the triple quotes come in helpful. When you surround the string with triple quotes, you can use 
+    either type of quote (or both kinds) inside the string. Triple quotes also allow you to
+    write a message that spans several lines. Check out the example below to see what I mean.
+
+    .. activecode:: ch02_4
+        :nocanvas:
+
+        print('This is a string.') 
+        print("And so is this.") 
+        print('''He said, "She yelled, 'Gezundheit!'"''') 
+        print("""This message will span
+        several lines
+        of the text.""")
 
 The type function
-^^^^^^^^^^^^^^^^^
+-----------------
 
 At the beginning of this section, we introduced the concept of a data type. Understanding the concept of a data type is
 important because programs perform work by manipulating data values, and the operations that a program can perform on a
@@ -194,7 +214,7 @@ If you are not sure what class a value falls into, Python has a function called 
     >>>
 
 The ``bool`` data type
-^^^^^^^^^^^^^^^^^^^^^^
+----------------------
 
 Next, let's briefly discuss the concept of boolean data. At their most basic level, computers are
 devices that manipulate data encoded in sequences of bits. A bit is a binary digit: a 1 or a 0. Those two numbers can
@@ -216,7 +236,7 @@ We won't use boolean values much in the first few chapters of the book. They wil
 but I wanted you to meet them here.
 
 Summary of Data Types
-^^^^^^^^^^^^^^^^^^^^^
+---------------------
 
 We've met Python's basic data types in this section. For reference, here they are:
 
@@ -254,4 +274,22 @@ Data Type Example Values
    :feedback_c: It's not a number...
 
    What is the data type of the value ``True``?
+
+.. mchoice:: test_question2_1_3
+   :practice: T
+   :answer_a: print("What on earth!" she exclaimed.)
+   :answer_b: print(""What on earth!" she exclaimed.")
+   :answer_c: print(""""What on earth!" she exclaimed.""")
+   :answer_d: print('"What on earth!" she exclaimed.')
+   :correct: c,d
+   :feedback_a: Incorrect. Illegal syntax.
+   :feedback_b: Incorrect. A string surrounded by double quotes cannot contain double quotes.
+   :feedback_c: Correct. A string surrounded by triple double quotes can contain either type of quote.
+   :feedback_d: Correct. A string surrounded by single quotes can contain double quotes.
+
+   Which of these will display the following message correctly?
+
+   ::
+
+        "What on earth!" she exclaimed.
 

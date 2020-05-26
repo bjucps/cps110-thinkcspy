@@ -10,8 +10,8 @@ Functions
    Functionscancallotherfunctions.rst   
    FlowofExecutionSummary.rst
    DocumentingFunctions.rst
-   WhyCreateFunctions.rst
    TypeAnnotations.rst
+   Refactoring.rst
    mainfunction.rst
    Composition.rst
    ATurtleBarChart.rst
