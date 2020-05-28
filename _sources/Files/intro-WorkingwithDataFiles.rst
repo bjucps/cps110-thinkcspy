@@ -8,17 +8,33 @@
     License".
 
 .. qnum::
-   :prefix: file-1-
+   :prefix: files-1-
    :start: 1
 
-Working with Data Files
-=======================
+Introduction: Working with Data Files
+=====================================
 
-So far, the data we have used in this book have all been either coded right into the program, or have been entered by the user.  In real life data reside in files.  For example the images we worked with in the image processing unit ultimately live in files on your hard drive.  Web pages, and word processing documents, and music are other examples of data that live in files.  In this short chapter we will introduce the Python concepts necessary to use data from files in our programs.
+.. youtube:: zASE-UA2YKg
+    :divid: filesintrovideo
+    :height: 315
+    :width: 560
+    :align: left
 
-For our purposes, we will assume that our data files are text files--that is, files filled with characters. The Python programs that you write are stored as text files.  We can create these files in any of a number of ways. For example, we could use a text editor to type in and save the data.  We could also download the data from a website and then save it in a file. Regardless of how the file is created, Python will allow us to manipulate the contents.
+So far, the data we have used in this book have all been either coded right into the program, or have been
+entered by the user. In real life data reside in files. For example the images we worked with in the image
+processing unit ultimately live in files on your hard drive. Web pages, and word processing documents, and
+music are other examples of data that live in files. In this short chapter we will introduce the Python
+concepts necessary to use data from files in our programs.
 
-In Python, we must **open** files before we can use them and **close** them when we are done with them. As you might expect, once a file is opened it becomes a Python object just like all other data. :ref:`Table 1<filemethods1a>` shows the functions and methods that can be used to open and close files.
+For our purposes, we will assume that our data files are text files--that is, files filled with characters.
+The Python programs that you write are stored as text files.  We can create these files in any of a number of
+ways. For example, we could use a text editor to type in and save the data.  We could also download the data
+from a website and then save it in a file. Regardless of how the file is created, Python will allow us to
+manipulate the contents.
+
+In Python, we must **open** files before we can use them and **close** them when we are done with them. As
+you might expect, once a file is opened it becomes a Python object just like all other data.
+:ref:`Table 1<filemethods1a>` shows the functions and methods that can be used to open and close files.
 
 .. _filemethods1a:
 
@@ -29,4 +45,20 @@ In Python, we must **open** files before we can use them and **close** them when
 ``open``          ``open(filename,'w')``    Open a file called filename and use it for writing.  This will also return a reference to a file object.
 ``close``        ``filevariable.close()``   File use is complete.
 ================ ======================== =====================================================
+
+Learning Goals
+--------------
+
+* To understand the structure of file systems
+* To understand opening files with different modes
+* To introduce files as another kind of sequence that one can iterate over
+* To introduce the read/transform/write pattern
+* To introduce parallel assignment to two or three variables
+
+Objectives
+----------
+
+* Demonstrate that you can read a single value from each line in a file
+* Convert the line to the appropriate value
+* Read a line and convert it into multiple values using split and assignment to multiple variables
 

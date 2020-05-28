@@ -7,48 +7,85 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
+.. qnum::
+   :prefix: func-14-
+   :start: 1
+
 Glossary
 --------
 
 .. glossary::
 
+    argument
+        A value provided to a function when the function is called. This value
+        is assigned to the corresponding parameter in the function. The argument
+        can be the result of an expression which may involve operators,
+        operands and calls to other fruitful functions.
 
-    chatterbox function
-        A function which interacts with the user (using ``input`` or ``print``) when
-        it should not. Silent functions that just convert their input arguments into
-        their output results are usually the most useful ones.
-        
-    composition (of functions)
-        Calling one function from within the body of another, or using the
-        return value of one function as an argument to the call of another.
+    body
+        The second part of a compound statement. The body consists of a
+        sequence of statements all indented the same amount from the beginning
+        of the header. The standard amount of indentation used within the
+        Python community is 4 spaces.
 
-    dead code
-        Part of a program that can never be executed, often because it appears
-        after a ``return`` statement.
+    compound statement
+        A statement that consists of two parts:
+
+        #. header - which begins with a keyword determining the statement
+           type, and ends with a colon.
+        #. body - containing one or more statements indented the same amount
+           from the header.
+
+        The syntax of a compound statement looks like this:
+
+        .. code-block:: python
+
+            keyword expression:
+                statement
+                statement 
+                ...
+
+    docstring
+        If the first thing in a function body is a string (or, we'll see later, in other situations
+        too) that is attached to the function as its ``__doc__`` attribute.
+
+    flow of execution
+        The order in which statements are executed during a program run.
+
+    function
+        A named sequence of statements that performs some useful operation.
+        Functions may or may not take parameters and may or may not produce a
+        result.
+
+    function call
+        A statement that executes a function. It consists of the name of the
+        function followed by a list of arguments enclosed in parentheses.
+
+    function composition
+        Using the output from one function call as the input to another.
+
+    function definition
+        A statement that creates a new function, specifying its name,
+        parameters, and the statements it executes.
 
     fruitful function
-        A function that yields a return value instead of ``None``.
+        A function that returns a value when it is called.
 
-    incremental development
-        A program development plan intended to simplify debugging by adding and
-        testing only a small amount of code at a time.
+    header line
+        The first part of a compound statement. A header line begins with a keyword and
+        ends with a colon (:)
 
+    method
+        A special kind of function that is invoked on objects of particular types of
+        objects, using the syntax ``<expr>.<methodname>(<additional parameter values>)``
+    
     None
         A special Python value. One use in Python is that it is returned 
         by functions that do not execute a return statement with a return argument. 
 
+    parameter
+        A name used inside a function to refer to the value which was passed
+        to it as an argument.
+   
     return value
         The value provided as the result of a function call.
-
-    scaffolding
-        Code that is used during program development to assist with development
-        and debugging. The unit test code that we added in this chapter are
-        examples of scaffolding.
-        
-    temporary variable
-        A variable used to store an intermediate value in a complex
-        calculation.
-       
-
-
-

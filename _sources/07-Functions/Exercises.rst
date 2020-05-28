@@ -7,614 +7,207 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
+:skipreading:`True`
+
+.. qnum::
+   :prefix: func-14-
+   :start: 1
 
 Exercises
----------
+=========
+#.
 
-.. question:: functions_ex_1
-   :number: 1
-
-   .. tabbed:: q1
+    .. tabbed:: q1
 
         .. tab:: Question
 
-            .. actex:: ex_5_1
+           .. actex:: ac11_14_1
 
-                Use the drawsquare function we wrote in this chapter in a program to draw
-                the image shown below.
-                Assume each side is 20 units.
-                (Hint: notice that the turtle has already moved away from the ending point of the last
-                square when the program ends.)
+              Write a function named ``num_test`` that takes a number as input. If the number is greater than 10, the function should return "Greater than 10." If the number is less than 10, the function should return "Less than 10." If the number is equal to 10, the function should return "Equal to 10."
+              ~~~~
+              
 
-                .. image:: Figures/five_squares.png
+              ====
+
+              from unittest.gui import TestCaseGui
+
+              class myTests(TestCaseGui):
+
+                def testOne(self):
+                    self.assertEqual(num_test(5), "Less than 10.", "Testing the num_test function on input 5.")
+                    self.assertEqual(num_test(0), "Less than 10.", "Testing the num_test function on input 0.")
+                    self.assertEqual(num_test(12.99), "Greater than 10.", "Testing the num_test function on input 12.99.")
+                    self.assertEqual(num_test(10.00), "Equal to 10.", "Testing the num_test function on input 10.00.")
+
+
+
+              myTests().main()
+
+#.
+
+    .. tabbed:: q2
+
+        .. tab:: Question
+
+           .. actex:: ac11_14_2
+
+              Write a function that will return the number of digits in an integer.
+              ~~~~
+              def numDigits(n):
+                  # your code here
+
+              ====
+
+              from unittest.gui import TestCaseGui
+
+              class myTests(TestCaseGui):
+
+                def testOne(self):
+                    self.assertEqual(numDigits(2),1,"Tested numDigits on input of 2")
+                    self.assertEqual(numDigits(55),2,"Tested numDigits on input of 55")
+                    self.assertEqual(numDigits(1352),4,"Tested numDigits on input of 1352")
+                    self.assertEqual(numDigits(444),3,"Tested numDigits on input of 444")
+
+
+
+              myTests().main()
+
+        .. tab:: Tip
+
+            Consider converting the integer to a string and using the ``len`` function to find out
+            how many digits it contains.
+
+
+        .. tab:: Answer
+
+            .. activecode:: answer11_14_2
+
+                def numDigits(n):
+                    n_str = str(n)
+                    return len(n_str)
+
+
+                print(numDigits(50))
+                print(numDigits(20000))
+                print(numDigits(1))
+
+#.
+
+    .. tabbed:: q13
+
+        .. tab:: Question
+
+            .. actex:: ac11_14_13
+                :nocodelens:
+
+                Write a function ``findHypot``.  The function will be given the length of two sides of a right-angled triangle and it should return the length of the hypotenuse. (Hint:  ``x ** 0.5`` will return the square root, or use ``sqrt`` from the math module)
                 ~~~~
 
-                import turtle
-
-                def drawSquare(t, sz):
-                    """Get turtle t to draw a square of sz side"""
-
-                    for i in range(4):
-                        t.forward(sz)
-                        t.left(90)
-
-                wn = turtle.Screen()
-                wn.bgcolor("lightgreen")
-
-                alex = turtle.Turtle()
-                alex.color("pink")
-
-                drawSquare(alex,20)
-
-                wn.exitonclick()
-
-
-        .. tab:: Answer
-
-            .. activecode:: func_q1_answer
-
-                import turtle
-
-                def drawSquare(t, sz):
-                    """Make turtle t draw a square of with side sz."""
-                    for i in range(4):
-                        t.forward(sz)
-                        t.left(90)
-
-                wn = turtle.Screen()       # Set up the window and its attributes
-                wn.bgcolor("lightgreen")
-
-                alex = turtle.Turtle()     # create alex
-                alex.color('hotpink')
-                alex.pensize(3)
-
-                for i in range(5):
-                    drawSquare(alex, 20)   # Call the function to draw the square
-                    alex.penup()
-                    alex.forward(40)       # move alex to the starting position for the next square
-                    alex.pendown()
-
-                wn.exitonclick()
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: a2ac86a8d0524fc6830aefb785199048
-
-.. question:: functions_ex_2
-
-    .. actex:: ex_5_2
-
-       Write a program to draw this. Assume the innermost square is 20 units per side,
-       and each successive square is 20 units bigger, per side, than the one inside it.
-
-       .. image:: Figures/nested_squares.png
-       ~~~~
-
-
-.. question:: functions_ex_3
-
-   .. tabbed:: q3
-
-        .. tab:: Question
-
-            .. actex:: ex_5_3
-
-               Write a non-fruitful function ``drawPoly(someturtle, somesides, somesize)`` which makes a turtle
-               draw a regular polygon.
-               When called with ``drawPoly(tess, 8, 50)``, it will draw a shape like this:
-
-               .. image:: Figures/regularpolygon.png
-               ~~~~
-
-
-        .. tab:: Answer
-
-            .. activecode:: func_q3_answer
-
-                import turtle
-
-                def drawPoly(t, num_sides, side_length):
-                    for i in range(num_sides):
-                        t.forward(side_length)
-                        t.left(360/num_sides)
-
-                wn = turtle.Screen()       # Set up the window and its attributes
-                wn.bgcolor("lightgreen")
-
-                tess = turtle.Turtle()
-                tess.color('hotpink')
-                tess.pensize(3)
-
-                drawPoly(tess, 8, 50)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: ba2f11265c524c7581bf7cf25d23bf3a
-
-.. question:: functions_ex_4
-
-   .. actex:: ex_5_4
-
-      Draw this pretty pattern.
-
-      .. image:: Figures/tess08.png
-      ~~~~
-
-.. question:: functions_ex_5
-
-   .. tabbed:: q5
-
-        .. tab:: Question
-
-            .. actex:: ex_5_5
-
-               The two spirals in this picture differ only by the turn angle.  Draw both.
-
-               .. image:: Figures/tess_spirals.png
-                  :height: 240
-               ~~~~
-
-        .. tab:: Answer
-
-            .. activecode:: func_q5_answer
-
-                import turtle
-
-                def drawSpiral(t, angle):
-                    ''' takes a turtle, t, and an angle in degrees '''
-                    length = 1
-                    for i in range(84):
-                        t.forward(length)
-                        t.right(angle)
-                        length = length + 2
-
-
-                wn = turtle.Screen()       # Set up the window and its attributes
-                wn.bgcolor("lightgreen")
-
-                guido = turtle.Turtle()    # create guido
-                guido.color('blue')
-
-                ## draw the first spiral ##
-                # position guido
-                guido.penup()
-                guido.backward(110)
-                guido.pendown()
-
-                # draw the spiral using a 90 degree turn angle
-                drawSpiral(guido, 90)
-
-
-                ## draw the second spiral ##
-                # position guido
-                guido.home()
-                guido.penup()
-                guido.forward(90)
-                guido.pendown()
-
-                drawSpiral(guido, 89)
-
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: c587119991344db988f8fb37c8c9a31e
-
-.. question:: functions_ex_6
-
-   .. actex:: ex_5_6
-
-      Write a non-fruitful function ``drawEquitriangle(someturtle, somesize)`` which calls ``drawPoly`` from the
-      previous question to have its turtle draw a equilateral triangle.
-      ~~~~
-
-
-.. question:: functions_ex_7
-
-   .. tabbed:: q7
-
-        .. tab:: Question
-
-            .. actex:: ex_5_7
-                :practice: T
-                :autograde: unittest
-
-                Write a fruitful function ``sumTo(n)`` that returns the sum of all integer numbers up to and
-                including `n`.   So ``sumTo(10)`` would be ``1+2+3...+10`` which would return the value 55.  Use the
-                equation  (n * (n + 1)) / 2.
-                ~~~~
-
-                def sumTo(n):
+                def findHypot(a,b):
                     # your code here
 
                 ====
+
                 from unittest.gui import TestCaseGui
 
                 class myTests(TestCaseGui):
-
                     def testOne(self):
-                        self.assertAlmostEqual(sumTo(15),120.0,0,"Tested sumTo on input 15")
-                        self.assertAlmostEqual(sumTo(0),0.0,0,"Tested sumTo on input 0")
-                        self.assertAlmostEqual(sumTo(25),325.0,0,"Tested sumTo on input 25")
-                        self.assertAlmostEqual(sumTo(7),28.0,0,"Tested sumTo on input 7")
+                        self.assertEqual(findHypot(12.0,5.0),13.0,"Tested findHypot on inputs of 12.0 and 5.0")
+                        self.assertEqual(findHypot(14.0,48.0),50.0,"Tested findHypot on inputs of 14.0 and 48.0")
+                        self.assertEqual(findHypot(21.0,72.0),75.0,"Tested findHypot on inputs of 21.0 and 72.0")
+                        self.assertAlmostEqual(findHypot(1,1.73205),1.999999,2,"Tested findHypot on inputs of 1 and 1.73205")
 
                 myTests().main()
 
-
-        .. tab:: Answer
-
-            .. activecode:: func_q7_answer
-
-                from test import testEqual
-
-                def sumTo(n):
-                    result = (n * (n + 1)) / 2
-                    return result
-
-                # Now lets see how well this works
-                t = sumTo(0)
-                print("The sum from 1 to 0 is",t)
-                t = sumTo(10)
-                print("The sum from 1 to 10 is",t)
-                t = sumTo(5)
-                print("The sum from 1 to 5 is",t)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: d6ba37a51d09845f39c96d4d4ef1d6f45
-
-.. question:: functions_ex_8
-
-    .. actex:: ex_5_8
-       :practice: T
-       :autograde: unittest
-
-       Write a function `areaOfCircle(r)` which returns the area of a circle of radius `r`.  Make sure you use the math module in your solution.
-       ~~~~
-
-       def areaOfCircle(r):
-           # your code here
-
-       ====
-       from unittest.gui import TestCaseGui
-
-       class myTests(TestCaseGui):
-
-           def testOne(self):
-               self.assertAlmostEqual(areaOfCircle(5.0),78.53981633974483,5,"Tested input: areaOfCircle(5.0)")
-               self.assertEqual(areaOfCircle(5.0),78.53981633974483,"Tested input: areaOfCirlce(5.0)")
-               self.assertEqual(areaOfCircle(0),0.0,"Tested input: areaOfCirlce(0)")
-               self.assertAlmostEqual(areaOfCircle(31415.926535897932),3100627668.0299816,5,"Tested input: areaOfCirlce(31415.926535897932)")
-
-
-       myTests().main()
-
-
-.. question:: functions_ex_9
-
-   .. tabbed:: q9
+#.
+   .. tabbed:: q14
 
         .. tab:: Question
 
-            .. actex:: ex_5_9
+           .. actex:: ac11_14_14
+               :nocodelens:
 
-               Write a non-fruitful function to draw a five pointed star, where the length of each side is 100 units.
-
-               .. image:: Figures/star.png
+               Write a function called ``is_even(n)`` that takes an integer as an argument and returns ``True`` if the argument is an **even number** and ``False`` if it is **odd**.
                ~~~~
-
-        .. tab:: Answer
-
-            .. activecode:: func_q9_answer
-
-                import turtle
-
-                def drawFivePointStar(t):
-                    for i in range(5):
-                        t.forward(100)
-                        t.left(216)
-
-                wolfram = turtle.Turtle()
-                drawFivePointStar(wolfram)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: e757873187bb4581bffecdad449b5f61
-
-.. question:: functions_ex_10
-
-   .. actex:: ex_5_10
-
-      Extend your program above.  Draw five stars, but between each, pick up the pen,
-      move forward by 350 units, turn right by 144, put the pen down, and draw the next star.
-      You'll get something like this (note that you will need to move to the left before drawing your first star in order to fit everything in the window):
-
-      .. image:: Figures/five_stars.png
-
-      What would it look like if you didn't pick up the pen?
-      ~~~~
-
-
-.. question:: functions_ex_11
-
-   .. tabbed:: q11
-
-        .. tab:: Question
-
-            .. actex:: ex_5_11
-
-               Extend the star function to draw an n pointed star.  (Hint: n must be an odd number greater or
-               equal to 3).
-               ~~~~
-
-
-        .. tab:: Answer
-
-            .. activecode:: func_q11_answer
-
-                import turtle
-
-                def drawStar(t, n):
-                    for i in range(n):
-                        t.forward(100)
-                        t.left(180 - 180/n)
-
-                stroustrup = turtle.Turtle()
-                drawStar(stroustrup, 7)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: f2f8ff1b301e4d99bd4ac52e68c8c1ed
-
-.. question:: functions_ex_12
-
-   .. actex:: ex_5_12
-
-      Write a function called drawSprite that will draw a sprite.  The function will need parameters for
-      the turtle, the number of legs, and the length of the legs.  Invoke the function to create a sprite
-      with 15 legs of length 120.
-      ~~~~
-
-
-.. question:: functions_ex_13
-
-   .. tabbed:: q13
-
-        .. tab:: Question
-
-            .. actex:: ex_5_13
-               :practice: T
-               :autograde: unittest
-
-               Rewrite the function ``sumTo(n)`` that returns the sum of all integer numbers up to and
-               including `n`.   This time use the accumulator pattern.
-               ~~~~
-
-               def sumTo(n):
-                   # your code here
+               def is_even(n):
+                   #your code here
 
                ====
-               from unittest.gui import TestCaseGui
-               class myTests(TestCaseGui):
 
-                   def testOne(self):
-                       self.assertEqual(sumTo(15),120,"Tested sumTo on input 15")
-                       self.assertEqual(sumTo(0),0,"Tested sumTo on input 0")
-                       self.assertEqual(sumTo(25),325,"Tested sumTo on input 25")
-                       self.assertEqual(sumTo(7),28,"Tested sumTo on input 7")
+               from unittest.gui import TestCaseGui
+
+               class myTests(TestCaseGui):
+                    def testOne(self):
+                        self.assertEqual(is_even(10),True,"Tested is_even on input of 10")
+                        self.assertEqual(is_even(5),False,"Tested is_even on input of 5")
+                        self.assertEqual(is_even(1),False,"Tested is_even on input of 1")
+                        self.assertEqual(is_even(0),True,"Tested is_even on input of 0")
 
                myTests().main()
 
-
-        .. tab:: Answer
-
-            .. activecode:: func_q13_answer
-
-                def sumTo(n):
-                    sum = 0
-                    for i in range(1,n+1):
-                        sum = sum + i
-                    return sum
-
-                # Now lets see how well this works
-                t = sumTo(0)
-                print("The sum from 1 to 0 is",t)
-                t = sumTo(10)
-                print("The sum from 1 to 10 is",t)
-                t = sumTo(5)
-                print("The sum from 1 to 5 is",t)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: eda665389fda49a584b128cc30515595
-
-.. question:: functions_ex_14
-
-    .. actex:: ex_5_14
-       :practice: T
-       :autograde: unittest
-
-       Write a function called ``mySqrt`` that will approximate the square root of a number, call it n, by using
-       Newton's algorithm.
-       Newton's approach is an iterative guessing algorithm where the initial guess is n/2 and each subsequent guess
-       is computed using   the formula:  newguess = (1/2) * (oldguess + (n/oldguess)).
-       ~~~~
-
-       def mySqrt(n):
-           # your code here
-
-       ====
-       from unittest.gui import TestCaseGui
-
-       class myTests(TestCaseGui):
-           def testOne(self):
-               self.assertAlmostEqual(mySqrt(4.0),2.0,0,"Tested mySqrt on input 4.0")
-               self.assertAlmostEqual(mySqrt(9.0),3.0,4,"Tested accuracy of mySqrt on input 3.0")
-               self.assertAlmostEqual(mySqrt(36.0),6.0,5,"Tested accuracy of mySqrt on input 6.0")
-               self.assertAlmostEqual(mySqrt(100.0),10.0,4,"Tested accuracy of mySqrt on input 10.0. Try iterating more times.")
-
-       myTests().main()
-
-
-.. question:: functions_ex_15
-
+#.
    .. tabbed:: q15
 
         .. tab:: Question
 
-            .. actex:: ex_5_15
+           .. actex:: ac11_14_15
+               :nocodelens:
 
-               Write a function called ``myPi`` that will return an approximation of PI (3.14159...).  Use the `Leibniz <http://en.wikipedia.org/wiki/Leibniz_formula_for_%CF%80>`_ approximation.
+               Now write the function ``is_odd(n)`` that returns ``True`` when ``n`` is odd and ``False`` otherwise.
                ~~~~
 
-                def myPi(iters):
-                    # Calculate an approximation of PI using the Leibniz
-                    # approximation with iters number of iterations
-
-                    # your code here
+               def is_odd(n):
+                   # your code here
 
 
-        .. tab:: Answer
+               ====
+               from unittest.gui import TestCaseGui
 
-            .. activecode:: func_q15_answer
+               class myTests(TestCaseGui):
+                   def testOne(self):
+                       self.assertEqual(is_odd(10),False,"Tested is_odd on input of 10")
+                       self.assertEqual(is_odd(5),True,"Tested is_odd on input of 5")
+                       self.assertEqual(is_odd(1),True,"Tested is_odd on input of 1")
+                       self.assertEqual(is_odd(0),False,"Tested is_odd on input of 0")
 
-                def myPi(iters):
-                    ''' Calculate an approximation of PI using the Leibniz
-                    approximation with iters number of iterations '''
-                    pi = 0
-                    sign = 1
-                    denominator = 1
-                    for i in range(iters):
-                        pi = pi + (sign/denominator)
-                        sign = sign * -1  # alternate positive and negative
-                        denominator = denominator + 2
+               myTests().main()
 
-                    pi = pi * 4.0
-                    return pi
 
-                pi_approx = myPi(10000)
-                print(pi_approx)
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: b699e4b7bad44db6bd788c795c124b23
-
-.. question:: functions_ex_16
-
-    .. actex:: ex_5_16
-
-        Write a function called `myPi` that will return an approximation of PI (3.14159...).  Use the `Madhava <http://en.wikipedia.org/wiki/Madhava_of_Sangamagrama>`_ approximation.
-        ~~~~
-
-        def myPi(iters):
-            # Calculate an approximation of PI using the Madhava
-            # approximation with iters number of iterations
-
-            #your code here
-
-.. question:: functions_ex_17
-
-   .. tabbed:: q17
+#.
+   .. tabbed:: q16
 
         .. tab:: Question
 
-            .. actex:: ex_5_17
+           .. actex:: ac11_14_16
 
-               Write a function called `fancySquare` that will draw a square with fancy corners (sprites on the corners).  You should
-               implement and use the `drawSprite` function from above.  For an even more interesting look, how about adding small
-               triangles to the ends of the sprite legs.
+               Write a function ``is_rightangled`` which, given the length of three sides of a triangle, will determine whether the triangle is right-angled. Assume that the third argument to the function is always the longest side. It will return ``True`` if the triangle is right-angled, or ``False`` otherwise.
+
+               Hint: floating point arithmetic is not always exactly accurate,
+               so it is not safe to test floating point numbers for equality.
+               If a good programmer wants to know whether
+               ``x`` is equal or close enough to ``y``, they would probably code it up as
+   
+               .. sourcecode:: python
+   
+                   if  abs(x - y) < 0.001:      # if x is approximately equal to y
+                       ...
+
                ~~~~
-
-        .. tab:: Answer
-
-            .. activecode:: func_q17_answer
-
-                import turtle
-
-                def drawSprite(t, numlegs, leglength):
-                   angle = 360/numlegs
-                   for i in range(numlegs):
-                      t.forward(leglength)
-                      t.backward(leglength)
-                      t.left(angle)
-
-                def drawFancySquare(t, sz, lgs, lgl):
-                   for i in range(4):
-                       t.forward(sz)
-                       drawSprite(t, lgs, lgl)
-                       t.left(90)
-
-                wn = turtle.Screen()
-                wn.bgcolor("lightgreen")
-
-                alex = turtle.Turtle()
-                drawFancySquare(alex, 100, 10, 15)
-
-                wn.exitonclick()
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: db5d8808bf5749579718bdd2088b539f
-
-.. question:: functions_ex_18
-
-    .. actex:: ex_5_18
-
-        There was a whole program in :ref:`bar_chart` to create a bar chart with specific data.  Creating a bar chart is a useful idea in general.  Write a non-fruitful function called barChart, that takes the numeric list of data as a parameter, and draws the bar chart.  Write a full program calling this function.
-        The current version of the ``drawBar`` function unfortuately draws the top of the bar through the bottom of the label.  A nice elaboration is to make the label appear completely above the top line.  To keep the spacing consistent you might pass an extra parameter to ``drawBar`` for the distance to move up.  For the ``barChart`` function make that parameter be some small fraction of ``maxheight+border``.  The fill action makes this modification particularly tricky:  You will want to move past the top of the bar and write before or after drawing and filling the bar.
-        ~~~~
-
-        import turtle
-
-        def drawBar(t, height):
-            """ Get turtle t to draw one bar, of height. """
-            t.begin_fill()               # start filling this shape
-            t.left(90)
-            t.forward(height)
-            t.write(str(height))
-            t.right(90)
-            t.forward(40)
-            t.right(90)
-            t.forward(height)
-            t.left(90)
-            t.end_fill()                 # stop filling this shape
+               def is_rightangled(a, b, c):
+                   # your code here
 
 
+               ====
+               from unittest.gui import TestCaseGui
 
-        xs = [48, 117, 200, 240, 160, 260, 220]  # here is the data
-        maxheight = max(xs)
-        numbars = len(xs)
-        border = 10
+               class myTests(TestCaseGui):
+                   def testOne(self):
+                       self.assertEqual(is_rightangled(1.5,2.0,2.5),True,"Tested is_rightangled on inputs of 1.5, 2.0 and 2.5")
+                       self.assertEqual(is_rightangled(4.0,8.0,16.0),False,"Tested is_rightangled on inputs of 4.0, 8.0 and 16.0")
+                       self.assertEqual(is_rightangled(4.1,8.2,9.1678787077),True,"Tested is_rightangled on inputs of 4.1, 8.2 and 9.1678787077")
+                       self.assertEqual(is_rightangled(4.1,8.2,9.16787),True,"Tested is_rightangled on inputs of 4.1, 8.2, and 9.16787")
+                       self.assertEqual(is_rightangled(4.1,8.2,9.168),False,"Tested is_rightangled on inputs of 4.1, 8.2 and 9.168")
+                       self.assertEqual(is_rightangled(0.5,0.4,0.64031),True,"Tested is_rightangled on inputs of 0.5, 0.4 and 0.64031")
 
-        wn = turtle.Screen()             # Set up the window and its attributes
-        wn.setworldcoordinates(0-border, 0-border, 40*numbars+border, maxheight+border)
-        wn.bgcolor("lightgreen")
-
-        tess = turtle.Turtle()           # create tess and set some attributes
-        tess.color("blue")
-        tess.fillcolor("red")
-        tess.pensize(3)
-
-
-
-        for a in xs:
-            drawBar(tess, a)
-
-        wn.exitonclick()
+               myTests().main()

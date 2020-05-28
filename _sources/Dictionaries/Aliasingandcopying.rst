@@ -8,7 +8,7 @@
     License".
 
 .. qnum::
-   :prefix: dict-4-
+   :prefix: dictionaries-4-
    :start: 1
 
 .. index::
@@ -16,15 +16,14 @@
    copy; dictionary
    dictionary; alias and copy
 
-Aliasing and Copying
+Aliasing and copying
 --------------------
 
-Because dictionaries are mutable, you need to be aware of aliasing (as we saw with lists).  Whenever
-two variables refer to the same dictionary object, changes to one affect the other.
-For example, ``opposites`` is a dictionary that contains pairs
-of opposites.
+Because dictionaries are mutable, you need to be aware of aliasing (as we saw with lists). Whenever 
+two variables refer to the same dictionary object, changes to one affect the other. For example, ``opposites`` is a 
+dictionary that contains pairs of opposites.
 
-.. activecode:: ch12_dict11
+.. activecode:: ac10_4_1
     
     opposites = {'up': 'down', 'right': 'wrong', 'true': 'false'}
     alias = opposites
@@ -48,8 +47,7 @@ If you want to modify a dictionary and keep a copy of the original, use the dict
 
 **Check your understanding**
 
-.. mchoice:: test_question11_4_1
-   :practice: T
+.. mchoice:: question10_4_1
    :answer_a: 23
    :answer_b: None
    :answer_c: 999
@@ -59,7 +57,8 @@ If you want to modify a dictionary and keep a copy of the original, use the dict
    :feedback_b: The dictionary is mutable so changes can be made to the keys and values.
    :feedback_c: Yes, since yourdict is an alias for mydict, the value for the key elephant has been changed.
    :feedback_d: There is only one dictionary with only one key named elephant.  The dictionary has two different names, mydict and yourdict.
-   
+   :practice: T
+
    What is printed by the following statements?
    
    .. sourcecode:: python
@@ -68,5 +67,3 @@ If you want to modify a dictionary and keep a copy of the original, use the dict
      yourdict = mydict
      yourdict["elephant"] = 999
      print(mydict["elephant"])
-
-

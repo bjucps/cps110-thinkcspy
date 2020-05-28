@@ -7,84 +7,70 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
-.. qnum::
-   :prefix: dict-1-
-   :start: 1
-
 .. index:: dictionary, mapping type, key-value pair
    single: [ ]; dictionary access
    value; dictionary
 
+.. qnum::
+   :prefix: dictionaries-1-
+   :start: 1
 
-Dictionaries
-============
+Getting Started with Dictionaries
+=================================
 
-All of the compound data types we have studied in detail so far --- strings,
-lists, and tuples --- are sequential collections.  This means that the items in the collection are
-ordered from left to right and they use integers as indices to access
-the values they contain.
+To provide an example of this new kind of datatype, we will create a dictionary to translate English words into Spanish. 
+For this dictionary, the keys are strings and the values will also be strings.
 
-**Dictionaries** are a different kind of collection. They are Python's
-built-in **mapping type**. A map is an unordered, associative collection.  The association, or mapping,
-is from a **key**, which can be any immutable type,
-to a **value**, which can be any Python data object.
+One way to create a dictionary is to start with the empty dictionary and add **key-value pairs**. The empty dictionary 
+is denoted ``{}``.
 
-As an example, we will create a dictionary to translate English words into
-Spanish. For this dictionary, the keys are strings and the values will also be strings.
+.. codelens:: clens10_1_1
+    :python: py3
 
-One way to create a dictionary is to start with the empty dictionary and add
-**key-value pairs**. The empty dictionary is denoted ``{}``
-
-.. codelens:: chp12_dict1
-    
     eng2sp = {}
     eng2sp['one'] = 'uno'
     eng2sp['two'] = 'dos'
     eng2sp['three'] = 'tres'
+    print(eng2sp)
+
+The first assignment creates an empty dictionary named ``eng2sp``. The other assignments add new key-value pairs to 
+the dictionary. The left hand side gives the dictionary and the key being associated. The right hand side gives the 
+value being associated with that key. We can print the current value of the dictionary in the usual way. The key-value 
+pairs of the dictionary are separated by commas. Each pair contains a key and a value separated by a colon.
+
+The order of the pairs may not be what you expected. Python uses complex algorithms, designed for very fast access, to 
+determine where the key-value pairs are stored in a dictionary. For our purposes we can think of this ordering as 
+unpredictable [*]_ .
 
 
-The first assignment creates an empty dictionary named ``eng2sp``.  The other
-assignments add new key-value pairs to the dictionary.  The left hand side gives the dictionary and the key being associated.  The right hand side gives the value being associated with that key.
-We can print the current
-value of the dictionary in the usual way.
-The key-value pairs of the dictionary are separated by commas. Each pair
-contains a key and a value separated by a colon.
+Another way to create a dictionary is to provide a bunch of key-value pairs using the same syntax as the previous 
+output.
 
-The order of the pairs may not be what you expected. Python uses complex
-algorithms, designed for very fast access, to determine where the 
-key-value pairs are stored in a dictionary.
-For our purposes we can think of this ordering as unpredictable.
-
-Another way to create a dictionary is to provide a list of key-value pairs
-using the same syntax as the previous output.
-
-.. codelens:: chp12_dict2
-    
+.. codelens:: clens10_1_2
+    :python: py3
     
     eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
     print(eng2sp)
 
-It doesn't matter what order we write the pairs. The values in a dictionary are
-accessed with keys, not with indices, so there is no need to care about
-ordering.
+It doesn't matter what order we write the pairs. The values in a dictionary are accessed with keys, not with indices, 
+so there is no need to care about ordering.
 
 Here is how we use a key to look up the corresponding value.
 
-.. codelens:: chp12_dict3
-    
+.. codelens:: clens10_1_3
+    :python: py3
 
     eng2sp = {'three': 'tres', 'one': 'uno', 'two': 'dos'}
 
     value = eng2sp['two']
     print(value)
+    print(eng2sp['one'])
 
-
-The key ``'two'`` yields the value ``'dos'``.
+The key ``'two'`` yields the value ``'dos'``. The key ``one`` yields the value ``uno``.
 
 **Check your understanding**
 
-.. mchoice:: test_question11_1_1
-   :practice: T
+.. mchoice:: question10_1_1 
    :answer_a: False
    :answer_b: True
    :correct: b
@@ -93,9 +79,7 @@ The key ``'two'`` yields the value ``'dos'``.
 
    A dictionary is an unordered collection of key-value pairs.
 
-
-.. mchoice:: test_question11_1_2
-   :practice: T
+.. mchoice:: question10_1_2
    :answer_a: 12
    :answer_b: 6
    :answer_c: 23
@@ -105,8 +89,8 @@ The key ``'two'`` yields the value ``'dos'``.
    :feedback_b: Yes, 6 is associated with the key dog.
    :feedback_c: 23 is associated with the key elephant.
    :feedback_d: The [ ] operator, when used with a dictionary, will look up a value based on its key.
-   
-   
+   :practice: T
+
    What is printed by the following statements?
    
    .. sourcecode:: python
@@ -114,4 +98,42 @@ The key ``'two'`` yields the value ``'dos'``.
      mydict = {"cat":12, "dog":6, "elephant":23}
      print(mydict["dog"])
 
+.. activecode:: ac10_1_1
+   :language: python
+   :autograde: unittest
+   :practice: T
 
+   **3.** Create a dictionary that keeps track of the USA's Olympic medal count. Each key of the dictionary should be the type of medal (gold, silver, or bronze) and each key's value should be the number of that type of medal the USA's won. Currently, the USA has 33 gold medals, 17 silver, and 12 bronze. Create a dictionary saved in the variable ``medals`` that reflects this information.
+   ~~~~
+
+   =====
+
+   from unittest.gui import TestCaseGui
+
+   class myTests(TestCaseGui):
+
+      def testOne(self):
+         self.assertEqual(sorted(medals.items()), sorted([("gold", 33), ("silver", 17), ("bronze", 12)]), "Testing that medals is correct.")
+
+   myTests().main()
+
+.. activecode:: ac10_1_2
+   :language: python
+   :autograde: unittest
+   :practice: T
+
+   **4.** You are keeping track of olympic medals for Italy in the 2016 Rio Summer Olympics! At the moment, Italy has 7 gold medals, 8 silver metals, and 6 bronze medals. Create a dictionary called ``olympics`` where the keys are the types of medals, and the values are the number of that type of medals that Italy has won so far.
+   ~~~~
+
+   =====
+
+   from unittest.gui import TestCaseGui
+
+   class myTests(TestCaseGui):
+
+      def testOne(self):
+         self.assertEqual(sorted(olympics.items()), sorted([('gold', 7), ('silver', 8), ('bronze', 6)]), "Testing that olympics was created correctly.")     
+
+   myTests().main()
+
+.. [*] Instructors note: Python version 3.7 and later `provide ordering guarantees <https://mail.python.org/pipermail/python-dev/2017-December/151283.html>`_. However, it is best practice to write code that does not rely on any particular key order so this book will treat key-value pairs as unordered.

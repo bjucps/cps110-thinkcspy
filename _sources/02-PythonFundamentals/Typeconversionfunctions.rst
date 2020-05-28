@@ -244,11 +244,9 @@ braces, like ``{num1}`` and ``{sum}``. When evaluated, the f-String inserts the 
 indicated spot in the string. There's no need to use the ``str`` conversion function or concatenation operator to get
 several values displayed on the same line.
 
-The activecode interpreter for this book doesn't support f-Strings, so you can't experiment with them in the book. But
-if you have Python version **3.6 or later** installed on your computer, you can use f-Strings in programs that you run
-on your computer outside this book, and enjoy the improved readability and writability that results. Since that version
-was released around 2016, if you downloaded and installed Python on your computer when you started using this book, you
-almost certainly have f-String support.
+.. note::
+    f-Strings were added to Python in version 3.6 of the language. If you are using an older version of Python, you won't
+    be able to use f-Strings.
 
 
 **Check your understanding**

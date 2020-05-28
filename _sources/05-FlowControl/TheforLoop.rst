@@ -74,7 +74,10 @@ a **block** of statements nested "inside" it. Python uses indentation to control
 of the compound statement, and which statements are not. 
 
 Within the compound statement, all lines the body must be indented the same number
-of spaces to avoid an error. 
+of spaces to avoid an error. The standard number of spaces to indent is **4**; most Python editors
+will insert that number of spaces for you automatically when you are typing a compound statement,
+so you don't have to think about it. Python editors also know to insert that number of spaces when you
+press the tab key when typing code.
 
 To explore the role of indentation in Python, consider the following two programs:
 

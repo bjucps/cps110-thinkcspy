@@ -8,165 +8,116 @@
     License".
 
 .. qnum::
-   :prefix: func-5-
+   :prefix: func-9-
    :start: 1
 
 .. index::
     functional decomposition
     generalization
     abstraction
+    flow of execution
+    composition
+    function; composition
 
+Functions can call other functions (Composition)
+------------------------------------------------
 
-Functions can Call Other Functions
-----------------------------------
+It is important to understand that each of the functions we write can be used and called from other functions we 
+write. This is one of the most important ways that computer programmers take a large problem and break it down into a 
+group of smaller problems. This process of breaking a problem into smaller subproblems is called **functional decomposition**.
 
-It is important to understand that each of the functions we write can be used
-and called from other functions we write.  This is one of the most important
-ways that computer scientists take a large problem and break it down into a
-group of smaller problems. This process of breaking a problem into smaller
-subproblems is called **functional decomposition**.
-
-Here's a simple example of functional decomposition using two functions. The
-first function called ``square`` simply computes the square of a given number.
-The second function called ``sum_of_squares`` makes use of square to compute
+Here's a simple example of functional decomposition using two functions. The first function called ``square`` simply 
+computes the square of a given number. The second function called ``sum_of_squares`` makes use of square to compute
 the sum of three numbers that have been squared.
 
-.. codelens:: sumofsquares
+.. codelens:: clens11_9_1
+    :python: py3
 
     def square(x):
         y = x * x
         return y
 
-    def sum_of_squares(x, y, z):
+    def sum_of_squares(x,y,z):
         a = square(x)
         b = square(y)
         c = square(z)
 
-        return a + b + c
+        return a+b+c
 
     a = -5
     b = 2
     c = 10
-    result = sum_of_squares(a, b, c)
+    result = sum_of_squares(a,b,c)
     print(result)
 
+Even though this is a pretty simple idea, in practice this example illustrates many very important Python concepts, 
+including local and global variables along with parameter passing. Note that the body of ``square`` is not executed 
+until it is called from inside the ``sum_of_squares`` function for the first time on line 6.  
 
-Even though this is a pretty simple idea, in practice this example
-illustrates many very important Python concepts, including local and global
-variables along with parameter passing.  Note that when you step through this
-example, codelens bolds line 1 and line 5 as the functions are defined.  The
-body of square is not executed until it is called from the ``sum_of_squares``
-function for the first time on line 6.  Also notice that when ``square`` is
-called there are two groups of local variables, one for ``square`` and one
-for ``sum_of_squares``.  As you step through you will notice that ``x``, and ``y`` are local variables in both functions and may even have
-different values.  This illustrates that even though they are named the same,
-they are in fact, very different.
+Also notice that when ``square`` is called (at Step 8, for example), there are two groups of local variables, one for 
+``square`` and one for ``sum_of_squares``.  Each group of local variables is called a **stack frame**. The variables 
+``x``, and ``y`` are local variables in both functions. These are completely different variables, even though they
+have the same name. Each function invocation creates a new frame, and variables are looked up in that frame. Notice 
+that at step 9, y has the value 25 is one frame and 2 in the other.  
 
-Now we will look at another example that uses two functions.  This example illustrates an
-important computer science problem solving technique called
-**generalization**.  Assume we want to write a
-function to draw a square.  The generalization step is to realize that a
-square is just a special kind of rectangle.
+What happens when you to refer to variable y on line 3? Python looks up the value of y in the stack frame for the 
+``square`` function. If it didn't find it there, it would go look in the global frame.  
 
-To draw a rectangle we need to be able to call a function with different
-arguments for width and height.  Unlike the case of the square,
-we cannot repeat the same thing 4 times, because the four sides are not equal.
-However, it is the case that drawing the bottom and right sides are the
-same sequence as drawing the top and left sides.  So we eventually come up with
-this rather nice code that can draw a rectangle.
+Let's use composition to build up a little more useful function. Recall from the dictionaries chapter that we had a two-step process for finding the letter that appears most frequently in a text string:
 
-.. code-block:: python
+1. Accumulate a dictionary with letters as keys and counts as values. See :ref:`example <accumulating_counts>`.
+2. Find the best key from that dictionary. See :ref:`example <accumulating_best_key>`.
 
-    def drawRectangle(t, w, h):
-        """Get turtle t to draw a rectangle of width w and height h."""
-        for i in range(2):
-            t.forward(w)
-            t.left(90)
-            t.forward(h)
-            t.left(90)
+We can make functions for each of those and then compose them into a single function that finds the most common letter.
 
-The parameter names are chosen as single letters for conciseness.
-In real programs, we will insist on better variable names than this.
-The point is that the program doesn't "understand" that you're drawing a rectangle or that the
-parameters represent the width and the height.  Concepts like rectangle, width, and height are meaningful
-for humans.  They are not concepts that the program or the computer understands.
+.. activecode:: ac_11_9_1
 
-*Thinking like a computer scientist* involves looking for patterns and
-relationships.  In the code above, we've done that to some extent.  We did
-not just draw four sides. Instead, we spotted that we could draw the
-rectangle as two halves and used a loop to repeat that pattern twice.
+    def most_common_letter(s):
+        frequencies = count_freqs(s)
+        return best_key(frequencies)
 
-But now we might spot that a square is a special kind of rectangle.  A square
-simply uses the same value for both the height and the width.
-We already have a function that draws a rectangle, so we can use that to draw
-our square.
+    def count_freqs(st):
+        d = {}
+        for c in st:
+            if c not in d:
+                 d[c] = 0
+            d[c] = d[c] + 1
+        return d
 
-.. code-block:: python
+    def best_key(dictionary):
+        ks = dictionary.keys()
+        best_key_so_far = list(ks)[0]  # Have to turn ks into a real list before using [] to select an item
+        for k in ks:
+            if dictionary[k] > dictionary[best_key_so_far]:
+                best_key_so_far = k
+        return best_key_so_far
 
-    def drawSquare(tx, sz):        # a new version of drawSquare
-        drawRectangle(tx, sz, sz)
+    print(most_common_letter("abbbbbbbbbbbccccddddd"))
 
-Here is the entire example with the necessary set up code.
+**Check your Understanding**
 
-.. activecode:: ch04_3
-    :nocodelens:
+.. activecode:: ac11_9_1
+   :language: python
+   :autograde: unittest
+   :practice: T
 
-    import turtle
+   **1.** Write two functions, one called ``addit`` and one called ``mult``. ``addit`` takes one number as an input and adds 5. ``mult`` takes one number as an input, and multiplies that input by whatever is returned by ``addit``, and then returns the result.
+   ~~~~
 
-    def drawRectangle(t, w, h):
-        """Get turtle t to draw a rectangle of width w and height h."""
-        for i in range(2):
-            t.forward(w)
-            t.left(90)
-            t.forward(h)
-            t.left(90)
+   =====
 
-    def drawSquare(tx, sz):        # a new version of drawSquare
-        drawRectangle(tx, sz, sz)
+   from unittest.gui import TestCaseGui
 
-    wn = turtle.Screen()             # Set up the window
-    wn.bgcolor("lightgreen")
+   class myTests(TestCaseGui):
 
-    tess = turtle.Turtle()           # create tess
+      def testOne(self):
+         self.assertEqual(mult(1), 6,"Testing the function mult with input 1 (should be 6)")
+         self.assertEqual(mult(-2), -6, "Testing the function mult with input -2 (should be -6)")
+         self.assertEqual(mult(0), 0, "Testing the function mult with input 0 (should be 0)")
 
-    drawSquare(tess, 50)
+      def testTwo(self):
+         self.assertEqual(addit(1), 6, "Testing the function addit with input 1 (should be 6)")
+         self.assertEqual(addit(-2), 3, "Testing the function addit with input -2 (should be 3)")
+         self.assertEqual(addit(0), 5, "Testing the function addit with input 0 (should be 5)")
 
-    wn.exitonclick()
-
-
-
-There are some points worth noting here:
-
-* Functions can call other functions.
-* Rewriting `drawSquare` like this captures the relationship
-  that we've spotted.
-* A caller of this function might say `drawSquare(tess, 50)`.  The parameters
-  of this function, ``tx`` and ``sz``, are assigned the values of the tess object, and
-  the integer 50 respectively.
-* In the body of the function, ``tz`` and ``sz`` are just like any other variable.
-* When the call is made to ``drawRectangle``, the values in variables ``tx`` and ``sz``
-  are fetched first, then the call happens.  So as we enter the top of
-  function `drawRectangle`, its variable ``t`` is assigned the tess object, and ``w`` and
-  ``h`` in that function are both given the value 50.
-
-
-So far, it may not be clear why it is worth the trouble to create all of these
-new functions. Actually, there are a lot of reasons, but this example
-demonstrates two:
-
-#. Creating a new function gives you an opportunity to name a group of
-   statements. Functions can simplify a program by hiding a complex computation
-   behind a single command. The function (including its name) can capture your
-   mental chunking, or *abstraction*, of the problem.
-#. Creating a new function can make a program smaller by eliminating repetitive
-   code.
-#. Sometimes you can write functions that allow you to solve a specific
-   problem using a more general solution.
-
-
-.. admonition:: Lab
-
-    * `Drawing a Circle <../Labs/lab04_01.html>`_ In this guided lab exercise we will work
-      through a simple problem solving exercise related to drawing a circle with the turtle.
-
-
+   myTests().main()

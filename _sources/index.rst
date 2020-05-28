@@ -61,15 +61,17 @@ Table of Contents
    06-MoreFlow/toctree.rst
    07-Functions/toctree.rst
    08-Strings/toctree.rst
-   09-Booleans/toctree.rst
-   Lists/toctree.rst
+   09-UnitTesting/toctree.rst
+   10-Booleans/toctree.rst
+   11-Lists/toctree.rst
+   12-MoreFunctions/toctree.rst
    Files/toctree.rst
    Dictionaries/toctree.rst
    Exceptions/toctree.rst
    WebApps/toctree.rst
+   NestedData/toctree.rst
    IntroRecursion/toctree.rst
-   ClassesBasics/toctree.rst
-   ClassesDiggingDeeper/toctree.rst
+   Classes/toctree.rst
    Inheritance/toctree.rst
 
 Labs

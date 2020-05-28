@@ -74,7 +74,9 @@ exclude_patterns = ['ActiveIndexFiles/*','OldIndexAndConfFiles/*','ExtraStuff/*'
                      'Graphs/*', 'Trees/*', 'AlgorithmAnalysis/*', 'BasicDS/*',
                      'SortSearch/*','_static/skulpt/doc/*','ErrorHelp/*','Test/*','OverviewForSite/*',
                      'Appendices/app_*','IntroRecursion/recursioncomplex*','IntroRecursion/recursionexercises.rst',
-                     'IntroRecursion/thinkpyrecursion.rst','Functions/morefunctions.rst','Introduction/introduction.rst']
+                     'IntroRecursion/thinkpyrecursion.rst','Introduction/introduction.rst',
+                     'Classes/sorting_instances.rst',
+                     'Classes/ChapterAssessment.rst']
 
 # The reST default role (used for this markup: `text`) to use for all documents.
 #default_role = None

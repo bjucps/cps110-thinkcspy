@@ -2,20 +2,21 @@ Functions
 :::::::::
 
 .. toctree::
+   :caption: Functions
    :maxdepth: 2
 
-   functions.rst
-   Functionsthatreturnvalues.rst
-   Variablesandparametersarelocal.rst
-   Functionscancallotherfunctions.rst   
-   FlowofExecutionSummary.rst
-   DocumentingFunctions.rst
+   intro-Functions.rst
+   FunctionDefinitions.rst
+   FunctionInvocation.rst
+   FunctionParameters.rst
+   Returningavaluefromafunction.rst
+   DecodingaFunction.rst
    TypeAnnotations.rst
-   Refactoring.rst
-   mainfunction.rst
-   Composition.rst
-   ATurtleBarChart.rst
-   UnitTesting.rst
-   CreatingModules.rst
+   Functionscancallotherfunctions.rst
+   FlowofExecutionSummary.rst
+   Printvsreturn.rst
+
    Glossary.rst
    Exercises.rst
+   ChapterAssessment.rst
+      

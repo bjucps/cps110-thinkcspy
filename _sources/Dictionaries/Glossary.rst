@@ -7,10 +7,14 @@
     the license is included in the section entitled "GNU Free Documentation
     License".
 
+.. qnum::
+   :prefix: dictionaries-10-
+   :start: 1
+
 Glossary
 --------
 
-.. glossary::    
+.. glossary::
         
     dictionary
         A collection of key-value pairs that maps from keys to values. The keys
@@ -19,6 +23,9 @@ Glossary
     key
         A data item that is *mapped to* a value in a dictionary. Keys are used
         to look up values in a dictionary.
+    
+    value
+        The value that is associated with each key in a dictionary.
 
     key-value pair
         One of the pairs of items in a dictionary. Values are looked up in a
@@ -30,7 +37,5 @@ Glossary
         dictionary.  Dictionaries implement the
         `associative array <http://en.wikipedia.org/wiki/Associative_array>`__
         abstract data type.
-
-
 
 

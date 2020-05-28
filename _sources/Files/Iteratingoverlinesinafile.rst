@@ -8,107 +8,125 @@
     License".
 
 .. qnum::
-   :prefix: file-4-
+   :prefix: files-5-
    :start: 1
-
 
 Iterating over lines in a file
 ------------------------------
 
-Recall the contents of the qbdata.txt file.
+We will now use this file as input in a program that will do some data processing. In the program, we will
+examine each line of the file and print it with some additional text. Because ``readlines()`` returns a list of
+lines of text, we can use the *for* loop to iterate through each line of the file.
 
-.. datafile:: qbdata.txt
+A **line** of a file is defined to be a sequence of characters up to and including a special character called
+the **newline** character. If you evaluate a string that contains a newline character you will see the character
+represented as ``\n``. If you print a string that contains a newline you will not see the ``\n``, you will just
+see its effects (a carriage return).
 
-    Colt McCoy QB CLE  135 222 1576    6   9   60.8%   74.5
-    Josh Freeman QB TB 291 474 3451    25  6   61.4%   95.9
-    Michael Vick QB PHI    233 372 3018    21  6   62.6%   100.2
-    Matt Schaub QB HOU 365 574 4370    24  12  63.6%   92.0
-    Philip Rivers QB SD    357 541 4710    30  13  66.0%   101.8
-    Matt Hasselbeck QB SEA 266 444 3001    12  17  59.9%   73.2
-    Jimmy Clausen QB CAR   157 299 1558    3   9   52.5%   58.4
-    Joe Flacco QB BAL  306 489 3622    25  10  62.6%   93.6
-    Kyle Orton QB DEN  293 498 3653    20  9   58.8%   87.5
-    Jason Campbell QB OAK  194 329 2387    13  8   59.0%   84.5
-    Peyton Manning QB IND  450 679 4700    33  17  66.3%   91.9
-    Drew Brees QB NO   448 658 4620    33  22  68.1%   90.9
-    Matt Ryan QB ATL   357 571 3705    28  9   62.5%   91.0
-    Matt Cassel QB KC  262 450 3116    27  7   58.2%   93.0
-    Mark Sanchez QB NYJ    278 507 3291    17  13  54.8%   75.3
-    Brett Favre QB MIN 217 358 2509    11  19  60.6%   69.9
-    David Garrard QB JAC   236 366 2734    23  15  64.5%   90.8
-    Eli Manning QB NYG 339 539 4002    31  25  62.9%   85.3
-    Carson Palmer QB CIN   362 586 3970    26  20  61.8%   82.4
-    Alex Smith QB SF   204 342 2370    14  10  59.6%   82.1
-    Chad Henne QB MIA  301 490 3301    15  19  61.4%   75.4
-    Tony Romo QB DAL   148 213 1605    11  7   69.5%   94.9
-    Jay Cutler QB CHI  261 432 3274    23  16  60.4%   86.3
-    Jon Kitna QB DAL   209 318 2365    16  12  65.7%   88.9
-    Tom Brady QB NE    324 492 3900    36  4   65.9%   111.0
-    Ben Roethlisberger QB PIT  240 389 3200    17  5   61.7%   97.0
-    Kerry Collins QB TEN   160 278 1823    14  8   57.6%   82.2
-    Derek Anderson QB ARI  169 327 2065    7   10  51.7%   65.9
-    Ryan Fitzpatrick QB BUF    255 441 3000    23  15  57.8%   81.8
-    Donovan McNabb QB WAS  275 472 3377    14  15  58.3%   77.1
-    Kevin Kolb QB PHI  115 189 1197    7   7   60.8%   76.1
-    Aaron Rodgers QB GB    312 475 3922    28  11  65.7%   101.2
-    Sam Bradford QB STL    354 590 3512    18  15  60.0%   76.5
-    Shaun Hill QB DET  257 416 2686    16  12  61.8%   81.3
-
-
-We will now use this file as input in a program that will do some data
-processing. In the program, we will **read** each line of the file and
-print it with some additional text. Because text files are sequences of
-lines of text, we can use the *for* loop to iterate through each line of
-the file.
-
-A **line** of a file is defined to be a sequence of characters up to and
-including a special character called the **newline** character. If you
-evaluate a string that contains a newline character you will see the
-character represented as ``\n``. If you print a string that contains a
-newline you will not see the ``\n``, you will just see its effects. When
-you are typing a Python program and you press the enter or return key on
-your keyboard, the editor inserts a newline character into your text at
-that point.
-
-As the *for* loop iterates through each line of the file the loop
-variable will contain the current line of the file as a string of
-characters. The general pattern for processing each line of a text file
-is as follows:
+As the *for* loop iterates through each line of the file the loop variable will contain the current line of the
+file as a string of characters. The general pattern for processing each line of a text file is as follows:
 
 ::
 
-        for line in myFile:
+        for line in myFile.readlines():
             statement1
             statement2
             ...
 
-To process all of our quarterback data, we will use a *for* loop to iterate over the lines of the file. Using
+To process all of our olypmics data, we will use a *for* loop to iterate over the lines of the file. Using
 the ``split`` method, we can break each line into a list containing all the fields of interest about the
-quarterback. We can then take the values corresponding to first name, lastname, and passer rating to
+athlete. We can then take the values corresponding to name, team and event to
 construct a simple sentence.
 
-
-
-
-.. activecode:: files_for
+.. activecode:: ac9_5_1
     :nocodelens:
-    :available_files: qbdata.txt
 
-    qbfile = open("qbdata.txt", "r")
+    olypmicsfile = open("olypmics.txt", "r")
 
-    for aline in qbfile:
-        values = aline.split()
-        print('QB ', values[0], values[1], 'had a rating of ', values[10] )
+    for aline in olypmicsfile.readlines():
+        values = aline.split(",")
+        print(values[0], "is from", values[3], "and is on the roster for", values[4])
 
-    qbfile.close()
+    olypmicsfile.close()
+
+To make the code a little simpler, and to allow for more efficient processing, Python provides a built-in way to
+iterate through the contents of a file one line at a time, without first reading them all into a list. Some students find this confusing initially, so we don't recommend doing it this way, until you get a
+little more comfortable with Python. But this idiom is preferred by Python programmers, so you should be prepared
+to read it. And when you start dealing with big files, you may notice the efficiency gains of using it.
+
+.. activecode:: ac9_5_2
+    :nocodelens:
+
+    olypmicsfile = open("olypmics.txt", "r")
+
+    for aline in olypmicsfile:
+        values = aline.split(",")
+        print(values[0], "is from", values[3], "and is on the roster for", values[4])
+
+    olypmicsfile.close()
+
+.. raw:: html
+
+    <pre hidden id="olypmics.txt">
+    Name,Sex,Age,Team,Event,Medal
+    A Dijiang,M,24,China,Basketball,NA
+    A Lamusi,M,23,China,Judo,NA
+    Gunnar Nielsen Aaby,M,24,Denmark,Football,NA
+    Edgar Lindenau Aabye,M,34,Denmark/Sweden,Tug-Of-War,Gold
+    Christine Jacoba Aaftink,F,21,Netherlands,Speed Skating,NA
+    Christine Jacoba Aaftink,F,25,Netherlands,Speed Skating,NA
+    Christine Jacoba Aaftink,F,25,Netherlands,Speed Skating,NA
+    Christine Jacoba Aaftink,F,27,Netherlands,Speed Skating,NA
+    Per Knut Aaland,M,31,United States,Cross Country Skiing,NA
+    Per Knut Aaland,M,33,United States,Cross Country Skiing,NA
+    John Aalberg,M,31,United States,Cross Country Skiing,NA
+    John Aalberg,M,33,United States,Cross Country Skiing,NA
+    "Cornelia ""Cor"" Aalten (-Strannood)",F,18,Netherlands,Athletics,NA
+    "Cornelia ""Cor"" Aalten (-Strannood)",F,18,Netherlands,Athletics,NA
+    Antti Sami Aalto,M,26,Finland,Ice Hockey,NA
+    "Einar Ferdinand ""Einari"" Aalto",M,26,Finland,Swimming,NA
+    Jorma Ilmari Aalto,M,22,Finland,Cross Country Skiing,NA
+    Jyri Tapani Aalto,M,31,Finland,Badminton,NA
+    Minna Maarit Aalto,F,30,Finland,Sailing,NA
+    Minna Maarit Aalto,F,34,Finland,Sailing,NA
+    Pirjo Hannele Aalto (Mattila-),F,32,Finland,Biathlon,NA
+    Timo Antero Aaltonen,M,31,Finland,Athletics,NA
+    Win Valdemar Aaltonen,M,54,Finland,Art Competitions,NA
+    </pre>
 
 
-.. note::
-   You can obtain a line from the keyboard with the ``input`` function, and you can process lines of a file.  
-   However "line" is used differently:  With ``input`` Python reads through the newline you enter from the keyboard,
-   but the newline (``'\n'``) is *not* included in the line returned by ``input``. It is dropped. 
-   When a line is taken from a file, the terminating newline *is* included as the last character (unless you
-   are reading the final line of a file that happens to not have a newline at the end).
+**Check your Understanding**
 
-In the quarterback example it is irrelevant whether the final line has a newline character at the end or not, 
-since it would be stripped off by the ``split`` method call.
+.. raw:: html
+
+    <pre id="emotion_words.txt">
+    Sad upset blue down melancholy somber bitter troubled
+    Angry mad enraged irate irritable wrathful outraged infuriated
+    Happy cheerful content elated joyous delighted lively glad
+    Confused disoriented puzzled perplexed dazed befuddled
+    Excited eager thrilled delighted
+    Scared afraid fearful panicked terrified petrified startled
+    Nervous anxious jittery jumpy tense uneasy apprehensive
+    </pre>
+
+.. activecode:: ac9_5_3
+   :available_files: emotion_words.txt
+   :language: python
+   :nocodelens:
+   :autograde: unittest
+   :practice: T
+
+   1. Write code to find out how many lines are in the file ``emotion_words.txt`` as shown above. Save this value to the variable ``num_lines``. Do not use the len method.
+   ~~~~
+
+   =====
+
+   from unittest.gui import TestCaseGui
+
+   class myTests(TestCaseGui):
+
+      def testOne(self):
+         self.assertEqual(num_lines, 7, "Testing that num_lines was assigned to the correct value.")
+         self.assertNotIn('len', self.getEditorText(), "Testing your code (Don't worry about actual and expected values).")
+
+   myTests().main()

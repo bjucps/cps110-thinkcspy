@@ -11,6 +11,7 @@ blocks of Python.
    :maxdepth: 2
 
    PythonMath.rst
+   FunctionCalls.rst
    ValuesandDataTypes.rst
    Variables.rst
    Reassignment.rst
