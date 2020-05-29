@@ -157,105 +157,114 @@ change the original.  You can also consult the `Python documentation for strings
 
 .. _Format-Strings:
 
-String Format Method
+More on f-Strings
 ~~~~~~~~~~~~~~~~~~~~~
 
-In grade school quizzes a common convention is to use fill-in-the blanks. For instance,
+We introduced f-Strings in Chapter 2 as a convenient way to get the values of variables
+inserted into a string. For example, rather than writing::
 
-    Hello _____!
+    count = 5
+    msg = 'count is ' + str(count)
 
+You can write::
 
-and you can fill in the name of the person greeted, and combine
-given text with a chosen insertion. *We use this as an analogy:*
-Python has a similar
-construction, better called fill-in-the-braces. The string method ``format``,  makes
-substitutions into places in a string
-enclosed in braces. Run this code:
+    count = 5
+    msg = f'count is {count}'
 
-.. activecode:: ch08_methods3
+and achieve the same effect. Note the ``f`` before the opening quote of the string: that cues the Python interpreter
+to look inside the string literal for variable names surrounded by ``{}`` and replace those markers with the variables'
+values.
 
-    person = input('Your name: ')
-    greeting = 'Hello {}!'.format(person)
-    print(greeting)
-
-
-There are several new ideas here!
-
-The string for the ``format`` method has a special form, with braces embedded.
-Such a string is called a *format string*.  Places where
-braces are embedded are replaced by the value of an expression
-taken from the parameter list for the ``format`` method. There are many
-variations on the syntax between the braces. In this case we use
-the syntax where the first (and only) location in the string with
-braces has a substitution made from the first (and only) parameter.
-
-In the code above, this new string is assigned to the identifier
-``greeting``, and then the string is printed.
-
-The identifier
-``greeting`` was introduced to break the operations into a clearer
-sequence of steps. However, since the value of ``greeting`` is only
-referenced once, it can be eliminated with the more concise
-version:
-
-.. activecode:: ch08_methods4
-
-    person = input('Enter your name: ')
-    print('Hello {}!'.format(person))
-
-There can be multiple substitutions, with data of any type.
-Next we use floats.  Try original price $2.50  with a 7% discount:
-
-.. activecode:: ch08_methods5
-
-    origPrice = float(input('Enter the original price: $'))
-    discount = float(input('Enter discount percentage: '))
-    newPrice = (1 - discount/100)*origPrice
-    calculation = '${} discounted by {}% is ${}.'.format(origPrice, discount, newPrice)
-    print(calculation)
-
-The parameters are inserted into the braces in order.
-
-If you used the data suggested, this result is not satisfying.
-Prices should appear with exactly two places beyond the decimal point,
-but that is not the default way to display floats.
-
-Format strings can give further information inside the braces
-showing how to specially format data.
-In particular floats can be shown with a specific number of decimal places.
-For two decimal places, put ``:.2f`` inside the braces for the monetary values:
+f-Strings can include formatting specifications. Take a look at this example:
 
 .. activecode:: ch08_methods6
 
-    origPrice = float(input('Enter the original price: $'))
-    discount = float(input('Enter discount percentage: '))
+    origPrice = 56.235
+    discount = .08
+    newPrice = (1 - discount/100)*origPrice
+    calculation = f'${origPrice:.2f} discounted by {discount}% is ${newPrice:.2f}.'
+    print(calculation)
+
+In this example, the line
+
+.. sourcecode:: python
+
+    calculation = f'${origPrice:.2f} discounted by {discount}% is ${newPrice:.2f}.'
+
+contains a complicated f-String with three markers:
+
+* ``{origPrice:.2f}`` inserts the value of ``origPrice``, rounded to two decimal places
+* ``{discount}`` inserts the value of ``discount``
+* ``{newPrice:.2f}`` inserts the value of ``newPrice``, rounded to two decimal places
+
+In the example above, we've created a variable and then printed it, but we could have
+done both steps in one line, like this::
+
+    print(f'${origPrice:.2f} discounted by {discount}% is ${newPrice:.2f}.')
+
+.. note::
+
+    A technical point: Since braces have special meaning in f-Strings,
+    if you want braces to actually be included in the final *formatted* string,
+    you must double them. For example, the initial and final doubled
+    braces in the format string below generate literal braces in the
+    formatted string::
+
+        a = 5
+        b = 9
+        print(f'The set is {{ {a}, {b} }}.')
+
+    This produces the output::
+
+        The set is { 5, 9 }.
+
+
+The ``format`` method
+~~~~~~~~~~~~~~~~~~~~~
+
+``f-Strings`` are a relatively recent addition to Python. Before they were added to the language,
+the the string method ``format`` was used to insert variables into strings. 
+
+Have a look at this example:
+
+.. activecode:: ch08_methods3
+
+    first = input('Your first name: ')
+    last = input('Your last name: ')
+    greeting = 'Hello {} {}!'.format(first, last)
+    print(greeting)
+
+The string for the ``format`` method has a special form, with braces embedded.
+Such a string is called a *format string*. For each pair of curly
+braces in the format string, the ``format`` method substitutes a value
+from its parameter list. In the example above, the value of the parameter ``first``
+is substituted in place of the first pair of curly brackets, and the value
+of the parameter ``last`` is substituted in place of the second pair.
+
+Like f-Strings, format strings can give further information inside the braces
+showing how to specially format data:
+
+.. activecode:: ch08_methods7
+
+    origPrice = 56.23
+    discount = .08
     newPrice = (1 - discount/100)*origPrice
     calculation = '${:.2f} discounted by {}% is ${:.2f}.'.format(origPrice, discount, newPrice)
     print(calculation)
-
-The 2 in the format modifier can be replaced by another integer to round to that
-specified number of digits.
 
 This kind of format string depends directly on the order of the
 parameters to the format method. There are other approaches that we will
 skip here, explicitly numbering substitutions and taking substitutions from a dictionary.
 
-A technical point: Since braces have special meaning in a format
-string, there must be a special rule if you want braces to actually
-be included in the final *formatted* string. The rule is to double
-the braces: ``{ {`` and ``}}``. For example mathematical set
-notation uses braces. The initial and final doubled
-braces in the format string below generate literal braces in the
-formatted string::
+For more information on the type of formatting specifications you can use in format strings (and f-Strings), see
+`this helpful article <https://www.digitalocean.com/community/tutorials/how-to-use-string-formatters-in-python-3>`_.
 
 
-    a = 5
-    b = 9
-    setStr = 'The set is { { { }, {} } }.'.format(a, b)
-    print(setStr)
+So, which should you use: format strings or f-Strings? In most cases, f-Strings are preferable, because they tend to
+produce more readable code. However, it helps to know about both techniques, since the code you will see on the Internet
+(and in this book) uses both.
 
-Unfortunately, at the time of this writing, the ActiveCode format implementation has a bug,
-printing doubled braces, but standard Python prints ``{5, 9}``.
+
 
 .. mchoice:: test_question8_3_3
    :practice: T

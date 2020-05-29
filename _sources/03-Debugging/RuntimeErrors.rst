@@ -23,6 +23,9 @@ occurred that caused the interpreter to stop executing the program and display
 an error message. Runtime errors are also called **exceptions** because they usually 
 indicate that something exceptional (and bad) has happened.
 
+There are many types of runtime errors that you may encounter, but for now we will 
+focus on three of the most common: Name errors, Type errors, and Value errors.
+
 The following program contains a runtime error. Can you spot the problem?
 After locating the error, run the program to see the error message.
 
@@ -72,7 +75,7 @@ A ``ValueError`` occurs when the value of a variable has the correct data type, 
 required by the operation. In this situation, the ``float`` function is attempting to convert string data to a float.
 The data type (``str``) is correct, but the value of that data (``abc``) is not a sequence of symbols that can be converted
 to a float. For now, there's nothing you can do to prevent a ``ValueError`` from occurring when the user enters
-non-numeric input. Later, we'll cover **exception handling** techniques that will permit your programs to recover gracefully
+non-numeric input. Later in this book, we'll cover **exception handling** techniques that will permit your programs to recover gracefully
 in these situations.
 
 Notice the following important differences between syntax errors and runtime errors that can help you as you try to diagnose

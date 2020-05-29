@@ -96,6 +96,64 @@ We can make functions for each of those and then compose them into a single func
 
 **Check your Understanding**
 
+.. mchoice:: question11_11_1
+   :answer_a: 2
+   :answer_b: 5
+   :answer_c: 7
+   :answer_d: 25
+   :answer_e: Error: y has a value but x is an unbound variable inside the square function
+   :correct: c
+   :feedback_a: 2 is the input; the value returned from h is what will be printed.
+   :feedback_b: Don't forget that 2 gets squared.
+   :feedback_c: First square 2, then add 3.
+   :feedback_d: 3 is added to the result of squaring 2
+   :feedback_e: When square is called, x is bound to the parameter value that is passed in, 2.
+   :practice: T
+
+   What will the following code output?
+
+   .. code-block:: python
+
+       def square(x):
+           return x*x
+
+       def g(y):
+           return y + 3
+
+       def h(y):
+           return square(y) + 3
+
+       print(h(2))
+
+.. mchoice:: question11_11_2
+   :answer_a: 2
+   :answer_b: 5
+   :answer_c: 7
+   :answer_d: 10
+   :answer_e: Error: you can't nest function calls
+   :correct: d
+   :feedback_a: Better read the section above one more time.
+   :feedback_b: Better read the section above one more time.
+   :feedback_c: That's h(2), but it is passed to g.
+   :feedback_d: h(2) returns 7, so y is bound to 7 when g is invoked.
+   :feedback_e: Ah, but you can nest function calls.
+   :practice: T
+
+   What will the following code output?
+   
+   .. code-block:: python 
+
+       def square(x):
+           return x*x
+           
+       def g(y):
+           return y + 3
+           
+       def h(y):
+           return square(y) + 3
+           
+       print(g(h(2))
+
 .. activecode:: ac11_9_1
    :language: python
    :autograde: unittest

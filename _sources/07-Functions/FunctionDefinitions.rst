@@ -31,8 +31,8 @@ The syntax for creating a named function, a **function definition**, is:
     def name( parameters ):
         statements
 
-A function definition has two parts: the **function interface**, and the statements, called the **function implementation**.
-Let's explore those two parts.
+A function definition has two parts: the **function interface**, and the statements, called the **function implementation** or 
+**function body**. Let's explore those two parts.
 
 The **function interface** is the first line that specifies the name of the function and some *parameter names* enclosed in parentheses. 
 
@@ -47,8 +47,7 @@ The **function interface** is the first line that specifies the name of the func
   the parentheses are required. We'll cover more about parameters shortly.
 
 Like other compound statements we've seen such as ``for`` and ``if``, function definitions are a compound statement.
-The **function implementation**, also known as the **body** of the function, contains several statements, which must be indented
-underneath the function interface.
+The **function implementation** contains several statements, which must be indented underneath the function interface.
 
 Here's another example of a program that defines a function:
 

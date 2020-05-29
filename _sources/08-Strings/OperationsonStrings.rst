@@ -29,9 +29,9 @@ has type string):
     message * "Hello"   
     "15" + 2
 
-Interestingly, the ``+`` operator does work with strings, but for strings, the
+As you've seen, , the ``+`` operator does work with strings, but for strings, the
 ``+`` operator represents **concatenation**, not addition.  Concatenation means
-joining the two operands by linking them end-to-end. For example:
+joining the two operands into a single value by linking them end-to-end. For example:
 
 .. activecode:: ch08_add
     :nocanvas:

@@ -75,10 +75,6 @@ called. It doesn't matter what the value was named in the caller (the place wher
             :autograde: unittest
             :practice: T
 
-            def subtract_three(num):
-
-                return ???
-
             =====
 
             from unittest.gui import TestCaseGui
@@ -94,37 +90,12 @@ called. It doesn't matter what the value was named in the caller (the place wher
 
     .. tab:: Solution
 
-        Here's the return statement to use::
+        Here's the solution (yours could use a parameter with a name other than ``num``)::
 
-            return num - 3
+            def subtract_three(num):
+                """Returns the value `num` - 3"""
+                return num - 3
 
-
-``print`` vs. ``return``
-------------------------
-
-Consider the following common mistake made by beginning Python programmers. As you step through this example, pay very
-close attention to the return value in the local variables listing. Then look at what is printed when the function is
-over.
-
-.. codelens:: clens11_4_2
-    :python: py3
-
-    def square(x):
-        y = x * x
-        print(y)   # Bad! Should return!
-
-    toSquare = 10
-    squareResult = square(toSquare)
-    print("The result of {} squared is {}.".format(toSquare, squareResult))
-
-The problem with this function is that it prints the value of the squared input, but does not return it 
-to the place where the call was done. When a Python function does not have an explicit return statement,
-it returns the the special value ``None``. 
-
-Since line 6 assigns the result of this function to ``squareResult``, it receives the value ``None`` and the result
-printed in line 7 is incorrect. Typically, instead of printing the results they compute, functions will **return**
-values to their caller, so that the calling code can do whatever it wants to with the value: print it, assign it 
-to a variable, or use it in some other way.
 
 Returning Multiple Values
 -------------------------
@@ -166,15 +137,16 @@ following example:
 
   def safe_divide(num, denom):
       if denom == 0:
-        return None
+        return 0
 
       return num / denom
 
   x = safe_divide(5, 0)
   print(x)
 
-In this example, the value of the ``denom`` parameter is ``0``, so the function returns the value ``None`` instead of
-performing a division which would result in a runtime error.
+In this example, the value of the ``denom`` parameter is ``0``, so the function returns the value ``0`` instead of
+performing a division which would result in a runtime error. (Whether this is actually a good idea is the topic
+of a separate discussion.)
 
 
 Using return values
@@ -223,22 +195,6 @@ interpreter does these steps:
          return x+y+z
          print('the answer is', x+y+z)
 
-.. mchoice:: question11_4_2
-   :answer_a: The value None
-   :answer_b: The value of x+y+z
-   :answer_c: The string 'x+y+z'
-   :correct: a
-   :feedback_a: We have accidentally used print where we mean return.  Therefore, the function will return the value None by default.  This is a VERY COMMON mistake so watch out!  This mistake is also particularly difficult to find because when you run the function the output looks the same.  It is not until you try to assign its value to a variable that you can notice a difference.
-   :feedback_b: Careful!  This is a very common mistake.  Here we have printed the value x+y+z but we have not returned it.  To return a value we MUST use the return keyword.
-   :feedback_c: x+y+z calculates a number (assuming x+y+z are numbers) which represents the sum of the values x, y and z.
-   :practice: T
-
-   What will the following function return?
-
-   .. code-block:: python
-
-    def addEm(x, y, z):
-        print(x+y+z)
 
 .. mchoice:: question11_4_3
    :answer_a: 25

@@ -19,12 +19,6 @@ and not think too much about what they do. With parameters, functions are even m
 pretty much the same thing on each invocation, but not exactly the same thing. The parameters can cause them to do
 something a little different.
 
-.. youtube:: Ndw_EgFO_tw
-    :divid: goog_function_parms
-    :height: 315
-    :width: 560
-    :align: left
-
 The figure below shows this relationship. A function needs certain information to do its work. These values, often
 called **arguments** or **actual parameters** or **parameter values**, are passed to the function by the user.
 
@@ -36,8 +30,8 @@ programmer who created the function). The user must know the name of the functio
 passed. The details of how the function works are hidden inside the "black-box".
 
 You have already been making function invocations with parameters. For example, when you write ``len("abc")`` or
-``len([3, 9, "hello"])``, len is the name of a function, and the value that you put inside the parentheses, the string
-"abc" or the list [3, 9, "hello"], is a parameter value.
+``len(msg)``, len is the name of a function, and the value that you put inside the parentheses, the string
+"abc" or the variable ``msg``, is a parameter value.
 
 When a function has one or more parameters, the names of the parameters appear in the function definition, and the
 values to assign to those parameters appear inside the parentheses of the function invocation. Let's look at each of
@@ -110,19 +104,59 @@ a parameter that controls how many times the greeting will be printed.
 
    def hello3(s, n):
       greeting = "Hello {} ".format(s)
-      print(greeting*n)
+      for _ in range(n):
+         print(greeting)
 
-   hello3("Wei", 4)
+   hello3("Wei", 3)
    hello3("", 1)
-   hello3("Kitty", 11)
+   hello3("Kitty", 2)
 
 At Step 3 of the execution, in the first invocation of hello3, notice that the variable s is bound
-to the value "Wei" and the variable n is bound to the value 4.
+to the value "Wei" and the variable n is bound to the value 3.
 
 That's how function invocations always work. Each of the expressions, separated by commas, that are inside the
 parentheses are evaluated to produce values. Then those values are matched up positionally
 with the formal parameters. The first parameter name is bound to the first value
 provided. The second parameter name is bound to the second value provided. And so on.
+
+
+.. tabbed:: tab_funcparm
+
+    .. tab:: Question
+
+        Define a function called ``subtract_three`` that takes an integer or any number as a parameter, and prints
+        the value that results from subtracting 3 from that number. Your solution should not print anything other
+        than the number. Do not write a line of code to call the function; the activecode interpreter will
+        call it for you, and check that it works. 
+
+        .. activecode:: ac_funcparm
+            :language: python
+            :autograde: unittest
+            :practice: T            
+
+            =====            
+
+            from unittest.gui import TestCaseGui
+
+            class myTests(TestCaseGui):
+
+                def testOne(self):
+                     subtract_three(15)
+                     self.assertEqual(self.getOutput().strip(), '12', "subtract_three(15) prints 12?")
+                     subtract_three(12)
+                     self.assertEqual(self.getOutput().strip(), '12\n9', "subtract_three(12) prints 9?")
+
+            myTests().main()
+
+
+    .. tab:: Solution
+
+        Here's the solution (yours could have used a different parameter name)::
+
+            def subtract_three(num):
+                """Displays the value `num` - 3"""
+                print(num - 3)
+
 
 **Check your understanding**
 

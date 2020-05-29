@@ -10,11 +10,11 @@ Functions
    FunctionInvocation.rst
    FunctionParameters.rst
    Returningavaluefromafunction.rst
+   Printvsreturn.rst
    DecodingaFunction.rst
    TypeAnnotations.rst
    Functionscancallotherfunctions.rst
    FlowofExecutionSummary.rst
-   Printvsreturn.rst
 
    Glossary.rst
    Exercises.rst
