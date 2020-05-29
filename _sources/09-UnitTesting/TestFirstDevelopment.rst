@@ -1,4 +1,4 @@
-..  Copyright (C)  Stephen Schaub.  Permission is granted to copy, distribute
+..  Copyright (C) Stephen Schaub.  Permission is granted to copy, distribute
     and/or modify this document under the terms of the GNU Free Documentation
     License, Version 1.3 or any later version published by the Free Software
     Foundation; with Invariant Sections being Forward, Prefaces, and
@@ -7,11 +7,9 @@
     License".
 
 .. qnum::
-   :prefix: test-4-
+   :prefix: tdd-1-
    :start: 1
 
-Glossary
---------
-
-.. glossary::
+Test-Driven Development
+=======================
 

@@ -119,6 +119,7 @@ parentheses are evaluated to produce values. Then those values are matched up po
 with the formal parameters. The first parameter name is bound to the first value
 provided. The second parameter name is bound to the second value provided. And so on.
 
+Now, try your own hand at defining a function that takes parameters.
 
 .. tabbed:: tab_funcparm
 

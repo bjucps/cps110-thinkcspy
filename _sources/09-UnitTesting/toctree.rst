@@ -1,16 +1,12 @@
-Test Cases
-::::::::::
+Unit Testing
+::::::::::::
 
 .. toctree::
    :maxdepth: 3
 
-   intro-TestCases.rst
-   TestingTypes.rst
-   TestingConditionals.rst
-   TestingLoops.rst
+   intro-UnitTesting.rst
+   CheckingAssumptionsWithAssert.rst
    Testingfunctions.rst
-   WPProgramDevelopment.rst
+   TestFirstDevelopment.rst
    Glossary.rst
-   ChapterAssessment.rst
-   
    
