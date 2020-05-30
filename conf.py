@@ -71,8 +71,8 @@ keep_warnings = True
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = ['ActiveIndexFiles/*','OldIndexAndConfFiles/*','ExtraStuff/*', 'Recursion/*',
-                     'Graphs/*', 'Trees/*', 'AlgorithmAnalysis/*', 'BasicDS/*',
-                     'SortSearch/*','_static/skulpt/doc/*','ErrorHelp/*','Test/*','OverviewForSite/*',
+                     'Graphs/*', 'Trees/*',  'BasicDS/*',
+                     '_static/skulpt/doc/*','ErrorHelp/*','Test/*','OverviewForSite/*',
                      'Appendices/app_*','IntroRecursion/recursioncomplex*','IntroRecursion/recursionexercises.rst',
                      'IntroRecursion/thinkpyrecursion.rst','Introduction/introduction.rst',
                      'Classes/sorting_instances.rst',

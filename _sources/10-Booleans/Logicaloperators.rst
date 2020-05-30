@@ -59,11 +59,11 @@ x is between 0 and 10, not including the endpoints.
 
 .. admonition:: Common Mistake!
 
-	There is a very common mistake that occurs when programmers try to write boolean expressions.  For example, what if
-	we have a variable ``number`` and we want to check to see if its value is 5 or 6.  In words we might say: "number
-	equal to 5 or 6".  However, if we translate this into Python, ``number == 5 or 6``, it will not yield correct
+   There is a very common mistake that occurs when programmers try to write boolean expressions.  For example, what if
+   we have a variable ``number`` and we want to check to see if its value is 5 or 6.  In words we might say: "number
+   equal to 5 or 6".  However, if we translate this into Python, ``number == 5 or 6``, it will not yield correct
    results. The ``or`` operator must have a complete equality check on both sides.  The correct way to write this is 
-   ``number == 5	or number == 6``. Remember that both operands of ``or`` must be booleans in order to yield proper results.
+   ``number == 5 or number == 6``. Remember that both operands of ``or`` must be booleans in order to yield proper results.
 
 
 **Check your understanding**
