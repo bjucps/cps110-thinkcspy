@@ -31,6 +31,47 @@ Level     Category        Operators
 1(low)    logical         or
 =======   ==============  ===============
 
+To understand how to apply this precedence chart to boolean operators, consider the following print statement::
+
+   print(a < 3 or not c == 8 and b == 2)
+
+To figure out how Python will process a complicated expression like this, it helps to fully parenthesize it, following
+the order specified by the precedence chart. So, you would begin by putting parenthesis around the individual relational
+comparisons, all of which have a higher precedence than any of the boolean operators::
+
+   print((a < 3) or not (c == 8) and (b == 2))
+
+Next, tackle the boolean operators.  ``not`` has the highest precedence::
+
+   print((a < 3) or (not (c == 8)) and (b == 2))
+
+... followed by ``and``::
+
+   print((a < 3) or ((not (c == 8)) and (b == 2)))
+
+This fully-parenthesized print statement is equivalent to the original. 
+
+Now, you can work  your way through the parenthesis and evaluate each part as you go. Click **Next Step** repeatedly
+to see how Python will do this, step by step, given the values of the variables as follows::
+
+   a = 3
+   b = 2
+   c = 10
+
+.. showeval:: se_boolprec
+   :trace_mode: true
+
+   print(a < 3 or not c == 8 and b == 2)
+   ~~~~
+   print({{a < 3}}{{False}} or not c == 8 and b == 2)
+   print(False or not {{c == 8}}{{False}} and b == 2)
+   print(False or not False and {{b == 2}}{{True}})
+   print(False or {{not False}}{{True}} and True)
+   print(False or {{True and True}}{{True}})
+   print({{False or True}}{{True}})
+
+
+
 
 **Check your understanding**
 
@@ -61,7 +102,63 @@ Here is an animation for the above expression:
    True and {{10 == 11}}{{False}}
    {{True and False}}{{False}}
 
-.. index:: conditional branching, conditional execution, if, elif, else,
-           if statement, compound statement, statement block, block, body,
-           pass statement
 
+.. mchoice:: test_question6_3_2
+   :practice: T
+
+   Consider the following::
+   
+      x = 3
+      y = 8
+      count = 2
+      
+      print(x < 5 or y > 10 and not count == 0)
+
+   Which of the following fully-parenthesized statements is equivalent to the print statement above?
+
+   - print(x < (5 or y) > 10 and (not count) == 0)
+
+     - Incorrect. ``or`` has lower precedence than ``<``.
+
+   - print(((x < 5) or (y > 10)) and (not count == 0))
+
+     - Incorrect. ``or`` has lower precedence than ``and``.
+
+   - print((x < 5) or ((y > 10) and (not (count == 0))))
+
+     + Correct!
+
+.. mchoice:: test_question6_3_3
+   :practice: T
+
+   Consider the following::
+   
+      x = 3
+      y = 8
+      count = 2
+      
+      print(x > 5 or y < 10 and not count == 0)
+
+   Give the output of this code fragment.
+
+   - True
+
+     + Correct!
+
+   - False
+
+     - Incorrect. 
+
+Here is an animation for the above expression:
+
+.. showeval:: se_tq632
+   :trace_mode: true
+
+   x > 5 or y < 10 and not count == 0
+   ~~~~
+   {{x > 5}}{{False}} or y < 10 and not count == 0
+   False or {{y < 10}}{{True}} and not count == 0
+   False or True and not {{count == 0}}{{False}}
+   False or True and {{not False}}{{True}}
+   False or {{True and True}}{{True}}
+   {{False or True}}{{True}}

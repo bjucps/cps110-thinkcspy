@@ -58,7 +58,35 @@ presented earlier. For reference, here's a slightly simplified form of the origi
 
             while response != 'Y' and response != 'N':
 
-        There are other possible solutions. 
+        There are other possible solutions. To explore them, look at the exercise
+        below.
 
 As you can see, boolean expressions can considerably streamline the code necessary
 to perform input validation.
+
+**Check your understanding**
+
+.. mchoice:: valrevisit-1
+   :practice: T
+
+   Which of the following expressions is equivalent to ``response != 'Y' and response != 'N'``?
+   To help you figure out the answer, try putting in values 'Y', 'N', and 'X' in the following
+   expressions and evaluating them to see if they produce the same value as they do for
+   this expression.
+
+   - not (response == 'Y' or 'N')
+
+     - Incorrect. ``or`` needs a boolean expression on both sides.
+
+   - not (response == 'Y' and response == 'N')
+
+     - Incorrect. Try plugging in the value of ``'Y'`` in this expression and the original
+       to see 
+
+   - not (response == 'Y' or response == 'N')
+
+     + Correct!
+
+   - not response == 'Y' and not response == 'N'
+
+     + Correct!
