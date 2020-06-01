@@ -14,6 +14,12 @@
 Returning a value from a function
 =================================
 
+.. youtube:: zbFZIlROWwc
+    :divid: vid_funcretval
+    :height: 315
+    :width: 560
+    :align: left
+
 .. image:: Figures/function_call.gif
    :alt: gif of a box labeled function with three spaces on the top for input and a space on the bottom for output. Three arrows enter the top and are labeled as input or arguments. The function box shakes, and then one arrow leaves the bottom of the function box.
 
@@ -22,24 +28,12 @@ seen this in some previous functions that you have used. For example, ``len`` ta
 value and returns a number, the length of that list or string. ``range`` takes an integer as a parameter value and
 returns a list containing all the numbers from 0 up to that parameter value.
 
-Functions that return values are sometimes called **fruitful functions**. In many other languages, a function that
-doesn't return a value is called a **procedure**, but we will stick here with the Python way of also calling it a
-function, or if we want to stress it, a *non-fruitful* function.
+As you've already seen, not all functions return values. In many languages, a function that
+doesn't return a value is called a **procedure**, or **void function**.
 
-.. youtube:: LGOZyrRCJ1o
-    :divid: goog_return_values
-    :height: 315
-    :width: 560
-    :align: left
-
-
-.. image:: Figures/blackboxfun.png
-
-How do we write our own fruitful function? Let's start by creating a very simple mathematical function that we will
+Let's start by creating a very simple mathematical function that we will
 call ``square``. The square function will take one number as a parameter and return the result of squaring that
-number. Here is the black-box diagram with the Python code following.
-
-.. image:: Figures/squarefun.png
+number. Here's the code to define that function, then call it to obtain the result:
 
 .. activecode:: ac11_4_1
 

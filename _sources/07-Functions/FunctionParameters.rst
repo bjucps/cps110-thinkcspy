@@ -14,6 +14,12 @@
 Function Parameters
 -------------------
 
+.. youtube:: rhLhGIQVjaM
+    :divid: vid_funcparms
+    :height: 315
+    :width: 560
+    :align: left
+
 Named functions are nice because, once they are defined and we understand what they do, we can refer to them by name
 and not think too much about what they do. With parameters, functions are even more powerful, because they can do
 pretty much the same thing on each invocation, but not exactly the same thing. The parameters can cause them to do
