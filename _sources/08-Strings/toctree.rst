@@ -23,7 +23,6 @@ Strings
    Afindfunction.rst
    Optionalparameters.rst
    Characterclassification.rst
-   TurtlesandStringsandLSystems.rst
    Summary.rst
    Glossary.rst
    Exercises.rst

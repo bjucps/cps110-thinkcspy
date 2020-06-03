@@ -40,6 +40,33 @@ On the other hand, if you are passing a mutable object, such as a list, to a fun
 object's state, that state change will be visible to the caller when the function returns. Take a look at the following
 example.
 
+.. activecode:: chp09_parm1
+    
+    def doubleStuff(aList):
+        """ Overwrite each element in aList with double its value. """
+        for position in range(len(aList)):
+            aList[position] = 2 * aList[position]
+
+    things = [2, 5, 9]
+    print(things)
+    doubleStuff(things)
+    print(things)
+
+The function ``doubleStuff`` takes a list as an argument and multiplies each element in the list by 2.
+
+Passing a list as an argument actually passes a reference to the list, not a
+copy of the list. The parameter ``aList`` and the variable ``things`` are aliases for the
+same object.  
+
+.. image:: Figures/references4.png
+   :alt: State snapshot for multiple references to a list as a parameter
+   
+Since the list object is shared by two references, there is only one copy.
+If a function modifies the elements of a list parameter, the caller sees the change since the change
+is occurring to the shared list object.
+
+For a simpler example, take a look at this program:
+
 .. activecode:: ac11_12_2
      
    def changeit(lst):
@@ -94,7 +121,7 @@ have a side effect:
 * Changing the state of a mutable object, such as appending a value to a list or modifying the value in a certain position in a list.
 * Changing the value of a global variable.
 
-Side effects are sometimes convenient. For example, it may be convenient to have a single dictionary that accumulates 
+Side effects are sometimes convenient. For example, it may be convenient to have a list that accumulates 
 information, and pass it around to various functions that might add to it or modify it.
 
 However, programs that have side effects involving global variables can be very difficult to debug. When an object has a
@@ -145,3 +172,69 @@ information instead using parameters and return values.
     - ['b']
 
       + Correct! ``myfun`` alters the state of the list object by removing the value at slot 0.
+
+.. tabbed:: tab_mutobj-q3
+
+    .. tab:: Question
+
+        Complete the definition of the function ``concat``, which makes ``lst3`` contain
+        the items in ``lst1`` concatenated with ``lst2``. You may assume that
+        ``lst3`` is initially empty. (See the ``assert`` statement
+        below to clarify the requirements.)
+
+        .. activecode:: ac_mutobj-q3
+            :practice: T
+            :autograde: unittest
+
+            def concat(lst1: list, lst2: list, lst3: list):
+                """Makes `lst3` contain all items in `lst1` followed by all items in `lst2`"""
+
+
+            lst1 = [1, 2, 3]
+            lst2 = [4, 5, 6]
+            lst3 = []
+            concat(lst1, lst2, lst3)
+            print(lst3)
+            assert lst3 == [1, 2, 3, 4, 5, 6]
+
+            ====
+
+            from unittest.gui import TestCaseGui
+            class myTests(TestCaseGui):
+                def testOne(self):
+                    lsta = [5, 6, 7]
+                    lstb = [8, 9, 10]
+                    lstc = []
+                    concat(lsta, lstb, lstc)
+                    self.assertEqual(lstc, [5, 6, 7, 8, 9, 10], "correct output?"  )
+
+            myTests().main()
+
+    .. tab:: Tip
+
+        You won't be able to use the usual list concatenation operator, ``+``, for this, because it
+        creates a new list, and you need to be able to **modify** the state of ``lst3``.
+        And using just a couple of ``append`` calls won't work either.
+        Consider using the ``append`` method in a loop.
+
+    .. tab:: Solution
+
+        Here's one solution:
+
+        .. sourcecode:: python
+
+            def concat(lst1: list, lst2: list, lst3: list):
+
+                for itm in lst1:
+                    lst3.append(itm)
+
+                for itm in lst2:
+                    lst3.append(itm)
+
+        There's a nice ``extend`` method for lists that would shorten this up nicely::
+
+            def concat(lst1: list, lst2: list, lst3: list):
+
+                lst3.extend(lst1)
+                lst3.extend(lst2)
+

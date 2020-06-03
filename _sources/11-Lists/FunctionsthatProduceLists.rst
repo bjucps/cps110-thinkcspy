@@ -14,9 +14,23 @@
 Functions that Produce Lists
 ----------------------------
 
-The pure version of ``doubleStuff`` above made use of an 
-important **pattern** for your toolbox. Whenever you need to
-write a function that creates and returns a list, the pattern is
+Here is a function that creates and produces a list of random numbers:
+
+.. activecode:: ch09_mod2
+
+    import random
+
+    def make_random_list(size):
+        """ Return a list of random values in the range [0..9]. """
+        new_list = []
+        for value in range(size):
+            value = random.randrange(10)
+            new_list.append(value)
+        return new_list
+    
+    print(make_random_list(5))
+
+Whenever you need to write a function that creates and returns a list, the pattern is
 usually::
 
     initialize a result variable to be an empty list
@@ -25,16 +39,58 @@ usually::
        append it to result
     return the result
 
-Let us show another use of this pattern.  Assume you already have a function
-``is_prime(x)`` that can test if x is prime.  Now, write a function
-to return a list of all prime numbers less than n::
+Compare the pattern to the code above, then try your hand at solving the problem below.
 
-   def primes_upto(n):
-       """ Return a list of all prime numbers less than n. """
-       result = []
-       for i in range(2, n):
-           if is_prime(i):
-               result.append(i)
-       return result
 
+**Check Your Understanding**
+
+.. tabbed:: make_list
+
+    .. tab:: Question
+
+        Write a function named ``multiples_of_n`` that returns a list of numbers
+        from 0 to 100 that are multiples of ``n``, where ``n`` is the 
+        parameter. See the assert below for an example of what the function
+        should do.
+
+
+        .. activecode:: ac_make_list
+            :practice: T
+            :autograde: unittest
+
+            def multiples_of_n(n: int) -> list:
+                """Returns a list of multiples of `n` in the range [0..100]"""
+
+            
+            result = multiples_of_n(25)
+            print(result)
+            assert result == [0, 25, 50, 75, 100]
+
+            ====
+
+            from unittest.gui import TestCaseGui
+            class myTests(TestCaseGui):
+                def testOne(self):
+                    self.assertEqual(multiples_of_n(25), [0, 25, 50, 75, 100], "multiples_of_n(25) correct?"  )
+                    self.assertEqual(multiples_of_n(15), [0, 15, 30, 45, 60, 75, 90], "multiples_of_n(15) correct?"  )
+
+            myTests().main()
+
+    .. tab:: Tip
+
+        This one is pretty easy if you use the form of the range function that takes an increment. Example::
+
+            for i in range(0, 10, 2):
+
+    .. tab:: Solution
+
+        Here's one solution:
+
+        .. sourcecode:: python
+
+            def multiples_of_n(n: int) -> list:
+                result = []
+                for i in range(0, 101, n):
+                    result.append(i)
+                return result
 

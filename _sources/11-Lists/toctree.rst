@@ -1,5 +1,5 @@
-Lists
-:::::
+Lists and Tuples
+::::::::::::::::
 
 .. toctree::
    :maxdepth: 2
@@ -13,24 +13,17 @@ Lists
    ListSlices.rst
    ListsareMutable.rst
    ListDeletion.rst
-   ObjectsandReferences.rst
-   Aliasing.rst
-   CloningLists.rst
-   RepetitionandReferences.rst
    ListMethods.rst
-   TheReturnofLSystems.rst
    AppendversusConcatenate.rst
    Listsandforloops.rst
-   UsingListsasParameters.rst
-   PureFunctions.rst
-   WhichisBetter.rst
    FunctionsthatProduceLists.rst
-   ListComprehensions.rst
-   NestedLists.rst
    StringsandLists.rst
    listTypeConversionFunction.rst
    TuplesandMutability.rst
    TupleAssignment.rst
-   TuplesasReturnValues.rst
+   ObjectsandReferences.rst
+   Aliasing.rst
+   CloningLists.rst
+   RepetitionandReferences.rst
    Glossary.rst
    Exercises.rst
