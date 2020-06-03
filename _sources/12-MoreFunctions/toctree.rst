@@ -10,9 +10,7 @@ More Functions
    Variablesandparametersarelocal.rst
    GlobalVariables.rst
    PassingMutableObjects.rst
-   SideEffects.rst
    mainfunction.rst
-   UnitTesting.rst
    CreatingModules.rst
 
    Glossary.rst

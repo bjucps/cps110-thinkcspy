@@ -8,6 +8,13 @@
 Documenting Functions
 =====================
 
+.. youtube:: h_wnfwqrdOY
+    :divid: vid_docstrings
+    :height: 315
+    :width: 560
+    :align: left
+
+
 Let's start this section off with a question. You're reading a section of a Python program and you encounter this
 line. Quick: what does it do?
 

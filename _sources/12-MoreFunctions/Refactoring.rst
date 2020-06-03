@@ -7,6 +7,13 @@
 Refactoring
 ===========
 
+.. youtube:: ALHIlysBWUM
+    :divid: vid_refactoring
+    :height: 315
+    :width: 560
+    :align: left
+
+
 Typically, programmers create functions for one of at least two reasons:
 
 #. **Code reuse.** They have a section of code that needs to be executed at several different places in the program,

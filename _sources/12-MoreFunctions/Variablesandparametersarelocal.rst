@@ -18,8 +18,8 @@
 Variables and parameters are local
 ----------------------------------
 
-.. youtube:: HdFujZpLFVg
-    :divid: goog_local_vars
+.. youtube:: 667zIRZtK4o
+    :divid: vid_localglobal_vars
     :height: 315
     :width: 560
     :align: left
