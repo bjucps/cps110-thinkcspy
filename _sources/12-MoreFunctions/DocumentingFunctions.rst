@@ -93,7 +93,38 @@ hover tips to programmers who write or inspect lines of code that call the funct
 Writing Effective Function Comments
 -----------------------------------
 
-Function comments are important because they summarize what the function does. An effective comment 
+A good function comment should meet the following tests:
+
+#. It should summarize *what* the function does, without delving into the details of *how* it does it.
+
+#. It should mention how the parameters are used by the function.
+
+#. It should describe the value returned from the function.
+
+For example, consider the following function:
+
+.. sourcecode:: python
+
+    def get_first_word(line):
+        """Returns line[0:line.find(' ')]"""
+
+        return line[0:line.find(' ')]
+
+This comment essentially duplicates the body of the function, and is of no help whatsoever in summarizing
+what the function does.
+
+Suppose the comment were written like this::
+
+    def get_first_word(line):
+        """Extracts first word from a string"""
+
+This does a better job at summarizing what the function does, but with just a little more work, the comment
+could be even more precise and helpful::
+
+    def get_first_word(line):
+        """Extracts and returns the first word from `line`"""
+
+Here, it is clear where the word is coming from, and what value is returned from the function. 
 
 Multi-Line Function Comments
 ----------------------------
@@ -142,6 +173,9 @@ Notice the sections of this multiline comment:
 
 4. The comment concludes with a description of the return value.
 
+In addition to multiline docstrings like this one that specify information about the parameters,
+docstrings can also include information on function preconditions and postconditions.
+
 There is no single standard for the format of multiline docstrings. However, different
 projects and organizations have developed useful standards. 
 `This stackabuse post <https://stackabuse.com/python-docstrings/>`_ presents some helpful examples.
@@ -173,7 +207,7 @@ Now, imagine the level of difficulty involved in answering that question in thes
    In this case, we probably won't need to look at the body of the function at all. Everything we need to know
    about what the parameters mean is discussed in the docstring. 
 
-Good function comments **help the programmer to understand lines of code that call the function**.
+Good function comments support abstraction by **helping the programmer to understand lines of code that call the function**.
 
 
 To Comment or Not to Comment

@@ -38,15 +38,15 @@ of the line, and the symbol concatenated to ``line``, which determines the chara
 So, you decide to define makeline with two parameters named ``symbol`` and ``length``, like this::
 
     def makeline(symbol, length):
-
-Now, having just read about commenting functions, you know you should create a brief comment. Why don't you take a moment and
-compose one before continuing? You can write it down on a scratch piece of paper or something. I'll wait.
-
-Got it?
+        """Returns a string containing `symbol` repeated `length` times"""
 
 Now, go ahead and fill out the definition of the function in the activecode editor below, using the lines of code above as a guide. 
 When you run it to test it, the activecode editor will check your work and let you know if your function is working correctly.
-You can see the comment I wrote, and if you like yours better, you can replace mine with yours!
+After you get it working, compare your solution with mine.
+
+.. note::
+    By the way: there's a shorter way to created a line of dashes or asterisks, which is covered in the chapter on Strings.
+    If you know it, feel free to use that technique in your solution to improve the code even further.
 
 .. tabbed:: func-whycreate-tab
 
@@ -57,7 +57,7 @@ You can see the comment I wrote, and if you like yours better, you can replace m
         .. activecode:: func-whycreate-ac
 
             def makeline(symbol, length):
-                "Returns a string containing `symbol` repeated `length` times"
+                """Returns a string containing `symbol` repeated `length` times"""
 
 
             # Now, use makeline to create the lines
@@ -94,12 +94,15 @@ You can see the comment I wrote, and if you like yours better, you can replace m
 
                 return line
 
+The modification that we did to this program did not change any behavior. When a programmer changes some code
+in a way that does not alter its behavior, we say that the code has been refactored.
+
 .. admonition:: Refactoring
 
-    The modification that we did to this program did not change any behavior. When a programmer changes some code
-    in a way that does not alter its behavior, we say that the code has been refactored. Replacing sequences of
-    duplicate code with a single function is one important example of refactoring. Simpler examples include
-    renaming functions or variables. 
+    Refactoring is any reorganization of a program that does not alter its behavior.
+    
+Replacing sequences of duplicate code with a single function is one important example of refactoring. Other examples include
+reorganizing code to improve its readability, or renaming functions or variables. 
 
 We have significantly improved this program. One of the improvements involved reducing the amount of code duplication.
 How did that help? It helped in two important ways:

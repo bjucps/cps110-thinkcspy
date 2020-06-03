@@ -5,8 +5,8 @@ More Functions
    :caption: Functions
    :maxdepth: 2
 
-   DocumentingFunctions.rst
    Refactoring.rst
+   DocumentingFunctions.rst
    Variablesandparametersarelocal.rst
    GlobalVariables.rst
    PassingMutableObjects.rst

@@ -25,15 +25,8 @@ and not think too much about what they do. With parameters, functions are even m
 pretty much the same thing on each invocation, but not exactly the same thing. The parameters can cause them to do
 something a little different.
 
-The figure below shows this relationship. A function needs certain information to do its work. These values, often
+A function needs certain information to do its work. These values, often
 called **arguments** or **actual parameters** or **parameter values**, are passed to the function by the user.
-
-.. image:: Figures/blackboxproc.png
-
-This type of diagram is often called a **black-box diagram** because it only states the requirements from the
-perspective of the user (well, the programmer, but the programmer who uses the function, who may be different than the
-programmer who created the function). The user must know the name of the function and what arguments need to be
-passed. The details of how the function works are hidden inside the "black-box".
 
 You have already been making function invocations with parameters. For example, when you write ``len("abc")`` or
 ``len(msg)``, len is the name of a function, and the value that you put inside the parentheses, the string
