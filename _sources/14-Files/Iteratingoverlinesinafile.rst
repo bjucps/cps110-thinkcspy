@@ -33,6 +33,13 @@ file as a string of characters. The general pattern for processing each line of 
             statement2
             ...
 
+Recall that our olympics file looks like this::
+
+    Name,Sex,Age,Team,Event,Medal
+    A Dijiang,M,24,China,Basketball,NA
+    A Lamusi,M,23,China,Judo,NA
+    ...
+
 To process all of our olypmics data, we will use a *for* loop to iterate over the lines of the file. Using
 the ``split`` method, we can break each line into a list containing all the fields of interest about the
 athlete. We can then take the values corresponding to name, team and event to
@@ -48,6 +55,16 @@ construct a simple sentence.
         print(values[0], "is from", values[3], "and is on the roster for", values[4])
 
     olypmicsfile.close()
+
+If you look closely at the output when you run this example, you'll see that the first line of output contains
+information from the first line of the file::
+
+    Name is from Team and is on the roster for Event
+
+You could omit that line if you use the ``readline`` method once after you open the file, and before the for
+loop begins. Try adding the following line just after line 1 in the program above, and then run again:
+
+    olypmicsfile.readline()
 
 To make the code a little simpler, and to allow for more efficient processing, Python provides a built-in way to
 iterate through the contents of a file one line at a time, without first reading them all into a list. Some students find this confusing initially, so we don't recommend doing it this way, until you get a
@@ -109,24 +126,45 @@ to read it. And when you start dealing with big files, you may notice the effici
     Nervous anxious jittery jumpy tense uneasy apprehensive
     </pre>
 
-.. activecode:: ac9_5_3
-   :available_files: emotion_words.txt
-   :language: python
-   :nocodelens:
-   :autograde: unittest
-   :practice: T
+.. tabbed:: tabbed_9_5_3
 
-   1. Write code to find out how many lines are in the file ``emotion_words.txt`` as shown above. Save this value to the variable ``num_lines``. Do not use the len method.
-   ~~~~
+   .. tab:: Question
 
-   =====
+      1. Write code to find out how many lines are in the file ``emotion_words.txt`` as shown above. Save this value to the variable ``num_lines``. Do not use the len method.
 
-   from unittest.gui import TestCaseGui
+      .. activecode:: ac9_5_3
+         :available_files: emotion_words.txt
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
 
-   class myTests(TestCaseGui):
 
-      def testOne(self):
-         self.assertEqual(num_lines, 7, "Testing that num_lines was assigned to the correct value.")
-         self.assertNotIn('len', self.getEditorText(), "Testing your code (Don't worry about actual and expected values).")
+         =====
 
-   myTests().main()
+         from unittest.gui import TestCaseGui
+
+         class myTests(TestCaseGui):
+ 
+            def testOne(self):
+                self.assertEqual(num_lines, 7, "Testing that num_lines was assigned to the correct value.")
+                self.assertNotIn('len', self.getEditorText(), "Testing you didn't use len (Don't worry about actual and expected values).")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      Open the file, and write a loop that counts how many lines are in the file. The accumulator pattern will help.
+
+   .. tab:: Solution
+
+      Here's the solution::
+
+         thefile = open("emotion_words.txt", "r")
+
+         num_lines = 0
+         for aline in thefile:
+            num_lines += 1
+
+         thefile.close()
+

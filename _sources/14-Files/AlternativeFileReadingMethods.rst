@@ -80,27 +80,43 @@ until later in this course. We don't need them for handling data from files.
     </pre>
 
 
-.. activecode:: ac9_4_1
-   :language: python
-   :nocodelens:
-   :autograde: unittest
-   :practice: T
-   :available_files: school_prompt2.txt
+.. tabbed:: tabbed_9_4_1
 
-   1. Using the file ``school_prompt2.txt``, find the number of characters in the file and assign that value to the variable ``num_char``.
-   ~~~~
+   .. tab:: Question
 
-   =====
+      1. Find the number of characters in the file ``school_prompt2.txt`` (shown above) and assign that value to the variable ``num_char``. 
 
-   from unittest.gui import TestCaseGui
+      .. activecode:: ac9_4_1
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
+         :available_files: school_prompt2.txt
 
-   class myTests(TestCaseGui):
 
-      def testOne(self):
-         self.assertEqual(num_char, 537, "Testing that num_char has the correct value.")
+         =====
 
-   myTests().main()
+         from unittest.gui import TestCaseGui
 
+         class myTests(TestCaseGui):
+
+            def testOne(self):
+               self.assertEqual(num_char, 537, "Testing that num_char has the correct value.")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      Write code to open the file ``school_prompt2.txt``, use the appropriate file reading method to read it into a single string variable, 
+      and then get the length of the string.
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('school_prompt2.txt', 'r')
+         data = f.read()
+         num_char = len(data)
 
 .. raw:: html
 
@@ -118,27 +134,41 @@ until later in this course. We don't need them for handling data from files.
     I only know English!
     </pre>
 
-.. activecode:: ac9_4_2
-   :available_files: travel_plans2.txt
-   :language: python
-   :nocodelens:
-   :autograde: unittest
-   :practice: T
+.. tabbed:: tabbed_9_4_2
 
-   2. Find the number of lines in the file, ``travel_plans2.txt``, and assign it to the variable ``num_lines``.
-   ~~~~
+   .. tab:: Question
 
-   =====
+      2. Find the number of lines in the file, ``travel_plans2.txt`` (shown above), and assign it to the variable ``num_lines``.
 
-   from unittest.gui import TestCaseGui
+      .. activecode:: ac9_4_2
+         :available_files: travel_plans2.txt
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
 
-   class myTests(TestCaseGui):
+         =====
 
-      def testTwo(self):
-         self.assertEqual(num_lines, 11, "Testing that num_lines is assigned to correct value.")
+         from unittest.gui import TestCaseGui
 
-   myTests().main()
+         class myTests(TestCaseGui):
 
+            def testTwo(self):
+               self.assertEqual(num_lines, 11, "Testing that num_lines is assigned to correct value.")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      The ``readlines`` method should come in handy!
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('travel_plans2.txt', 'r')
+         data = f.readlines()
+         num_lines = len(data)
 
 .. raw:: html
 
@@ -152,25 +182,42 @@ until later in this course. We don't need them for handling data from files.
     Nervous anxious jittery jumpy tense uneasy apprehensive
     </pre>
 
-.. activecode:: ac9_4_3
-   :available_files: emotion_words2.txt
-   :language: python
-   :nocodelens:
-   :autograde: unittest
-   :practice: T
+.. tabbed:: tabbed_9_4_3
 
-   3. Create a string called ``first_forty`` that is comprised of the first 40 characters of ``emotion_words2.txt``.
-   ~~~~
+   .. tab:: Question
 
-   =====
+      3. Create a string called ``second_line`` that is comprised of the second line of ``emotion_words2.txt`` (shown above).
+      Your solution must use the ``readline`` method.
 
-   from unittest.gui import TestCaseGui
+      .. activecode:: ac9_4_3
+         :available_files: emotion_words2.txt
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
 
-   class myTests(TestCaseGui):
+         
+         =====
 
-      def testOne(self):
-         self.assertEqual(first_forty, 'Sad upset blue down melancholy somber bi', "Testing that first_forty was created correctly.")
-   myTests().main()
+         from unittest.gui import TestCaseGui
+         class myTests(TestCaseGui):
+            def testOne(self):
+               self.assertEqual(second_line, 'Angry mad enraged irate irritable wrathful outraged infuriated\n', "Testing that second_line was created correctly.")
+               self.assertIn('readline()', self.getEditorText(), "Testing that readline() is used")
+         myTests().main()
+
+   .. tab:: Tip
+
+      You'll need to call ``readline()`` more than once to get the job done.
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('emotion_words2.txt', 'r')
+         f.readline()  # Ignore first line
+         second_line = f.readline()
+
 
 .. datafile:: travel_plans2.txt
    :fromfile: travel_plans.txt
