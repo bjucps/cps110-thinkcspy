@@ -11,7 +11,7 @@
    :prefix: files-11-
    :start: 1
 
-👩‍💻 Tips on Handling Files
+Tips on Handling Files
 ============================
 
 When working with files, there are a few things to keep in mind. When naming files, it's best to not include spaces. 

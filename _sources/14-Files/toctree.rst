@@ -6,8 +6,8 @@ Files
    :maxdepth: 2
 
    intro-WorkingwithDataFiles.rst
+   OpeningaFile.rst
    ReadingaFile.rst
-   AlternativeFileReadingMethods.rst
    Iteratingoverlinesinafile.rst
    FindingaFileonyourDisk.rst
    With.rst

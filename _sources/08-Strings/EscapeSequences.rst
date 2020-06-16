@@ -14,6 +14,8 @@
 .. index:: table, escape sequence, tab, newline,
            cursor
 
+.. _escape-sequences:
+
 Escape Sequences
 ================
 

@@ -8,92 +8,218 @@
     License".
 
 .. qnum::
-   :prefix: files-3-
+   :prefix: files-4-
    :start: 1
 
 Reading a File
-~~~~~~~~~~~~~~
+==============
 
-As an example, suppose we have a text file called ``olympics.txt`` that contains
-the data representing about olympians across different years. The contents of the file are shown at the bottom of the page.
+Once you have a file "object", the thing returned by the open function, Python provides three methods to read data
+from that object. The ``read()`` method returns the entire contents of the file as a single string.
+The ``readlines`` method returns the entire contents of
+the entire file as a list of strings, where each item in the list is one line of the file. The ``readline``
+method reads one line from the file and returns it as a string. The strings returned by ``readlines`` or
+``readline`` will contain the newline character at the end.  :ref:`Table 2 <filemethods2a>` summarizes these
+methods and the following session shows them in action.
 
-To open this file, we would call the ``open`` function. The variable,
-``fileref``, now holds a reference to the file object returned by
-``open``. When we are finished with the file, we can close it by using
-the ``close`` method. After the file is closed any further attempts to
-use ``fileref`` will result in an error.
+.. _filemethods2a:
 
-.. activecode:: ac9_2_1
-    :available_files: olympics.txt
+======================== =========================== =====================================
+**Method Name**           **Use**                     **Explanation**
+======================== =========================== =====================================
+``read``                 ``filevar.read()``          Read and return the entire file as a
+                                                      single string.
+``readline``             ``filevar.readline()``      Read and return the next line of the file with
+                                                      all text up to and including the
+                                                      newline character.
+``readlines``            ``filevar.readlines()``     Returns a list of strings, each
+                                                      representing a single line of the file.                                                      
+======================== =========================== =====================================
+
+
+Here's an example showing the ``readline`` and ``read`` methods in action:
+
+.. activecode:: ac_file_read
+    :available_files: hello.txt
     :nocodelens:
 
-    fileref = open("olympics.txt", "r")
-    ## other code here that refers to variable fileref
-    fileref.close()
+    datafile = open("hello.txt", "r")
+    line = datafile.readline()
+    line = line[:-1]  # Remove trailing newline
+    print(f'First line of file: **{line}**')
+    line = datafile.readline()
+    line = line[:-1]
+    print(f'Next line of file: **{line}**')
+    rest = datafile.read()
+    print(f'Rest of file: **{rest}**')
+    datafile.close()
 
-.. note::
+Let's walk through this program carefully. 
 
-    A common mistake is to get confused about whether you are providing a variable name or a string literal as an input to the open function. In the code above, "olympics.txt" is a string literal that should correspond to the name of a file on your computer. If you put something without quotes, like ``open(x, "r")``, it will be treated as a variable name. In this example, x should be a variable that's already been bound to a string value like "olympics.txt".
+1. This program begins by opening the file *hello.txt* (shown below). 
 
-.. datafile:: olympics.txt
+1. In lines 2-4, the program uses the ``readline`` method to read the first line from the file,
+   and displays the information it read.
+   
+   The data returned from ``readline`` includes a trailing newline character (more about that in 
+   a moment), which is removed by the slice operation on line 3. 
 
-    Name,Sex,Age,Team,Event,Medal
-    A Dijiang,M,24,China,Basketball,NA
-    A Lamusi,M,23,China,Judo,NA
-    Gunnar Nielsen Aaby,M,24,Denmark,Football,NA
-    Edgar Lindenau Aabye,M,34,Denmark/Sweden,Tug-Of-War,Gold
-    Christine Jacoba Aaftink,F,21,Netherlands,Speed Skating,NA
-    Christine Jacoba Aaftink,F,21,Netherlands,Speed Skating,NA
-    Christine Jacoba Aaftink,F,25,Netherlands,Speed Skating,NA
-    Christine Jacoba Aaftink,F,25,Netherlands,Speed Skating,NA
-    Christine Jacoba Aaftink,F,27,Netherlands,Speed Skating,NA
-    Christine Jacoba Aaftink,F,27,Netherlands,Speed Skating,NA
-    Per Knut Aaland,M,31,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,31,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,31,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,31,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,33,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,33,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,33,United States,Cross Country Skiing,NA
-    Per Knut Aaland,M,33,United States,Cross Country Skiing,NA
-    John Aalberg,M,31,United States,Cross Country Skiing,NA
-    John Aalberg,M,31,United States,Cross Country Skiing,NA
-    John Aalberg,M,31,United States,Cross Country Skiing,NA
-    John Aalberg,M,31,United States,Cross Country Skiing,NA
-    John Aalberg,M,33,United States,Cross Country Skiing,NA
-    John Aalberg,M,33,United States,Cross Country Skiing,NA
-    John Aalberg,M,33,United States,Cross Country Skiing,NA
-    John Aalberg,M,33,United States,Cross Country Skiing,NA
-    "Cornelia ""Cor"" Aalten (-Strannood)",F,18,Netherlands,Athletics,NA
-    "Cornelia ""Cor"" Aalten (-Strannood)",F,18,Netherlands,Athletics,NA
-    Antti Sami Aalto,M,26,Finland,Ice Hockey,NA
-    "Einar Ferdinand ""Einari"" Aalto",M,26,Finland,Swimming,NA
-    Jorma Ilmari Aalto,M,22,Finland,Cross Country Skiing,NA
-    Jyri Tapani Aalto,M,31,Finland,Badminton,NA
-    Minna Maarit Aalto,F,30,Finland,Sailing,NA
-    Minna Maarit Aalto,F,34,Finland,Sailing,NA
-    Pirjo Hannele Aalto (Mattila-),F,32,Finland,Biathlon,NA
-    Arvo Ossian Aaltonen,M,22,Finland,Swimming,NA
-    Arvo Ossian Aaltonen,M,22,Finland,Swimming,NA
-    Arvo Ossian Aaltonen,M,30,Finland,Swimming,Bronze
-    Arvo Ossian Aaltonen,M,30,Finland,Swimming,Bronze
-    Arvo Ossian Aaltonen,M,34,Finland,Swimming,NA
-    Juhamatti Tapio Aaltonen,M,28,Finland,Ice Hockey,Bronze
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,Bronze
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,Gold
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,Gold
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,28,Finland,Gymnastics,Gold
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,Bronze
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Timo Antero Aaltonen,M,31,Finland,Athletics,NA
-    Win Valdemar Aaltonen,M,54,Finland,Art Competitions,NA
+1. Next, the program reads the next line from the file using the same sequence of method calls it used
+   to read the first line. The file reference variable, *datafile*, remembers the position in the file where it stopped
+   reading after the first call to ``readline``. So, the second call to ``readline`` on line 5 resumes reading at the
+   beginning of the second line, and returns the second line from the file.
+
+1. Finally, the program uses the ``read`` method to read the rest of the data in the file, starting with the third line.
+
+.. datafile:: hello.txt
+
+   Hello.
+   This is the second line.
+   Here is another line.
+   And another.
+
+This example demonstrates how a file reference variable like *datafile* keeps track of not only which file it is reading
+(hello.txt), but also where in the file it is reading.
+
+The newline character
+-------------------------
+
+Text files are organized into lines of text. Each line is separated from the next by a special control character
+called a **newline**, discussed earlier in this book when we introduced :ref:`escape-sequences`.
+
+The ``read`` method includes the newline characters in the string. You can see the effect of those newline characters in
+the output of the final print statement of the example above, where the newline characters force line breaks in the
+lines of output.
+
+The ``readline`` method also includes the terminating **newline** character at the end of the string it returns. To see
+this, try commenting out or deleting line 3 in the example above. Then, run the program. You should see the following
+output::
+
+   First line of file: **Hello.
+   **
+
+When you use the readline method, you usually want to remove the terminating newline character from the line of data before
+using the information. The slice operation is often used to do this.
+
+**Check your Understanding**
+
+.. tabbed:: tabbed_9_4_1
+
+   .. tab:: Question
+
+      1. Find the number of characters in the file ``school_prompt2.txt`` (shown below) and assign that value to the variable ``num_char``. 
+
+      .. activecode:: ac9_4_1
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
+         :available_files: school_prompt2.txt
+
+
+         =====
+
+         from unittest.gui import TestCaseGui
+
+         class myTests(TestCaseGui):
+
+            def testOne(self):
+               self.assertEqual(num_char, 537, "Testing that num_char has the correct value.")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      Write code to open the file ``school_prompt2.txt``, use the appropriate file reading method to read it into a single string variable, 
+      and then get the length of the string.
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('school_prompt2.txt', 'r')
+         data = f.read()
+         num_char = len(data)
+
+.. datafile:: school_prompt2.txt
+   :fromfile: school_prompt.txt
+
+.. tabbed:: tabbed_9_4_2
+
+   .. tab:: Question
+
+      2. Find the number of lines in the file, ``travel_plans2.txt`` (shown below), and assign it to the variable ``num_lines``.
+
+      .. activecode:: ac9_4_2
+         :available_files: travel_plans2.txt
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
+
+         =====
+
+         from unittest.gui import TestCaseGui
+
+         class myTests(TestCaseGui):
+
+            def testTwo(self):
+               self.assertEqual(num_lines, 11, "Testing that num_lines is assigned to correct value.")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      The ``readlines`` method should come in handy!
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('travel_plans2.txt', 'r')
+         data = f.readlines()
+         num_lines = len(data)
+
+.. datafile:: travel_plans2.txt
+   :fromfile: travel_plans.txt
+
+.. tabbed:: tabbed_9_4_3
+
+   .. tab:: Question
+
+      3. Create a variable called ``third_line`` that contains the third line of ``emotion_words2.txt`` (shown below).
+      Your solution must use the ``readline`` method.
+
+      .. activecode:: ac9_4_3
+         :available_files: emotion_words2.txt
+         :language: python
+         :nocodelens:
+         :autograde: unittest
+         :practice: T
+
+         
+         =====
+
+         from unittest.gui import TestCaseGui
+         class myTests(TestCaseGui):
+            def testOne(self):
+               self.assertEqual(third_line, 'Happy cheerful content elated joyous delighted lively glad\n', "Testing that third_line was created correctly.")
+               self.assertIn('readline()', self.getEditorText(), "Testing that readline() is used")
+         myTests().main()
+
+   .. tab:: Tip
+
+      You'll need to call ``readline()`` more than once to get the job done.
+
+   .. tab:: Solution
+
+      .. sourcecode:: python
+
+         f = open('emotion_words2.txt', 'r')
+         f.readline()  # Ignore first line
+         f.readline()  # Ignore first line
+         third_line = f.readline()
+
+
+.. datafile:: emotion_words2.txt
+   :fromfile: emotion_words.txt
