@@ -16,7 +16,7 @@
 What is an exception?
 =====================
 
-An *exception* is a signal that a condition has occurred that can't be easily
+An *exception* is a signal that a condition has occurred that can't be 
 handled using the normal flow-of-control of a Python program. *Exceptions*
 are often defined as being "errors" but this is not always the case. All
 errors in Python are dealt with using *exceptions*, but not all
@@ -48,10 +48,10 @@ not work well.
 
 Exceptions provide us with way way to have a non-sequential point where we can handle something out of the ordinary (exceptional).
 
+.. index:: try, except, Exception
+
 Raising and Catching Errors
 ---------------------------
-
-.. index:: try, except, Exception
 
 The try/except control structure provides a way to process a run-time error and continue on with program execution. Until now, any run-time error, such asking for the 8th item in a list with only 3 items, or dividing by 0, has caused the program execution to stop. In the browser ActiveCode windows, you get an error message in a box below. When you are executing python programs from the command-line, you also get an error message saying something about what went wrong and what line it occurred on. After the run-time error is encountered, the python interpreter does not try to execute the rest of the code. You have to make some change in your code and rerun the whole program.
 
@@ -187,9 +187,9 @@ There's one other useful feature. The exception code can access a variable that 
    :answer_e: 5  
    :feedback_a: Try i = 0; that should print out .3333
    :feedback_b: Keep trying.
-   :feedback_c: When i=3, it will no longer be able to pring 1.0/ (3-i), but it will still print one more line in the except clause.
+   :feedback_c: When i=3, an exception occurs, but it will still print one more line in the except clause.
    :feedback_d: It will print the fraction for three values of i, and then one error message.
-   :feedback_e: When i=3, it will get a run-time error, and execution stops after that.
+   :feedback_e: When i=3, an exception is handled, and no more iterations of the loop occur.
    :correct: d
    :practice: T
 
@@ -203,55 +203,106 @@ There's one other useful feature. The exception code can access a variable that 
       except Exception, error_inst:
           print("Got an error", error_inst)
 
-.. activecode:: ee_exceptions_012
-   :tags: Exceptions/intro-exceptions.rst
-   :practice: T
+.. tabbed:: tabbed_exceptions_012
 
-   5. Below, we have provided a list of tuples that consist of student names, final exam scores, and whether or not they will pass the class. For some students, the tuple does not have a third element because it is unknown whether or not they will pass. Currently, the for loop does not work. Add a try/except clause so the code runs without an error - if there is no third element in the tuple, no changes should be made to the dictionary.
-   ~~~~
+   .. tab:: Question
 
-   students = [('Timmy', 95, 'Will pass'), ('Martha', 70), ('Betty', 82, 'Will pass'), ('Stewart', 50, 'Will not pass'), ('Ashley', 68), ('Natalie', 99, 'Will pass'), ('Archie', 71), ('Carl', 45, 'Will not pass')]
+      5. Below, we have provided a list of tuples that consist of student names, final exam scores, and whether or not they will pass the class. For some students, the tuple does not have a third element because it is unknown whether or not they will pass. Currently, the for loop does not work. Add a try/except clause so the code runs without an error - if there is no third element in the tuple, no changes should be made to the dictionary.
 
-   passing = {'Will pass': 0, 'Will not pass': 0}
-   for tup in students:
-       if tup[2] == 'Will pass':
-           passing['Will pass'] += 1
-       elif tup[2] == 'Will not pass':
-           passing['Will not pass'] += 1
+      .. activecode:: ee_exceptions_012
+         :tags: Exceptions/intro-exceptions.rst
+         :practice: T
 
-   =====
+         students = [('Timmy', 95, 'Will pass'), ('Martha', 70), ('Betty', 82, 'Will pass'), ('Stewart', 50, 'Will not pass'), ('Ashley', 68), ('Natalie', 99, 'Will pass'), ('Archie', 71), ('Carl', 45, 'Will not pass')]
 
-   from unittest.gui import TestCaseGui
+         passing = {'Will pass': 0, 'Will not pass': 0}
+         for tup in students:
+            if tup[2] == 'Will pass':
+               passing['Will pass'] += 1
+            elif tup[2] == 'Will not pass':
+               passing['Will not pass'] += 1
 
-   class myTests(TestCaseGui):
+         =====
 
-      def testOne(self):
-         self.assertEqual(passing, {'Will pass': 3, 'Will not pass': 2}, "Testing that passing is created correctly.")
+         from unittest.gui import TestCaseGui
 
-   myTests().main()
+         class myTests(TestCaseGui):
 
-.. activecode:: ee_exceptions_022
-   :tags: Exceptions/intro-exceptions.rst
-   :practice: T
+            def testOne(self):
+               self.assertEqual(passing, {'Will pass': 3, 'Will not pass': 2}, "Testing that passing is created correctly.")
 
-   6. Below, we have provided code that does not run. Add a try/except clause so the code runs without errors. If an element is not able to undergo the addition operation, the string 'Error' should be appended to plus_four. 
-   ~~~~
+         myTests().main()
 
-   nums = [5, 9, '4', 3, 2, 1, 6, 5, '7', 4, 3, 2, 6, 7, 8, '0', 3, 4, 0, 6, 5, '3', 5, 6, 7, 8, '3', '1', 5, 6, 7, 9, 3, 2, 5, 6, '9', 2, 3, 4, 5, 1]
+   .. tab:: Tip
 
-   plus_four = []
-
-   for num in nums: 
-       plus_four.append(num+4)
+      After the exception is handled, you want to continue executing inside the loop. So, make sure you
+      put your try: inside the loop.
 
 
-   =====
+   .. tab:: Solution
 
-   from unittest.gui import TestCaseGui
+      Here's the solution:
 
-   class myTests(TestCaseGui):
+      .. sourcecode:: python
 
-      def testOne(self):
-         self.assertEqual(plus_four, [9, 13, 'Error', 7, 6, 5, 10, 9, 'Error', 8, 7, 6, 10, 11, 12, 'Error', 7, 8, 4, 10, 9, 'Error', 9, 10, 11, 12, 'Error', 'Error', 9, 10, 11, 13, 7, 6, 9, 10, 'Error', 6, 7, 8, 9, 5], "Testing that plus_four is created correctly.")
+         students = [('Timmy', 95, 'Will pass'), ('Martha', 70), ('Betty', 82, 'Will pass'), ('Stewart', 50, 'Will not pass'), ('Ashley', 68), ('Natalie', 99, 'Will pass'), ('Archie', 71), ('Carl', 45, 'Will not pass')]
 
-   myTests().main()
+         passing = {'Will pass': 0, 'Will not pass': 0}
+         for tup in students:
+            try:
+               if tup[2] == 'Will pass':
+                     passing['Will pass'] += 1
+               elif tup[2] == 'Will not pass':
+                     passing['Will not pass'] += 1
+            except IndexError:
+               print(tup,'had no third element')
+
+
+.. tabbed:: tabbed_ee_exceptions_022
+
+   .. tab:: Question
+
+         6. Below, we have provided code that does not run. Add a try/except clause so the code runs without errors. If an element is not able to undergo the addition operation, the string 'Error' should be appended to plus_four. 
+
+
+         .. activecode:: ee_exceptions_022
+            :tags: Exceptions/intro-exceptions.rst
+            :practice: T
+
+            nums = [5, 9, '4', 3, 2, 1, 6, 5, '7', 4, 3, 2, 6, 7, 8, '0', 3, 4, 0, 6, 5, '3', 5, 6, 7, 8, '3', '1', 5, 6, 7, 9, 3, 2, 5, 6, '9', 2, 3, 4, 5, 1]
+
+            plus_four = []
+
+            for num in nums: 
+               plus_four.append(num+4)
+
+
+            =====
+
+            from unittest.gui import TestCaseGui
+
+            class myTests(TestCaseGui):
+
+               def testOne(self):
+                  self.assertEqual(plus_four, [9, 13, 'Error', 7, 6, 5, 10, 9, 'Error', 8, 7, 6, 10, 11, 12, 'Error', 7, 8, 4, 10, 9, 'Error', 9, 10, 11, 12, 'Error', 'Error', 9, 10, 11, 13, 7, 6, 9, 10, 'Error', 6, 7, 8, 9, 5], "Testing that plus_four is created correctly.")
+
+            myTests().main()
+
+   .. tab:: Solution
+
+      Here's the solution:
+
+      .. sourcecode:: python
+
+
+         nums = [5, 9, '4', 3, 2, 1, 6, 5, '7', 4, 3, 2, 6, 7, 8, '0', 3, 4, 0, 6, 5, '3', 5, 6, 7, 8, '3', '1', 5, 6, 7, 9, 3, 2, 5, 6, '9', 2, 3, 4, 5, 1]
+
+         plus_four = []
+
+         for num in nums:
+            try:
+               plus_four.append(num+4)
+            except:
+               plus_four.append('Error')
+
+

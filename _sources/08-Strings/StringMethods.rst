@@ -219,6 +219,8 @@ done both steps in one line, like this::
         The set is { 5, 9 }.
 
 
+.. _format-method:
+
 The ``format`` method
 ~~~~~~~~~~~~~~~~~~~~~
 

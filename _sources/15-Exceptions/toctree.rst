@@ -2,8 +2,7 @@ Exceptions
 ::::::::::
 
 .. toctree::
-   :caption: Exceptions
-   :maxdepth: 1
+   :maxdepth: 2
 
    intro-exceptions.rst
    using-exceptions.rst

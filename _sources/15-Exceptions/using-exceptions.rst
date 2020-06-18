@@ -7,7 +7,7 @@
     License".
 
 
-👩‍💻 When to use try/except
+When to use try/except
 ----------------------------
 
 The reason to use try/except is when you have a code block to execute that will sometimes run correctly and sometimes not, depending on conditions you can't foresee at the time you're writing the code.
