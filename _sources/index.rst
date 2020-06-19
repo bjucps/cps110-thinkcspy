@@ -65,10 +65,10 @@ Table of Contents
    10-Booleans/toctree.rst
    11-Lists/toctree.rst
    12-MoreFunctions/toctree.rst
-   13-WebApps/toctree.rst
-   14-Files/toctree.rst
-   15-Exceptions/toctree.rst
-   16-Dictionaries/toctree.rst
+   13-Files/toctree.rst
+   14-Exceptions/toctree.rst
+   15-Dictionaries/toctree.rst
+   16-WebApps/toctree.rst
    NestedData/toctree.rst
    Classes/toctree.rst
    Inheritance/toctree.rst

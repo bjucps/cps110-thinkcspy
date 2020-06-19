@@ -11,7 +11,7 @@
    :prefix: dictionaries-10-
    :start: 1
 
-👩‍💻 When to use a dictionary
+When to use a dictionary
 ------------------------------
 
 Now that you have experience using lists and dictionaries, you will have to decide which one is best to use in each situation. The following guidelines will help you recognize when a dictionary will be beneficial:

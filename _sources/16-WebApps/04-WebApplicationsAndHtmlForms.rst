@@ -65,3 +65,5 @@ you should see something like this:
 Fill out the form, and, if Google still works as it did when this chapter was written, you should see
 search results appear in your browser.
 
+For more information about creating HTML forms, you might take a look at the excellent 
+`tutorial at w3schools.com <https://www.w3schools.com/html/html_forms.asp>`_.
