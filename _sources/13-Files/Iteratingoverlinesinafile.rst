@@ -14,62 +14,51 @@
 Iterating over lines in a file
 ------------------------------
 
-We will now use this file as input in a program that will do some data processing. In the program, we will
-examine each line of the file and print it with some additional text. Because ``readlines()`` returns a list of
-lines of text, we can use the *for* loop to iterate through each line of the file.
-
-As the *for* loop iterates through each line of the file the loop variable will contain the current line of the
-file as a string of characters. The general pattern for processing each line of a text file is as follows:
-
-::
-
-        lines = myFile.readlines()
-        for line in lines:
-            statement1
-            statement2
-            ...
-
-Recall that our olympics file looks like this:
+Now that you know how to read data from a file, let's put that knowledge to use and write a program that will do some 
+meaningful data processing. Here is a data file containing a list of some cities in Washington State:
 
 
-.. datafile:: olympics2.txt
+.. datafile:: wa_cities.txt
 
-    Name,Sex,Age,Team,Event,Medal
-    A Dijiang,M,24,China,Basketball,NA
-    A Lamusi,M,23,China,Judo,NA
-    Gunnar Nielsen Aaby,M,24,Denmark,Football,NA
-    Edgar Lindenau Aabye,M,34,Denmark/Sweden,Tug-Of-War,Gold
-    Paavo Johannes Aaltonen,M,32,Finland,Gymnastics,NA
-    Timo Antero Aaltonen,M,31,Finland,Athletics,NA
-    Win Valdemar Aaltonen,M,54,Finland,Art Competitions,NA
+    Cities in Washington
+    South Creek
+    Roslyn
+    Sprague  
+    Gig Harbor
+    Lake Cassidy
+    Tenino
+    Jamestown   
+    Three Lakes
+    Curlew Lake
+    Chain Lake    
+    Pateros
+    Rosburg
+    Parkland
 
-To process all of our olypmics data, we will use a *for* loop to iterate over the lines of the file. Using
-the ``split`` method, we can break each line into a list containing all the fields of interest about the
-athlete. We can then take the values corresponding to name, team and event to
-construct a simple sentence.
+Let's write a program that will determine the city with the longest name. To get started, here is a program
+that reads the wa_cities.txt file and displays each line, one at a time:
 
 .. activecode:: ac9_5_1
     :nocodelens:
-    :available_files: olympics2.txt
+    :available_files: wa_cities.txt
 
-    olypmicsfile = open("olypmics2.txt", "r")
+    infile = open("wa_cities.txt", "r")
 
-    for aline in olypmicsfile.readlines():
-        values = aline.split(",")
-        print(values[0], "is from", values[3], "and is on the roster for", values[4])
+    lines = infile.readlines()
+    for aline in lines:
+        aline = aline.strip()
+        print(f'**City: {aline}**')
 
-    olypmicsfile.close()
+    infile.close()
 
-If you look closely at the output when you run this example, you'll see that the first line of output contains
-information from the first line of the file::
+In this program, after opening the file, line 3 uses the ``readlines`` method to read all of the lines from
+the file into a list. Then, lines 4-6 iterate over the list, displaying each line. Notice the line::
 
-    Name is from Team and is on the roster for Event
+    aline = aline.strip()
 
-You could cause the program to ignore that line if you use the ``readline`` method once after you open the file, and
-before the for loop begins. Try adding the following line just after line 1 in the program above, and then run the
-program again to see the result::
-
-    olypmicsfile.readline()
+The ``strip()`` method removes leading and trailing whitespace. It is another way to remove the trailing newline from
+each line, along with any excess space that may be present. Try commenting out or deleting this line to see the
+effect that it has.
 
 To make the code a little simpler, and to allow for more efficient processing, Python provides a built-in way to
 iterate through the contents of a file one line at a time, without first reading them all into a list. Here is what
@@ -77,28 +66,60 @@ it looks like:
 
 .. activecode:: ac9_5_2
     :nocodelens:
-    :available_files: olympics2.txt
+    :available_files: wa_cities.txt
 
-    olypmicsfile = open("olypmics2.txt", "r")
+    infile = open("wa_cities.txt", "r")
+    infile.readline()  # Read first line and throw it away
 
-    for aline in olypmicsfile:
-        values = aline.split(",")
-        print(values[0], "is from", values[3], "and is on the roster for", values[4])
+    for aline in infile:
+        aline = aline.strip()
+        print(aline)
 
-    olypmicsfile.close()
+    infile.close()
 
-Notice how this version is nearly identical to the one above. The only difference is that, instead of
-explicitly invoking the readlines() method, we treat the file variable itself as a sequence, like a list
-or a string, by writing its name after the ``in`` in the ``for`` loop::
+Notice how this version does not invoke the ``readlines`` method. Instead, it treats the file variable itself as a
+sequence, like a list or a string, by writing its name after the ``in`` in the ``for`` loop::
 
-    for aline in olypmicsfile:
+    for aline in infile:
 
 The end result is the same. However, this version makes better use of memory, because instead of reading all of
 the lines in the file into a list in memory and then iterating through the list, this version reads just one
 line into memory at a time. For most text files, you wouldn't notice a difference, but for really large text files
 this technique can be noticeably more efficient.
 
+Now that we have a basic structure in place for reading the file a line at a time, let's enhance the program so that it
+finds the city with the longest name, using the accumulator pattern. Here's an attempt that is close, but not quite right:
 
+.. activecode:: ac9_5_1a
+    :nocodelens:
+    :available_files: wa_cities.txt
+
+    infile = open("wa_cities.txt", "r")
+
+    longest_name = ''
+    for aline in infile:
+        aline = aline.strip()
+        if len(aline) > len(longest_name):
+            longest_name = aline
+        print(aline)
+
+    infile.close()
+    print('The city with the longest name is:', longest_name)
+
+
+The program gives an incorrect result because the first line of the file is not a city, but is longer than any
+of the city names::
+
+    Cities in Washington
+
+Many data files have descriptive information on the first line that should be ignored by programs that read them.
+You could cause the program to ignore the first line if you use the ``readline`` method once after you open the file, 
+before starting to iterate over the lines. Try adding the following line just after line 1 in the program above, and then run the
+program again to see the result::
+
+    infile.readline()
+
+That's better. After that change, Lake Cassidy is now correctly determined to be the city with the longest namee.
 
 
 **Check your Understanding**

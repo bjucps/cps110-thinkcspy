@@ -78,16 +78,13 @@ The complete program is shown below.
     :nocodelens:
 
     filename = "squared_numbers.txt"
-    outfile = open(filename, "w")
+    with open(filename, "w") as outfile:
+        for number in range(1, 13):
+            square = number * number
+            outfile.write(str(square) + "\n")
 
-    for number in range(1, 13):
-        square = number * number
-        outfile.write(str(square) + "\n")
+    with open(filename, "r") as infile:
+        print(infile.read()[:10])
 
-    outfile.close()
-
-    infile = open(filename, "r")
-    print(infile.read()[:10])
-    infile.close()
 
 

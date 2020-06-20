@@ -16,6 +16,7 @@ Lists and Tuples
    ListMethods.rst
    AppendversusConcatenate.rst
    Listsandforloops.rst
+   TheAccumulatorPatternwithLists.rst
    FunctionsthatProduceLists.rst
    StringsandLists.rst
    listTypeConversionFunction.rst

@@ -13,11 +13,38 @@
 
 .. index:: accumulator pattern
 
+.. _accumulator:
+
 The Accumulator Pattern
 -----------------------
 
-In this section we will compute the square of a number. But we will do it using an algorithm that relies on addition instead
-of multiplication.
+Here's a short program that sums up the numbers from 1 to 100 using a ``for`` loop:
+
+.. activecode:: ac_sumup
+
+   sum = 0
+   for i in range(1, 101):
+      sum += i
+
+   print(sum)
+
+This program, simple as it is, demonstrates a common programming technique that crops up
+repeatedly in programs. It's called the **accumulator pattern**. 
+
+The accumulator pattern involves iterating over a set of values, **accumulating** a value as we go, 
+such as the sum-so-far. That way, at the end of the traversal we have 
+accumulated a single value, such as the sum total of all the items or the largest item.
+
+The anatomy of the accumulation pattern includes:
+   - **initializing** an "accumulator" variable to an initial value (such as 0 if accumulating a sum)
+   - **iterating** (e.g., traversing the items in a sequence)
+   - **updating** the accumulator variable on each iteration (i.e., when processing each item in the sequence)
+
+In the example above, the initialization occurred on line 1; the iteration involved lines 2 and 3;
+and the updating occurred on line 3.-
+
+Let's apply the accumulator pattern to the problem of computing the square of a number. 
+We will use an algorithm that relies on addition instead of multiplication.
 
 If you want to multiply two numbers together, the most basic approach is to think of it as repeating the process of
 adding one number to itself.  The number of repetitions is where the second number comes into play.  For example, if we
@@ -34,8 +61,7 @@ to update the running total by adding the number to it.
 In words we could say it this way.  To square the value of `n`, we will repeat the process of updating a running total `n` times.  To update the running total, we take the old value of the "running total" and add `n`.  That sum becomes the new
 value of the "running total".
 
-Here is the program in activecode.  
-
+Here is the program in activecode:
 
 .. activecode:: sq_accum1
 
@@ -48,24 +74,23 @@ Here is the program in activecode.
 
 
 In the program above, notice that the variable ``runningtotal`` starts out with a value of 0.  Next, the iteration is performed ``toSquare`` times.  
-Inside the for loop, the update occurs. ``runningtotal`` is reassigned a new value which is the old value plus the value of ``toSquare``.
-
-This pattern of iterating the updating of a variable is commonly
-referred to as the **accumulator pattern**.  We refer to the variable as the **accumulator** because it gradually accumulates the result.
-This pattern will come up over and over again.  Remember that the key
-to making it work successfully is to be sure to initialize the variable before you start the iteration.
-Once inside the iteration, it is required that you update the accumulator.
-
-.. note::
-
-    What would happen if we put the assignment ``runningTotal = 0`` inside
-    the for statement?  Not sure? Try it and find out.
+Inside the for loop, the update occurs. ``runningtotal`` is reassigned a new value which is the old value plus the value of ``toSquare``. 
+``runningtotal`` is our accumulator variable.
 
 Click on **Show CodeLens** above and step through the program to watch the "running total" accumulate the result.
 
 
 The General Accumulator Pattern
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The key to making the accumulator pattern work successfully is to be sure to initialize the accumulator variable *before* you start the iteration.
+Inside the loop, you *update* the accumulator.
+
+.. note::
+
+    What would happen if we put the assignment ``runningTotal = 0`` inside
+    the for statement?  Not sure? Try it and find out.
+
 
 .. code-block:: python
 
@@ -123,7 +148,7 @@ The Accumulator Pattern with Strings
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 The accumulator pattern can be used with strings as well as numbers. Take a look at the following example, which creates
-a line of asterisks. Use the **Show CodeLens** feature to watch the line built by the loop.
+a line of asterisks. 
 
 .. activecode:: ch04_accum3
 
@@ -134,8 +159,9 @@ a line of asterisks. Use the **Show CodeLens** feature to watch the line built b
 
     print(line)
 
-Each time through the loop, another asterisk is concatenated to the ``line``, so the ``line`` variable gradually accumulates the
-asterisks. 
+In this example, the accumulator variable is ``line``.  Each time through the loop, another asterisk is concatenated to
+the ``line``, so the ``line`` variable gradually accumulates the asterisks.  Use the **Show CodeLens** feature to watch
+the line built by the loop.
 
 
 .. admonition:: Modify the program ...
