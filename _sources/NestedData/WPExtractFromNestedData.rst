@@ -12,7 +12,7 @@
    :prefix: WPNested-1-
    :start: 1
 
-👩‍💻 Extracting from Nested Data
+Extracting from Nested Data
 =================================
 
 A common problem, especially when dealing with data returned from a web site, is to extract certain elements from deep 
@@ -31,7 +31,7 @@ following steps:
 
 Understand. Extract. Repeat.
 
-To illustrate this, we will walk through extracting information from data formatted in a way that it's return by the Twitter API.
+To illustrate this, we will walk through extracting information from JSON data formatted in the way that it's returned by the Twitter API.
 This nested dictionary results from querying Twitter, asking for three tweets
 matching "University of Michigan". As you'll see, it's quite a daunting data structure, even when printed with nice 
 indentation as it's shown below. 
