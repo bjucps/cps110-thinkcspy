@@ -2,7 +2,6 @@ Functions
 :::::::::
 
 .. toctree::
-   :caption: Functions
    :maxdepth: 2
 
    intro-Functions.rst

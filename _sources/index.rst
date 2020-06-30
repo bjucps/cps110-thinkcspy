@@ -11,7 +11,7 @@
 .. raw:: html
 
    <div style="text-align:center" class="center-block">
-   <h1>How to Think Like a Computer Scientist: Interactive Edition</h1>
+   <h1>How to Think Like a Computer Scientist: BJU Edition</h1>
    <style>
    button.reveal_button {
        margin-left: auto;
@@ -72,9 +72,9 @@ Table of Contents
    NestedData/toctree.rst
    Classes/toctree.rst
    Inheritance/toctree.rst
+   IntroRecursion/toctree.rst
    AlgorithmAnalysis/toctree.rst
    SortSearch/toctree.rst
-   IntroRecursion/toctree.rst
 
 Labs
 ::::
@@ -105,7 +105,6 @@ Appendices
 ::::::::::
 
 .. toctree::
-   :caption: Appendices
    :maxdepth: 1
 
    Appendices/errorsAndDebug.rst

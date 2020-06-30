@@ -111,40 +111,20 @@ the Python wiki has a nice time complexity page that can be found at the
 
 
 
-.. admonition:: Self Check
+**Check your understanding**
 
-    .. mchoice:: mcpyperform
-       :answer_a: list.pop(0)
-       :answer_b: list.pop()
-       :answer_c: list.append()
-       :answer_d: list[10]
-       :answer_e: all of the above are O(1)
-       :correct: a
-       :feedback_a: When you remove the first element of a list, all the other elements of the list must be shifted forward.
-       :feedback_b: Removing an element from the end of the list is a constant operation.
-       :feedback_c: Appending to the end of the list is a constant operation
-       :feedback_d: Indexing a list is a constant operation
-       :feedback_e: There is one operation that requires all other list elements to be moved.
+.. mchoice:: mcpydictperf
+    :answer_a: 'x' in mydict
+    :answer_b: del mydict['x']
+    :answer_c: mydict['x'] == 10
+    :answer_d: mydict['x'] = mydict['x'] + 1
+    :answer_e: all of the above are O(1)
+    :correct: e
+    :feedback_a: in is a constant operation for a dictionary because you do not have to iterate but there is a better answer.
+    :feedback_b: deleting an element from a dictionary is a constant operation but there is a better answer.
+    :feedback_c: Assignment to a dictionary key is constant but there is a better answer.
+    :feedback_d: Re-assignment to a dictionary key is constant but there is a better answer.
+    :feedback_e: The only dictionary operations that are not O(1) are those that require iteration.
 
-       Which of the list operations shown below is not O(1)?
+    Which of the dictionary operations shown below is O(1)?
 
-    .. mchoice:: mcpydictperf
-      :answer_a: 'x' in mydict
-      :answer_b: del mydict['x']
-      :answer_c: mydict['x'] == 10
-      :answer_d: mydict['x'] = mydict['x'] + 1
-      :answer_e: all of the above are O(1)
-      :correct: e
-      :feedback_a: in is a constant operation for a dictionary because you do not have to iterate but there is a better answer.
-      :feedback_b: deleting an element from a dictionary is a constant operation but there is a better answer.
-      :feedback_c: Assignment to a dictionary key is constant but there is a better answer.
-      :feedback_d: Re-assignment to a dictionary key is constant but there is a better answer.
-      :feedback_e: The only dictionary operations that are not O(1) are those that require iteration.
-
-      Which of the dictionary operations shown below is O(1)?
-
-.. youtube:: zKq8iVEX6gU
-    :divid: pythonopsperf
-    :height: 315
-    :width: 560
-    :align: left

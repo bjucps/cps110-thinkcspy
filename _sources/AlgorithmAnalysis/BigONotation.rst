@@ -169,12 +169,3 @@ to see that :math:`T(n)` then follows the quadratic function as
 :math:`n` continues to grow.
 
 
-.. admonition:: Self Check
-
-   Write two Python functions to find the minimum number in a list.  The first function should compare each number to every other number on the list. :math:`O(n^2)`.  The second function should be linear :math:`O(n)`.
-
-.. youtube:: p0COF_m6H1c
-    :divid: findMinVid
-    :height: 315
-    :width: 560
-    :align: left

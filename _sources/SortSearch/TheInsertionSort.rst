@@ -54,7 +54,8 @@ is not a complete exchange as was performed in the previous algorithms.
 The maximum number of comparisons for an insertion sort is the sum of
 the first :math:`n-1` integers. Again, this is :math:`O(n^{2})`.
 However, in the best case, only one comparison needs to be done on each
-pass. This would be the case for an already sorted list.
+pass. This would be the case for an already sorted list, and yields
+performance of :math:`O(n)`, like the bubble sort. 
 
 One note about shifting versus exchanging is also important. In general,
 a shift operation requires approximately a third of the processing work

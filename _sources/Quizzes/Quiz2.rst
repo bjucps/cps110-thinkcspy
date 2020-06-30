@@ -9,6 +9,7 @@ Part 1
 ------
 
 .. actex:: ac_quiz2-1
+    :autograde: unittest
 
     (25 points) Write a function named ``countVowels``. It should receive a string parameter, and return an int
     indicating the count of capital vowels it contains (A, E, I, O, or U). For example, 
@@ -46,6 +47,7 @@ Part 2
 ------
 
 .. actex:: ac_quiz2-2
+    :autograde: unittest
 
     (25 points) Write a function named extractDigits that takes a parameter containing a string, extracts all of the
     digits, and returns the resulting integer. If there are no digits, return 0.

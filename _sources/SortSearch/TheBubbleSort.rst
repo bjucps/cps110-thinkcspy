@@ -3,7 +3,7 @@
 
 
 The Bubble Sort
-~~~~~~~~~~~~~~~
+================
 
 The **bubble sort** makes multiple passes through a list. It compares
 adjacent items and exchanges those that are out of order. Each pass
@@ -34,10 +34,8 @@ correct position with no further processing required. :ref:`ActiveCode 1 <lst_bu
 shows the complete ``bubbleSort`` function. It takes the list as a
 parameter, and modifies it by exchanging items as necessary.
 
-The exchange operation, sometimes called a “swap,” is slightly different
-in Python than in most other programming languages. Typically, swapping
-two elements in a list requires a temporary storage location (an
-additional memory location). A code fragment such as
+In most languages, the exchange operation, sometimes called a “swap,”  
+requires a temporary variable. A code fragment such as
 
 ::
 
@@ -45,18 +43,18 @@ additional memory location). A code fragment such as
     alist[i] = alist[j]
     alist[j] = temp
 
-will exchange the `ith` and `jth` items in the list. Without the
-temporary storage, one of the values would be overwritten.
+will exchange the `ith` and `jth` items in the list. 
 
 In Python, it is possible to perform simultaneous assignment. The
-statement ``a,b=b,a`` will result in two assignment statements being
+statement ``a, b = b, a`` will result in two assignment statements being
 done at the same time (see :ref:`Figure 2 <fig_pythonswap>`). Using simultaneous
-assignment, the exchange operation can be done in one statement.
+assignment, the exchange operation can be done in one statement, like this::
+
+    alist[i], alist[j] = alist[j], alist[i]
 
 Lines 5-7 in :ref:`ActiveCode 1 <lst_bubble>` perform the exchange of the :math:`i` and
 :math:`(i+1)th` items using the three–step procedure described
-earlier. Note that we could also have used the simultaneous assignment
-to swap the items.
+earlier. 
 
 .. _fig_pythonswap:
 
@@ -67,8 +65,6 @@ to swap the items.
 
 The following activecode example shows the complete ``bubbleSort`` function working on the list
 shown above.
-
-
 
 .. activecode:: lst_bubble
     :caption: The Bubble Sort
@@ -93,25 +89,10 @@ The following animation shows ``bubbleSort`` in action.
    :model: BubbleSortModel
    :viewer: BarViewer
 
-.. For more detail, CodeLens 1 allows you to step through the algorithm.
-..
-.. .. codelens:: bubbletrace
-..     :caption: Tracing the Bubble Sort
-..
-..     def bubbleSort(alist):
-..         for passnum in range(len(alist)-1,0,-1):
-..             for i in range(passnum):
-..                 if alist[i]>alist[i+1]:
-..                     temp = alist[i]
-..                     alist[i] = alist[i+1]
-..                     alist[i+1] = temp
-..
-..     alist = [54,26,93,17,77,31,44,55,20]
-..     bubbleSort(alist)
-..     print(alist)
-                    
+Bubble Sort Performance Analysis
+--------------------------------
 
-To analyze the bubble sort, we should note that regardless of how the
+To analyze the performance of the bubble sort, we should note that regardless of how the
 items are arranged in the initial list, :math:`n-1` passes will be
 made to sort a list of size *n*. :ref:`Table 1 <tbl_bubbleanalysis>` shows the number
 of comparisons for each pass. The total number of comparisons is the sum
@@ -173,28 +154,9 @@ to as the **short bubble**.
     alist=[20,30,40,90,50,60,70,80,100,110]
     shortBubbleSort(alist)
     print(alist)
-    
-.. Finally, here is ``shortBubbleSort`` in CodeLens (CodeLens 2)..
-..
-.. .. codelens:: shortbubbletrace
-..     :caption: Tracing the Short Bubble Sort
-..
-..     def shortBubbleSort(alist):
-..         exchanges = True
-..         passnum = len(alist)-1
-..         while passnum > 0 and exchanges:
-..            exchanges = False
-..            for i in range(passnum):
-..                if alist[i]>alist[i+1]:
-..                    exchanges = True
-..                    temp = alist[i]
-..                    alist[i] = alist[i+1]
-..                    alist[i+1] = temp
-..            passnum = passnum-1
-..
-..     alist=[20,30,40,90,50,60,70,80,100,110]
-..     shortBubbleSort(alist)
-..     print(alist)
+
+The short bubble has performance :math:`O(n)` when the list is already sorted, because it
+performs only :math:`n` comparisons and no exchanges.
  
 .. admonition:: Self Check
 

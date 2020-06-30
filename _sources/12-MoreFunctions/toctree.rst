@@ -2,7 +2,6 @@ More Functions
 ::::::::::::::
 
 .. toctree::
-   :caption: Functions
    :maxdepth: 2
 
    Refactoring.rst
