@@ -30,41 +30,11 @@ There are :math:`n-1` items left to sort, meaning that there will be
 :math:`n-2` pairs. Since each pass places the next largest value in
 place, the total number of passes necessary will be :math:`n-1`. After
 completing the :math:`n-1` passes, the smallest item must be in the
-correct position with no further processing required. :ref:`ActiveCode 1 <lst_bubble>`
-shows the complete ``bubbleSort`` function. It takes the list as a
-parameter, and modifies it by exchanging items as necessary.
+correct position with no further processing required. 
 
-In most languages, the exchange operation, sometimes called a “swap,”  
-requires a temporary variable. A code fragment such as
-
-::
-
-    temp = alist[i]
-    alist[i] = alist[j]
-    alist[j] = temp
-
-will exchange the `ith` and `jth` items in the list. 
-
-In Python, it is possible to perform simultaneous assignment. The
-statement ``a, b = b, a`` will result in two assignment statements being
-done at the same time (see :ref:`Figure 2 <fig_pythonswap>`). Using simultaneous
-assignment, the exchange operation can be done in one statement, like this::
-
-    alist[i], alist[j] = alist[j], alist[i]
-
-Lines 5-7 in :ref:`ActiveCode 1 <lst_bubble>` perform the exchange of the :math:`i` and
-:math:`(i+1)th` items using the three–step procedure described
-earlier. 
-
-.. _fig_pythonswap:
-
-.. figure:: Figures/swap.png
-   :align: center
-
-   Figure 2: Exchanging Two Values in Python
-
-The following activecode example shows the complete ``bubbleSort`` function working on the list
-shown above.
+The following shows a ``bubbleSort`` function that implements the algorithm. It takes the list as a
+parameter, and modifies it by exchanging items as necessary. Use the **Show CodeLens** button
+to step through and understand the algorithm.
 
 .. activecode:: lst_bubble
     :caption: The Bubble Sort
@@ -81,7 +51,38 @@ shown above.
     bubbleSort(alist)
     print(alist)
 
-The following animation shows ``bubbleSort`` in action.
+Lines 5-7 above perform an exchange of two items in the list. In most languages, the exchange operation, sometimes
+called a “swap,” requires a temporary variable. A code fragment such as::
+
+    temp = alist[i]
+    alist[i] = alist[j]
+    alist[j] = temp
+
+will exchange the `ith` and `jth` items in the list. 
+
+In Python, it is possible to perform simultaneous assignment. The
+statement ``a, b = b, a`` will result in two assignment statements being
+done at the same time. Using simultaneous
+assignment, swapping the values in slots *i* and *j* of ``alist`` 
+can be done in one statement, like this::
+
+    alist[i], alist[j] = alist[j], alist[i]
+
+:ref:`Figure 2 <fig_pythonswap>` illustrates the difference between the three-step
+process and the direct swap possible in Python:
+
+.. _fig_pythonswap:
+
+.. figure:: Figures/swap.png
+   :align: center
+
+   Figure 2: Exchanging Two Values in Python
+
+
+
+The following animation shows ``bubbleSort`` in action. To use it, first click Initialize to populate the list to be
+sorted with values, represented by bars of various heights. Then use the Run button to run the algorithm and watch
+how it swaps pairs of elements. You can use the other buttons to control the animation.
 
 .. animation:: bubble_anim
    :modelfile: sortmodels.js
@@ -131,7 +132,7 @@ know that the list must be sorted. A bubble sort can be modified to stop
 early if it finds that the list has become sorted. This means that for
 lists that require just a few passes, a bubble sort may have an
 advantage in that it will recognize the sorted list and stop.
-:ref:`ActiveCode 2 <lst_shortbubble>` shows this modification, which is often referred
+The following shows this modification, which is often referred
 to as the **short bubble**.
 
 
@@ -155,22 +156,21 @@ to as the **short bubble**.
     shortBubbleSort(alist)
     print(alist)
 
-The short bubble has performance :math:`O(n)` when the list is already sorted, because it
+The short bubble version of the algorithm has performance :math:`O(n)` when the list is already sorted, because it
 performs only :math:`n` comparisons and no exchanges.
  
-.. admonition:: Self Check
+**Check your understanding**
 
-   .. mchoice:: question_sort_1
-       :correct: b
-       :answer_a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]
-       :answer_b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]
-       :answer_c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]
-       :answer_d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]
-       :feedback_a:  This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.
-       :feedback_b:  Very Good
-       :feedback_c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.
-       :feedback_d: You have been doing an insertion sort, not a bubble sort.
+.. mchoice:: question_sort_1
+    :correct: b
+    :answer_a: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]
+    :answer_b: [1, 3, 7, 9, 10, 8, 12, 13, 15, 19]
+    :answer_c: [1, 7, 3, 9, 10, 13, 8, 12, 15, 19]
+    :answer_d: [1, 9, 19, 7, 3, 10, 13, 15, 8, 12]
+    :feedback_a:  This answer represents three swaps.  A pass means that you continue swapping all the way to the end of the list.
+    :feedback_b:  Very Good
+    :feedback_c: A bubble sort contines to swap numbers up to index position passnum.  But remember that passnum starts at the length of the list - 1.
+    :feedback_d: You have been doing an insertion sort, not a bubble sort.
 
-       Suppose you have the following list of numbers to sort: <br>
-       [19, 1, 9, 7, 3, 10, 13, 15, 8, 12] which list represents the partially sorted list after three complete passes of bubble sort?
- 
+    Suppose you have the following list of numbers to sort: [19, 1, 9, 7, 3, 10, 13, 15, 8, 12]. Which list represents the partially sorted list after three complete passes of bubble sort?
+

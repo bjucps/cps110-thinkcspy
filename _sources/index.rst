@@ -53,26 +53,26 @@ Table of Contents
    :numbered:
    :maxdepth: 2
 
-   01-GeneralIntro/toctree.rst
-   02-PythonFundamentals/toctree.rst
-   03-Debugging/toctree.rst
-   04-ObjectsModules/toctree.rst
-   05-FlowControl/toctree.rst
-   06-MoreFlow/toctree.rst
-   07-Functions/toctree.rst
-   08-Strings/toctree.rst
-   09-UnitTesting/toctree.rst
-   10-Booleans/toctree.rst
-   11-Lists/toctree.rst
-   12-MoreFunctions/toctree.rst
-   13-Files/toctree.rst
-   14-Exceptions/toctree.rst
-   15-Dictionaries/toctree.rst
-   16-WebApps/toctree.rst
+   GeneralIntro/toctree.rst
+   PythonFundamentals/toctree.rst
+   Debugging/toctree.rst
+   ObjectsModules/toctree.rst
+   FlowControl/toctree.rst
+   MoreFlow/toctree.rst
+   Functions/toctree.rst
+   Strings/toctree.rst
+   UnitTesting/toctree.rst
+   Booleans/toctree.rst
+   Lists/toctree.rst
+   MoreFunctions/toctree.rst
+   Files/toctree.rst
+   Exceptions/toctree.rst
+   Dictionaries/toctree.rst
+   WebApps/toctree.rst
    NestedData/toctree.rst
    Classes/toctree.rst
    Inheritance/toctree.rst
-   IntroRecursion/toctree.rst
+   Recursion/toctree.rst
    AlgorithmAnalysis/toctree.rst
    SortSearch/toctree.rst
 

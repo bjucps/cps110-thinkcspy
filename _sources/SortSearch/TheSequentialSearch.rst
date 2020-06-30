@@ -11,7 +11,7 @@ in a position relative to the others. In Python lists, these relative
 positions are the index values of the individual items. Since these
 index values are ordered, it is possible for us to visit them in
 sequence. This process gives rise to our first searching technique, the
-**sequential search**.
+**sequential search** or **linear search**.
 
 :ref:`Figure 1 <fig_seqsearch>` shows how this search works. Starting at the first
 item in the list, we simply move from item to item, following the

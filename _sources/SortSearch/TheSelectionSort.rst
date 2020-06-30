@@ -17,8 +17,7 @@ final item must be in place after the :math:`(n-1)` st pass.
 :ref:`Figure 3 <fig_selectionsort>` shows the entire sorting process. On each pass,
 the largest remaining item is selected and then placed in its proper
 location. The first pass places 93, the second pass places 77, the third
-places 55, and so on. The function is shown in
-:ref:`ActiveCode 1 <lst_selectionsortcode>`.
+places 55, and so on. 
 
 .. _fig_selectionsort:
 
@@ -28,7 +27,7 @@ places 55, and so on. The function is shown in
    
    Figure 3: ``selectionSort``
 
-
+Here is an implementation of the selection sort algorithm.
 
 .. activecode:: lst_selectionsortcode
     :caption: Selection Sort
@@ -48,33 +47,21 @@ places 55, and so on. The function is shown in
     selectionSort(alist)
     print(alist)
 
+
+.. youtube:: ANnGSi3y1vg
+    :divid: vid_selectionsort
+    :height: 315
+    :width: 560
+    :align: left
+
+Try experimenting with the following visualization:
+
 .. animation:: selection_anim
    :modelfile: sortmodels.js
    :viewerfile: sortviewers.js
    :model: SelectionSortModel
    :viewer: BarViewer
    
-
-.. For more detail, CodeLens 3 allows you to step through the algorithm.
-..
-..
-.. .. codelens:: selectionsortcodetrace
-..     :caption: Tracing the Selection Sort
-..
-..     def selectionSort(alist):
-..        for fillslot in range(len(alist)-1,0,-1):
-..            positionOfMax=0
-..            for location in range(1,fillslot+1):
-..                if alist[location]>alist[positionOfMax]:
-..                    positionOfMax = location
-..
-..            temp = alist[fillslot]
-..            alist[fillslot] = alist[positionOfMax]
-..            alist[positionOfMax] = temp
-..
-..     alist = [54,26,93,17,77,31,44,55,20]
-..     selectionSort(alist)
-..     print(alist)
 
 You may see that the selection sort makes the same number of comparisons
 as the bubble sort and is therefore also :math:`O(n^{2})`. However,
@@ -84,20 +71,19 @@ the bubble sort makes 20 exchanges, while the selection sort makes only
 8.
 
 
-.. admonition:: Self Check
+**Check your understanding**
 
-   .. mchoice:: question_sort_2
-      :correct: d
-      :answer_a: [7, 11, 12, 1, 6, 14, 8, 18, 19, 20]
-      :answer_b: [7, 11, 12, 14, 19, 1, 6, 18, 8, 20]
-      :answer_c: [11, 7, 12, 14, 1, 6, 8, 18, 19, 20]
-      :answer_d: [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]
-      :feedback_a: Selection sort is similar to bubble sort (which you appear to have done) but uses fewer swaps
-      :feedback_b: This looks like an insertion sort.
-      :feedback_c: This one looks similar to the correct answer but instead of swapping the numbers have been shifted to the left to make room for the correct numbers.
-      :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
+.. mchoice:: question_sort_2
+    :correct: d
+    :answer_a: [7, 11, 12, 1, 6, 14, 8, 18, 19, 20]
+    :answer_b: [7, 11, 12, 14, 19, 1, 6, 18, 8, 20]
+    :answer_c: [11, 7, 12, 14, 1, 6, 8, 18, 19, 20]
+    :answer_d: [11, 7, 12, 14, 8, 1, 6, 18, 19, 20]
+    :feedback_a: Selection sort is similar to bubble sort (which you appear to have done), but uses fewer swaps.
+    :feedback_b: This looks like an insertion sort.
+    :feedback_c: This one looks similar to the correct answer, but instead of swapping, the numbers have been shifted to the left to make room for the correct numbers.
+    :feedback_d: Selection sort improves upon bubble sort by making fewer swaps.
 
-      Suppose you have the following list of numbers to sort:
-      [11, 7, 12, 14, 19, 1, 6, 18, 8, 20] which list represents the partially sorted list after three complete passes of selection sort?
+    Suppose you have the following list of numbers to sort: [11, 7, 12, 14, 19, 1, 6, 18, 8, 20]. Which list represents the partially sorted list after three complete passes of selection sort?
 
 

@@ -82,6 +82,12 @@ studies, insertion sort will show very good performance.
     insertionSort(alist)
     print(alist)
 
+.. youtube:: DCsX9OSSVWk
+    :divid: vid_insertionsort
+    :height: 315
+    :width: 560
+    :align: left
+
 .. animation:: insertion_anim
    :modelfile: sortmodels.js
    :viewerfile: sortviewers.js
@@ -119,10 +125,9 @@ studies, insertion sort will show very good performance.
       :answer_c: [4, 5, 15, 18, 12, 19, 14, 10, 8, 20]
       :answer_d: [15, 5, 4, 18, 12, 19, 14, 8, 10, 20]
       :feedback_a: This is a bubble sort.
-      :feedback_b:  This is the result of selection sort.
+      :feedback_b: This is the result of selection sort.
       :feedback_c: Insertion sort works at the start of the list.  Each pass produces a longer sorted list.
-      :feedback_d: Insertion sort works on the front of the list not the end.
+      :feedback_d: Insertion sort works on the front of the list, not the end.
 
-       Suppose you have the following list of numbers to sort: <br>
-       [15, 5, 4, 18, 12, 19, 14, 10, 8, 20] which list represents the partially sorted list after three complete passes of insertion sort?
+       Suppose you have the following list of numbers to sort: [15, 5, 4, 18, 12, 19, 14, 10, 8, 20]. Which list represents the partially sorted list after three complete passes of insertion sort?
 
