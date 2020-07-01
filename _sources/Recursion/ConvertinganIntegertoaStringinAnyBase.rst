@@ -114,45 +114,125 @@ If we reversed returning the ``convertString`` lookup and returning the
 the concatenation operation until after the recursive call has returned,
 we get the result in the proper order.
 
-.. admonition:: Self Check
+**Check your understanding**
 
-   Write a function that takes a string as a parameter and returns a new string that is the reverse of the old string.
+.. tabbed:: tabbed_recursion_sc_1
 
-   .. actex:: recursion_sc_1
+   .. tab:: Question
 
-      from test import testEqual
-      def reverse(s):
-          return s
+      1. Write a function ``reverse`` that takes a string as a parameter and returns a new string that is the reverse of the old string.
+
+      .. activecode:: recursion_sc_1
+         :autograde: unittest
+
+         def reverse(s):
+            return s
+
+         ====
+
+         from unittest.gui import TestCaseGui
+         class myTests(TestCaseGui):
+               def testOne(self):
+                  self.assertEqual(reverse("hello"),"olleh",'Tested reverse("hello")')
+                  self.assertEqual(reverse("l"),"l",'Tested reverse("l")')
+                  self.assertEqual(reverse("follow"),"wollof",'Tested reverse("follow")')
+                  self.assertEqual(reverse(""),"",'Tested reverse("")')
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      Here are a couple of tips that may help:
+
+      1. Here's a recursive definition in English: "The reverse of a string is the reverse of the 'rest of' the string, followed by the first character of the string."
+
+      2. The solution to this problem looks a lot like the listsum function presented earlier in this chapter.
+
+   .. tab:: Answer
+
+      The reverse of a string is the reverse of the "rest of" the string, followed by the first character of the string.
       
-      testEqual(reverse("hello"),"olleh")
-      testEqual(reverse("l"),"l")      
-      testEqual(reverse("follow"),"wollof")
-      testEqual(reverse(""),"")
+      Here is the solution::
 
-   Write a function that takes a string as a parameter and returns True if the string is a palindrome, False otherwise.  Remember that a string is a palindrome if it is spelled the same both forward and backward.  for example:  radar is a palindrome.  for bonus points palindromes can also be phrases, but you need to remove the spaces and punctuation before checking.  for example:  madam i'm adam  is a palindrome.  Other fun palindromes include:
-   
-   * kayak
-   * aibohphobia
-   * Live not on evil
-   * Reviled did I live, said I, as evil I did deliver
-   * Go hang a salami; I'm a lasagna hog.
-   * Able was I ere I saw Elba
-   * Kanakanak --  a town in Alaska
-   * Wassamassaw -- a town in South Dakota
+         def reverse(s):
+            if len(s) == 0:
+               return ""
+            else:
+               return reverse(s[1:]) + s[0]
 
-   .. actex:: recursion_sc_2
+.. tabbed:: tabbed_recursion_sc_2
 
-      from test import testEqual
-      def removeWhite(s):
-          return s
+   .. tab:: Question
 
-      def isPal(s):
-          return False
+      2. Write a function ``isPal`` that takes a string as a parameter and returns True if the string is a palindrome,
+      False otherwise.  A string is a palindrome if it is spelled the same both forward and backward. For example:
+      radar" is a palindrome. 
       
-      testEqual(isPal(removeWhite("x")),True)            
-      testEqual(isPal(removeWhite("radar")),True)
-      testEqual(isPal(removeWhite("hello")),False)
-      testEqual(isPal(removeWhite("")),True)                  
-      testEqual(isPal(removeWhite("hannah")),True)      
-      testEqual(isPal(removeWhite("madam i'm adam")),True)
+      Palindromes can also be phrases, but you need to remove the spaces and punctuation and normalize the
+      capitalization before checking.  For example: "Madam, I'm Adam"  is a palindrome, if you remove spaces and
+      punctuation, and convert everything to lowercase. For full credit, write code in the function ``normalize`` to
+      return a copy of *s* with all characters that are not letters stripped out. If you're feeling adventurous, make
+      ``normalize`` a recursive function.
+      
+      Other fun palindromes include:
+      
+      * kayak
+      * aibohphobia
+      * Live not on evil
+      * Reviled did I live, said I, as evil I did deliver
+      * Go hang a salami; I'm a lasagna hog.
+      * Able was I ere I saw Elba
+      * Kanakanak --  a town in Alaska
+      * Wassamassaw -- a town in South Dakota
+
+      .. activecode:: recursion_sc_2
+
+         def normalize(s):
+            return s
+
+         def isPal(s):
+            return False
+
+         ====
+
+         from unittest.gui import TestCaseGui
+         class myTests(TestCaseGui):
+               def testOne(self):
+                  self.assertTrue(isPal(normalize("x")),'Tested normalize(isPal("x"))')
+                  self.assertTrue(isPal(normalize("radar")),'Tested normalize(isPal("radar"))')
+                  self.assertTrue(not isPal(normalize("hello")),'Tested normalize(isPal("hello"))')
+                  self.assertTrue(isPal(normalize("")),'Tested normalize(isPal(""))')
+                  self.assertTrue(isPal(normalize("hannah")),'Tested normalize(isPal("hannah"))')
+                  self.assertTrue(isPal(normalize("madam i'm adam")),'Tested normalize(isPal("madam i\'m adam"))')
+
+         myTests().main()
+
+   .. tab:: Answer
+
+      Here's the answer::
+
+         def normalize(s):
+            if len(s) == 0:
+               # Base case
+               return s
+            elif s[0].isalpha():
+               # If the first character is a letter,
+               # return a string with that letter followed by the
+               # normalization of the rest of the string
+               return s[0] + normalize(s[1:])
+            else:
+               # Otherwise,
+               # Return the normalization of the rest of the string
+               return normalize(s[1:])
+
+         def isPal(s):
+            if len(s) <= 1:
+               # Base case: An empty string or a string with one letter is a palindrome
+               return True
+            else:
+               # Return True if the first and last letters are the same,
+               # and the rest of the string is a palindrome            
+               return s[0] == s[len(s)-1] and isPal(s[1:-1])
+
+
 
