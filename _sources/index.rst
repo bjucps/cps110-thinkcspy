@@ -109,6 +109,7 @@ Appendices
 
    Appendices/errorsAndDebug.rst
    Appendices/PrecedenceTable.rst
+   Quizzes/toctree.rst
 
 Acknowledgements
 ::::::::::::::::

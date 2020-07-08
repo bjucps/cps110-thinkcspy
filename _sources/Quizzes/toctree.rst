@@ -1,9 +1,11 @@
 Quizzes
 :::::::::
 
-.. toctree::
-   :maxdepth: 1
+This is a placeholder page.
 
-   Quiz1.rst
-   Quiz2.rst
+.. toctree::
+   :hidden:
+   :glob:
+
+   *
    

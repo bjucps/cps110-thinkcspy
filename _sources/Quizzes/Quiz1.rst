@@ -2,8 +2,11 @@
    :prefix: quiz-1
    :start: 1
 
-Quiz 1
-======
+Code Quiz 1
+===========
+
+This is a page for testing the questions for Code Quiz 1. Note that the students will see only information
+inside the actex directives, so any text you place onto this page outside those directives will not be visible.
 
 Part 1
 ------
@@ -69,12 +72,6 @@ Part 2
 
     myTests().main()
 
-Solution::
-
-    for color in ["green", "red", "blue"]:
-        if len(color) > 3:
-            print(f"{color} is one of my favorite words")
-
 .. note::
 
     5 points if there are misspellings or formatting issues
@@ -102,12 +99,6 @@ Part 3
             self.assertIn("for", self.getEditorText(), "Test 2: Uses for loop")
 
     myTests().main()
-
-Solution::
-
-    sum = 0
-    for i in range(0, 101, 10):
-        sum += i
             
 
 Part 4
@@ -131,10 +122,3 @@ Part 4
             self.assertIn("for", self.getEditorText(), "Test 2: Uses for loop")
 
     myTests().main()
-
-Solution::
-
-    sum = 0
-    for i in range(0, 100, 4):
-        if i % 3 != 0:
-            sum += i
