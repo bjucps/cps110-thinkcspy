@@ -8,6 +8,7 @@ Code Quiz 4
 
 .. actex:: ac_quiz4-1
     :autograde: unittest
+    :timelimit: 1000
 
     **Part 1 (30 points)**
 

@@ -33,8 +33,7 @@ Create Python Programs using Visual Studio Code
 Random Numbers
 --------------
 
-Before we begin writing code for this lab, we need to introduce one more
-Python module.  The ``random`` module allows us to generate random numbers.
+Let's begin this lab by working with the ``random`` module, which allows us to generate random numbers.
 It's easy to use:
 
 .. activecode:: lab01_1

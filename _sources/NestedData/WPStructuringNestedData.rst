@@ -11,7 +11,7 @@
    :prefix: nested-9-
    :start: 1
 
-👩‍💻 Structuring Nested Data
+Structuring Nested Data
 -----------------------------
 
 When constructing your own nested data, it is a good idea to keep the structure consistent across each level. For example, 

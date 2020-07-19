@@ -10,6 +10,7 @@ Part 1
 
 .. actex:: ac_quiz3-1
     :autograde: unittest
+    :timelimit: 1000
 
     (20 points) Write a function named `stringify` that takes a list of strings, and converts them to a colon-delimited
     string, with each value in the list surrounded with {} brackets::
@@ -40,6 +41,7 @@ Part 2
 
 .. actex:: ac_quiz3-2
     :autograde: unittest
+    :timelimit: 1000
 
     (15 points) Write a function named `select`. The function should accept a list of dictionaries and a key, and should return a list
     containing the values in the dictionaries that are associated with the key specified by key::
@@ -70,6 +72,7 @@ Part 3
 
 .. actex:: ac_quiz3-3
     :autograde: unittest
+    :timelimit: 1000
 
     (15 points) Write a function named `parse`. The function should accept a query string and return a dictionary containing query
     variables and their associated values::

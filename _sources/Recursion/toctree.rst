@@ -12,5 +12,3 @@ Recursion
    SierpinskiTriangle.rst
    Glossary.rst
    ProgrammingExercises.rst
-   Exercises.rst
-   

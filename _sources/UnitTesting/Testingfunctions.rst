@@ -1,4 +1,4 @@
-..  Copyright (C)  Paul Resnick and Lauren Murphy.  Permission is granted to copy, distribute
+..  Copyright (C)  Stephen Schaub.  Permission is granted to copy, distribute
     and/or modify this document under the terms of the GNU Free Documentation
     License, Version 1.3 or any later version published by the Free Software
     Foundation; with Invariant Sections being Forward, Prefaces, and
@@ -7,114 +7,170 @@
     License".
 
 .. qnum::
-   :prefix: test-2-
+   :prefix: testfunc-1-
    :start: 1
 
-Writing Test Cases for Functions
-================================
+Testing Functions
+=================
 
-It is a good idea to write one or more test cases for each function that you define.
+Melinda is writing a program that does some mathematical calculations. At the moment, she is working on adding some
+functionality to her program that requires rounding numbers to the nearest integer. She would normally use the built-in
+Python function ``round`` to do the job, but her program has a special requirement that numbers should be rounded up if
+the fractional portion is .6 or greater, instead of the usual .5 or greater. So, Melinda decides to write a function that
+rounds up numbers according to this requirement. 
 
-A function defines an operation that can be performed. If the function takes one or more parameters, it is supposed to 
-work properly on a variety of possible inputs. Each test case will check whether the function works properly on 
-**one set of possible inputs**. 
+She defines a function ``round6`` to do the job::
 
-A useful function will do some combination of three things, given its input parameters:
+    def round6(num):
+        """returns num rounded to nearest int if fractional part is >= .6"""
 
-* Return a value. For these, you will write **return value tests**.
-* Modify the contents of some mutable object, like a list or dictionary. For these you will write **side effect tests**.
-* Print something or write something to a file. Tests of whether a function generates the right printed output are beyond the scope of this testing framework; you won't write these tests.
+        return int(num + .6)
 
-Return Value Tests
-~~~~~~~~~~~~~~~~~~
+This function uses a valid approach to rounding, but is not quite correct (Melinda doesn't realize it yet --- can you
+spot the bug?).
 
-Testing whether a function returns the correct value is the easiest test case to define. You simply check whether the 
-result of invoking the function on a particular input produces the particular output that you expect. If ``f`` is your 
-function, and you think that it should transform inputs ``x`` and ``y`` into output ``z``, then you could write a test as 
-``assert f(x, y) == z``. Or, to give a more concrete example, if you have a function ``square``, you could have
-a test case ``assert square(3) ==  9``. Call this a **return value test**.
+Now she needs to test the new code. There are two basic approaches Melinda could take to do her testing:
 
-Because each test checks whether a function works properly on specific inputs, the test cases will never be complete: in 
-principle, a function might work properly on all the inputs that are tested in the test cases, but still not work 
-properly on some other inputs. That's where the art of defining test cases comes in: you try to find specific inputs that 
-are representative of all the important kinds of inputs that might ever be passed to the function.
+#. Put the function into the program, modify the program to call the function at the appropriate point, then run the program.    
 
-The first test case that you define for a function should be an "easy" case, one that is prototypical of the kinds of 
-inputs the function is supposed to handle. Additional test cases should handle "extreme" or unusual inputs, sometimes 
-called **edge cases**. For example, if you are defining the "square" function, the first, easy case, might be an input 
-like 3. Additional extreme or unusual inputs around which you create test cases might be a negative number, 0, and a 
-floating point number.
+#. Test the function by itself, somehow. 
 
-One way to think about how to generate edge cases is to think in terms of **equivalence classes** of the different kinds of inputs the function might get. For example, the input to the ``square`` function could be either positive or negative. We then choose an input from each of these classes.
-**It is important to have at least one test for each equivalence class of inputs.**
+Which do you think will be more efficient?
 
-Semantic errors are often caused by improperly handling the boundaries between equivalence classes. The boundary for this
-problem is zero. **It is important to have a test at each boundary.**
+Melinda's program does complex mathematical calculations, and asks the user to enter 5 separate pieces of input before
+performing the calculations. If she goes with option 1, each time she runs the program to test the function,
+she must enter all 5 pieces of input. As you can imagine, that process is cumbersome and will not be very efficient.
+Also, if the program output is incorrect, it may be difficult to determine whether the fault is in the new function,
+or elsewhere in the program.
 
-Another way to think about edge cases is to imagine things that could go wrong in the implementation. For example, in the square function we might mistakenly use addition instead of multiplication. Thus, we shouldn't rely on a test that uses 2 as input, but we might be fooled into thinking it was working when it produced an output of 4, when it was really doubling rather than squaring.
+Melinda decides to write a separate, short program to help her test her new function. The test program is very simple
+--- it contains only her new function and a bit of code to get some input, pass it to the function, and display the
+result. Here's what she writes:
 
-Try adding one or two more test cases for the square function in the code below, based on the suggestions for edge cases.
+.. activecode:: ac_round6_1
 
-.. activecode:: ac19_2_1
+    def round6(num):
+        """returns num rounded to nearest int if fractional part is >= .6"""
 
-    def square(x):
-        return x*x
+        return int(num + .6)
 
-    assert square(3) == 9
+    # ----- test program -------
 
+    x = float(input('Enter a number:'))
+    result = round6(x)
+    print('Result: ', result)
 
-Side Effect Tests
-~~~~~~~~~~~~~~~~~
+Before running the program, she jots down some test cases to help her in her testing::
 
-To test whether a function makes correct changes to a mutable object, you will need more than one line of code. You will 
-first set the mutable object to some value, then run the function, then check whether the object has the expected value. 
-Call this a **side effect test** because you are checking to see whether the function invocation has had the correct side 
-effect on the mutable object.
+                  Input    Expected Output
+                  -------- ---------------
+    Test Case 1:       3.5               3
+    Test Case 2:       3.6               4
+    Test Case 3:       3.7               4
 
-An example follows, testing the ``update_counts`` function (which is deliberately implemented incorrectly...). This 
-function takes a string called ``letters`` and updates the counts in ``counts_diction`` that are associated with each 
-character in the string. To do a side effect test, we first create a dictionary with initial counts for some letters. 
-Then we invoke the function. Then we test that the dictionary has the correct counts for some letters (those correct 
-counts are computed manually when we write the test. We have to know what the correct answer should be in order to write 
-a test). You can think of it like writing a small exam for your code -- we would not give you an exam without knowing the 
-answers ourselves.
+Try running the program with the input values above. Notice that the output isn't quite right.
+Can you figure out how to correct the bug?
 
-.. activecode:: ac19_2_2
+After analyzing her logic, Melinda corrects the bug by changing the return statement in the function as follows::
 
-    def update_counts(letters, counts_d):
-        for c in letters:
-            counts_d[c] = 1
-            if c in counts_d:
-                counts_d[c] = counts_d[c] + 1
+    return int(num + .4)
 
+She runs the test program again to verify that the function is working correctly. Then, she copies the
+``round6`` function into her main program, confident that her rounding logic is correct.
 
-    counts = {'a': 3, 'b': 2}
-    update_counts("aaab", counts)
-    # 3 more occurrences of a, so 6 in all
-    assert counts['a'] == 6
-    # 1 more occurrence of b, so 3 in all
-    assert counts['b'] == 3
+The program Melinda wrote to help her test her round6 function is an example of a unit test. 
 
+.. admonition:: Unit Test
+
+    A **unit test** is code that tests a function to determine if it works properly.
+
+A unit test program like this one can dramatically reduce the effort it takes to test a new function, and can reduce the
+overall effort involved in adding functionality to a program. The savings tradeoff depends on the amount of effort
+required to write the test program, compared to the amount of effort required to test the function in the context of the
+main program for which the new function is being developed. Here, the function was relatively simple, and it probably
+wouldn't have taken Melinda too many iterations of testing the function in the context of the main program, with its
+five pieces of input. In this scenario, Melinda may not have saved much effort. However, if the function were more
+complex, writing a unit test would probably have helped reduce the overall effort. And, using some tricks I'll show you
+in the next sections, you can reduce the amount of effort required to write and run the unit test, making the case for
+writing unit tests even more compelling.
 
 
-.. mchoice:: question19_2_1
-   :answer_a: True
-   :answer_b: False
-   :correct: b
-   :feedback_a: No matter how many tests you write, there may be some input that you didn't test, and the function could do the wrong thing on that input.
-   :feedback_b: The tests should cover as many edge cases as you can think of, but there's always a possibility that the function does badly on some input that you didn't include as a test case.
+Automated Unit Tests
+--------------------
 
-   If you write a complete set of tests and a function passes all the tests, you can be sure that it's working correctly.
+The unit test program above is a manual unit test. A **manual unit test** gets input from the user, invokes the code
+under test, providing the input supplied by the user, and displays the result. (In our example, ``round6`` is the code
+under test.) Manual unit tests are helpful, but they can be improved in two ways:
 
-.. mchoice:: question19_1_3
-    :answer_a: assert blanked('under', 'du', 'u_d__') == True
-    :answer_b: assert blanked('under', 'u_d__') == 'du'
-    :answer_c: assert blanked('under', 'du') == 'u_d__'
-    :correct: c
-    :feedback_a: blanked only takes two inputs; this provides three inputs to the blanked function
-    :feedback_b: The second argument to the blanked function should be the letters that have been guessed, not the blanked version of the word
-    :feedback_c: This checks whether the value returned from the blanked function is 'u_d__'.
-    :practice: T
+#. We can embed the test input directly within the unit test code, so the person running the test doesn't have to
+   come up with the test input or take the time to enter it.
 
-    For the hangman game, the blanked function takes a word and some letters that have been guessed, and returns a version of the word with _ for all the letters that haven't been guessed. Which of the following is the correct way to write a test to check that 'under' will be blanked as ``'u_d__'`` when the user has guessed letters d and u so far?
+#. We can make the unit test report success or failure, instead of requiring the person running the test to
+   look at the output and determine whether the function worked correctly.
 
+We call a unit test that contains its own test input and produces a clear pass/fail indication an **automated
+unit test**. Take a look at the following example:
+
+.. activecode:: ac_round6_2
+
+    def round6(num):
+        return int(num + .4)
+
+    # ---- automated unit test ----
+
+    result = round6(9.7)
+    if result == 10:
+        print("Test 1: PASS")
+    else:
+        print("Test 1: FAIL")
+
+    result = round6(8.5)
+    if result == 8:
+        print("Test 2: PASS")
+    else:
+        print("Test 2: FAIL")
+
+This automated unit test invokes the ``round6`` function on predetermined test input, checks that the function produced the
+expected result, and displays a pass / fail message. Run it to see the test PASS messages.
+
+Try editing the round6 function above to introduce Melinda's original bug, then run it again to see the failure message.
+Notice the big advantage of an automated unit test: you can change the function being tested, run the unit test,
+and immediately see the test results for a whole series of tests. No hand-entry of test data, and no interpretation of the
+results. Clearly, once you have the test written, you can dramatically speed up your edit-test-debug cycle. The downside,
+of course, is that the unit test program itself takes more time to develop.
+
+Automated Unit Tests with ``assert``
+------------------------------------
+
+To help reduce the amount of effort required to develop an automated unit test, let's bring the ``assert`` statement into
+play. We can replace each ``if`` statement in the program above with an assert, as in the program below:
+
+.. activecode:: ac_round6_3
+
+    def round6(num: float) -> int:
+        return int(num + .4)
+
+    # ---- automated unit test ----
+
+    result = round6(9.7)
+    assert result == 10
+
+    result = round6(8.5)
+    assert result == 8
+
+    print("All tests passed!")
+
+Try running the program above to see the success message. Then, try altering the ``round6`` function to reintroduce the original
+bug, and see how the assertion failure pinpoints that the second test failed.
+
+We can streamline this program even further by eliminating the ``result`` variable::
+
+    assert round6(9.7) == 10
+    assert round6(8.5) == 8
+
+    print("All tests passed!")
+
+This is Really Nice. We have a short test program that contains its own test input and displays an automated pass or
+fail indication.  Writing this program takes very little effort. We have the benefits of an automated test without
+having to write much code. Unit test programs are essentially "throw-away" programs that are used only during
+development, and it's important that they can be developed quickly and easily.

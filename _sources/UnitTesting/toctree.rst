@@ -6,7 +6,10 @@ Unit Testing
 
    intro-UnitTesting.rst
    CheckingAssumptionsWithAssert.rst
-   Testingfunctions.rst
+   TestingFunctions.rst
+   DesigningTestableFunctions.rst
+   WritingUnitTests.rst
    TestFirstDevelopment.rst
+   TestingWithpytest.rst
    Glossary.rst
    

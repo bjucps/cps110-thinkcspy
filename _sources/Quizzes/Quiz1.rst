@@ -51,6 +51,7 @@ Part 2
 
 .. actex:: ac_quiz1-2
     :autograde: unittest
+    :timelimit: 1000
 
     (10 points) Write a loop that iterates over a list of three words: "green", "red", "blue". Put an if statement inside the
     loop that checks the length of each word, and if it is longer than 3 characters, display "word is one of my favorite
@@ -83,6 +84,7 @@ Part 3
 
 .. actex:: ac_quiz1-3
     :autograde: unittest
+    :timelimit: 1000
 
     (10 points) Write a loop that adds up the numbers from 1 to 100 that are evenly divisible by 10. Put the final sum in a variable named ``sum``. 
     
@@ -106,6 +108,7 @@ Part 4
 
 .. actex:: ac_quiz1-4
     :autograde: unittest
+    :timelimit: 1000
 
     (Bonus 5 points) Write a loop that adds up the numbers from 1 to 100 that are evenly divisible by 4, but are not evenly
     divisible by 3. Put the final sum in a variable named ``sum``. 
