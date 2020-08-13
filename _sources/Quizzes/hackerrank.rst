@@ -34,7 +34,7 @@ Holiday
     **Sample Input 1**
 
         5
-        
+
         3
 
     **Sample Output 1**
@@ -51,22 +51,24 @@ Holiday
     print(returnDay)
     ====
     from unittest.gui import TestCaseGui
-    import re
+    from re import sub
     class myTests(TestCaseGui):
         def testOne(self):
             code = self.getEditorText()
-            re.sub("input\([^\)]*\)", "2", code, 1)
-            re.sub("input\([^\)]*\)", "3", code, 1)
+            sub("input\([^\)]*\)", "2", code, 1)
+            sub("input\([^\)]*\)", "3", code, 1)
             value = exec(code)
             self.assertEqual(value, "5", "day 2 + 3 days is day 5")
+        def testTwo(self):
             code = self.getEditorText()
-            re.sub("input\([^\)]*\)", "5", code, 1)
-            re.sub("input\([^\)]*\)", "3", code, 1)
+            sub("input\([^\)]*\)", "5", code, 1)
+            sub("input\([^\)]*\)", "3", code, 1)
             value = exec(code)
             self.assertEqual(value, "1", "day 5 + 3 days is day 1")
+        def testThree(self):
             code = self.getEditorText()
-            re.sub("input\([^\)]*\)", "5", code, 1)
-            re.sub("input\([^\)]*\)", "20", code, 1)
+            sub("input\([^\)]*\)", "5", code, 1)
+            sub("input\([^\)]*\)", "20", code, 1)
             value = exec(code)
             self.assertEqual(value, "4", "day 5 + 20 days is day 4")
     myTests().main()
