@@ -210,6 +210,8 @@ done both steps in one line, like this::
     braces in the format string below generate literal braces in the
     formatted string::
 
+    .. code-block:: python
+
         a = 5
         b = 9
         print(f'The set is {{ {a}, {b} }}.')
