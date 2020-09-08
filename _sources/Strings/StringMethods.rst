@@ -212,17 +212,7 @@ A technical point: Since braces have special meaning in f-Strings,
 if you want braces to actually be included in the final *formatted* string,
 you must double them. For example, the initial and final doubled
 braces in the format string below generate literal braces in the
-formatted string::
-
-.. code-block:: python
-
-    a = 5
-    b = 9
-    print(f'The set is {{ {a}, {b} }}.')
-
-This produces the output::
-
-    The set is { 5, 9 }.
+formatted string.
 
 
 .. _format-method:
