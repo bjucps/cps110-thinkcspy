@@ -21,15 +21,6 @@ By the time you finish this lab, you should be able to:
 * Create and run Python programs using Visual Studio Code
 * Write short programs using the random and turtle module
 
-Create Python Programs using Visual Studio Code
------------------------------------------------
-
-.. youtube:: bR_Vc_ZhSxI
-    :divid: vid_lab1_vscode
-    :height: 315
-    :width: 560
-    :align: left
-
 Random Numbers
 --------------
 
@@ -55,9 +46,16 @@ Now, follow these instructions:
    if you get stuck!
 
 #. Finally, get your program running outside this book by starting Visual Studio code,
-   using the procedure demonstrated in the video above, and creating a file named
+   using the procedure demonstrated in the video below, and creating a file named
    **randomnums.py**. Copy and paste the code from the activecode editor above into
    Visual Studio Code, and make sure it works correctly there.
+
+.. youtube:: bR_Vc_ZhSxI
+    :divid: vid_lab1_vscode
+    :height: 315
+    :width: 560
+    :align: left
+
 
 Turtle Races
 ------------

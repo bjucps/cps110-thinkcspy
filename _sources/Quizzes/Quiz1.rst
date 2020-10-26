@@ -121,7 +121,7 @@ Part 4
 
     class myTests(TestCaseGui):
         def testOne(self):
-            self.assertEqual(sum, 768, "Test 1: Correct output (5 points)")
+            self.assertEqual(sum, 868, "Test 1: Correct output (5 points)")
             self.assertIn("for", self.getEditorText(), "Test 2: Uses for loop")
 
     myTests().main()

@@ -161,14 +161,14 @@ More on f-Strings
 ~~~~~~~~~~~~~~~~~~~~~
 
 We introduced f-Strings in Chapter 2 as a convenient way to get the values of variables
-inserted into a string. For example, rather than writing::
+inserted into a string. For example, rather than writing:
 
 .. code-block:: python
 
     count = 5
     msg = 'count is ' + str(count)
 
-You can write::
+You can write:
 
 .. code-block:: python
 
@@ -202,7 +202,7 @@ contains a complicated f-String with three markers:
 * ``{newPrice:.2f}`` inserts the value of ``newPrice``, rounded to two decimal places
 
 In the example above, we've created a variable and then printed it, but we could have
-done both steps in one line, like this::
+done both steps in one line, like this:
 
 .. code-block:: python
 
@@ -214,6 +214,15 @@ you must double them. For example, the initial and final doubled
 braces in the format string below generate literal braces in the
 formatted string.
 
+.. code-block:: python
+
+    a = 5
+    b = 9
+    print(f'The set is {{ {a}, {b} }}.')
+
+This produces the output::
+
+    The set is { 5, 9 }.
 
 .. _format-method:
 
