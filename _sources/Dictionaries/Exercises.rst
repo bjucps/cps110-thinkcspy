@@ -74,32 +74,59 @@ Exercises
                   man         matey
                   ==========  ==============
 
-               Write a program that asks the user for a sentence in English and then translates that sentence to Pirate.
+               Write a function named ``translator`` that takes a parameter containing a sentence in English 
+               (no punctuation and all words in lowercase) and returns that sentence translated to Pirate.
+               
+               For example, the sentence "hello there students" should be translated to "avast there swabbies".
                ~~~~
+               def translator(english):
+
+                 pirate = {}
+                 pirate['sir'] = 'matey'
+                 pirate['hotel'] = 'fleabag inn'
+                 pirate['student'] = 'swabbie'
+                 pirate['boy'] = 'matey'
+                 pirate['restaurant'] = 'galley'
+                 pirate['hello'] = 'avast'
+                 pirate['students'] = 'swabbies'
+
+                 # Complete the function
+
+               ====
+               from unittest.gui import TestCaseGui
+
+               class myTests(TestCaseGui):
+
+                   def testOne(self):
+                       self.assertEqual(translator("hello there students"),'avast there swabbies','translator("hello there students") yields "avast there swabbies"')
+
+               myTests().main()
 
         .. tab:: Answer
 
             .. activecode:: answer10_8_2
 
-                pirate = {}
-                pirate['sir'] = 'matey'
-                pirate['hotel'] = 'fleabag inn'
-                pirate['student'] = 'swabbie'
-                pirate['boy'] = 'matey'
-                pirate['restaurant'] = 'galley'
-                #and so on
+               def translator(sentence):
 
-                sentence = input("Please enter a sentence in English")
+                 pirate = {}
+                 pirate['sir'] = 'matey'
+                 pirate['hotel'] = 'fleabag inn'
+                 pirate['student'] = 'swabbie'
+                 pirate['boy'] = 'matey'
+                 pirate['restaurant'] = 'galley'
+                 pirate['hello'] = 'avast'
+                 pirate['students'] = 'swabbies'
 
-                psentence = []
-                words = sentence.split()
-                for aword in words:
+                 psentence = []
+                 words = sentence.split()
+                 for aword in words:
                     if aword in pirate:
                         psentence.append(pirate[aword])
                     else:
                         psentence.append(aword)
 
-                print(" ".join(psentence))
+                 return " ".join(psentence)
+
 
 #. (challenge exericse)
 
@@ -193,11 +220,6 @@ Exercises
                 for char in sorted(keys):
                     print(char, letter_count[char])
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_de4f21e35d3a41a4a3ac4ac888f78d1a
 
 
 .. datafile:: scarlet3.txt
