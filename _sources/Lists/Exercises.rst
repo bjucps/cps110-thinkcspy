@@ -10,7 +10,7 @@
 Exercises
 ---------
 
-.. question:: strings_ex_1
+.. question:: lists_ex_1
    :number: 1
 
    .. tabbed:: q1
@@ -31,27 +31,42 @@ Exercises
             Your diagram should show two variables referring to two different lists.  ``a`` refers to the original list with 1,2, and 3.
             ``b`` refers to a list with 5,2, and 3 since the zero-eth element was replaced with 5.
 
-        .. tab:: Discussion
 
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_12314cf40dbe407cb145f029870c0347
+.. question:: lists_ex_2
+
+    .. tabbed:: tab_lists_ex_2
+
+        .. tab:: Question
+
+            .. actex:: ac_lists_ex_2
+
+                Create a list called ``myList`` with the following six items: 76, 92.3, "hello", True, 4, 76. 
+                Begin with the empty list shown below, and add 6 statements to add each item, one per item. The first three statements should
+                use the append method to append the item to the list, and the last three statements should use concatenation.
+                ~~~~
+
+                myList = []
+
+        .. tab:: Answer
+
+            .. activecode:: ac_lists_ex_2_answer
+
+                myList = []
+                myList.append(76)
+                myList.append(92.3)
+                myList.append("hello")
+                myList = myList + [True]
+                myList = myList + [4]
+                myList = myList + [76]
+                print(myList)
 
 
-.. question:: strings_ex_2
 
-   .. actex:: ex_9_2
-
-      Create a list called ``myList`` with the following six items: 76, 92.3, "hello", True, 4, 76.  Do it with both append and with concatenation, one item at a time.
-      ~~~~
-
-
-.. question:: strings_ex_3
+.. question:: lists_ex_3
 
    .. tabbed:: q3
 
         .. tab:: Question
-
 
            .. actex:: ex_9_3
 
@@ -65,7 +80,7 @@ Exercises
               #. Remove the first occurrence of 76 from the list.
               #. Remove True from the list using ``pop`` and ``index``.
               ~~~~
-              # Your code here
+              myList = [76, 92.3, 'hello', True, 4, 76]
 
         .. tab:: Answer
 
@@ -85,58 +100,175 @@ Exercises
 
               print (myList)
 
-        .. tab:: Discussion
 
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_b9034b274ebe4c55a58c44315ee681a4
+.. question:: lists_ex_4
+
+   .. tabbed:: q4
+
+        .. tab:: Question
+
+            .. actex:: ex_9_4
+
+                Create a list named ``randlist`` containing 100 random integers between 0 and 1000 (use iteration, append, and the random module). 
+                ~~~~
+
+                ====
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(len(randlist),100,"randlist should contain 100 numbers")
+
+                myTests().main()
+
+        .. tab:: Answer
+
+            .. activecode:: ac_ex_9_4
+
+                import random
+
+                randlist = []
+                for i in range(100):
+                    randlist.append(random.randint(0, 1000))
+
+.. question:: lists_ex_4b
+
+   .. tabbed:: q4b
+
+        .. tab:: Question
+
+            .. actex:: ex_9_4b
+
+                Write a function called ``average`` that will take a list of numbers as a parameter and return the average of the numbers.
+                ~~~~
+                def average(numlist):
+                    # Complete the function definition
+
+                ====
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(int(average([1, 3, 5, 7])),4,"average([1, 3, 5, 7]) should be 4")
+
+                myTests().main()
+
+        .. tab:: Tip
+
+            Review :ref:`accumulator_lists`.
+
+        .. tab:: Answer
+
+            .. activecode:: ac_ex_9_4b
+
+                def average(numlist):
+
+                    total = 0
+                    for num in numlist:
+                        total = total + num
+
+                    return total / len(numlist)   
 
 
-.. question:: strings_ex_4
-
-   .. actex:: ex_9_4
-
-      Create a list containing 100 random integers between 0 and 1000 (use iteration, append, and the random module).  Write a function called ``average`` that will take the list as a parameter and return the average.
-      ~~~~
-
-.. question:: strings_ex_5
+.. question:: lists_ex_5
 
    .. tabbed:: q5
 
         .. tab:: Question
 
-           Write a Python function that will take a the list of 100 random integers between 0 and 1000 and return the maximum value.  (Note: there is a builtin function named ``max`` but pretend you cannot use it.)
-
            .. actex:: ex_9_5
 
+                Write a Python function that will take a nonempty list of integers whose values are in the range [0..1000] and return the smallest value.  (Note: there is a builtin function named ``min`` but pretend you cannot use it.)
+                ~~~~
+
+                def min(lst):
+                    # Complete the function definition
+
+                ====
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(min([31, 3, 5, 7])),31,"min([31, 3, 5, 7]) should be 3")
+
+                myTests().main()
+
+        .. tab:: Tip
+
+            Review :ref:`accumulator_lists`.
 
         .. tab:: Answer
 
             .. activecode:: lst_q5_answer
 
-                import random
-
-                def max(lst):
-                    max = 0
+                def min(lst):
+                    min = 0
                     for e in lst:
-                        if e > max:
-                            max = e
-                    return max
+                        if e < min:
+                            min = e
+                    return min
 
-                lst = []
-                for i in range(100):
-                    lst.append(random.randint(0, 1000))
-
-                print(max(lst))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_714fd5537ebf41189ce5fb6fb16d1d26
+                print(min([5, 100, 13, 2, 19]))
 
 
-.. question:: strings_ex_6
+.. question:: lists_ex_5b
+
+   .. tabbed:: q5b
+
+        .. tab:: Question
+
+           .. actex:: ex_9_5b
+
+                Write a Python function named join_star that will take a nonempty list of strings and return a string 
+                containing all of the nonempty strings in the list, with an asterisk between each. The list should
+                contain an asterisk at the beginning and at the end.
+
+                For example::
+
+                    join_star(["the","","cat","ate","","my","hat"])
+
+                should return the value::
+
+                    "*the*cat*ate*my*hat*"
+
+
+                ~~~~
+
+                def join_star(lst):
+                    # Complete the function definition
+
+                ====
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(join_star(["a","","b","c"]),"*a*b*c*", 'join_star(["a","","b","c"]) should be "*a*b*c*"')
+
+                myTests().main()
+
+        .. tab:: Tip
+
+            Review :ref:`accumulator_lists`.
+
+        .. tab:: Answer
+
+            .. activecode:: lst_q5b_answer
+
+                def join_star(lst):
+                    result = "*"
+                    for item in lst:
+                        if item != '':
+                            result += item + '*'
+
+                    return result
+
+                print(join_star(['the', '', 'cat', 'ate', '', 'my', 'hat']))
+
+.. question:: lists_ex_6
 
    .. actex:: ex_7_11
       :practice: T
@@ -161,7 +293,7 @@ Exercises
 
       myTests().main()
 
-.. question:: strings_ex_7
+.. question:: lists_ex_7
 
    .. tabbed:: q7
 
@@ -218,7 +350,7 @@ Exercises
                 :identifier: disqus_fdd366b1b4c8494082a385e1e1197844
 
 
-.. question:: strings_ex_8
+.. question:: lists_ex_8
 
    .. actex:: ex_9_7
       :practice: T
@@ -242,7 +374,7 @@ Exercises
 
       myTests().main()
 
-.. question:: strings_ex_9
+.. question:: lists_ex_9
 
    .. tabbed:: q9
 
@@ -298,7 +430,7 @@ Exercises
                 :identifier: disqus_bfe671ac1e0942f2be4de7179921f83f
 
 
-.. question:: strings_ex_10
+.. question:: lists_ex_10
 
 
    .. actex:: ex_9_9
@@ -308,7 +440,7 @@ Exercises
       def countWords(lst):
           # your code here
 
-.. question:: strings_ex_11
+.. question:: lists_ex_11
 
    .. tabbed:: q11
 
@@ -363,7 +495,7 @@ Exercises
                 :identifier: disqus_90f95bbe4a49428caa9ed0c5e02747b1
 
 
-.. question:: strings_ex_12
+.. question:: lists_ex_12
 
    .. actex:: ex_9_11
 
@@ -374,7 +506,7 @@ Exercises
 
 
 
-.. question:: strings_ex_13
+.. question:: lists_ex_13
 
    .. tabbed:: q13
 
@@ -442,7 +574,7 @@ Exercises
                 :identifier: disqus_39ee0274e51d4c888cc20b6fefa4069c
 
 
-.. question:: strings_ex_14
+.. question:: lists_ex_14
 
    .. actex:: ex_9_13
       :practice: T
@@ -478,113 +610,3 @@ Exercises
       myTests().main()
 
 
-
-.. question:: strings_ex_15
-
-   .. tabbed:: q15
-
-        .. tab:: Question
-
-           .. actex:: ex_9_14
-              :nocodelens:
-
-              Here are the rules for an L-system that creates something that resembles
-              a common garden herb.  Implement the following rules and try it.  Use an
-              angle of 25.7 degrees.
-   
-              ::
-   
-                  H
-                  H --> HFX[+H][-H]
-                  X --> X[-FFF][+FFF]FX
-              ~~~~
-
-        .. tab:: Answer
-
-            .. activecode:: lst_q15_answer
-                :nocodelens:
-
-                import turtle
-
-                def createLSystem(numIters, axiom):
-                    startString = axiom
-                    endString = ""
-                    for i in range(numIters):
-                        endString = processString(startString)
-                        startString = endString
-
-                    return endString
-
-                def processString(oldStr):
-                    newstr = ""
-                    for ch in oldStr:
-                        newstr = newstr + applyRules(ch)
-
-                    return newstr
-
-                def applyRules(ch):
-                    newstr = ""
-                    if ch == 'H':
-                        newstr = 'HFX[+H][-H]'   # Rule 1
-                    elif ch == 'X':
-                        newstr = 'X[-FFF][+FFF]FX'
-                    else:
-                        newstr = ch     # no rules apply so keep the character
-
-                    return newstr
-
-                def drawLsystem(aTurtle, instructions, angle, distance):
-                    savedInfoList = []
-                    for cmd in instructions:
-                        if cmd == 'F':
-                            aTurtle.forward(distance)
-                        elif cmd == 'B':
-                            aTurtle.backward(distance)
-                        elif cmd == '+':
-                            aTurtle.right(angle)
-                        elif cmd == '-':
-                            aTurtle.left(angle)
-                        elif cmd == '[':
-                            savedInfoList.append([aTurtle.heading(), aTurtle.xcor(), aTurtle.ycor()])
-                            #print(savedInfoList)
-                        elif cmd == ']':
-                            newInfo = savedInfoList.pop()
-                            aTurtle.setheading(newInfo[0])
-                            aTurtle.setposition(newInfo[1], newInfo[2])
-
-
-                def main():
-                    inst = createLSystem(4, "H")   # create the string
-                    print(inst)
-                    t = turtle.Turtle()            # create the turtle
-                    wn = turtle.Screen()
-                    t.up()
-                    t.back(200)
-                    t.down()
-                    t.speed(9)
-                    drawLsystem(t, inst, 27.5, 5)  # draw the picture
-
-                    wn.exitonclick()
-
-                main()
-
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_10a1fdd1fadb401b8e733afd9d105052
-
-
-.. question:: strings_ex_16
-
-   .. actex:: ex_9_16
-      :nocodelens:
-
-      Here is another L-System.  Use an Angle of 25.
-   
-      ::
-   
-          F
-          F --> F[-F]F[+F]F
-      ~~~~   

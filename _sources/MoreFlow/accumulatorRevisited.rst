@@ -3,7 +3,7 @@
 The Accumulator Pattern Revisited
 ---------------------------------
 
-Newton's method to calculate square roots is an example of an algorithm that repeats as long as it can improve the result. It's just a variation of our accumulator pattern. Many algorithms work this way and so require the use of indefinite iteration.
+Newton's method to calculate square roots is an example of an algorithm that repeats as long as it can improve the result. It's just a variation of our :ref:`accumulator pattern <accumulator>`. Many algorithms work this way and so require the use of indefinite iteration.
 
 Here is another accumulator pattern program. It adds up the reciprocals of powers of two.
 

@@ -10,10 +10,12 @@
    :prefix: condition-10-
    :start: 1
 
+.. _accumulator_lists:
+
 The Accumulator Pattern with Lists
 ----------------------------------
 
-Sometimes when we're accumulating, we don't want to add to our accumulator every time we iterate.
+Remember the :ref:`accumulator pattern <accumulator>`? Sometimes when we're accumulating, we don't want to add to our accumulator every time we iterate.
 Consider, for example, the following program which counts the number of names with more than 3 letters.
 
 .. activecode:: ac7_10_1

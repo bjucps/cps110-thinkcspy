@@ -79,7 +79,7 @@ remove      item            mutator       Removes the first occurrence of item
 
 
 Details for these and others
-can be found in the `Python Documentation <http://docs.python.org/py3k/library/stdtypes.html#sequence-types-str-bytes-bytearray-list-tuple-range>`_.
+can be found in the `Python Documentation <https://docs.python.org/3/library/stdtypes.html#sequence-types-list-tuple-range>`_.
 
 It is important to remember that methods like ``append``, ``sort``, 
 and ``reverse`` all return ``None``.  This means that re-assigning ``mylist`` to the result of sorting ``mylist`` will result in losing the entire list.  Calls like these will likely never appear as part of an assignment statement (see line 8 below).

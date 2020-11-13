@@ -57,8 +57,7 @@ So to repeat something four times, a good Python programmer would do this:
         alex.left(90)
 
 
-The `range <http://docs.python.org/py3k/library/functions
-.html?highlight=range#range>`_ function is actually a very powerful function
+The `range <https://docs.python.org/3/library/functions.html#func-range>`_ function is actually a very powerful function
 when it comes to
 creating sequences of integers.  It can take one, two, or three parameters.  We have seen
 the simplest case of one parameter such as ``range(4)`` which creates ``[0, 1, 2, 3]``.
