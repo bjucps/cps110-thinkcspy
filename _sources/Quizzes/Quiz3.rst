@@ -12,10 +12,10 @@ Part 1
     :autograde: unittest
     :timelimit: 1000
 
-    (20 points) Write a function named `stringify` that takes a list of strings, and converts them to a colon-delimited
+    (30 points) Write a function named `stringify` that takes a list of strings, and converts them to a colon-delimited
     string, with each value in the list surrounded with {} brackets::
     
-        def select(items: list, key: str) -> list
+        def stringify(items: list) -> str
     
     For example::
 
@@ -43,7 +43,7 @@ Part 2
     :autograde: unittest
     :timelimit: 1000
 
-    (15 points) Write a function named `select`. The function should accept a list of dictionaries and a key, and should return a list
+    (10 points) Write a function named `select`. The function should accept a list of dictionaries and a key, and should return a list
     containing the values in the dictionaries that are associated with the key specified by key::
 
         def select(items: list, key: str) -> list
@@ -74,7 +74,7 @@ Part 3
     :autograde: unittest
     :timelimit: 1000
 
-    (15 points) Write a function named `parse`. The function should accept a query string and return a dictionary containing query
+    (10 points) Write a function named `parse`. The function should accept a query string and return a dictionary containing query
     variables and their associated values::
 
         def parse(qry: str) -> dict

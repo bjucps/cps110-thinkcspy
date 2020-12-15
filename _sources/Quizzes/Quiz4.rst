@@ -108,9 +108,9 @@ Code Quiz 4
             pl2.add(Product(101, "Zoomp", 3100))
             products2 = pl2.getProducts()
 
-            self.assertEqual(products1, '/ Product 301: Frying Pan (10) / Product 101: Baby Ruth (50) / Product 201: Pencil (25) /', "test_10_getProducts (1)")
+            self.assertEqual(products1.strip(), '/ Product 301: Frying Pan (10) / Product 101: Baby Ruth (50) / Product 201: Pencil (25) /', "test_10_getProducts (1)")
 
-            self.assertEqual(products2, "/ Product 97: Foo (1000) / Product 99: Bar (2000) / Product 98: Baz (3000) / Product 94: Wat (2500) / Product 101: Zoomp (3100) /", "test_10_getProducts (2)")
+            self.assertEqual(products2.strip(), "/ Product 97: Foo (1000) / Product 99: Bar (2000) / Product 98: Baz (3000) / Product 94: Wat (2500) / Product 101: Zoomp (3100) /", "test_10_getProducts (2)")
 
 
         def test_10_find(self):

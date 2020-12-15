@@ -48,7 +48,7 @@ Remember that computer scientists often start counting
 from zero. The letter at index zero of ``"Luther College"`` is ``L``.  So at
 position ``[2]`` we have the letter ``t``.
 
-If you want the zero-eth letter of a string, you just put 0, or any expression
+If you want the first character of a string, you just put 0, or any expression
 with the value 0, in the brackets.  Give it a try.
 
 The expression in brackets is called an **index**. An index specifies a member

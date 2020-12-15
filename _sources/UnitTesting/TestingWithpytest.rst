@@ -51,7 +51,25 @@ Here's an example of how it works:
         assert round6(9.7) == 10
         assert round6(8.5) == 8
 
-    ====
+    =====
+
+    from unittest.gui import TestCaseGui
+
+    class pyTests(TestCaseGui):
+
+        def testOne(self):
+            for item in globals():
+                if item.startswith("test_"):
+                    try:
+                        globals()[item]()
+                        self.assertEqual(item + " passed", item + " passed", item + " passed")
+                    except Exception as e:
+                        self.assertEqual(item + " failed", item + " passed", item + " failed: " + str(e))
+
+    pyTests().main() 
+
+    
+.. test:
 
     success = True
     for item in globals():
@@ -60,7 +78,7 @@ Here's an example of how it works:
                 globals()[item]()
             except Exception as e:
                 success = False
-                print(item + "() test failed with", e)
+                print(item + "() test failed with ", e)
 
     if success:
         print("All tests passed!")
@@ -72,30 +90,59 @@ Notice that you do not write a line to *call* the unit test function. Instead, w
 tests, pytest scans your script and executes only the functions with the prefix ``test_``. 
 
 This ActiveCode environment simulates pytest by scanning for and executing functions with a ``test_`` prefix when you
-click **Run**. Go ahead and try it. 
+click **Run**. Go ahead and try it - rename the test_round6 function to ``test_itworks`` and try running the test again. 
 
-To run pytest unit tests outside the textbook, you could put this example code into a Python file
-named something like myround.py, and execute it with the pytest command, like this::
+Organizing pytest Functions
+---------------------------
+
+The example above uses a single pytest function, with both asserts in the same pytest function. The
+disadvantage of that approach is that the first failing assert prevents the rest of the asserts from
+being tested.
+
+If you want, you can write multiple pytest functions to test a single function. That way, when an
+assert fails in one test function, the rest of the pytest functions can still run and report success or
+failure.
+
+You can name your pytest functions with names that indicate what they are testing. For
+example, try changing the ActiveCode example above so that it defines two test functions: one named
+``test_round6_rounds_up``, containing the first assert, and one named ``test_round6_rounds_down``,
+containing the second assert. Your code should look like this::
+
+    def test_round6_rounds_up():
+        assert round6(9.7) == 10
+
+    def test_round6_rounds_down():
+        assert round6(8.5) == 8
+
+If you use good pytest function names, when a pytest function has an assertion failure, you can
+easily tell what the problem was.
+
+Using pytest
+------------
+
+To use pytest, you must first install it using the **pip** command. Open your computer's command line window
+(not the Python interpreter) and enter the following command to install: 
+
+* Windows::
+
+    pip install pytest 
+
+* Mac/Linux::
+
+    pip3 install pytest
+
+After you have installed pytest, you run pytest unit tests from the command line window. To run pytest unit
+tests, try copying the code from the ActiveCode example above and pasting it into a Python file named (ex.)
+**myround.py**. Then, use the **pytest** command to run your tests by opening a command window,
+navigating to the folder where you stored myround.py, and executing the following command::
 
     pytest myround.py
 
-.. note:: 
-
-    To use the pytest command, you must first install pytest. Use the **pip** command from your computer's command line
-    or terminal to do that. **pip** downloads and installs Python libraries. Enter the following command:
-
-    Windows::
-
-        pip install pytest 
-
-    Mac/Linux::
-
-        pip3 install pytest 
 
 Understanding pytest Failure Reports
 ------------------------------------
 
-When you run pytest and an assertion fails, you see a report like this::
+When you run the pytest command and an assertion fails, you see a report like this::
 
     =============================== FAILURES ================================
     ______________________________ test_round6 ______________________________
@@ -105,7 +152,7 @@ When you run pytest and an assertion fails, you see a report like this::
     E       assert 9 == 8
     E        +  where 9 = round6(8.5)
                                                                             
-    test.py:8: AssertionError
+    myround.py:8: AssertionError
 
 Let's take a closer look at this report to understand what it's telling you.
 
@@ -131,8 +178,8 @@ When you use the pytest framework, you can include pytest test functions in your
 your program code. This allows you to keep your tests together with the functions that they test, and you can run either
 your program (using the python command) or the unit tests (using the pytest command). 
 
-Take a look at this example that shows a function (``round6``), together with a unit test function (``test_round6``), and 
-a main program that uses ``round6``:
+Take a look at this example that shows a function (``round6``, containing a bug), together with a
+unit test function (``test_round6``), and a main program that uses ``round6``:
 
 .. sourcecode:: python
     :linenos:
@@ -159,3 +206,83 @@ script looking for unit test functions with a ``test_`` prefix. The ``if`` condi
 prevents the main program from executing when **pytest** is scanning the script. If that explanation didn't make total
 sense, just remember: in order for pytest to work correctly, any code that is part of the main program must be inside an
 ``if`` statement like the one in this example, so that it doesn't interfere with pytests's unit testing process.
+
+
+**Check your understanding**
+
+.. tabbed:: tab_grade_unittest
+
+    .. tab:: Question
+
+        .. activecode:: ac_grade_pytest
+            :autograde: unittest
+            :include: ac_grade_pytest_aux
+
+            Write a pytest unit test function named ``test_grade`` to test a function
+            with the following specification. Your asserts should
+            check that the function produces an appropriate value
+            for each of the three postcondition cases.
+
+            .. sourcecode:: python
+
+                def grade(score):
+                    """Determines letter grade given a numeric score
+
+                    Precondition: 0 <= `score` <= 100
+                    Postcondition: Returns 'A' if 90 <= `score` <= 100,
+                      'B' if 80 <= `score` < 90, 'F' if 0 <= `score` < 80
+                    """
+            ~~~~
+            # Write a pytest unit test function named ``test_grade``
+            
+
+            ====
+            from unittest.gui import TestCaseGui
+
+            testA = False
+            testB = False
+            testF = False
+            illegal = False
+
+            def grade(score):
+                global illegal, testA, testB, testF
+
+                if score > 100 or score < 0:
+                    illegal = True
+                    return ''
+                elif score >= 90:
+                    testA = True
+                    return 'A'
+                elif score >= 80:
+                    testB = True
+                    return 'B'
+                else:
+                    testF = True
+                    return 'F'
+
+            class myTests(TestCaseGui):
+
+                def testOne(self):
+                    code = self.getEditorText().replace(' ','').replace('"', '').replace("'", '')
+                    self.assertEqual(test_grade(), None, 'test_grade function defined' )
+                    self.assertTrue(testA and '==A' in code, "Assert tested 90..100")
+                    self.assertTrue(testB and '==B' in code, "Assert tested 80..90")
+                    self.assertTrue(testF and '==F' in code, "Assert tested 0..80")
+
+            myTests().main()
+
+
+    .. tab:: Answer
+
+        The following is a suggested pytest unit test.
+
+        .. sourcecode:: 
+            
+            def test_grade():
+                assert grade(92) == 'A'
+                assert grade(85) == 'B'
+                assert grade(69) == 'F'
+
+                
+
+

@@ -75,7 +75,7 @@ their initial state values.  The ``self`` parameter (you could choose any
 other name, but nobody ever does!) is automatically set to reference
 the newly created object that needs to be initialized.   
 
-So let's use our new Point class now. This next part should look a little familiar, if you remember some of the syntax for how we created instances of the Turtle class, in the :ref:`chapter on Turtle graphics <turtles_chap>`. 
+So let's use our new Point class now. This next part should look a little familiar, if you remember some of the syntax for how we created instances of the Turtle class, in the :ref:`chapter on Turtle graphics <turtles-chap>`. 
 
 .. activecode:: chp13_classes1
     

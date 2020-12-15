@@ -159,7 +159,8 @@ Let's modify our sumnums function to use an assert statement to check the precon
 In this version of ``sumnums``, we've replaced the ``if`` statement with an ``assert`` statement. Notice that the boolean
 condition of the ``assert`` statement is the precondition, ``lo <= hi``. When the function is called, if the
 condition is true, the function completes normally and returns its result. If the condition is false, the program stops
-with an AssertionError.
+with an AssertionError. So, the first call to ``sumnums(1, 3)`` succeeds and the result, 6, appears. The second call to
+``sumnums(3, 1)`` causes the assert to fail and an error appears.
 
 Notice how much more streamlined this version of the function is than the version with the three-line ``if`` statement.
 Here, we've added just one line of code to the original version. Using assertions is a relatively low-effort way to

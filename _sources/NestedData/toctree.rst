@@ -9,8 +9,6 @@ Nested Data and Nested Iteration
    NestedDictionaries.rst
    jsonlib.rst
    NestedIteration.rst
-   WPStructuringNestedData.rst
-   DeepandShallowCopies.rst
    WPExtractFromNestedData.rst
    Exercises.rst
    ChapterAssessment.rst

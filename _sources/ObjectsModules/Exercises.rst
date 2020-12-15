@@ -24,6 +24,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: mod_q1_answer
+               :optional:
 
                import random
 
@@ -32,11 +33,6 @@ Exercises
                    arandom = random.random()
                    print(arandom)
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: mods_111
 
 .. question:: pymod_ex_2
 
@@ -59,6 +55,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: mod_q3_answer
+               :optional:
 
                import math
 
@@ -66,12 +63,6 @@ Exercises
                side2 = 4
                hypotenuse = math.hypot(side1,side2)
                print(hypotenuse)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: mods_333
 
 .. question:: pymod_ex_4
 
@@ -96,15 +87,10 @@ Exercises
 
             .. activecode::  pt_q1_answer
                 :nocanvas:
+                :optional:
 
                 for i in range(100):
                     print("We like Python's turtles!")
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: f858d02024e54ae1b6b50ed8c65a01e6
 
 
 .. question:: turtle_ex_2
@@ -132,16 +118,10 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: pt_q3_answer
-
+                :optional:
 
                 for amonth in ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December']:
                     print("One of the months of the year is", amonth)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: b271442ee0864973a023c19f27aeb401
 
 
 .. question:: turtle_ex_4
@@ -234,12 +214,6 @@ Exercises
 
                 wn.exitonclick()
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: f36e8bc742b89424e82f111ba2d1dd33f
-
 .. question:: turtle_ex_6
 
    .. actex:: ex_3_6
@@ -266,6 +240,7 @@ Exercises
 
            .. activecode:: pt_q7_answer
                :nocodelens:
+               :optional:
 
                import turtle
 
@@ -289,12 +264,6 @@ Exercises
                print("The pirate's final heading was", lovelace.heading())
 
                wn.exitonclick()
-
-       .. tab:: Discussion
-
-           .. disqus::
-                :shortname: interactivepython
-                :identifier: a7e34946f59f348f2bfeb3f918eb57b7a
 
 .. question:: turtle_ex_8
 
@@ -333,6 +302,7 @@ Exercises
 
             .. activecode:: pt_q9_answer
                 :nocodelens:
+                :optional:
 
                 import turtle
 
@@ -341,12 +311,6 @@ Exercises
                 for i in range(5):
                     turing.forward(110)
                     turing.left(216)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: c611217310057488aab6a34d4b591e753
 
 
 .. question:: turtle_ex_10
@@ -376,6 +340,7 @@ Exercises
 
             .. activecode:: pt_q11_answer
                 :nocodelens:
+                :optional:
 
                 import turtle
 
@@ -387,12 +352,6 @@ Exercises
                 for i in range(350):
                     tanenbaum.forward(i)
                     tanenbaum.right(98)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: e928a562a4f5c41f9892c9bfc4a1d5883
 
 
 .. question:: turtle_ex_12
@@ -422,6 +381,7 @@ Exercises
 
             .. activecode:: pt_q13_answer
                 :nocodelens:
+                :optional:
 
                 import turtle
 
@@ -447,12 +407,3 @@ Exercises
                 babbage.shape("circle")
 
                 wn.exitonclick()
-
-
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: b65d7e616d2b548f592205dba699cc132
-

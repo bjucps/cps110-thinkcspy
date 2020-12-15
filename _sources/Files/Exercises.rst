@@ -106,6 +106,7 @@ The file below is ``emotion_words.txt``.
 
             .. activecode:: ch_files_q1answer
                 :nocodelens:
+                :optional:
 
                 f = open("studentdata.txt", "r")
 

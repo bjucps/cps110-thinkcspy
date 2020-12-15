@@ -40,12 +40,6 @@ Exercises
             #. 'apple' > 'pineapple' = False
             #. 'pineapple' < 'Peach' = False
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_dc2457710a924d9283b12f42a31d2b27
-
 
 #. 
 
@@ -54,23 +48,44 @@ Exercises
         .. tab:: Question 
 
             .. actex:: ac_q2
+                :autograde: unittest
 
-            In Robert McCloskey's
-            book *Make Way for Ducklings*, the names of the ducklings are Jack, Kack, Lack,
-            Mack, Nack, Ouack, Pack, and Quack.  This loop tries to output these names in order.
-            
-            .. sourcecode:: python
-            
-                    prefixes = "JKLMNOPQ"
-                    suffix = "ack"
+                In Robert McCloskey's
+                book *Make Way for Ducklings*, the names of the ducklings are Jack, Kack, Lack,
+                Mack, Nack, Ouack, Pack, and Quack. This loop tries to output these names in order.
+                However, Ouack and Quack are misspelled. Can you fix it?
+                ~~~~
+
+                prefixes = "JKLMNOPQ"
+                suffix = "ack"
             
                 for p in prefixes:
-                    print(p + suffix)
+                    print(p + suffix)            
+
+                ====
+
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(self.getOutput(),'Jack\nKack\nLack\nMack\nNack\nOuack\nPack\nQuack\n',"Correct output")
+
+                myTests().main()
+
+        .. tab:: Answer
+
+            .. activecode:: answer_ac_q2
+                :optional:
+                
+                prefixes = "JKLMNOPQ"
+                suffix = "ack"
             
-            
-            Of course, that's not quite right because Ouack and Quack are misspelled.
-            Can you fix it?
-            ~~~~ 
+                for p in prefixes:
+                    if p == 'O' or p == 'Q':
+                        print(p + 'u' + suffix) 
+                    else:
+                        print(p + suffix) 
 
 #.
 
@@ -79,6 +94,7 @@ Exercises
         .. tab:: Question 
 
            .. actex:: ac11_14_3
+              :autograde: unittest
       
               Write a function that reverses its string argument.
               ~~~~
@@ -96,9 +112,6 @@ Exercises
                       self.assertEqual(reverse("Python"),"nohtyP","Tested reverse on input of 'Python'")
                       self.assertEqual(reverse(""),"","Tested reverse on input of ''")
 
-
-
-
               myTests().main()
 
 #.
@@ -109,6 +122,7 @@ Exercises
 
            .. actex:: ac11_14_4
               :nocodelens:
+              :autograde: unittest
 
               Write a function that mirrors its string argument, 
               generating a string containing the original string and the string backwards.
@@ -138,6 +152,7 @@ Exercises
 
             .. activecode:: answer11_14_4
                 :nocodelens:
+                :optional:
 
                 def reverse(mystr):
                     reversed = ''

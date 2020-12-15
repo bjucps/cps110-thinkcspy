@@ -10,13 +10,15 @@
    :prefix: writetest-1-
    :start: 1
 
+.. _writing_unit_tests:
+
 Writing Unit Tests
 ==================
 
 Once you have designed a testable function, with a clear docstring specification, writing unit tests
 is not difficult. In this section, you'll learn how to do just that.
 
-Let's start with our sumnums function::
+Let's start with our ``sumnums`` function::
 
     def sumnums(lo, hi):
         """computes the sum of a range of numbers
@@ -32,7 +34,7 @@ Let's start with our sumnums function::
 
 As we've seen, to write a unit test, you devise test cases for the function, and then write assert statements that call
 the function and check that the function produced the expected results. The following assert statements would be
-appropriate for a unit test for sumnums::
+appropriate for a unit test for ``sumnums``::
 
     assert sumnums(1, 3) == 6
     assert sumnums(1, 1) == 1
@@ -83,7 +85,7 @@ implementation, you are doing specification-based testing.
     Specification-based tests are tests that are designed based only on the information in the function
     specification, without considering any of the details in the function implementation.
 
-Specification-based tests are prefered over implementation-based tests, because they are more resilient. They will continue
+Specification-based tests are preferred over implementation-based tests, because they are more resilient. They will continue
 to pass even if you rework the function implementation.
 
 
@@ -97,8 +99,8 @@ to pass even if you rework the function implementation.
    :correct: a,c
    :feedback_a: Correct. The specification indicates that the function should produce an empty string.
    :feedback_b: Incorrect. The parameter -1 violates the precondition, and such a test is inappropriate, even though the function would return an empty string in this case.
-   :feedback_c: Correct.
-   :feedback_d: Incorrect. Try again.
+   :feedback_c: Correct. The parameters satisfy the precondition and the value '-----' is appropriate given the postcondition.
+   :feedback_d: Incorrect. The string '***' does not conform to the postcondition.
 
    Consider the following function. Indicate which of the asserts would be
    appropriate for a unit test.
@@ -117,3 +119,86 @@ to pass even if you rework the function implementation.
                 return ''
 
             
+.. tabbed:: tab_grade_unittest
+
+    .. tab:: Question
+
+        .. activecode:: ac_grade_unittest
+            :autograde: unittest
+            :include: ac_grade_unittest_aux
+
+            Write assert statements below to test a function
+            with the following specification. Your asserts should
+            check that the function produces an appropriate value
+            for each of the three postcondition cases.
+
+            .. sourcecode:: python
+
+                def grade(score):
+                    """Determines letter grade given a numeric score
+
+                    Precondition: 0 <= `score` <= 100
+                    Postcondition: Returns 'A' if 90 <= `score` <= 100,
+                      'B' if 80 <= `score` < 90, 'F' if 0 <= `score` < 80
+                    """
+
+            Note: Line numbers in any assert error messages that appear while
+            you are developing and testing your answer will not be accurate.
+            ~~~~
+            # Write assert statements to test grade()
+            
+
+            ====
+            from unittest.gui import TestCaseGui
+
+            class myTests(TestCaseGui):
+
+                def testOne(self):
+                    code = self.getEditorText().replace(' ','').replace('"', '').replace("'", '')
+                    self.assertTrue(testA and '==A' in code, "Assert tested 90..100")
+                    self.assertTrue(testB and '==B' in code, "Assert tested 80..90")
+                    self.assertTrue(testF and '==F' in code, "Assert tested 0..80")
+                    self.assertFalse(illegal, "No asserts violated preconditions")
+
+            myTests().main()
+
+
+    .. tab:: Answer
+
+        The following asserts are just some of several that could have been used.
+
+        .. activecode:: ac_grade_unittest_sol
+            :include: ac_grade_unittest_aux
+            :optional:
+            
+            assert grade(92) == 'A'
+            assert grade(85) == 'B'
+            assert grade(69) == 'F'
+            
+        .. reveal:: ac_grade_unittest_aux_reveal
+            :instructoronly:
+
+            .. actex:: ac_grade_unittest_aux
+
+                testA = False
+                testB = False
+                testF = False
+                illegal = False
+
+                def grade(score):
+                    global illegal, testA, testB, testF
+
+                    if score > 100 or score < 0:
+                        illegal = True
+                        return ''
+                    elif score >= 90:
+                        testA = True
+                        return 'A'
+                    elif score >= 80:
+                        testB = True
+                        return 'B'
+                    else:
+                        testF = True
+                        return 'F'
+
+

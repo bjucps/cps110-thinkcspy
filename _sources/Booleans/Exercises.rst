@@ -36,12 +36,6 @@ Exercises
             #. False
             #. False
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_eb4a097382404ffe81300aac5744e3fe
-
 
 .. question:: selection_ex_2
 
@@ -108,6 +102,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: q3_question
+                :optional:
 
                 def grade(mark):
                     if mark >= 90:
@@ -126,12 +121,6 @@ Exercises
 
                 mark = 83
                 print( "Mark:", str(mark), "Grade:", grade(mark))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_b9e6fd14629949e59da1a4ae827c0032
 
 .. question:: selection_ex_4
 
@@ -162,6 +151,7 @@ Exercises
 
             .. activecode:: answer_ex_6_5
                     :nocodelens:
+                    :optional:
 
                     import turtle
 
@@ -209,13 +199,6 @@ Exercises
 
                     wn.exitonclick()
 
-
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_0118bd02de23462bafdb51beb4c85e44
 
 .. question:: selection_ex_6
 
@@ -280,6 +263,7 @@ Exercises
 
             .. activecode:: q7_answer
                 :nocodelens:
+                :optional:
 
                 from test import testEqual
 
@@ -293,12 +277,6 @@ Exercises
                 testEqual(is_even(5), False)
                 testEqual(is_even(1), False)
                 testEqual(is_even(0), True)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_7ae92646976d4953ac8a163f338b4358
 
 
 .. question:: selection_ex_8
@@ -363,6 +341,7 @@ Exercises
 
             .. activecode:: q9_answer
                 :nocodelens:
+                :optional:
 
                 from test import testEqual
 
@@ -382,12 +361,6 @@ Exercises
                 testEqual(is_odd(5), True)
                 testEqual(is_odd(1), True)
                 testEqual(is_odd(0), False)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_9125792d0c264b65b4d9d72d25485ceb
 
 
 .. question:: selection_ex_10
@@ -466,6 +439,7 @@ Exercises
 
             .. activecode:: q11_answer
                 :nocodelens:
+                :optional:
 
                 from test import testEqual
 
@@ -486,12 +460,6 @@ Exercises
                 testEqual(is_rightangled(4.1, 8.2, 9.16787), True)
                 testEqual(is_rightangled(4.1, 8.2, 9.168), False)
                 testEqual(is_rightangled(0.5, 0.4, 0.64031), True)
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_b25992fa70fc4e7581d84315df38d796
 
 
 .. question:: selection_ex_12
@@ -563,6 +531,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: answer_ex_6_13
+                :optional:
 
                 year = int(input("Please enter a year"))
                 if year >= 1900 and year <= 2099:
@@ -583,8 +552,3 @@ Exercises
                 else:
                     print("ERROR...year out of range")
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_2dfd6acf1ca849c2853dad606d1ba255

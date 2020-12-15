@@ -16,30 +16,30 @@
 Exercises
 =========
 
-.. question:: q17_5_1
+.. .. question:: q17_5_1
 
-    .. tabbed:: q1
+..     .. tabbed:: q1
 
-        .. tab:: Question
+..         .. tab:: Question
 
 
-           .. actex:: ac17_5_1
+..            .. actex:: ac17_5_1
 
-              Iterate through the list so that if the character 'm' is in the string, then it should be added to a new list called ``m_list``. Hint: Because this isn't just a list of lists, think about what type of object you want your data to be stored in. Conditionals may help you.
-              ~~~~
+..               Iterate through the list so that if the character 'm' is in the string, then it should be added to a new list called ``m_list``. Hint: Because this isn't just a list of lists, think about what type of object you want your data to be stored in. Conditionals may help you.
+..               ~~~~
 
-              d = ['good morning', 'hello', 'chair', 'python', ['music', 'flowers', 'facebook', 'instagram', 'snapchat', ['On my Own', 'monster', 'Words dont come so easily', 'lead me right']], 'Stressed Out', 'Pauver Coeur', 'Reach for Tomorrow', 'mariners song', 'Wonder sleeps here']
+..               d = ['good morning', 'hello', 'chair', 'python', ['music', 'flowers', 'facebook', 'instagram', 'snapchat', ['On my Own', 'monster', 'Words dont come so easily', 'lead me right']], 'Stressed Out', 'Pauver Coeur', 'Reach for Tomorrow', 'mariners song', 'Wonder sleeps here']
 
-              =====
+..               =====
 
-              from unittest.gui import TestCaseGui
+..               from unittest.gui import TestCaseGui
 
-              class myTests(TestCaseGui):
+..               class myTests(TestCaseGui):
 
-                  def testOne(self):
-                      self.assertEqual(m_list, ['good morning', 'music', 'instagram', 'On my Own', 'monster', 'Words dont come so easily', 'lead me right', 'Reach for Tomorrow', 'mariners song'], "Testing that m_list has the correct list assigned to it.")
+..                   def testOne(self):
+..                       self.assertEqual(m_list, ['good morning', 'music', 'instagram', 'On my Own', 'monster', 'Words dont come so easily', 'lead me right', 'Reach for Tomorrow', 'mariners song'], "Testing that m_list has the correct list assigned to it.")
 
-              myTests().main()
+..               myTests().main()
 
 .. question:: q17_5_2
 
@@ -49,18 +49,22 @@ Exercises
 
            .. actex:: ac17_5_2
 
-              The nested dictionary, ``pokemon``, shows the number of various Pokemon that each person has caught while playing Pokemon Go. Find the total number of rattatas, dittos, and pidgeys caught and assign to the variables ``r``, ``d``, and ``p`` respectively. Do not hardcode. Note: Be aware that not every trainer has caught a ditto.
+              The nested dictionary, ``pokemon``, shows the number of various Pokemon that each trainer has caught while playing Pokemon Go. For example,
+              Trainer1 has caught 15 rattatas, 1 ditto, and 12 pidgeys. The dictionary organizes the Pokemon into categories: 'normal', 'water', and 'flying'.
+              Find the total number of rattatas, dittos, and pidgeys caught by all trainers and assign to the variables ``r``, ``d``, and ``p`` respectively. 
+              Do not hardcode the answer. Note: Be aware that not every trainer has caught a ditto, so your solution must not crash when
+              a ditto entry is missing from the 'normal' category.
 
               ~~~~
 
               pokemon = {'Trainer1':
-                        {'normal': {'rattatas':15, 'eevees': 2, 'ditto':1}, 'water': {'magikarps':3}, 'flying': {'zubats':8, 'pidgey': 12}}, 
+                          {'normal': {'rattatas':15, 'eevees': 2, 'ditto':1}, 'water': {'magikarps':3}, 'flying': {'zubats':8, 'pidgey': 12}}, 
                         'Trainer2':
-                        {'normal': {'rattatas':25, 'eevees': 1}, 'water': {'magikarps':7}, 'flying': {'zubats':3, 'pidgey': 15}}, 
+                          {'normal': {'rattatas':25, 'eevees': 1}, 'water': {'magikarps':7}, 'flying': {'zubats':3, 'pidgey': 15}}, 
                         'Trainer3':
-                        {'normal': {'rattatas':10, 'eevees': 3, 'ditto':2}, 'water': {'magikarps':2}, 'flying': {'zubats':3, 'pidgey': 20}}, 
+                          {'normal': {'rattatas':10, 'eevees': 3, 'ditto':2}, 'water': {'magikarps':2}, 'flying': {'zubats':3, 'pidgey': 20}}, 
                         'Trainer4':
-                        {'normal': {'rattatas':17, 'eevees': 1}, 'water': {'magikarps':9}, 'flying': {'zubats':12, 'pidgey': 14}}}
+                          {'normal': {'rattatas':17, 'eevees': 1}, 'water': {'magikarps':9}, 'flying': {'zubats':12, 'pidgey': 14}}}
 
 
               =====
@@ -77,6 +81,28 @@ Exercises
                       self.assertEqual(p, 61, "Testing that p is assigned to correct value.")
      
               myTests().main()
+
+        .. tab:: Answer
+
+            This solution uses the dictionary ``get`` method to help with safely retrieving the number of
+            Pokemon in each category, even if a Pokemon is not present in a category.
+
+            .. activecode:: ac17_5_2_answer
+                :optional:
+
+                pokemon = {'Trainer1': {'normal': {'rattatas':15, 'eevees': 2, 'ditto':1}, 'water': {'magikarps':3}, 'flying': {'zubats':8, 'pidgey': 12}}, 
+                           'Trainer2': {'normal': {'rattatas':25, 'eevees': 1}, 'water': {'magikarps':7}, 'flying': {'zubats':3, 'pidgey': 15}}, 
+                           'Trainer3': {'normal': {'rattatas':10, 'eevees': 3, 'ditto':2}, 'water': {'magikarps':2}, 'flying': {'zubats':3, 'pidgey': 20}}, 
+                           'Trainer4': {'normal': {'rattatas':17, 'eevees': 1}, 'water': {'magikarps':9}, 'flying': {'zubats':12, 'pidgey': 14}}}
+
+                r = 0
+                d = 0
+                p = 0
+                for trainer in pokemon.values():
+                    for collection in trainer.values():
+                        r += collection.get('rattatas', 0)
+                        d += collection.get('ditto', 0)
+                        p += collection.get('pidgey', 0)
 
 .. question:: q17_5_3
 

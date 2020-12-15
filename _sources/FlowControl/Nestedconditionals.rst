@@ -58,12 +58,6 @@ Here is a complete program that defines values for ``x`` and ``y``.  Run the pro
         else:
             print("x and y must be equal")
 
-.. note::
-
-	In some programming languages, matching the if and the else is a problem.  However, in Python this is not the case.
-	The indentation pattern tells us exactly which else
-	belongs to which if.
-
 If you are still a bit unsure, here is the same selection as part of a codelens example.  Step through it to see how the correct ``print`` is chosen.
 
 .. codelens:: sel1

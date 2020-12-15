@@ -9,6 +9,7 @@ Strings
    OperationsonStrings.rst
    IndexOperatorWorkingwiththeCharactersofaString.rst
    StringMethods.rst
+   StringFormatting.rst
    Length.rst
    TheSliceOperator.rst
    StringComparison.rst
@@ -22,7 +23,6 @@ Strings
    Loopingandcounting.rst
    Afindfunction.rst
    Optionalparameters.rst
-   Characterclassification.rst
    Summary.rst
    Glossary.rst
    Exercises.rst

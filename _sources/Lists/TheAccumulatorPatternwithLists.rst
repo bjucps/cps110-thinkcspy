@@ -15,7 +15,30 @@
 The Accumulator Pattern with Lists
 ----------------------------------
 
-Remember the :ref:`accumulator pattern <accumulator>`? Sometimes when we're accumulating, we don't want to add to our accumulator every time we iterate.
+Remember the :ref:`accumulator pattern <accumulator>`? Many algorithms involving lists make use of
+this pattern to process the items in a list and compute a result. In this section, we'll 
+explore the use of the accumulator pattern with lists.
+
+Let's take the problem of adding up all of the items in a list. The following program
+computes the sum of a list of numbers.
+
+.. activecode:: ac7_10_0
+   
+   sum = 0
+   for num in [1, 3, 5, 7, 9]:
+       sum = sum + num
+   print(sum)
+
+The program begins by defining an accumulator variable, ``sum``, and initializing it to 0 (line 1).
+
+Next, the program iterates over the list (lines 2-3), and updates the sum on each
+iteration by adding an item from the list (line 3). When the loop is finished, ``sum``
+has accumulated the sum of all of the items in the list.
+
+Take a moment to step through this program using CodeLens to see how it works. It's important to
+grasp the basic techniques.
+
+Sometimes when we're accumulating, we don't want to add to our accumulator every time we iterate.
 Consider, for example, the following program which counts the number of names with more than 3 letters.
 
 .. activecode:: ac7_10_1
@@ -93,6 +116,88 @@ list.
 
 The only thing we changed was the value of ``best_num`` on line 2 so that the value of ``best_num`` is the 
 first element in ``nums``, but the result is still the same!
+
+Accumulating a String Result
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The accumulator pattern can be used to convert a list of items to a string. 
+
+Consider the following program:
+
+.. activecode:: ac7_10_5
+
+   scores = [85, 95, 70]
+   result = ''
+   for score in scores:
+      result = result + str(score) + ','
+
+   print("The scores are " + result)
+
+Here, the accumulator variable is ``result``. Each time through the loop, the program concatenates
+the current contents of ``result`` with the comma separator and a score from the list, and updates
+the ``result`` with the new value. Use CodeLens to step through this example to see it in action.
+
+The output of the program has some undesirable formatting problems: there is a trailing comma instead
+of a period, and there are no spaces between the items. The next activity lets you work to 
+correct those problems.
+
+.. tabbed:: tab_string_accum
+
+   .. tab:: Question
+
+      .. activecode:: ac7_10_5a
+         :language: python
+         :autograde: unittest
+         :practice: T
+
+         Let's work to improve the formatting of the sentence produced by the program above.
+         Revise the following code so that it outputs the sentence::
+
+            The scores are 85, 95, and 70.
+
+         ~~~~
+         scores = [85, 95, 70]
+         result = ''
+         for score in scores:
+            result = result + str(score) + ','
+
+         print("The scores are " + result)
+
+         =====
+
+         from unittest.gui import TestCaseGui
+
+         class myTests(TestCaseGui):
+
+            def testOne(self):
+               self.assertEqual(self.getOutput().rstrip('\n'), 'The scores are 85, 95, and 70.', "Output should be 'The scores are 85, 95, and 70.'")
+
+         myTests().main()
+
+   .. tab:: Tip
+
+      Try changing the loop so that it does not process the final score. Handle that last
+      score separately, after the loop finishes.
+
+   .. tab:: Answer
+
+      This solution works by iterating over all of the scores in the list
+      except the last, and dealing with that one separately.
+
+      .. activecode:: ac7_10_5a_solution
+         :optional:
+
+         scores = [85, 95, 70]
+         result = ''
+         for score in scores[:-1]:
+            result = result + str(score) + ', '
+
+         # Now, append the last score
+         result = result + 'and ' + str(scores[-1]) + '.'
+
+         print("The scores are " + result)
+
+
 
 **Check your understanding**
 

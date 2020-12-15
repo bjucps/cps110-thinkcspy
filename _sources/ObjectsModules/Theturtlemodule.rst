@@ -13,6 +13,8 @@
 
 .. index:: object, invoke, method, attribute, state, canvas
 
+.. _turtles-chap:
+
 The ``turtle`` module
 ---------------------
 

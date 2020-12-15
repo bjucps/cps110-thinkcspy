@@ -16,7 +16,8 @@
 Exercises
 =========
 
-#.
+.. question:: dictionaries_ex_1
+
     .. tabbed:: q1
 
         .. tab:: Question
@@ -39,7 +40,9 @@ Exercises
                del d['apples']
                print('apples' in d)
 
-2. Avast, try this one, swabbies!
+.. question:: dictionaries_ex_2
+
+    Avast, try this one, swabbies!
 
     .. tabbed:: q5
 
@@ -105,6 +108,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: answer10_8_2
+               :optional:
 
                def translator(sentence):
 
@@ -128,7 +132,7 @@ Exercises
                  return " ".join(psentence)
 
 
-#. (challenge exericse)
+.. question:: dictionaries_ex_3
 
       .. tabbed:: q2
 
@@ -144,6 +148,7 @@ Exercises
             .. tab:: Answer
 
                   .. activecode:: answer10_8_3
+                      :optional:
 
                       f = open('scarlet3.txt', 'r')
                       contents = f.read()
@@ -201,6 +206,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: answer10_8_4
+                :optional:
 
                 x = input("Enter a sentence")
 

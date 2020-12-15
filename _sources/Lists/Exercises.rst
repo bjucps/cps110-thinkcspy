@@ -47,9 +47,23 @@ Exercises
 
                 myList = []
 
+                # Your code here
+
+                ====
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertEqual(myList,[76, 92.3, 'hello', True, 4, 76],"myList should contain the specified items")
+                        self.assertIn(".append(", self.getEditorText(), 'append method must be used')
+
+                myTests().main()                
+
         .. tab:: Answer
 
             .. activecode:: ac_lists_ex_2_answer
+                :optional:
 
                 myList = []
                 myList.append(76)
@@ -82,9 +96,12 @@ Exercises
               ~~~~
               myList = [76, 92.3, 'hello', True, 4, 76]
 
+              # Your code here
+
         .. tab:: Answer
 
            .. activecode:: ex_9_3_answer
+              :optional:
 
               myList = [76, 92.3, 'hello', True, 4, 76]
 
@@ -125,6 +142,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: ac_ex_9_4
+                :optional:
 
                 import random
 
@@ -162,6 +180,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: ac_ex_9_4b
+                :optional:
 
                 def average(numlist):
 
@@ -203,6 +222,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q5_answer
+                :optional:
 
                 def min(lst):
                     min = 0
@@ -257,6 +277,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q5b_answer
+                :optional:
 
                 def join_star(lst):
                     result = "*"
@@ -326,6 +347,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q7_answer
+                :optional:
 
                 import random
 
@@ -342,12 +364,6 @@ Exercises
                     lst.append(random.randint(0, 1000))
 
                 print(countOdd(lst))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_fdd366b1b4c8494082a385e1e1197844
 
 
 .. question:: lists_ex_8
@@ -407,6 +423,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q9_answer
+                :optional:
 
                 import random
 
@@ -422,12 +439,6 @@ Exercises
                     lst.append(random.randrange(-1000, 1000))
 
                 print(sumNegative(lst))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_bfe671ac1e0942f2be4de7179921f83f
 
 
 .. question:: lists_ex_10
@@ -471,6 +482,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q11_answer
+                :optional:
 
                 import random
 
@@ -487,13 +499,6 @@ Exercises
                     lst.append(random.randint(0,1000))
 
                 print(sum(lst))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_90f95bbe4a49428caa9ed0c5e02747b1
-
 
 .. question:: lists_ex_12
 
@@ -526,6 +531,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: lst_q13_answer
+                :optional:
 
                 def count(obj, lst):
                     count = 0
@@ -566,12 +572,6 @@ Exercises
                 print(reverse(lst))
                 print(index(2, lst))
                 print(insert('cat', 4, lst))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_39ee0274e51d4c888cc20b6fefa4069c
 
 
 .. question:: lists_ex_14

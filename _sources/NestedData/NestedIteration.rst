@@ -60,7 +60,7 @@ line 5 executes once for each item in the sub-list. Try stepping through it in C
    :autograde: unittest
    :practice: T
 
-   **2.** Below, we have provided a list of lists that contain information about people. Write code to create a new list that contains every person's last name, and save that list as ``last_names``.
+   **2.** Below, we have provided a list of lists that contain information about people. Write code to create a new list named ``last_names`` that contains every person's last name.
 
    ~~~~
 

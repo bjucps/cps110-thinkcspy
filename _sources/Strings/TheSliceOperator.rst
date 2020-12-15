@@ -16,7 +16,7 @@
    slice; string
 
 The Slice Operator
-------------------
+==================
 
 A substring of a string is called a **slice**. Selecting a slice is similar to
 selecting a character:
@@ -52,6 +52,41 @@ A slice is forgiving and shifts any offending index to something legal.
     print(fruit[3:99])
 
 What do you think ``fruit[:]`` means?
+
+Parsing Data
+------------
+
+Suppose you have a variable containing a first and a last name::
+
+   full_name = 'Joe Boggs'
+
+If you know where the space is located in the string, you can use the slice operator to extract
+the first and the last name, like this::
+
+   first_name = full_name[:3]
+   last_name = full_name[4:]
+
+But what if you don't know where the space is located? That's where the find() method comes in
+handy. You can use the find() method to locate the position of the space::
+
+   >>> full_name = 'Joe Boggs'
+   >>> full_name.find(' ')
+   3
+
+You can combine the find() method and the slice operator to help you parse, or extract,
+information from strings. Take a look at this program that extracts the first name from
+input containing a first and last name:
+
+.. activecode:: chp08_slice3
+    
+    full_name = input('Enter a first and last name separated by a space:')
+    space_loc = full_name.find(' ')
+    first_name = full_name[:space_loc]
+    print('Hello,', first_name)
+
+On line 2, the ``find`` method locates the position of the space. Then, on line 3, the slice
+operator is used to extract just the first name. Try using **Show in CodeLens** to step through this
+example. 
 
 **Check your understanding**
 
@@ -97,3 +132,42 @@ What do you think ``fruit[:]`` means?
       s = "python rocks"
       print(s[7:11] * 3)
 
+.. tabbed:: tab_parsename
+
+    .. tab:: Question
+
+        .. activecode:: ac_parsename
+            :autograde: unittest
+
+            Complete the following function which, given a parameter containing a first and last name,
+            returns the last name.
+            ~~~~
+            def get_lastname(full_name):
+
+                # Complete the function
+
+            ====
+            from unittest.gui import TestCaseGui
+
+            class myTests(TestCaseGui):
+
+                def testOne(self):
+                    self.assertEquals(get_lastname('Joe Boggs'), 'Boggs', "get_lastname('Joe Boggs') == 'Boggs'")
+                    self.assertEquals(get_lastname('Helen Witherspoon'), 'Witherspoon', "get_lastname('Helen Witherspoon') == 'Witherspoon'")
+
+            myTests().main()
+
+    .. tab:: Tip
+
+        Use the find() method to determine the location of the space. Then, use the slice operator to extract the part of the
+        string that begins after the space and goes to the end.
+
+    .. tab:: Answer
+
+        .. activecode:: ac_parsename_sol
+            :optional:
+
+            def get_lastname(full_name):
+
+                space_loc = full_name.find(' ')
+                return full_name[space_loc + 1:]

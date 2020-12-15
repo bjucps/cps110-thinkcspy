@@ -82,6 +82,7 @@ Exercises
 
             .. activecode:: spd_q3_answer
                 :nocanvas:
+                :optional:
 
                 ## question 3 solution ##
 
@@ -126,6 +127,7 @@ Exercises
 
             .. activecode:: spd_q5_answer
                 :nocanvas:
+                :optional:
 
                 ## question 5 solution ##
 
@@ -177,6 +179,7 @@ Exercises
 
             .. activecode:: spd_q7_answer
                 :nocanvas:
+                :optional:
 
                 ## question 7 solution ##
 
@@ -215,6 +218,7 @@ Exercises
 
             .. activecode:: spd_q9_answer
                 :nocanvas:
+                :optional:
 
                 ## question 9 solution
 
@@ -249,6 +253,7 @@ Exercises
 
             .. activecode:: spd_q11_answer
                 :nocanvas:
+                :optional:
 
                 ## question 11 solution ##
 

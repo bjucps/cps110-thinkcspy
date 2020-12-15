@@ -52,9 +52,11 @@ whether the integer is even or odd using an ``if`` statement.
         print(x, "is odd")
 
 
-This example works by using the modulus operator to compute the remainder of a division by 2. The program compares the
-result of the modulus operation with the number ``0``; if the two values are equal, the program concludes that the number is even;
-otherwise, it must be odd.
+This example works by using the modulus operator to compute the remainder that results when the
+user's input is divided by 2. If the user's input is an even number, such as the number 6, the
+remainder of the division by 2 is 0, so x % 2 yields ``0``, the comparison ``x % 2 == 0`` is True, and the
+program reports that the number is even. If the user's input is an odd number, such as 9, x % 2
+yields ``1``, so the comparison ``x % 2 == 0`` is False, and the program concludes that the number is odd.
 
 An ``if`` statement has the following form:
 
@@ -120,6 +122,7 @@ What would be printed if the value of ``x`` is negative?  Try it.
 Here is a flowchart that depicts how the the if statement works if the else clause is omitted:
 
 .. image:: Figures/flowchart_if_only.png
+
 
 
 .. admonition:: Optional Lab

@@ -10,6 +10,8 @@
    :prefix: designtest-1-
    :start: 1
 
+.. _designing_testable_functions:
+
 Designing Testable Functions
 ============================
 

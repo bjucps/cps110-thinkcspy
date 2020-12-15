@@ -12,4 +12,5 @@ Unit Testing
    TestFirstDevelopment.rst
    TestingWithpytest.rst
    Glossary.rst
+   Exercises.rst
    

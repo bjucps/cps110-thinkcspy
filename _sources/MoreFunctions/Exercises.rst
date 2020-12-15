@@ -38,6 +38,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: answer11_14_6
+                :optional:
 
                 def count(obj, lst):
                     count = 0
@@ -79,8 +80,3 @@ Exercises
                 print(index(2, lst))
                 print(insert('cat', 4, lst))
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_39ee0274e51d4c888cc20b6fefa4069c

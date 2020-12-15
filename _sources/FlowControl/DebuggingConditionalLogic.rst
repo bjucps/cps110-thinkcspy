@@ -1,7 +1,5 @@
 
-.. qnum::
-   :prefix: select-7a-
-   :start: 1
+
 
 Debugging Conditional Logic
 ===========================
@@ -15,6 +13,4 @@ block in the program so that you can see which of the branches is taken as the p
 the visibility into the program's execution that you need to determine why the program isn't producing the results
 you expect. 
 
-For example, consider the following:
-
-.. TODO: Write this section. Create an activity with a buggy version of the grader program
+.. TODO: Enhance this section. Create an activity with a buggy version of the grader program

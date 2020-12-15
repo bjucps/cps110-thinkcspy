@@ -4,8 +4,8 @@
 
 .. index:: code duplication, refactor
    
-Refactoring
-===========
+Refactoring and Functions
+=========================
 
 .. youtube:: ALHIlysBWUM
     :divid: vid_refactoring

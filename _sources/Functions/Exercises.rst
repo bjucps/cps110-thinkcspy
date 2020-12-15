@@ -81,6 +81,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: answer11_14_2
+                :optional:
 
                 def numDigits(n):
                     n_str = str(n)

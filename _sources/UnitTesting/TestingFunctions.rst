@@ -174,3 +174,61 @@ This is Really Nice. We have a short test program that contains its own test inp
 fail indication.  Writing this program takes very little effort. We have the benefits of an automated test without
 having to write much code. Unit test programs are essentially "throw-away" programs that are used only during
 development, and it's important that they can be developed quickly and easily.
+
+Unit Tests can have bugs
+------------------------
+
+Unit tests, like the functions they test, can have bugs. So, when you run a unit test and it fails with an assert error,
+one of the first questions you need to ask yourself is: "Is the unit test correct?" If the unit test is incorrect, then
+you need to correct it, rather than spending time trying to find the bug in the function that the unit test is testing.
+
+For example, consider the following assert::
+
+    assert round6(9.2) == 10
+
+This unit test is incorrect, because ``round6`` should produce the value 9, not 10, when given the parameter ``9.2``.
+
+
+**Check your understanding**
+
+.. mchoice:: mc_testfunc_1
+    :answer_a: assert result != 'OK'
+    :answer_b: assert engage_thruster(22) == result
+    :answer_c: assert engage_thruster(22) != 'OK'
+    :answer_d: assert engage_thruster(22) == 'OK'
+    :correct: d
+    :feedback_a: Incorrect. The assert should call the engage_thruster function. Try again.
+    :feedback_b: Incorrect. The assert should not assume the presence of a variable named result.
+    :feedback_c: Incorrect. This assert calls the engage_thruster function with the correct parameter, but interprets the result differently from the if statement provided.
+    :feedback_d: Correct! This assert checks that the result of invoking engage_thruster(22) is the value 'OK'.
+
+    Rewrite the following 3 lines of code with a single assert::
+
+        result = engage_thruster(22)
+        if result != 'OK':
+            print("Test 2: FAIL")
+
+
+
+.. mchoice:: mc_testfunc_2
+    :answer_a: Unit test
+    :answer_b: Tested function
+    :answer_c: Both are in error
+    :answer_d: Both are correct
+    :correct: b
+    :feedback_a: Incorrect. The assertion correctly checks that get_first should return the first character in 'Bells', 'B'.
+    :feedback_b: Correct. The function code returns the second character of the parameter, not the first.
+    :feedback_c: Incorrect. The assertion correctly checks that get_first should return the first character in 'Bells', 'B'.
+    :feedback_d: Incorrect. The function code returns the second character of the parameter, not the first.
+
+    Consider the following function which is supposed to return the first character of its argument::
+
+        def get_first(msg):
+            return msg[1]
+
+    Now, consider this unit test::
+
+        assert get_first('Bells') == 'B'
+
+    This assertion fails. Is the unit test in error, or the function it is testing?
+

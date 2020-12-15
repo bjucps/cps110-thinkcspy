@@ -88,6 +88,7 @@ Exercises
         .. tab:: Answer
             
             .. activecode:: ch_cl_02_answer
+                :optional:
             
                 class Point:
                     """ Point class for representing and manipulating x,y coordinates. """

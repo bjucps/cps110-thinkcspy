@@ -10,17 +10,88 @@
 Exercises
 ---------
 
-#.
+.. question:: q_coinflip
 
-    .. tabbed:: q1
+    .. tabbed:: tab_coinflip
+
+        .. tab:: Question
+
+            .. actex:: ac_coinflip
+                :autograde: unittest
+                :practice: T
+
+                The following program simulates a number of coin flips by generating random numbers.
+                Enhance the program so that it counts the number of times that the coin came up
+                'heads' and the number of times that the coin came up 'tails'. Store the number of
+                times the coin was 'heads' in the variable **head_count**, and the number of times
+                the coin was 'tails' in **tail_count**. 
+        
+                ~~~~
+
+                import random
+
+                for i in range(10):
+                    num = random.randrange(0, 2) # Generate a number that is either 0 or 1
+                    if num == 0:
+                        print("Heads ...")
+                    else:
+                        print("Tails ...")
+
+                print(head_count, 'heads total')
+                print(tail_count, 'tails total')
+                ====
+
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertIn(str(self.getOutput().split('\n').count('Heads ...')) + ' heads total', self.getOutput(), "Correct heads count?")
+                        self.assertIn(str(self.getOutput().split('\n').count('Tails ...')) + ' tails total', self.getOutput(), "Correct tails count?")
+
+                myTests().main()
+
+        .. tab:: Tip
+
+            Review :ref:`accumulator`.
+           
+        .. tab:: Answer
+
+            This solution uses the accumulator pattern.
+
+            .. activecode:: ac_coinflip_ans
+                :optional:
+
+                import random
+
+                head_count = 0
+                tail_count = 0
+                for i in range(10):
+                    num = random.randrange(0, 2) # Generate a number that is either 0 or 1
+                    if num == 0:
+                        head_count = head_count + 1
+                        print("Heads ...")
+                    else:
+                        tail_count = tail_count + 1
+                        print("Tails ...")
+
+                print(head_count, 'heads total')
+                print(tail_count, 'tails total')
+
+                 
+.. question:: q_score2grade
+
+    .. tabbed:: tab_score2grade
 
         .. tab:: Question
 
             .. actex:: ac7_14_1
+                :autograde: unittest
+                :practice: T
 
-               Write code that asks the user to enter a numeric score (0-100). In response, it should print out the score and corresponding letter grade, according to the table below.
+                Write a program that code that converts numeric scores to letter grades. The letter grades should be computed according to the table below.
         
-               .. table::
+                .. table::
         
                   =======   =====
                   Score     Grade
@@ -32,27 +103,50 @@ Exercises
                   < 60      F
                   =======   =====
         
-               The square and round brackets denote closed and open intervals.
-               A closed interval includes the number, and open interval excludes it. So 79.99999 gets grade C , but 80 gets grade B.
-               ~~~~
+                The square and round brackets denote closed and open intervals.
+                A closed interval includes the number, and open interval excludes it. So 79.99999 gets grade C, but 80 gets grade B.
+                ~~~~
+
+                for score in [58, 69, 85, 73, 90]:
+                    grade = ''
+
+                    # Write code here to assign grade the appropriate letter based on the value of score
+
+                    print(score, '-', grade)
+
+                ====
+
+                from unittest.gui import TestCaseGui
+
+                class myTests(TestCaseGui):
+
+                    def testOne(self):
+                        self.assertIn('58 - F', self.getOutput(), "58 - F")
+                        self.assertIn('69 - D', self.getOutput(), "69 - D")
+                        self.assertIn('85 - B', self.getOutput(), "85 - B")
+                        self.assertIn('73 - C', self.getOutput(), "73 - C")
+                        self.assertIn('90 - A', self.getOutput(), "90 - A")
+
+                myTests().main()
            
         .. tab:: Answer
 
             .. activecode:: ans7_14_1
+                :optional:
             
-               sc = input("Enter a score from 0 to 100 (decimal points are allowed)")
-               fl_sc = float(sc)
+                for score in [58, 69, 85, 73, 90]:
+                    grade = ''
                
-               if fl_sc < 60:
-                   gr = "F"
-               elif fl_sc < 70:
-                   gr = "D"
-               elif fl_sc < 80:
-                   gr = "C"
-               elif fl_sc < 90:
-                   gr = "B"
-               else:
-                   gr = "A"
-               
-               print("Score", fl_sc, "gets a grade of", gr)
+                    if score < 60:
+                        grade = "F"
+                    elif score < 70:
+                        grade = "D"
+                    elif score < 80:
+                        grade = "C"
+                    elif score < 90:
+                        grade = "B"
+                    else:
+                        grade = "A"
+                        
+                    print(score, '-', grade)
                  

@@ -89,10 +89,19 @@ Next, we implement the body of ``sumnums``:
     assert sumnums(1, 1) == 1
     print("All tests passed!")
 
-Now, we run the tests. The tests reveal a bug (go ahead and run to see the problem). Fix the bug,
-and test again.
+Now, run the tests. The tests indicate an assertion error, which points to a bug in the function logic. Fix the bug,
+and test again. (If you're not sure what the bug is, try using **Show in CodeLens** and stepping through the code to help
+you figure it out.)
 
-Now, suppose we're not creating a new function, but modifying an existing one. In Test-First Development,
+.. reveal:: rv_tfd_tip
+   :showtitle: Give me a tip
+   :modal:
+   :modalTitle: Here's a tip!
+
+   The range function generates numbers in the range ``lo`` .. ``hi - 1``. Our function should include ``hi``.
+   Try adjusting the ``hi`` parameter for range to ``hi + 1``.
+
+Suppose we're not creating a new function, but modifying an existing one. In Test-First Development,
 before making the modification to the function, we write a test for the new functionality. Then,
 we modify the function, and use the test to check that the modification worked.
 

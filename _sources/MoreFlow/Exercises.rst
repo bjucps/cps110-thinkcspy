@@ -31,6 +31,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: miter_q1_answer
+                :optional:
 
                 def newtonSqrt(n):
                     approx = 0.5 * n
@@ -43,13 +44,6 @@ Exercises
 
 
                 print("Final approx:", newtonSqrt(25))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_5784e08291ba43199d43fdab277849f5
-
 
 .. question:: moreiter_ex_2
 
@@ -120,6 +114,7 @@ Exercises
         .. tab:: Answer
 
             .. activecode:: miter_q3_answer
+                :optional:
 
                 def is_prime(n):
                     for i in range(2, n):
@@ -131,12 +126,6 @@ Exercises
                 print(is_prime(7))
                 print(is_prime(251))
                 print(is_prime(20))
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_418de05233374e76b3b66aeb96b55656
 
 
 .. question:: moreiter_ex_4
@@ -166,6 +155,7 @@ Exercises
 
             .. activecode:: miter_q5_answer
                 :nocodelens:
+                :optional:
 
                 import random
                 import turtle
@@ -232,13 +222,6 @@ Exercises
 
                 wn.exitonclick()
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_0cd01637a1814f86b11f576c37a46437
-
-
 .. question:: moreiter_ex_6
 
    .. actex:: ex_7_12
@@ -273,6 +256,7 @@ Exercises
 
             .. activecode:: miter_q7_answer
                 :nocodelens:
+                :optional:
 
                 import image
 
@@ -294,12 +278,6 @@ Exercises
 
                 newimg.draw(win)
                 win.exitonclick()
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_777006b154ca4af7ab8bd11cc25c208a
 
 .. question:: moreiter_ex_8
 
@@ -326,6 +304,7 @@ Exercises
 
             .. activecode:: miter_q9_answer
                 :nocodelens:
+                :optional:
 
                 import image
 
@@ -368,12 +347,6 @@ Exercises
 
                 win.exitonclick()
 
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_0f0fb41d607743998a86962a11eed53d
-
 .. question:: moreiter_ex_10
 
    .. actex:: ex_7_18
@@ -409,6 +382,7 @@ Exercises
 
             .. activecode:: answer_7_11
                :nocodelens:
+               :optional:
 
                import image
 
@@ -435,13 +409,6 @@ Exercises
                bigimg.draw(win)
 
                win.exitonclick()
-
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_9ca319187b4a4c2399402de0d99c0b1d
 
 .. question:: moreiter_ex_12
 
@@ -474,6 +441,7 @@ Exercises
 
             .. activecode:: miter_q13_answer
                 :nocodelens:
+                :optional:
 
                 import image
 
@@ -504,13 +472,6 @@ Exercises
 
                 win.exitonclick()
 
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_eb9f71a62de24efaa61f64b5a7e5d9c9
-
 .. question:: moreiter_ex_14
 
    .. actex:: ex_7_22
@@ -538,6 +499,7 @@ Exercises
 
             .. activecode:: miter_q15_answer
                 :nocodelens:
+                :optional:
 
                 import image
                 import math
@@ -643,10 +605,3 @@ Exercises
 
                 newimg.draw(win)
                 win.exitonclick()
-
-        .. tab:: Discussion
-
-            .. disqus::
-                :shortname: interactivepython
-                :identifier: disqus_dd2d9ca5ea744aafbf7cdc2a4ad5e974
-
